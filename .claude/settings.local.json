@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git clone:*)",
+      "WebFetch(domain:20072008.free.fr)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} %{redirect_url}\" --max-time 15 \"http://20072008.free.fr/\")",
+      "Bash(curl -s --max-time 20 \"http://20072008.free.fr/\")",
+      "Bash(for i:*)",
+      "Bash(do)",
+      "Bash(echo \"=== contenucase$i.htm ===\")",
+      "Bash(curl -s --max-time 15 \"http://20072008.free.fr/contenucase$i.htm\")",
+      "Bash(done)",
+      "Bash(curl -s --max-time 15 \"http://batmarn2.free.fr/vide_de_batmarn2.htm\")",
+      "Bash(curl -s --max-time 15 \"http://batmarn2.free.fr/menubat1.htm\")",
+      "Bash(python3 -c \"import urllib.request; print\\(''ok''\\)\")",
+      "Bash(python3 crawl_batmarn2.py)",
+      "Bash(grep -il \"ris\\\\b\\\\|forêt de ris\\\\|foret de ris\" c:/Data/ClaudeCode/Projet_1918/Recherches/batmarn2/_textes/*.txt)",
+      "Bash(ls c:/Data/ClaudeCode/Projet_1918/Recherches/batmarn2/*.jpg c:/Data/ClaudeCode/Projet_1918/Recherches/batmarn2/*.gif)",
+      "Bash(wc -l ls c:/Data/ClaudeCode/Projet_1918/Recherches/batmarn2/*.jpg c:/Data/ClaudeCode/Projet_1918/Recherches/batmarn2/*.gif)",
+      "Bash(grep -il \"<img\\\\|<IMG\" c:/Data/ClaudeCode/Projet_1918/Recherches/batmarn2/*.htm)",
+      "Bash(python3 -:*)"
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+# Données crawlées — régénérables via crawl_batmarn2.py
+Recherches/batmarn2/
+
+# Scripts utilitaires de crawl
+Recherches/crawl_batmarn2.py
+Recherches/collect_jaulgonne.py
+Recherches/build_citations.py
