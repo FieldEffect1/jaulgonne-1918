@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bataille de la Marne — Ligne de front animée — Jaulgonne 1918</title>
+<!-- Google Fonts : Playfair Display (titres serif) + Source Sans 3 (corps) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+  /* ═══════════════════════════════════════════════
+     Palette museo — inspirée Musée de la Grande Guerre
+     Fond crème / noir charbon / bordeaux / terre
+  ═══════════════════════════════════════════════ */
+  :root {
+    --cream:   #f5f0e8;       /* fond principal — papier vieilli */
+    --cream2:  #ede7d9;       /* fond secondaire */
+    --cream3:  #e2d9c8;       /* bordures douces */
+    --charcoal:#1a1a18;       /* noir profond — header */
+    --charcoal2:#2c2a26;      /* header secondaire */
+    --bordeaux:#7a1a1a;       /* accent principal — rouge sang */
+    --bordeaux2:#5c1212;      /* hover */
+    --terre:   #6b5a3e;       /* accent terre / khaki */
+    --terre2:  #8a7456;       /* texte secondaire warm */
+    --text:    #1a1a18;       /* texte principal */
+    --text2:   #5a4a3a;       /* texte secondaire */
+    --text3:   #8a7a6a;       /* texte tertiaire / caption */
+    --de:      #8b1a1a;
+    --fr:      #1a3a7a;
+    --us:      #1a5c1a;
+    --border:  #c8bfb0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'Source Sans 3', system-ui, sans-serif;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  #header {
+    background: var(--charcoal);
+    border-bottom: 3px solid var(--bordeaux);
+    padding: 0 1.5rem;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  /* Trait vertical décoratif à la manière des musées */
+  #header::before {
+    content: '';
+    display: block;
+    width: 3px;
+    height: 28px;
+    background: var(--bordeaux);
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  #header h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: .95rem;
+    font-weight: 600;
+    letter-spacing: .04em;
+    color: #ffffff;
+    white-space: nowrap;
+  }
+
+  #header h1 em {
+    font-style: italic;
+    color: #d4c4a8;
+    font-weight: 400;
+  }
+
+  #header .sep {
+    width: 1px;
+    height: 20px;
+    background: #3a3a38;
+    flex-shrink: 0;
+  }
+
+  #header .subtitle {
+    font-size: .72rem;
+    color: #7a7068;
+    white-space: nowrap;
+    font-weight: 300;
+    letter-spacing: .02em;
+  }
+
+  #header .badge {
+    margin-left: auto;
+    background: var(--bordeaux);
+    color: #fff;
+    font-size: .65rem;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: .2rem .6rem;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+
+  /* ── MAP ── */
+  #map {
+    flex: 1;
+    background: var(--cream2);
+  }
+
+  /* ── TIMELINE PANEL ── */
+  #timeline {
+    background: var(--cream2);
+    border-top: 2px solid var(--charcoal);
+    padding: .65rem 1.5rem .7rem;
+    flex-shrink: 0;
+    box-shadow: 0 -2px 12px rgba(0,0,0,.08);
+  }
+
+  #steps {
+    display: flex;
+    gap: .35rem;
+    flex-wrap: wrap;
+    margin-bottom: .5rem;
+    align-items: center;
+  }
+
+  /* Petite étiquette "ÉTAPES :" */
+  #steps::before {
+    content: 'ÉTAPES';
+    font-size: .6rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+    color: var(--text3);
+    margin-right: .2rem;
+    white-space: nowrap;
+    align-self: center;
+  }
+
+  .step-btn {
+    background: #fff;
+    border: 1px solid var(--border);
+    color: var(--text2);
+    font-size: .68rem;
+    font-weight: 400;
+    padding: .28rem .65rem;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all .15s;
+    white-space: nowrap;
+    font-family: 'Source Sans 3', sans-serif;
+    letter-spacing: .01em;
+  }
+  .step-btn:hover {
+    background: var(--cream3);
+    border-color: var(--terre2);
+    color: var(--text);
+  }
+  .step-btn.active {
+    background: var(--bordeaux);
+    border-color: var(--bordeaux2);
+    color: #fff;
+    font-weight: 600;
+  }
+
+  #step-info {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+  }
+
+  #step-date {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: .9rem;
+    font-weight: 600;
+    color: var(--bordeaux);
+    white-space: nowrap;
+  }
+
+  #step-desc {
+    font-size: .75rem;
+    color: var(--text2);
+    flex: 1;
+    line-height: 1.4;
+  }
+
+  /* ── NAV ── */
+  #nav {
+    display: flex;
+    gap: .4rem;
+    align-items: center;
+    margin-top: .4rem;
+  }
+
+  .nav-btn {
+    background: var(--charcoal);
+    border: 1px solid var(--charcoal2);
+    color: #fff;
+    font-size: .75rem;
+    padding: .28rem .75rem;
+    border-radius: 2px;
+    cursor: pointer;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    letter-spacing: .03em;
+    transition: background .15s;
+  }
+  .nav-btn:hover { background: var(--charcoal2); }
+
+  #play-btn {
+    background: var(--bordeaux);
+    border-color: var(--bordeaux2);
+    padding: .28rem 1.1rem;
+  }
+  #play-btn:hover { background: var(--bordeaux2); }
+
+  #step-counter {
+    font-size: .72rem;
+    color: var(--text3);
+    font-weight: 300;
+  }
+
+  /* ── LÉGENDE ── */
+  #legend {
+    position: absolute;
+    bottom: 130px;
+    right: 12px;
+    background: rgba(245,240,232,.96);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--charcoal);
+    border-radius: 2px;
+    padding: .75rem 1rem;
+    z-index: 1000;
+    font-size: .7rem;
+    color: var(--text);
+    min-width: 175px;
+    pointer-events: none;
+    box-shadow: 0 2px 12px rgba(0,0,0,.12);
+  }
+
+  #legend h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: .75rem;
+    font-weight: 700;
+    color: var(--charcoal);
+    margin-bottom: .5rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+
+  .leg-row { display: flex; align-items: center; gap: .55rem; margin-bottom: .3rem; }
+  .leg-line { width: 24px; height: 3px; border-radius: 1px; flex-shrink: 0; }
+  .leg-dot  { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+  #legend hr { border: none; border-top: 1px solid var(--cream3); margin: .4rem 0; }
+
+  #legend .source-note {
+    color: var(--text3);
+    font-size: .62rem;
+    font-style: italic;
+    line-height: 1.4;
+  }
+
+  /* ── LEAFLET OVERRIDES ── */
+  .leaflet-popup-content-wrapper {
+    background: #fff !important;
+    border: 1px solid var(--border) !important;
+    border-top: 3px solid var(--bordeaux) !important;
+    border-radius: 2px !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,.15) !important;
+  }
+  .leaflet-popup-content {
+    color: var(--text) !important;
+    font-family: 'Source Sans 3', sans-serif !important;
+    font-size: .82rem !important;
+    line-height: 1.55;
+    margin: .7rem .9rem !important;
+  }
+  .leaflet-popup-content b {
+    font-family: 'Playfair Display', Georgia, serif;
+    color: var(--bordeaux);
+    font-size: .88rem;
+  }
+  .leaflet-popup-tip { background: #fff !important; }
+  .leaflet-popup-close-button { color: var(--text3) !important; font-size: 18px !important; }
+  .leaflet-control-attribution {
+    background: rgba(245,240,232,.85) !important;
+    color: var(--text3) !important;
+    font-size: .6rem !important;
+  }
+  .leaflet-control-attribution a { color: var(--terre) !important; }
+  .leaflet-control-zoom a {
+    background: #fff !important;
+    color: var(--charcoal) !important;
+    border-color: var(--border) !important;
+    font-weight: 600 !important;
+  }
+  .leaflet-control-zoom a:hover {
+    background: var(--cream2) !important;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV SITE -->
+<nav style="position:sticky;top:0;z-index:500;background:rgba(26,26,24,.97);backdrop-filter:blur(14px);border-bottom:3px solid #7a1a1a;display:flex;justify-content:center;flex-wrap:wrap;gap:.1rem;padding:.5rem 1rem">
+  <a href="index.html" style="color:#a09078;text-decoration:none;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:.45rem 1rem;border-radius:3px;transition:color .2s">Accueil</a>
+  <a href="geographie.html" style="color:#a09078;text-decoration:none;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:.45rem 1rem;border-radius:3px;transition:color .2s">Géographie</a>
+  <a href="evenements.html" style="color:#a09078;text-decoration:none;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:.45rem 1rem;border-radius:3px;transition:color .2s">Événements</a>
+  <a href="foret-ris.html" style="color:#a09078;text-decoration:none;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:.45rem 1rem;border-radius:3px;transition:color .2s">Forêt de Ris</a>
+  <a href="bataille.html" style="color:#a09078;text-decoration:none;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:.45rem 1rem;border-radius:3px;transition:color .2s">La Bataille</a>
+  <a href="hommage-us.html" style="color:#a09078;text-decoration:none;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:.45rem 1rem;border-radius:3px;transition:color .2s">Hommage US</a>
+  <a href="memoire.html" style="color:#a09078;text-decoration:none;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:.45rem 1rem;border-radius:3px;transition:color .2s">Mémorial</a>
+  <a href="galerie.html" style="color:#a09078;text-decoration:none;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:.45rem 1rem;border-radius:3px;transition:color .2s">Archives</a>
+  <a href="carte_bataille.html" style="color:#f5f0e8;text-decoration:none;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:.45rem 1rem;border-radius:3px">Carte</a>
+</nav>
+
+<div id="header">
+  <h1>⚔ 2<sup>e</sup> Bataille de la Marne — Ligne de front animée</h1>
+  <span class="subtitle">Secteur Jaulgonne · Juillet–Août 1918 · Sources : batmarn2, CMH US Army, 3d Division Summary</span>
+</div>
+
+<div id="map"></div>
+
+<div id="legend">
+  <h3>LÉGENDE</h3>
+  <div class="leg-row"><div class="leg-line" style="background:#c0392b;height:4px"></div><span>Ligne de front allemande</span></div>
+  <div class="leg-row"><div class="leg-line" style="background:rgba(139,32,32,.35);height:10px;width:24px;border:1px solid #c0392b"></div><span>Zone allemande</span></div>
+  <div class="leg-row"><div class="leg-dot" style="background:#c0392b;border:2px solid #fff"></div><span>Unité allemande</span></div>
+  <div class="leg-row"><div class="leg-dot" style="background:#1a3a8c;border:2px solid #fff"></div><span>Unité française</span></div>
+  <div class="leg-row"><div class="leg-dot" style="background:#2a6e2a;border:2px solid #fff"></div><span>Unité américaine (US)</span></div>
+  <div class="leg-row"><div class="leg-line" style="background:#3a7bd5;height:3px"></div><span>Marne (fleuve)</span></div>
+  <div class="leg-row"><div class="leg-line" style="background:#555;height:2px;border-bottom:1px dashed #888"></div><span>Voie ferrée</span></div>
+  <hr style="border-color:#333;margin:.4rem 0">
+  <div style="color:var(--text2);font-size:.65rem;font-style:italic">Positions approximatives<br>d'après sources primaires</div>
+</div>
+
+<div id="timeline">
+  <div id="steps"></div>
+  <div style="display:flex; justify-content:space-between; align-items:center;">
+    <div id="step-info">
+      <span id="step-date"></span>
+      <span id="step-desc"></span>
+    </div>
+    <div id="nav">
+      <span id="step-counter"></span>
+      <button class="nav-btn" onclick="prevStep()">◀</button>
+      <button class="nav-btn" id="play-btn" onclick="togglePlay()">▶ Play</button>
+      <button class="nav-btn" onclick="nextStep()">▶</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════
+// DONNÉES GÉOGRAPHIQUES
+// Coordonnées [lat, lng] — basées sur sources primaires
+// ═══════════════════════════════════════════════════════
+
+// Coordonnées recalculées pour représenter fidèlement le Coude de Jaulgonne :
+// la Marne part de Château-Thierry (ouest), fait un méandre vers le SUD
+// entre lng 3.447 et 3.498 (le "coude"), puis remonte vers Dormans (est).
+// Contraintes vérifiées :
+//   Fossoy       [49.057, 3.452] → rive nord  (N du fleuve)
+//   Mont-St-Père [49.052, 3.455] → rive sud   (S du fleuve)
+//   Crézancy     [49.040, 3.477] → rive sud   (S du fleuve)
+//   Mézy-Moulins [49.052, 3.494] → rive sud   (S du fleuve)
+//   Jaulgonne    [49.080, 3.499] → rive nord  (N du fleuve)
+//   Chartèves    [49.063, 3.523] → rive nord  (N du fleuve)
+const MARNE = [
+  [49.047, 3.393], // Château-Thierry (départ W)
+  [49.050, 3.412], // Approche du coude
+  [49.053, 3.432], // Vers Fossoy
+  [49.055, 3.447], // Entre Fossoy (N) et Mont-St-Père (S)
+  [49.053, 3.460], // Amorce du coude vers le sud
+  [49.048, 3.473], // Coude — point bas (Crézancy au sud)
+  [49.047, 3.480], // Point le plus au sud du méandre
+  [49.052, 3.488], // Remontée vers le nord
+  [49.056, 3.498], // Mézy-Moulins au sud, Jaulgonne au nord
+  [49.059, 3.513], // En dessous de Chartèves (rive nord)
+  [49.061, 3.530], // Chartèves
+  [49.064, 3.550], // Vers Trélou
+  [49.067, 3.572], // Sauvigny
+  [49.069, 3.598], // Vincelles
+  [49.071, 3.622], // Approche Dormans
+  [49.072, 3.645], // Dormans (arrivée E)
+];
+
+const VOIE_FERREE = [
+  [49.042, 3.430], [49.046, 3.457], [49.049, 3.488],
+  [49.052, 3.512], [49.055, 3.540], [49.058, 3.560]
+];
+
+// Villages (lat, lng, nom, note)
+const VILLAGES = [
+  { ll:[49.080,3.499], nom:"Jaulgonne",       note:"Libérée le 22 juillet par la 3<sup>e</sup> DI US (38<sup>e</sup> RI US)" },
+  { ll:[49.052,3.494], nom:"Mézy-Moulins",    note:"Franchissement du 6<sup>e</sup> Grenadiers all. (15 juil. 3h40)<br>Résistance du 30<sup>e</sup> RI US" },
+  { ll:[49.057,3.452], nom:"Fossoy",          note:"Franchissement du 5<sup>e</sup> Grenadiers all.<br>Résistance du 38<sup>e</sup> RI US (McAlexander)" },
+  { ll:[49.085,3.444], nom:"Varennes",        note:"Pris par les 2<sup>e</sup> et 3<sup>e</sup> Bat. all. + 175<sup>e</sup> RI<br>40 soldats US capturés" },
+  { ll:[49.163,3.480], nom:"Le Charmel",      note:"Capturé le 25 juillet par le 4<sup>e</sup> RI US<br>Nid de mitrailleuses au Château" },
+  { ll:[49.063,3.523], nom:"Chartèves",       note:"Rive nord, bois au-dessus de la Marne" },
+  { ll:[49.052,3.455], nom:"Mont-Saint-Père", note:"QG avancé, rive sud de la Marne" },
+  { ll:[49.044,3.403], nom:"Château-Thierry", note:"Défendu par la 10<sup>e</sup> DI coloniale (Marchand)<br>Résistance US dès juin 1918" },
+  { ll:[49.072,3.642], nom:"Dormans",         note:"Libérée le 20 juillet par le 32<sup>e</sup> RI (18<sup>e</sup> DI)<br>Détruite à 80%" },
+  { ll:[49.073,3.575], nom:"Trélou",          note:"Libéré le 24 juillet (73<sup>e</sup> DI)" },
+  { ll:[49.069,3.612], nom:"Vincelles",       note:"Libéré le 25 juillet (18<sup>e</sup> DI)" },
+  { ll:[49.040,3.477], nom:"Crézancy",        note:"Progression 3<sup>e</sup> Bat. 6<sup>e</sup> Grenadiers all.<br>Capturé lors de la contre-attaque US" },
+  { ll:[49.062,3.456], nom:"Connigis",        note:"Ligne de résistance principale<br>Bois d'Aigremont" },
+  { ll:[49.083,3.576], nom:"Sauvigny",        note:"Passage de la 73<sup>e</sup> DI (22 juil.)<br>→ Poursuite dans la Forêt de Ris" },
+  { ll:[49.120,3.545], nom:"Forêt de Ris",    note:"Dépôt logistique allemand (chars, canons, munitions)<br>Contre-attaque all. autour de l'Érolle (27 juil.)<br>4<sup>e</sup> DI FR entre dans la forêt (24 juil.)" },
+  { ll:[49.112,3.483], nom:"La Tieulerie Farm",note:"Capturée le 23 juillet (Cie H, 4<sup>e</sup> RI US)" },
+];
+
+// ═══════════════════════════════════════════════════════
+// ÉTAPES DE L'ANIMATION
+// frontLine : polyline représentant la limite nord du
+//             contrôle allié (approximatif — sources primaires)
+// germZone  : polygone de la zone allemande (semi-transparent)
+// markers   : positions militaires clés à cet instant
+// ═══════════════════════════════════════════════════════
+const STEPS = [
+  {
+    id: 0,
+    date: "14 juillet 1918 — 23h00",
+    desc: "Veille de l'offensive. Allemands au nord de la Marne. Tirs de contre-préparation alliés commencent à minuit 10.",
+    // Ligne de front = la Marne elle-même
+    frontLine: MARNE,
+    // Zone allemande = tout le nord (rectangle approximatif)
+    germZone: [
+      [49.045,3.390],[49.045,3.650],
+      [49.280,3.650],[49.280,3.390]
+    ],
+    bridgeheads: [],
+    unitMarkers: [
+      { ll:[49.090,3.500], type:"de", label:"36<sup>e</sup> DI (5<sup>e</sup>+6<sup>e</sup> Gren.)", note:"En position dans le Bois du Champ Plumet<br>Prépare le franchissement" },
+      { ll:[49.090,3.450], type:"de", label:"10<sup>e</sup> DI (7<sup>e</sup>+8<sup>e</sup> Gren.)", note:"En attente au nord de Fossoy" },
+      { ll:[49.055,3.500], type:"us", label:"38<sup>e</sup> RI US (McAlexander)", note:"Défend la rive sud · Jaulgonne–Mézy<br>Retranchements face à l'est (Surmelin)" },
+      { ll:[49.052,3.450], type:"us", label:"30<sup>e</sup> RI US", note:"Défend la rive sud · Fossoy<br>Avant-postes sur la Marne" },
+      { ll:[49.055,3.520], type:"fr", label:"125<sup>e</sup> DI FR (3<sup>e</sup> CA)", note:"Rive sud, à droite du 38<sup>e</sup> CA<br>Défense élastique (doctrine Pétain)" },
+    ]
+  },
+  {
+    id: 1,
+    date: "15 juillet 1918 — 3h40",
+    desc: "Friedensturm : deux têtes de pont allemandes franchissent la Marne. Résistance acharnée du 38e CA (Mondésir).",
+    frontLine: MARNE,
+    germZone: [
+      [49.045,3.390],[49.045,3.650],
+      [49.280,3.650],[49.280,3.390]
+    ],
+    // Têtes de pont au sud de la Marne
+    bridgeheads: [
+      // Tête de pont Mézy (6e Grenadiers) : ~2.5km de profondeur
+      { coords:[
+          [49.052,3.490],[49.060,3.488],[49.064,3.494],
+          [49.063,3.505],[49.060,3.510],[49.052,3.505],[49.049,3.496]
+        ], color:"#c0392b", label:"6<sup>e</sup> Grenadiers" },
+      // Tête de pont Fossoy (5e Grenadiers) : partielle, 1er bat. bloqué
+      { coords:[
+          [49.057,3.450],[49.063,3.448],[49.065,3.455],
+          [49.063,3.462],[49.058,3.463],[49.055,3.456]
+        ], color:"#c0392b", label:"5<sup>e</sup> Grenadiers" }
+    ],
+    unitMarkers: [
+      { ll:[49.058,3.496], type:"de", label:"6<sup>e</sup> Gren. – tête de pont", note:"Traverse sur bateaux pontons<br>1<sup>er</sup>, 2<sup>e</sup>, 3<sup>e</sup> bat. passent malgré les pertes" },
+      { ll:[49.060,3.452], type:"de", label:"5<sup>e</sup> Gren. – partiel", note:"1<sup>er</sup> bat. anéanti au passage<br>2<sup>e</sup>+3<sup>e</sup> bat. franchissent, prennent Varennes" },
+      { ll:[49.050,3.494], type:"us", label:"38<sup>e</sup> RI US — résistance", note:"«Rock of the Marne» · McAlexander<br>Mitrailleurs sur le talus voie ferrée" },
+      { ll:[49.048,3.452], type:"us", label:"30<sup>e</sup> RI US — résistance", note:"Repousse les grenadiers sur la rive" },
+    ]
+  },
+  {
+    id: 2,
+    date: "15 juillet 1918 — 16h00",
+    desc: "Têtes de pont réduites. La 3e DI US repousse les Allemands. À l'est, la 125e DI recule (doctrine élastique). Flanc droit 38e CA exposé.",
+    frontLine: MARNE,
+    germZone: [
+      [49.045,3.390],[49.045,3.650],
+      [49.280,3.650],[49.280,3.390]
+    ],
+    bridgeheads: [
+      // Vestiges réduits de la tête de pont Mézy
+      { coords:[
+          [49.052,3.491],[49.055,3.489],[49.057,3.496],
+          [49.055,3.502],[49.051,3.499]
+        ], color:"#c0392b", label:"Résidu tête de pont" },
+    ],
+    unitMarkers: [
+      { ll:[49.056,3.496], type:"us", label:"3<sup>e</sup> DI US — contre-attaque", note:"Rejette les grenadiers, fait 400+ prisonniers<br>Futur surnom : «Division de la Marne»" },
+      { ll:[49.060,3.555], type:"fr", label:"125<sup>e</sup> DI — repli élastique", note:"Recule 5–8 km conformément aux ordres<br>Laisse les cies du 28<sup>e</sup> DI US isolées" },
+    ]
+  },
+  {
+    id: 3,
+    date: "18 juillet 1918 — 4h30",
+    desc: "La contre-offensive Mangin-Degoutte se déclenche depuis la forêt de Villers-Cotterêts. Les Allemands sentent l'encerclement.",
+    frontLine: MARNE,
+    germZone: [
+      [49.045,3.390],[49.045,3.650],
+      [49.280,3.650],[49.280,3.390]
+    ],
+    bridgeheads: [],
+    unitMarkers: [
+      { ll:[49.060,3.404], type:"fr", label:"10<sup>e</sup> Armée (Mangin)", note:"Attaque depuis Villers-Cotterêts<br>500 chars, objectif : Soissons–Château-Thierry" },
+      { ll:[49.050,3.500], type:"us", label:"38<sup>e</sup> CA (Mondésir)", note:"Prépare le franchissement de la Marne<br>Génie construit passerelles secrètes" },
+    ]
+  },
+  {
+    id: 4,
+    date: "20 juillet 1918 — matin",
+    desc: "Les Allemands évacuent la rive sud. Dormans libérée par le 32e RI. Début de la poursuite.",
+    // Front remonte légèrement au nord — Allemands en retraite
+    frontLine: [
+      [49.055,3.393],[49.063,3.425],[49.072,3.452],
+      [49.082,3.476],[49.082,3.500],[49.085,3.530],
+      [49.085,3.565],[49.082,3.600],[49.075,3.645]
+    ],
+    germZone: [
+      [49.055,3.393],[49.063,3.425],[49.072,3.452],
+      [49.082,3.476],[49.082,3.500],[49.085,3.530],
+      [49.085,3.565],[49.082,3.600],[49.075,3.645],
+      [49.280,3.650],[49.280,3.390]
+    ],
+    bridgeheads: [],
+    unitMarkers: [
+      { ll:[49.073,3.642], type:"fr", label:"32<sup>e</sup> RI (18<sup>e</sup> DI)", note:"Libère Dormans le 20 juillet<br>Ville détruite à 80%" },
+      { ll:[49.068,3.500], type:"us", label:"3<sup>e</sup> DI US — passage Marne", note:"Franchit la Marne, lance la poursuite<br>Vers Varennes et Jaulgonne" },
+      { ll:[49.082,3.576], type:"fr", label:"73<sup>e</sup> DI — préparation", note:"Se prépare à passer à Sauvigny/Courtemont" },
+    ]
+  },
+  {
+    id: 5,
+    date: "22 juillet 1918",
+    desc: "Jaulgonne libérée. 73e DI franchit à Sauvigny/Courtemont, poursuit dans la forêt de Ris. 3e DI US atteint Le Charmel (puis recule).",
+    frontLine: [
+      [49.100,3.393],[49.108,3.425],[49.100,3.452],
+      [49.092,3.468],[49.088,3.490],[49.088,3.510],
+      [49.092,3.540],[49.095,3.565],[49.100,3.610],[49.095,3.650]
+    ],
+    germZone: [
+      [49.100,3.393],[49.108,3.425],[49.100,3.452],
+      [49.092,3.468],[49.088,3.490],[49.088,3.510],
+      [49.092,3.540],[49.095,3.565],[49.100,3.610],[49.095,3.650],
+      [49.280,3.650],[49.280,3.390]
+    ],
+    bridgeheads: [],
+    unitMarkers: [
+      { ll:[49.080,3.499], type:"us", label:"3<sup>e</sup> DI US — Jaulgonne ✓", note:"Jaulgonne libérée pendant la matinée<br>38<sup>e</sup> RI pousse vers Le Charmel" },
+      { ll:[49.165,3.488], type:"us", label:"38<sup>e</sup> RI US à 13h15", note:"Atteint Le Charmel — sans appui sur flancs<br>Se replie vers Jaulgonne en fin d'après-midi" },
+      { ll:[49.095,3.556], type:"fr", label:"73<sup>e</sup> DI — Forêt de Ris", note:"Franchit à Sauvigny + Courtemont<br>Poursuit dans la forêt de Ris" },
+      { ll:[49.073,3.575], type:"fr", label:"73<sup>e</sup> DI — Trélou ✓", note:"Trélou libérée (24 juillet)" },
+    ]
+  },
+  {
+    id: 6,
+    date: "25 juillet 1918",
+    desc: "Le Charmel capturé par le 4e RI US. La 4e DI FR entre dans la forêt de Ris. Front ~9km au nord de la Marne.",
+    frontLine: [
+      [49.128,3.393],[49.130,3.425],[49.120,3.455],
+      [49.115,3.472],[49.165,3.483],[49.118,3.510],
+      [49.120,3.540],[49.118,3.570],[49.120,3.610],[49.115,3.650]
+    ],
+    germZone: [
+      [49.128,3.393],[49.130,3.425],[49.120,3.455],
+      [49.115,3.472],[49.165,3.483],[49.118,3.510],
+      [49.120,3.540],[49.118,3.570],[49.120,3.610],[49.115,3.650],
+      [49.280,3.650],[49.280,3.390]
+    ],
+    bridgeheads: [],
+    unitMarkers: [
+      { ll:[49.163,3.480], type:"us", label:"4<sup>e</sup> RI US — Le Charmel ✓", note:"3<sup>e</sup> bat. 4<sup>e</sup> RI US prend Le Charmel à 18h<br>Nid de mitrailleuses au Château (+500m N)" },
+      { ll:[49.120,3.545], type:"fr", label:"4<sup>e</sup> DI FR — Forêt de Ris", note:"Relève la 73<sup>e</sup> DI · Entre dans la forêt<br>Source : 3d Div Summary of Operations" },
+      { ll:[49.110,3.483], type:"us", label:"Cie H, 4<sup>e</sup> RI — La Tieulerie", note:"La Tieulerie Farm capturée le 23 juil.<br>Après résistance par le feu" },
+      { ll:[49.075,3.445], type:"fr", label:"73<sup>e</sup> DI (repos 25 juil.)", note:"Se retire pour repos à Nettancourt<br>Remplacée par 4<sup>e</sup> DI FR" },
+    ]
+  },
+  {
+    id: 7,
+    date: "27 juillet 1918",
+    desc: "Contre-offensive allemande dans la forêt de Ris, autour de l'Érolle. Les Allemands «lâchent prise». Ligne quasi inchangée.",
+    frontLine: [
+      [49.130,3.393],[49.132,3.425],[49.122,3.455],
+      [49.117,3.472],[49.165,3.483],[49.120,3.510],
+      [49.122,3.540],[49.120,3.570],[49.122,3.610],[49.117,3.650]
+    ],
+    germZone: [
+      [49.130,3.393],[49.132,3.425],[49.122,3.455],
+      [49.117,3.472],[49.165,3.483],[49.120,3.510],
+      [49.122,3.540],[49.120,3.570],[49.122,3.610],[49.117,3.650],
+      [49.280,3.650],[49.280,3.390]
+    ],
+    bridgeheads: [
+      // Contre-attaque locale dans la forêt de Ris
+      { coords:[
+          [49.118,3.530],[49.130,3.535],[49.135,3.550],
+          [49.128,3.560],[49.115,3.555],[49.110,3.540]
+        ], color:"#c0392b", label:"Contre-attaque all. (Érolle)" }
+    ],
+    unitMarkers: [
+      { ll:[49.125,3.545], type:"de", label:"Contre-attaque all. — Érolle", note:"«Forte résistance voire contre-offensive<br>dans la forêt de Ris, autour de l'Érolle»<br>(Dormans.txt — source secondaire locale)" },
+      { ll:[49.163,3.480], type:"us", label:"3<sup>e</sup> DI US — Le Charmel", note:"Tient Le Charmel malgré les tirs<br>Sera relevée par la 32<sup>e</sup> DI le 30 juil." },
+      { ll:[49.120,3.545], type:"fr", label:"4<sup>e</sup> DI FR — repousse", note:"Contre-attaque allemande repoussée<br>Les Allemands «lâchent prise»" },
+    ]
+  },
+  {
+    id: 8,
+    date: "3 août 1918",
+    desc: "Les Allemands repassent la Vesle à Fismes. Fin de la 2e Bataille de la Marne. 38e CA — bilan : 1 500 prisonniers, 13 canons, 2 pièces lourdes.",
+    frontLine: [
+      [49.205,3.393],[49.210,3.425],[49.205,3.455],
+      [49.200,3.472],[49.200,3.510],[49.198,3.540],
+      [49.195,3.570],[49.195,3.610],[49.190,3.650]
+    ],
+    germZone: [
+      [49.205,3.393],[49.210,3.425],[49.205,3.455],
+      [49.200,3.472],[49.200,3.510],[49.198,3.540],
+      [49.195,3.570],[49.195,3.610],[49.190,3.650],
+      [49.280,3.650],[49.280,3.390]
+    ],
+    bridgeheads: [],
+    unitMarkers: [
+      { ll:[49.200,3.490], type:"us", label:"32<sup>e</sup> DI US («Les Terribles»)", note:"Relève la 3<sup>e</sup> DI le 30 juillet<br>Poursuit vers Fismes / la Vesle" },
+      { ll:[49.200,3.550], type:"fr", label:"38<sup>e</sup> CA — bilan", note:"1 500 prisonniers · 13 canons de campagne<br>2 pièces de gros calibre · 20+ bateaux<br>Pertes : 4 500 hommes (4/5 américains)" },
+    ]
+  },
+];
+
+// ═══════════════════════════════════════════════════════
+// INITIALISATION LEAFLET
+// ═══════════════════════════════════════════════════════
+
+const map = L.map('map', {
+  center: [49.088, 3.510],
+  zoom: 12,
+  zoomControl: true,
+  attributionControl: true,
+});
+
+// Fond de carte topographique (relief + courbes de niveau)
+L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+  maxZoom: 17,
+  attribution: '© <a href="https://opentopomap.org">OpenTopoMap</a> (CC-BY-SA) · © <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>',
+  opacity: 0.85,
+}).addTo(map);
+
+// ── Marne (fleuve permanent) ──
+L.polyline(MARNE, {
+  color: '#3a7bd5', weight: 3, opacity: .8, dashArray: null
+}).addTo(map).bindTooltip('Marne', { permanent:false, direction:'top' });
+
+// ── Voie ferrée (permanente) ──
+L.polyline(VOIE_FERREE, {
+  color: '#888', weight: 2, opacity: .7, dashArray: '6,4'
+}).addTo(map).bindTooltip('Voie ferrée', { permanent:false });
+
+// ── Marqueurs de villages ──
+VILLAGES.forEach(v => {
+  const m = L.circleMarker(v.ll, {
+    radius: 5, fillColor:'#d4a843', fillOpacity:.9,
+    color:'#fff', weight:1.5, opacity:.8
+  }).addTo(map);
+  m.bindTooltip(v.nom, { permanent: v.nom==='Jaulgonne', direction:'top',
+    className: v.nom==='Jaulgonne' ? 'leaflet-tooltip jaulgonne-tip' : '' });
+  m.bindPopup(`<b>${v.nom}</b><br><span style="color:#a09078;font-size:.75rem">${v.note}</span>`);
+});
+
+// ═══════════════════════════════════════════════════════
+// COUCHES DYNAMIQUES
+// ═══════════════════════════════════════════════════════
+
+let germZoneLayer  = null;
+let frontLineLayer = null;
+let bridgeheadLayers = [];
+let unitMarkerLayers = [];
+
+function clearDynamic() {
+  if (germZoneLayer)  { map.removeLayer(germZoneLayer);  germZoneLayer=null; }
+  if (frontLineLayer) { map.removeLayer(frontLineLayer); frontLineLayer=null; }
+  bridgeheadLayers.forEach(l => map.removeLayer(l));
+  bridgeheadLayers = [];
+  unitMarkerLayers.forEach(l => map.removeLayer(l));
+  unitMarkerLayers = [];
+}
+
+function makeUnitIcon(type) {
+  const colors = { de:'#c0392b', fr:'#1a3a8c', us:'#2a6e2a' };
+  const c = colors[type] || '#999';
+  return L.divIcon({
+    className: '',
+    iconSize: [22, 22],
+    iconAnchor: [11, 11],
+    html: `<div style="
+      width:20px;height:20px;border-radius:3px;
+      background:${c};border:2px solid #fff;
+      display:flex;align-items:center;justify-content:center;
+      font-size:9px;color:#fff;font-weight:bold;
+    ">${type.toUpperCase()}</div>`
+  });
+}
+
+function applyStep(idx) {
+  clearDynamic();
+  const s = STEPS[idx];
+
+  // Zone allemande (semi-transparente)
+  germZoneLayer = L.polygon(s.germZone, {
+    fillColor:'#8b2020', fillOpacity:.18,
+    color:'transparent', weight:0,
+  }).addTo(map);
+
+  // Ligne de front
+  frontLineLayer = L.polyline(s.frontLine, {
+    color:'#c0392b', weight:3, opacity:.9,
+    dashArray: idx===0 ? '6,4' : null,
+  }).addTo(map)
+    .bindTooltip('Ligne de front — ' + s.date, { sticky:true });
+
+  // Têtes de pont / zones locales
+  s.bridgeheads.forEach(bh => {
+    const l = L.polygon(bh.coords, {
+      fillColor: bh.color, fillOpacity:.45,
+      color: bh.color, weight:2, opacity:.9,
+    }).addTo(map).bindTooltip(bh.label, { sticky:true });
+    bridgeheadLayers.push(l);
+  });
+
+  // Marqueurs d'unités
+  s.unitMarkers.forEach(um => {
+    const l = L.marker(um.ll, { icon: makeUnitIcon(um.type) }).addTo(map);
+    l.bindPopup(`<b>${um.label}</b><br><span style="color:#a09078;font-size:.75rem">${um.note}</span>`);
+    unitMarkerLayers.push(l);
+  });
+
+  // UI
+  document.getElementById('step-date').textContent = s.date;
+  document.getElementById('step-desc').textContent = s.desc;
+  document.getElementById('step-counter').textContent = `${idx+1} / ${STEPS.length}`;
+  document.querySelectorAll('.step-btn').forEach((b,i) => {
+    b.classList.toggle('active', i===idx);
+  });
+}
+
+// ═══════════════════════════════════════════════════════
+// CONTRÔLES TIMELINE
+// ═══════════════════════════════════════════════════════
+
+let currentStep = 0;
+let playInterval = null;
+
+const stepsDiv = document.getElementById('steps');
+STEPS.forEach((s, i) => {
+  const btn = document.createElement('button');
+  btn.className = 'step-btn';
+  btn.textContent = s.date.split(' — ')[0];
+  btn.onclick = () => { goToStep(i); };
+  stepsDiv.appendChild(btn);
+});
+
+function goToStep(i) {
+  currentStep = Math.max(0, Math.min(STEPS.length-1, i));
+  applyStep(currentStep);
+}
+
+function nextStep() { goToStep(currentStep + 1); }
+function prevStep() { goToStep(currentStep - 1); }
+
+function togglePlay() {
+  const btn = document.getElementById('play-btn');
+  if (playInterval) {
+    clearInterval(playInterval);
+    playInterval = null;
+    btn.textContent = '▶ Play';
+  } else {
+    btn.textContent = '⏸ Pause';
+    playInterval = setInterval(() => {
+      if (currentStep >= STEPS.length-1) {
+        currentStep = 0;
+        applyStep(0);
+      } else {
+        nextStep();
+      }
+    }, 2200);
+  }
+}
+
+// ═══════════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════════
+applyStep(0);
+
+// Petite note sur la Forêt de Ris
+L.marker([49.120, 3.545], {
+  icon: L.divIcon({
+    className:'',
+    iconSize:[100,20],
+    iconAnchor:[50,0],
+    html:`<div style="
+      background:rgba(13,12,10,.75);border:1px solid #8a6010;
+      color:#d4a843;font-size:.65rem;padding:2px 5px;
+      border-radius:3px;white-space:nowrap;pointer-events:none;
+    ">Forêt de Ris</div>`
+  })
+}).addTo(map);
+
+</script>
+</body>
+</html>

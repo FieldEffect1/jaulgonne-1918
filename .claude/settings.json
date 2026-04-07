@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(start \"\" \"c:\\\\Data\\\\ClaudeCode\\\\Projet_1918\\\\index.html\")",
+      "Bash(ls -la \"c:\\\\Data\\\\ClaudeCode\\\\Projet_1918\"/*.html)",
+      "Read(//c/Data/ClaudeCode/Projet_1918/**)",
+      "Bash(ls \"c:\\\\Data\\\\ClaudeCode\\\\Projet_1918\\\\Recherches\"/*.txt \"c:\\\\Data\\\\ClaudeCode\\\\Projet_1918\\\\Recherches\"/*.pdf)",
+      "Bash(ls \"c:\\\\Data\\\\ClaudeCode\\\\Projet_1918\\\\Recherches\\\\batmarn2\"/*.txt)",
+      "Bash(grep -v \"^AI_generated$\")"
+    ]
+  }
+}

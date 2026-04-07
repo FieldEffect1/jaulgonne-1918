@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Archives Photographiques — Jaulgonne 1918</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="museum.css">
+</head>
+<body>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-eyebrow" data-fr="Jaulgonne 1918 · Documents" data-en="Jaulgonne 1918 · Documents">Jaulgonne 1918 · Documents</div>
+  <h1 class="page-hero-title" data-fr="Archives Photographiques" data-en="Photographic Archives">Archives Photographiques</h1>
+  <p class="page-hero-subtitle" data-fr="45 documents sélectionnés — Photos, cartes militaires, mémoriaux" data-en="45 selected documents — Photos, military maps, memorials">45 documents sélectionnés — Photos, cartes militaires, mémoriaux</p>
+  <button class="lang-btn" id="lang-toggle" onclick="toggleLang()">English</button>
+</div>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="index.html">Accueil</a>
+  <a href="geographie.html">Géographie</a>
+  <a href="evenements.html">Événements</a>
+  <a href="liberation.html">Libération</a>
+  <a href="foret-ris.html">Forêt de Ris</a>
+  <a href="bataille.html">La Bataille</a>
+  <a href="hommage-us.html">Hommage US</a>
+  <a href="memoire.html">Mémorial</a>
+  <a href="galerie.html" class="active">Archives</a>
+  <a href="carte_bataille.html">Carte</a>
+</nav>
+
+<!-- GALERIE -->
+<div id="gallery-section">
+  <div class="section-label" data-fr="Archives photographiques" data-en="Photographic Archives">Archives photographiques</div>
+  <h2 data-fr="Documents &amp; Photographies" data-en="Documents &amp; Photographs">Documents &amp; Photographies</h2>
+
+  <p style="font-size:.88rem;color:var(--text2);max-width:680px;line-height:1.75;margin-bottom:1.5rem">
+    Ces 45 documents ont été sélectionnés pour leur pertinence directe avec les événements de Jaulgonne et de la vallée de la Marne durant l'été 1918. Sources : Argonnaute (La Contemporaine), Library of Congress, Smithsonian, collections privées, cartes postales d'époque.
+  </p>
+
+  <div class="gallery-filters">
+    <button class="filter-btn active" data-filter="all" data-fr="Tout" data-en="All" onclick="filterGallery('all')">Tout</button>
+    <button class="filter-btn" data-filter="photos" data-fr="Photos" data-en="Photos" onclick="filterGallery('photos')">Photos</button>
+    <button class="filter-btn" data-filter="cartes" data-fr="Cartes" data-en="Maps" onclick="filterGallery('cartes')">Cartes</button>
+    <button class="filter-btn" data-filter="memoriaux" data-fr="Mémoriaux" data-en="Memorials" onclick="filterGallery('memoriaux')">Mémoriaux</button>
+    <span id="gallery-count"></span>
+  </div>
+  <div class="gallery-grid" id="gallery-grid"></div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p data-fr="Sources : La Contemporaine / Argonnaute · Library of Congress · Smithsonian National Museum of American History · Collections cartes postales d'époque" data-en="Sources: La Contemporaine / Argonnaute · Library of Congress · Smithsonian National Museum of American History · Period postcard collections">Sources : La Contemporaine / Argonnaute · Library of Congress · Smithsonian NMAH · Collections cartes postales</p>
+  <p style="margin-top:.75rem;font-size:.68rem;color:#7a6a5a">En mémoire des soldats français et américains tombés à Jaulgonne — Été 1918</p>
+</footer>
+
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <button id="lb-close" onclick="closeLightbox()">✕</button>
+  <img id="lb-img" src="" alt="">
+  <div class="lb-nav">
+    <button class="lb-btn" onclick="lbNav(-1)">&#8592;</button>
+    <span id="lb-counter"></span>
+    <button class="lb-btn" onclick="lbNav(1)">&#8594;</button>
+  </div>
+</div>
+
+<script>
+const ALL_IMGS = [
+  // Photos — 0–37
+  {src:"selection_photo/FI-0732-0343.jpg", cat:"photos", cap:"Vue aérienne — coude de Jaulgonne, 6 juin 1918 (IMAGE'EST)"},
+  {src:"selection_photo/argonnaute_jaulgonne_troupes_americaines_1918.jpg", cat:"photos", cap:"Troupes américaines au repos à Jaulgonne, 21 août 1918"},
+  {src:"selection_photo/smithsonian_marne_jaulgonne_1918_peixotto.jpg", cat:"photos", cap:"Croquis Peixotto — pont flottant sur la Marne, août 1918"},
+  {src:"selection_photo/pg168.jpg", cat:"photos", cap:"Soldats US construisant un pont flottant sur la Marne"},
+  {src:"selection_photo/0177e3918c13d5cc4c840476e5d24c7d902994d7be.jpg", cat:"photos", cap:"Pont flottant US — 34e Division"},
+  {src:"selection_photo/01c63a49aa6283f1826876a76dd141ca1565dd8f52.jpg", cat:"photos", cap:"Vue aérienne — 3e Division US, tranchées"},
+  {src:"selection_photo/01e7b172347875435730ca5e97645ff90a7c2f8267.jpg", cat:"photos", cap:"Vue aérienne Jaulgonne, 30 juillet 1918"},
+  {src:"selection_photo/01cad8720c2c384c5536ccad5f740e842fb64dab77.jpg", cat:"photos", cap:"Vue aérienne Jaulgonne, 30 juillet 1918 (2)"},
+  {src:"selection_photo/01a1a0e89809046f0ab57f7207a3ff46d885605da9.jpg", cat:"photos", cap:"Équipe de mitrailleuse en position défensive"},
+  {src:"selection_photo/0188bae17f3575be4385d1f73d9e3ed3cb2a74258f.jpg", cat:"photos", cap:"Soldats US recevant leurs ordres"},
+  {src:"selection_photo/019cd3f3c28ccc11aab95831868e4dbf3216c25cb9.jpg", cat:"photos", cap:"Soldats US dans une rue de Jaulgonne, 24 juillet 1918"},
+  {src:"selection_photo/01b2a1d0e325ece3769fd31719f056087f6a00e112.jpg", cat:"photos", cap:"Soldats français en marche"},
+  {src:"selection_photo/0185bc756e354851248a955e2763b3c15f41201184.jpg", cat:"photos", cap:"Soldats US avec obusier allemand capturé"},
+  {src:"selection_photo/01fd3702b3729044a6473bd6824f994109487cd5e8.jpg", cat:"photos", cap:"Portrait de soldats américains"},
+  {src:"selection_photo/01ff352fcbb084596d78f977495c7edfec194cea57.jpg", cat:"photos", cap:"Soldats dans une rue du village"},
+  {src:"selection_photo/m2-026.jpg", cat:"photos", cap:"Soldats et blessé dans une tranchée"},
+  {src:"selection_photo/m2-051.jpg", cat:"photos", cap:"Soldats posant devant une maison en ruines"},
+  {src:"selection_photo/Veteran035.jpg", cat:"photos", cap:"Soldats dans les tranchées près de Luippes (Marne)"},
+  {src:"selection_photo/Veteran031.jpg", cat:"photos", cap:"Mortier français de 220mm en action"},
+  {src:"selection_photo/Up_JAULGONNEplace_de_la_Mairie.jpg", cat:"photos", cap:"Place de la Mairie de Jaulgonne en ruines"},
+  {src:"selection_photo/m2-085.jpg", cat:"photos", cap:"Barricade allemande à la sortie du Charmel vers Courmont, sous la plaque Michelin — 27 juillet 1918"},
+  {src:"selection_photo/m2-046.jpg", cat:"photos", cap:"Village en ruines — vue panoramique"},
+  {src:"selection_photo/m2-037.jpg", cat:"photos", cap:"Soldat de dos contemplant les ruines"},
+  {src:"selection_photo/m2-086.jpg", cat:"photos", cap:"Place de village en ruines"},
+  {src:"selection_photo/Eglise_Charteves.jpg", cat:"photos", cap:"Église de Chartèves en ruines, clocher effondré"},
+  {src:"selection_photo/0143db47ff5098187cd92fa8ae3e28dca1f6660697.jpg", cat:"photos", cap:"CPA — Jaulgonne en ruines, juillet 1918"},
+  {src:"selection_photo/015db71eecb9c3f866bbd1824c6ca2242583bd7359.jpg", cat:"photos", cap:"CPA — Jaulgonne en ruines (variante)"},
+  {src:"selection_photo/013bb916f7ea70b91edfc7bdc256217dccc37928bf.jpg", cat:"photos", cap:"Ruines de maisons du village"},
+  {src:"selection_photo/0146f60ea55cd8fb29c8d455c554296ea9a393d216.jpg", cat:"photos", cap:"Place centrale détruite"},
+  {src:"selection_photo/0139bfa33a9668319ae966fcfe0e30151faa5b8d7f.jpg", cat:"photos", cap:"CPA — Route du Pont détruite"},
+  {src:"selection_photo/012e6c74ddb0794641e7dd08edfc5cfd8597f51532.jpg", cat:"photos", cap:"CPA — rue en ruines"},
+  {src:"selection_photo/01d1ec026e79c1daad66f7437e99ad1583abd6faad.jpg", cat:"photos", cap:"CPA — Dormans en ruines"},
+  {src:"selection_photo/01b573c9d748d509c5d1ecd4bec1d3308e13753043.jpg", cat:"photos", cap:"PC de la villa Jaulgonne — 28e Division"},
+  {src:"selection_photo/m2-063.jpg", cat:"photos", cap:"Manoir de la région avant-guerre"},
+  {src:"selection_photo/Veteran012.jpg", cat:"photos", cap:"SPAD XIII en patrouille"},
+  {src:"selection_photo/Veteran018.jpg", cat:"photos", cap:"Nieuport avec mitrailleuse Lewis"},
+  {src:"selection_photo/Veteran021.jpg", cat:"photos", cap:"Caudron G.4 bimoteur"},
+  {src:"selection_photo/Veteran028.jpg", cat:"photos", cap:"Avion allemand abattu"},
+  // Cartes — 38–40
+  {src:"selection_photo/01d0335f9060ed41fd72afec94b6430112afa77d03.jpg", cat:"cartes", cap:"Carte tactique de Jaulgonne"},
+  {src:"selection_photo/0187ffc063937ce287cd69d7e71a077bea11733437.jpg", cat:"cartes", cap:"Carte — American Operations Aisne-Marne"},
+  {src:"selection_photo/013223c8525e4ff1913b31db08d32192c8c89f1c7d.jpg", cat:"cartes", cap:"Carte des zones de destruction en France"},
+  // Mémoriaux — 41–44
+  {src:"selection_photo/chateau-thierry-usa-mem-jp-201.jpg", cat:"memoriaux", cap:"Monument Aisne-Marne, Château-Thierry — façade"},
+  {src:"selection_photo/chateau-thierry-usa-mem-jp-204.jpg", cat:"memoriaux", cap:"Monument Aisne-Marne, Château-Thierry — tour"},
+  {src:"selection_photo/chateau-thierry-usa-mem-jp-206.jpg", cat:"memoriaux", cap:"Monument Aisne-Marne, Château-Thierry"},
+  {src:"selection_photo/chateau-thierry-usa-mem-jp-209.jpg", cat:"memoriaux", cap:"Monument Aisne-Marne, Château-Thierry"},
+];
+
+let currentLang='fr';
+let galleryImages=ALL_IMGS.map(x=>x.src);
+let lbIndex=0;
+let currentFilter='all';
+
+function toggleLang(){
+  currentLang=currentLang==='fr'?'en':'fr';
+  document.documentElement.setAttribute('data-lang',currentLang);
+  document.getElementById('lang-toggle').textContent=currentLang==='fr'?'English':'Français';
+  document.querySelectorAll('[data-fr]').forEach(el=>{
+    el.innerHTML=el.getAttribute('data-'+currentLang);
+  });
+}
+
+function buildGallery(){
+  const grid=document.getElementById('gallery-grid');
+  ALL_IMGS.forEach((item,i)=>{
+    const img=document.createElement('img');
+    img.src=item.src;img.loading='lazy';
+    img.alt=item.cap;img.title=item.cap;
+    img.dataset.category=item.cat;
+    img.onclick=()=>openLightbox(i);
+    grid.appendChild(img);
+  });
+  updateGalleryCount();
+}
+
+function filterGallery(cat){
+  currentFilter=cat;
+  document.querySelectorAll('.filter-btn').forEach(b=>{
+    b.classList.toggle('active',b.dataset.filter===cat);
+  });
+  document.querySelectorAll('#gallery-grid img').forEach((img,i)=>{
+    img.classList.toggle('hidden', cat!=='all' && ALL_IMGS[i].cat!==cat);
+  });
+  updateGalleryCount();
+}
+
+function updateGalleryCount(){
+  const visible=document.querySelectorAll('#gallery-grid img:not(.hidden)').length;
+  const el=document.getElementById('gallery-count');
+  if(el) el.textContent=`${visible} document${visible>1?'s':''}`;
+}
+
+function openLightbox(idx){
+  lbIndex=idx;
+  document.getElementById('lb-img').src=ALL_IMGS[idx].src;
+  document.getElementById('lb-img').alt=ALL_IMGS[idx].cap;
+  document.getElementById('lb-counter').textContent=`${idx+1} / ${ALL_IMGS.length} — ${ALL_IMGS[idx].cap}`;
+  document.getElementById('lightbox').classList.add('open');
+}
+function closeLightbox(){document.getElementById('lightbox').classList.remove('open');}
+function lbNav(dir){
+  lbIndex=(lbIndex+dir+ALL_IMGS.length)%ALL_IMGS.length;
+  document.getElementById('lb-img').src=ALL_IMGS[lbIndex].src;
+  document.getElementById('lb-img').alt=ALL_IMGS[lbIndex].cap;
+  document.getElementById('lb-counter').textContent=`${lbIndex+1} / ${ALL_IMGS.length} — ${ALL_IMGS[lbIndex].cap}`;
+}
+document.getElementById('lightbox').addEventListener('click',function(e){if(e.target===this)closeLightbox();});
+document.addEventListener('keydown',e=>{
+  if(!document.getElementById('lightbox').classList.contains('open')) return;
+  if(e.key==='Escape') closeLightbox();
+  if(e.key==='ArrowLeft') lbNav(-1);
+  if(e.key==='ArrowRight') lbNav(1);
+});
+
+buildGallery();
+</script>
+</body>
+</html>

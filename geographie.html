@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Géographie — Jaulgonne 1918</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<link rel="stylesheet" href="museum.css">
+</head>
+<body>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-eyebrow">Jaulgonne 1918 · Géographie</div>
+  <h1 class="page-hero-title">La position stratégique de Jaulgonne</h1>
+  <p class="page-hero-subtitle">Le coude de la Marne — dernier verrou naturel avant Paris</p>
+</div>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="index.html">Accueil</a>
+  <a href="geographie.html" class="active">Géographie</a>
+  <a href="evenements.html">Événements</a>
+  <a href="liberation.html">Libération</a>
+  <a href="foret-ris.html">Forêt de Ris</a>
+  <a href="bataille.html">La Bataille</a>
+  <a href="hommage-us.html">Hommage US</a>
+  <a href="memoire.html">Mémorial</a>
+  <a href="galerie.html">Archives</a>
+  <a href="carte_bataille.html">Carte</a>
+</nav>
+
+<!-- INTRO GÉOGRAPHIQUE -->
+<section id="intro">
+  <div class="section-label">Contexte géographique</div>
+  <h2>Un verrou sur la route de Paris</h2>
+  <p class="intro-text">
+    En cet été 1918, sur les rives de la Marne, à soixante kilomètres seulement de Paris, se joue le destin de la France. Jaulgonne, petit village de la vallée, tient le dernier verrou naturel avant la capitale. Sa position est unique : ici, la Marne fait un coude serré au sud — le «&nbsp;Coude de Jaulgonne&nbsp;» — rendant toute traversée périlleuse. Sur les hauteurs au-dessus du village dominent la Ferme des Franquets et la Forêt de Ris au nord-est. Le confluent du Surmelin ouvre une voie vers l'intérieur des terres. Qui tient Jaulgonne, tient la route de Paris.
+  </p>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin:2.5rem 0">
+    <div class="info-box">
+      <h3>Le Coude de Jaulgonne</h3>
+      <p>La Marne effectue ici un virage prononcé vers le sud. Ce méandre ralentit le courant et rend tout franchissement visible depuis les deux rives — avantage défensif considérable pour qui tient la rive sud.</p>
+    </div>
+    <div class="info-box">
+      <h3>La Ferme des Franquets</h3>
+      <p>Position dominante sur les hauteurs au nord-est du village. Tenue par les Bataillons Sagnières et Taureau (47e RI) en mai–juin 1918. Clé du dispositif défensif allié : qui tient la Ferme contrôle les approches de la vallée.</p>
+    </div>
+    <div class="info-box">
+      <h3>La Forêt de Ris</h3>
+      <p>Massif boisé au nord-est de Jaulgonne. Utilisé par les Allemands comme dépôt logistique et axe d'approche. Théâtre de combats acharnés du 22 au 27 juillet 1918. Contre-attaque allemande à l'Érolle le 27 juillet.</p>
+    </div>
+    <div class="info-box">
+      <h3>Le confluent du Surmelin</h3>
+      <p>La rivière Surmelin se jette dans la Marne en face de Jaulgonne, côté nord. Ce confluent crée une voie d'approche naturelle vers l'intérieur des terres et un couloir d'infiltration que les deux camps cherchèrent à contrôler.</p>
+    </div>
+  </div>
+
+  <!-- CARTE LEAFLET INTERACTIVE -->
+  <div id="map-container">
+    <h3>Progression des lignes de front — Juillet–Août 1918</h3>
+    <div id="battle-map-wrapper">
+      <div id="battle-map-leaflet"></div>
+      <div id="battle-legend-box">
+        <h3>LÉGENDE</h3>
+        <div class="bl-row"><div class="bl-line" style="background:#c0392b;height:4px"></div><span>Front allemand</span></div>
+        <div class="bl-row"><div class="bl-line" style="background:rgba(139,32,32,.35);height:10px;width:22px;border:1px solid #c0392b"></div><span>Zone all.</span></div>
+        <div class="bl-row"><div class="bl-dot" style="background:#c0392b;border:2px solid #fff"></div><span>Unité all.</span></div>
+        <div class="bl-row"><div class="bl-dot" style="background:#1a3a8c;border:2px solid #fff"></div><span>Unité FR</span></div>
+        <div class="bl-row"><div class="bl-dot" style="background:#2a6e2a;border:2px solid #fff"></div><span>Unité US</span></div>
+        <div class="bl-row"><div class="bl-line" style="background:#3a7bd5;height:3px"></div><span>Marne</span></div>
+        <hr>
+        <div style="color:var(--text3);font-size:.62rem;font-style:italic">Positions approx.<br>Sources primaires</div>
+      </div>
+    </div>
+    <div id="battle-timeline-panel">
+      <div id="battle-steps"></div>
+      <div id="battle-info-row">
+        <div>
+          <div id="battle-step-date"></div>
+          <div id="battle-step-desc"></div>
+        </div>
+        <div id="battle-nav">
+          <span id="bstep-counter"></span>
+          <button class="bnav-btn" onclick="bPrevStep()">◀</button>
+          <button class="bnav-btn" id="bplay-btn" onclick="bTogglePlay()">▶ Play</button>
+          <button class="bnav-btn" onclick="bNextStep()">▶</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION : LOCALITÉS -->
+<section style="background:var(--bg2);border-top:1px solid var(--border);max-width:100%;padding:4rem 1.5rem">
+<div style="max-width:1100px;margin:0 auto">
+  <div class="section-label">Les localités du secteur</div>
+  <h2>Villages et positions clés</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem">
+    <div class="info-box">
+      <h3>Jaulgonne</h3>
+      <p>Village rive nord de la Marne. Occupé par les Allemands le 2 juin 1918, libéré le 22 juillet par le 38e RI US (3e Division). Entièrement détruit lors des combats.</p>
+    </div>
+    <div class="info-box">
+      <h3>Mézy-Moulins</h3>
+      <p>Rive sud. Point de franchissement du 6e Régiment de Grenadiers (15 juillet). Tête de pont réduite par le 38e RI US après 14 heures de combats. Les «&nbsp;Rochers de la Marne&nbsp;».</p>
+    </div>
+    <div class="info-box">
+      <h3>Fossoy</h3>
+      <p>Rive sud, à l'ouest de Mézy. Franchissement du 5e Régiment de Grenadiers (15 juillet). Repoussé par le 30e RI US. Verrou occidental du dispositif américain.</p>
+    </div>
+    <div class="info-box">
+      <h3>Varennes-en-Argonne</h3>
+      <p>Rive nord, à l'ouest de Jaulgonne. Pris par les grenadiers allemands et le 175e RI. Base de départ vers le Charmel et la Forêt de Ris.</p>
+    </div>
+    <div class="info-box">
+      <h3>Le Charmel</h3>
+      <p>Village sur les hauteurs au nord-est, à 9 km de Jaulgonne. Capturé le 25 juillet par le 3e bataillon du 4e RI US à 18h. Position allemande clé dans les crêtes boisées.</p>
+    </div>
+    <div class="info-box">
+      <h3>Dormans</h3>
+      <p>Ville à 12 km à l'ouest de Jaulgonne. Libérée le 20 juillet par le 32e RI français. Siège aujourd'hui du Mémorial de la 2e Bataille de la Marne.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Sources : Chemins de mémoire · U.S. Army History · La Contemporaine / Argonnaute · Library of Congress</p>
+  <p style="margin-top:.75rem;font-size:.68rem;color:#7a6a5a">En mémoire des soldats français et américains tombés à Jaulgonne — Été 1918</p>
+</footer>
+
+<script>
+(function(){
+  const path=window.location.pathname.split('/').pop()||'geographie.html';
+  document.querySelectorAll('nav a').forEach(a=>{
+    a.classList.toggle('active',a.getAttribute('href')===path);
+  });
+})();
+
+// ── LEAFLET BATTLE MAP ──
+(function initBattleMap(){
+  if(typeof L==='undefined') return;
+  const BM_MARNE=[
+    [49.047,3.393],[49.050,3.412],[49.053,3.432],
+    [49.055,3.447],[49.053,3.460],[49.048,3.473],
+    [49.047,3.480],[49.052,3.488],[49.056,3.498],
+    [49.059,3.513],[49.061,3.530],[49.064,3.550],
+    [49.067,3.572],[49.069,3.598],[49.071,3.622],[49.072,3.645],
+  ];
+  const BM_VOIE=[
+    [49.042,3.430],[49.046,3.457],[49.049,3.488],
+    [49.052,3.512],[49.055,3.540],[49.058,3.560]
+  ];
+  const BM_VILL=[
+    {ll:[49.080,3.499],nom:"Jaulgonne",note:"Libérée le 22 juillet par la 3<sup>e</sup> DI US (38<sup>e</sup> RI US)"},
+    {ll:[49.052,3.494],nom:"Mézy-Moulins",note:"Franchissement du 6<sup>e</sup> Grenadiers (15 juil.)<br>Résistance du 38<sup>e</sup> RI US"},
+    {ll:[49.057,3.452],nom:"Fossoy",note:"Franchissement du 5<sup>e</sup> Grenadiers<br>Résistance du 38<sup>e</sup> RI US"},
+    {ll:[49.085,3.444],nom:"Varennes",note:"Pris par les Grenadiers all. + 175<sup>e</sup> RI"},
+    {ll:[49.163,3.480],nom:"Le Charmel",note:"Capturé le 25 juillet par le 4<sup>e</sup> RI US"},
+    {ll:[49.063,3.523],nom:"Chartèves",note:"Rive nord, bois au-dessus de la Marne"},
+    {ll:[49.052,3.455],nom:"Mont-Saint-Père",note:"QG avancé, rive sud de la Marne"},
+    {ll:[49.044,3.403],nom:"Château-Thierry",note:"Défendu par la 10<sup>e</sup> DI coloniale"},
+    {ll:[49.072,3.642],nom:"Dormans",note:"Libérée le 20 juillet par le 32<sup>e</sup> RI"},
+    {ll:[49.073,3.575],nom:"Trélou",note:"Libéré le 24 juillet (73<sup>e</sup> DI)"},
+    {ll:[49.040,3.477],nom:"Crézancy",note:"Capturé lors de la contre-attaque US"},
+    {ll:[49.083,3.576],nom:"Sauvigny",note:"Passage de la 73<sup>e</sup> DI (22 juil.)"},
+    {ll:[49.120,3.545],nom:"Forêt de Ris",note:"Dépôt all. · Contre-attaque autour de l'Érolle (27 juil.)"},
+  ];
+  const BM_STEPS=[
+    {id:0,date:"14 juillet 1918 — 23h00",
+     desc:"Veille de l'offensive. Allemands au nord de la Marne. Contre-préparation alliée commence à minuit 10.",
+     frontLine:BM_MARNE,
+     germZone:[[49.045,3.390],[49.045,3.650],[49.280,3.650],[49.280,3.390]],
+     bridgeheads:[],
+     unitMarkers:[
+       {ll:[49.090,3.500],type:"de",label:"36<sup>e</sup> DI (5<sup>e</sup>+6<sup>e</sup> Gren.)",note:"Prépare le franchissement"},
+       {ll:[49.055,3.500],type:"us",label:"38<sup>e</sup> RI US (McAlexander)",note:"Défend la rive sud · Jaulgonne–Mézy"},
+       {ll:[49.052,3.450],type:"us",label:"30<sup>e</sup> RI US",note:"Défend la rive sud · Fossoy"},
+       {ll:[49.055,3.520],type:"fr",label:"125<sup>e</sup> DI FR",note:"Rive sud, à droite du 38<sup>e</sup> CA"},
+     ]},
+    {id:1,date:"15 juillet 1918 — 3h40",
+     desc:"Friedensturm : deux têtes de pont franchissent la Marne. Résistance acharnée du 38e CA.",
+     frontLine:BM_MARNE,
+     germZone:[[49.045,3.390],[49.045,3.650],[49.280,3.650],[49.280,3.390]],
+     bridgeheads:[
+       {coords:[[49.052,3.490],[49.060,3.488],[49.064,3.494],[49.063,3.505],[49.060,3.510],[49.052,3.505],[49.049,3.496]],color:"#c0392b",label:"6<sup>e</sup> Grenadiers"},
+       {coords:[[49.057,3.450],[49.063,3.448],[49.065,3.455],[49.063,3.462],[49.058,3.463],[49.055,3.456]],color:"#c0392b",label:"5<sup>e</sup> Grenadiers"}
+     ],
+     unitMarkers:[
+       {ll:[49.058,3.496],type:"de",label:"6<sup>e</sup> Gren. – tête de pont",note:"Traverse sur bateaux pontons"},
+       {ll:[49.050,3.494],type:"us",label:"38<sup>e</sup> RI US — résistance",note:"«Rock of the Marne» · McAlexander"},
+       {ll:[49.048,3.452],type:"us",label:"30<sup>e</sup> RI US",note:"Repousse les grenadiers sur la rive"},
+     ]},
+    {id:2,date:"15 juillet 1918 — 16h00",
+     desc:"Têtes de pont réduites. 3e DI US repousse les Allemands. 125e DI recule (défense élastique).",
+     frontLine:BM_MARNE,
+     germZone:[[49.045,3.390],[49.045,3.650],[49.280,3.650],[49.280,3.390]],
+     bridgeheads:[
+       {coords:[[49.052,3.491],[49.055,3.489],[49.057,3.496],[49.055,3.502],[49.051,3.499]],color:"#c0392b",label:"Résidu tête de pont"}
+     ],
+     unitMarkers:[
+       {ll:[49.056,3.496],type:"us",label:"3<sup>e</sup> DI US — contre-attaque",note:"Rejette les grenadiers, 400+ prisonniers"},
+       {ll:[49.060,3.555],type:"fr",label:"125<sup>e</sup> DI — repli",note:"Recule 5–8 km (doctrine Pétain)"},
+     ]},
+    {id:3,date:"18 juillet 1918 — 4h30",
+     desc:"Contre-offensive Mangin-Degoutte depuis Villers-Cotterêts. 500 chars. Les Allemands sentent l'encerclement.",
+     frontLine:BM_MARNE,
+     germZone:[[49.045,3.390],[49.045,3.650],[49.280,3.650],[49.280,3.390]],
+     bridgeheads:[],
+     unitMarkers:[
+       {ll:[49.060,3.404],type:"fr",label:"10<sup>e</sup> Armée (Mangin)",note:"500 chars · Objectif : Soissons"},
+       {ll:[49.050,3.500],type:"us",label:"38<sup>e</sup> CA (Mondésir)",note:"Prépare le franchissement de la Marne"},
+     ]},
+    {id:4,date:"20 juillet 1918",
+     desc:"Allemands évacuent la rive sud. Dormans libérée par le 32e RI. Début de la poursuite.",
+     frontLine:[[49.055,3.393],[49.063,3.425],[49.072,3.452],[49.082,3.476],[49.082,3.500],[49.085,3.530],[49.085,3.565],[49.082,3.600],[49.075,3.645]],
+     germZone:[[49.055,3.393],[49.063,3.425],[49.072,3.452],[49.082,3.476],[49.082,3.500],[49.085,3.530],[49.085,3.565],[49.082,3.600],[49.075,3.645],[49.280,3.650],[49.280,3.390]],
+     bridgeheads:[],
+     unitMarkers:[
+       {ll:[49.073,3.642],type:"fr",label:"32<sup>e</sup> RI — Dormans ✓",note:"Libère Dormans le 20 juillet"},
+       {ll:[49.068,3.500],type:"us",label:"3<sup>e</sup> DI US — passage Marne",note:"Franchit la Marne, lance la poursuite"},
+     ]},
+    {id:5,date:"22 juillet 1918",
+     desc:"Jaulgonne libérée. 73e DI franchit à Sauvigny/Courtemont. 3e DI US atteint Le Charmel puis recule.",
+     frontLine:[[49.100,3.393],[49.108,3.425],[49.100,3.452],[49.092,3.468],[49.088,3.490],[49.088,3.510],[49.092,3.540],[49.095,3.565],[49.100,3.610],[49.095,3.650]],
+     germZone:[[49.100,3.393],[49.108,3.425],[49.100,3.452],[49.092,3.468],[49.088,3.490],[49.088,3.510],[49.092,3.540],[49.095,3.565],[49.100,3.610],[49.095,3.650],[49.280,3.650],[49.280,3.390]],
+     bridgeheads:[],
+     unitMarkers:[
+       {ll:[49.080,3.499],type:"us",label:"3<sup>e</sup> DI US — Jaulgonne ✓",note:"Jaulgonne libérée pendant la matinée"},
+       {ll:[49.165,3.488],type:"us",label:"38<sup>e</sup> RI US à 13h15",note:"Atteint Le Charmel — recule en fin d'après-midi"},
+       {ll:[49.095,3.556],type:"fr",label:"73<sup>e</sup> DI — Forêt de Ris",note:"Franchit à Sauvigny + Courtemont"},
+     ]},
+    {id:6,date:"25 juillet 1918",
+     desc:"Le Charmel capturé par le 4e RI US. 4e DI FR entre dans la forêt de Ris. Front ~9km au nord de la Marne.",
+     frontLine:[[49.128,3.393],[49.130,3.425],[49.120,3.455],[49.115,3.472],[49.165,3.483],[49.118,3.510],[49.120,3.540],[49.118,3.570],[49.120,3.610],[49.115,3.650]],
+     germZone:[[49.128,3.393],[49.130,3.425],[49.120,3.455],[49.115,3.472],[49.165,3.483],[49.118,3.510],[49.120,3.540],[49.118,3.570],[49.120,3.610],[49.115,3.650],[49.280,3.650],[49.280,3.390]],
+     bridgeheads:[],
+     unitMarkers:[
+       {ll:[49.163,3.480],type:"us",label:"4<sup>e</sup> RI US — Le Charmel ✓",note:"3<sup>e</sup> bat. prend Le Charmel à 18h"},
+       {ll:[49.120,3.545],type:"fr",label:"4<sup>e</sup> DI FR — Forêt de Ris",note:"Relève la 73<sup>e</sup> DI"},
+     ]},
+    {id:7,date:"27 juillet 1918",
+     desc:"Contre-offensive allemande dans la forêt de Ris (l'Érolle). Les Allemands «lâchent prise».",
+     frontLine:[[49.130,3.393],[49.132,3.425],[49.122,3.455],[49.117,3.472],[49.165,3.483],[49.120,3.510],[49.122,3.540],[49.120,3.570],[49.122,3.610],[49.117,3.650]],
+     germZone:[[49.130,3.393],[49.132,3.425],[49.122,3.455],[49.117,3.472],[49.165,3.483],[49.120,3.510],[49.122,3.540],[49.120,3.570],[49.122,3.610],[49.117,3.650],[49.280,3.650],[49.280,3.390]],
+     bridgeheads:[
+       {coords:[[49.118,3.530],[49.130,3.535],[49.135,3.550],[49.128,3.560],[49.115,3.555],[49.110,3.540]],color:"#c0392b",label:"Contre-attaque all. (Érolle)"}
+     ],
+     unitMarkers:[
+       {ll:[49.125,3.545],type:"de",label:"Contre-attaque — Érolle",note:"Repoussée par la 4<sup>e</sup> DI FR"},
+       {ll:[49.163,3.480],type:"us",label:"3<sup>e</sup> DI US — Le Charmel",note:"Tient malgré les tirs"},
+     ]},
+    {id:8,date:"3 août 1918",
+     desc:"Allemands repassent la Vesle à Fismes. Fin de la 2e Bataille de la Marne. 38e CA : 1 500 prisonniers, 13 canons.",
+     frontLine:[[49.205,3.393],[49.210,3.425],[49.205,3.455],[49.200,3.472],[49.200,3.510],[49.198,3.540],[49.195,3.570],[49.195,3.610],[49.190,3.650]],
+     germZone:[[49.205,3.393],[49.210,3.425],[49.205,3.455],[49.200,3.472],[49.200,3.510],[49.198,3.540],[49.195,3.570],[49.195,3.610],[49.190,3.650],[49.280,3.650],[49.280,3.390]],
+     bridgeheads:[],
+     unitMarkers:[
+       {ll:[49.200,3.490],type:"us",label:"32<sup>e</sup> DI US («Les Terribles»)",note:"Poursuit vers Fismes / la Vesle"},
+       {ll:[49.200,3.550],type:"fr",label:"38<sup>e</sup> CA — bilan",note:"1 500 prisonniers · 13 canons · 4 500 hommes"},
+     ]},
+  ];
+  const battleMap=L.map('battle-map-leaflet',{center:[49.088,3.510],zoom:12});
+  L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{
+    maxZoom:17,opacity:0.85,
+    attribution:'© <a href="https://opentopomap.org">OpenTopoMap</a> (CC-BY-SA) · © <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>',
+  }).addTo(battleMap);
+  L.polyline(BM_MARNE,{color:'#3a7bd5',weight:3,opacity:.8}).addTo(battleMap).bindTooltip('Marne',{direction:'top'});
+  L.polyline(BM_VOIE,{color:'#888',weight:2,opacity:.7,dashArray:'6,4'}).addTo(battleMap).bindTooltip('Voie ferrée');
+  BM_VILL.forEach(v=>{
+    const m=L.circleMarker(v.ll,{radius:5,fillColor:'#d4a843',fillOpacity:.9,color:'#fff',weight:1.5}).addTo(battleMap);
+    m.bindTooltip(v.nom,{permanent:v.nom==='Jaulgonne',direction:'top'});
+    m.bindPopup('<b>'+v.nom+'</b><br><span style="color:#a09078;font-size:.75rem">'+v.note+'</span>');
+  });
+  L.marker([49.120,3.545],{icon:L.divIcon({className:'',iconSize:[100,20],iconAnchor:[50,0],
+    html:'<div style="background:rgba(13,12,10,.75);border:1px solid #8a6010;color:#d4a843;font-size:.65rem;padding:2px 5px;border-radius:3px;white-space:nowrap;pointer-events:none;">Forêt de Ris</div>'
+  })}).addTo(battleMap);
+  let bmGZ=null,bmFL=null,bmBH=[],bmUM=[];
+  function bmClear(){
+    if(bmGZ){battleMap.removeLayer(bmGZ);bmGZ=null;}
+    if(bmFL){battleMap.removeLayer(bmFL);bmFL=null;}
+    bmBH.forEach(l=>battleMap.removeLayer(l));bmBH=[];
+    bmUM.forEach(l=>battleMap.removeLayer(l));bmUM=[];
+  }
+  function bmIcon(type){
+    const c={de:'#c0392b',fr:'#1a3a8c',us:'#2a6e2a'}[type]||'#999';
+    return L.divIcon({className:'',iconSize:[22,22],iconAnchor:[11,11],
+      html:'<div style="width:20px;height:20px;border-radius:3px;background:'+c+';border:2px solid #fff;display:flex;align-items:center;justify-content:center;font-size:9px;color:#fff;font-weight:bold;">'+type.toUpperCase()+'</div>'
+    });
+  }
+  function bApplyStep(idx){
+    bmClear();
+    const s=BM_STEPS[idx];
+    bmGZ=L.polygon(s.germZone,{fillColor:'#8b2020',fillOpacity:.18,color:'transparent',weight:0}).addTo(battleMap);
+    bmFL=L.polyline(s.frontLine,{color:'#c0392b',weight:3,opacity:.9,dashArray:idx===0?'6,4':null})
+      .addTo(battleMap).bindTooltip('Ligne de front — '+s.date,{sticky:true});
+    s.bridgeheads.forEach(bh=>{
+      bmBH.push(L.polygon(bh.coords,{fillColor:bh.color,fillOpacity:.45,color:bh.color,weight:2}).addTo(battleMap).bindTooltip(bh.label,{sticky:true}));
+    });
+    s.unitMarkers.forEach(um=>{
+      const l=L.marker(um.ll,{icon:bmIcon(um.type)}).addTo(battleMap);
+      l.bindPopup('<b>'+um.label+'</b><br><span style="color:#a09078;font-size:.75rem">'+um.note+'</span>');
+      bmUM.push(l);
+    });
+    document.getElementById('battle-step-date').textContent=s.date;
+    document.getElementById('battle-step-desc').textContent=s.desc;
+    document.getElementById('bstep-counter').textContent=(idx+1)+' / '+BM_STEPS.length;
+    document.querySelectorAll('.bstep-btn').forEach((b,i)=>b.classList.toggle('active',i===idx));
+  }
+  let bCur=0,bPlay=null;
+  const bmDiv=document.getElementById('battle-steps');
+  BM_STEPS.forEach((s,i)=>{
+    const btn=document.createElement('button');
+    btn.className='bstep-btn';
+    btn.textContent=s.date.split(' — ')[0];
+    btn.onclick=()=>bGoToStep(i);
+    bmDiv.appendChild(btn);
+  });
+  window.bGoToStep=function(i){bCur=Math.max(0,Math.min(BM_STEPS.length-1,i));bApplyStep(bCur);};
+  window.bNextStep=function(){bGoToStep(bCur+1);};
+  window.bPrevStep=function(){bGoToStep(bCur-1);};
+  window.bTogglePlay=function(){
+    const btn=document.getElementById('bplay-btn');
+    if(bPlay){clearInterval(bPlay);bPlay=null;btn.textContent='▶ Play';}
+    else{
+      btn.textContent='⏸ Pause';
+      bPlay=setInterval(()=>{if(bCur>=BM_STEPS.length-1){bCur=0;bApplyStep(0);}else bGoToStep(bCur+1);},2200);
+    }
+  };
+  setTimeout(()=>battleMap.invalidateSize(),400);
+  bApplyStep(0);
+})();
+</script>
+</body>
+</html>

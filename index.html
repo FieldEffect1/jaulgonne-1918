@@ -1,291 +1,144 @@
 <!DOCTYPE html>
-<html lang="fr" data-lang="fr">
+<html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jaulgonne 1918 — 2e Bataille de la Marne</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="museum.css">
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#0d0c0a;--bg2:#141210;--bg3:#1c1914;
-  --gold:#d4a843;--gold2:#8a6010;--gold3:#f0c870;
-  --text:#f0ebe0;--text2:#a09078;--text3:#6a5a48;
-  --fr:#1a3a8c;--us:#8b1a1a;
-  --radius:3px;
-}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,'Segoe UI',sans-serif;line-height:1.75;font-size:1rem}
-
-/* ── HEADER ── */
+/* ── HERO : photo aérienne de fond, hauteur réduite ── */
 #hero{
-  position:relative;min-height:100vh;display:flex;flex-direction:column;
-  justify-content:center;align-items:center;text-align:center;padding:3rem 2rem;
-  background:radial-gradient(ellipse 80% 70% at 50% 40%,#1a160d 0%,#050403 100%);
-  overflow:hidden;
+  min-height:62vh;
+  background:
+    linear-gradient(rgba(10,8,5,.65),rgba(10,8,5,.72)),
+    url("selection_photo/FI-0732-0343.jpg") center 42% / cover no-repeat;
 }
-#hero::before{
-  content:'';position:absolute;inset:0;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
-  background-size:200px;opacity:.4;pointer-events:none;
-}
-#hero::after{
-  content:'';position:absolute;bottom:0;left:0;right:0;height:200px;
-  background:linear-gradient(to bottom,transparent,var(--bg));pointer-events:none;
-}
-.hero-eyebrow{font-size:.72rem;letter-spacing:.45em;color:var(--gold2);text-transform:uppercase;margin-bottom:1.5rem;opacity:.9}
-.hero-title{
-  font-family:Georgia,'Times New Roman',serif;
-  font-size:clamp(2.4rem,7vw,5.5rem);color:var(--gold);font-weight:normal;
-  line-height:1.1;margin-bottom:.6rem;letter-spacing:-.01em;
-}
-.hero-subtitle{
-  font-size:clamp(.95rem,2vw,1.3rem);color:var(--text2);
-  font-style:italic;margin-bottom:.75rem;max-width:600px;
-}
-.hero-dates{
-  font-size:.78rem;letter-spacing:.3em;color:var(--gold2);
-  text-transform:uppercase;margin-bottom:2.5rem;
-}
-.hero-flags{font-size:2rem;letter-spacing:.8rem;margin-bottom:2.5rem}
-.lang-btn{
-  background:transparent;border:1px solid var(--gold2);color:var(--gold);
-  padding:.55rem 2rem;cursor:pointer;font-size:.8rem;letter-spacing:.2em;
-  text-transform:uppercase;transition:all .3s;font-family:inherit;border-radius:var(--radius);
-}
-.lang-btn:hover{background:var(--gold2);color:#000}
-.scroll-hint{
-  position:absolute;bottom:3rem;z-index:1;
-  font-size:.7rem;color:var(--text3);letter-spacing:.25em;text-transform:uppercase;
-  display:flex;flex-direction:column;align-items:center;gap:.5rem;
-  animation:bob 2.5s ease-in-out infinite;
-}
-.scroll-hint::after{
-  content:'';width:1px;height:36px;background:linear-gradient(to bottom,var(--gold2),transparent);
-}
-@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+#hero::before{display:none!important;}
 
-/* ── NAV ── */
-nav{
-  position:sticky;top:0;z-index:200;
-  background:rgba(10,9,7,.88);backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(212,168,67,.15);
-  display:flex;justify-content:center;flex-wrap:wrap;gap:.1rem;padding:.5rem 1rem;
-}
-nav a{
-  color:var(--text2);text-decoration:none;font-size:.72rem;letter-spacing:.12em;
-  text-transform:uppercase;padding:.45rem 1rem;transition:color .2s;border-radius:var(--radius);
-  position:relative;
-}
-nav a:hover,nav a.active{color:var(--gold)}
-nav a.active::after{
-  content:'';position:absolute;bottom:0;left:1rem;right:1rem;height:1px;
-  background:var(--gold);
-}
-
-/* ── SECTIONS ── */
-section{padding:5rem 1.5rem;max-width:1100px;margin:0 auto}
-.section-label{
-  font-size:.68rem;letter-spacing:.4em;color:var(--gold2);text-transform:uppercase;
-  margin-bottom:1rem;display:flex;align-items:center;gap:.75rem;
-}
-.section-label::before{content:'';display:block;width:30px;height:1px;background:var(--gold2)}
-h2{
-  font-family:Georgia,'Times New Roman',serif;
-  font-size:clamp(1.7rem,3.5vw,2.6rem);color:var(--gold);font-weight:normal;
-  margin-bottom:1.75rem;line-height:1.2;
-}
-h3{font-family:Georgia,'Times New Roman',serif;font-size:1.2rem;color:var(--gold);font-weight:normal;margin-bottom:1rem}
-.intro-text{font-size:1.05rem;color:var(--text2);max-width:700px;line-height:1.85}
-
-/* ── SVG MAP ── */
-#map-container{
-  background:var(--bg2);border:1px solid rgba(212,168,67,.2);border-radius:var(--radius);
-  padding:1.75rem;margin:2.5rem 0;
-}
-#map-container h3{color:var(--gold);font-size:.9rem;margin-bottom:1.25rem;letter-spacing:.1em;text-transform:uppercase}
-#battle-map{width:100%;max-width:780px;display:block;margin:0 auto}
-/* Smooth transitions for all SVG state layers */
-#battle-map g[id^="state-"]{transition:opacity .55s ease}
-.map-controls{display:flex;justify-content:center;gap:.6rem;margin-top:1.25rem;flex-wrap:wrap}
-.map-btn{
-  background:var(--bg3);border:1px solid rgba(212,168,67,.3);color:var(--text2);
-  padding:.4rem 1.1rem;cursor:pointer;font-size:.75rem;letter-spacing:.1em;
-  font-family:inherit;transition:all .2s;border-radius:var(--radius);
-}
-.map-btn.active,.map-btn:hover{background:var(--gold2);color:#000;border-color:var(--gold)}
-#map-legend{
-  font-size:.78rem;color:var(--text2);text-align:center;margin-top:.9rem;
-  min-height:2.5rem;line-height:1.6;max-width:620px;margin-left:auto;margin-right:auto;
-}
-
-/* ── TIMELINE ── */
-#timeline-section{max-width:1200px;margin:0 auto;padding:5rem 1.5rem}
-.timeline{position:relative;padding:2rem 0}
-.timeline::before{
-  content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;
-  background:linear-gradient(to bottom,transparent,var(--gold2) 8%,var(--gold2) 92%,transparent);
-  transform:translateX(-50%);
-}
-.jalon{
-  display:grid;grid-template-columns:1fr 80px 1fr;gap:0;margin-bottom:5rem;
-  opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease;
-}
-.jalon.visible{opacity:1;transform:none}
-.jalon:nth-child(odd) .jalon-content{grid-column:1;text-align:right;padding-right:2.5rem}
-.jalon:nth-child(odd) .jalon-images{grid-column:3;padding-left:2.5rem}
-.jalon:nth-child(even) .jalon-content{grid-column:3;text-align:left;padding-left:2.5rem;grid-row:1}
-.jalon:nth-child(even) .jalon-images{grid-column:1;grid-row:1;padding-right:2.5rem}
-.jalon-dot{
-  grid-column:2;grid-row:1;display:flex;align-items:flex-start;
-  justify-content:center;padding-top:.15rem;
-}
-.jalon-dot span{
-  width:42px;height:42px;background:var(--bg2);border-radius:50%;
-  border:1px solid var(--gold2);display:flex;align-items:center;justify-content:center;
-  font-family:Georgia,serif;font-size:.75rem;color:var(--gold);letter-spacing:.05em;
-  flex-shrink:0;
-}
-.jalon-date{font-size:.68rem;letter-spacing:.28em;color:var(--gold2);text-transform:uppercase;margin-bottom:.6rem}
-.jalon-title{
-  font-family:Georgia,'Times New Roman',serif;
-  font-size:1.25rem;color:var(--gold);margin-bottom:1rem;line-height:1.3;
-}
-.jalon-body{font-size:.92rem;color:var(--text2);line-height:1.85;margin-bottom:1.25rem}
-.jalon-audio{display:flex;align-items:center;gap:.5rem;margin-bottom:1.25rem}
-.jalon:nth-child(odd) .jalon-audio{justify-content:flex-end}
-.audio-btn{
-  background:var(--bg3);border:1px solid var(--gold2);color:var(--gold);
-  padding:.35rem 1rem;cursor:pointer;font-size:.75rem;letter-spacing:.1em;
-  font-family:inherit;transition:all .2s;border-radius:var(--radius);
-  display:flex;align-items:center;gap:.4rem;
-}
-.audio-btn:hover{background:var(--gold2);color:#000}
-.audio-btn.playing{background:var(--us);border-color:#c02a2a;color:#fff}
-.audio-status{font-size:.7rem;color:var(--text3);font-style:italic}
-.jalon-thumb-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem}
-.jalon-thumb-grid img{
-  width:100%;aspect-ratio:4/3;object-fit:cover;cursor:pointer;
-  border-radius:var(--radius);border:1px solid rgba(212,168,67,.18);
-  transition:transform .25s,border-color .25s,box-shadow .25s;filter:sepia(.25);
-}
-.jalon-thumb-grid img:hover{
-  transform:translateY(-3px) scale(1.01);
-  border-color:var(--gold);filter:sepia(0);
-  box-shadow:0 8px 24px rgba(0,0,0,.6);
-}
-
-/* ── GALLERY ── */
-#gallery-section{padding:5rem 1.5rem;max-width:1400px;margin:0 auto}
-.gallery-filters{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.75rem;align-items:center}
-.filter-btn{
-  background:var(--bg2);border:1px solid rgba(212,168,67,.25);color:var(--text2);
-  padding:.35rem 1rem;cursor:pointer;font-size:.73rem;letter-spacing:.12em;
-  font-family:inherit;border-radius:var(--radius);transition:all .2s;text-transform:uppercase;
-}
-.filter-btn.active,.filter-btn:hover{background:var(--gold2);color:#000;border-color:var(--gold)}
-#gallery-count{font-size:.72rem;color:var(--text3);margin-left:.5rem;letter-spacing:.05em}
-/* Masonry layout */
-.gallery-grid{
-  columns:5 160px;column-gap:.6rem;
-}
-.gallery-grid img{
-  width:100%;display:block;margin-bottom:.6rem;cursor:pointer;
-  border-radius:var(--radius);border:1px solid rgba(255,255,255,.05);
-  transition:transform .22s,border-color .22s,box-shadow .22s,opacity .22s;
-  filter:sepia(.3);break-inside:avoid;
-}
-.gallery-grid img:hover{
-  transform:scale(1.03);border-color:var(--gold);filter:sepia(0);
-  box-shadow:0 6px 20px rgba(0,0,0,.7);
-}
-.gallery-grid img.hidden{display:none}
-
-/* ── MEMORIAL ── */
-#memorial{background:var(--bg2);border-top:1px solid rgba(212,168,67,.15);border-bottom:1px solid rgba(212,168,67,.15)}
-#memorial section{padding:5rem 1.5rem}
-.memorial-quote{
-  font-family:Georgia,serif;font-size:1.15rem;font-style:italic;color:var(--gold3);
-  text-align:center;max-width:660px;margin:0 auto 3rem;line-height:1.75;
-}
-.memorial-quote cite{display:block;font-size:.75rem;color:var(--text2);margin-top:.9rem;font-style:normal;letter-spacing:.12em;text-transform:uppercase}
-.units{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;margin-top:2.5rem}
-.unit-card{
-  background:var(--bg3);border:1px solid rgba(212,168,67,.15);
-  border-radius:var(--radius);overflow:hidden;
-}
-.unit-card-band{height:4px}
-.unit-card-band.fr{background:var(--fr)}
-.unit-card-band.us{background:var(--us)}
-.unit-card-body{padding:1.5rem}
-.unit-flag{font-size:1.5rem;margin-bottom:.5rem}
-.unit-name{
-  font-family:Georgia,serif;color:var(--gold);font-size:1rem;
-  margin-bottom:.6rem;line-height:1.3;
-}
-.unit-theater{font-size:.68rem;letter-spacing:.2em;color:var(--text3);text-transform:uppercase;margin-bottom:.75rem}
-.unit-desc{font-size:.84rem;color:var(--text2);line-height:1.7}
-.divider{width:50px;height:1px;background:var(--gold2);margin:3rem auto}
-
-/* Memorial sites */
-.memorial-sites-title{
-  font-family:Georgia,serif;font-size:1rem;color:var(--gold);font-weight:normal;
-  letter-spacing:.15em;text-transform:uppercase;margin-bottom:1.75rem;text-align:center;
-}
-.sites-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.25rem}
-.site-card{
-  background:var(--bg3);border:1px solid rgba(212,168,67,.15);border-radius:var(--radius);
-  overflow:hidden;display:flex;flex-direction:column;
-}
-.site-card img{width:100%;height:200px;object-fit:cover;filter:sepia(.25)}
-.site-card-body{padding:1.25rem;flex:1}
-.site-name{font-family:Georgia,serif;color:var(--gold);font-size:.95rem;margin-bottom:.3rem}
-.site-dist{font-size:.68rem;letter-spacing:.2em;color:var(--text3);text-transform:uppercase;margin-bottom:.75rem}
-.site-desc{font-size:.82rem;color:var(--text2);line-height:1.65}
-
-/* ── FOOTER ── */
-footer{
-  background:#050403;border-top:1px solid rgba(255,255,255,.05);
+/* ── CITATION PLEINE LARGEUR ── */
+.home-quote{
+  background:#0e0c0a;
+  border-top:3px solid var(--gold);
+  border-bottom:1px solid rgba(122,26,26,.2);
   padding:2.5rem 1.5rem;text-align:center;
 }
-footer p{font-size:.74rem;color:var(--text3);line-height:1.9;max-width:720px;margin:0 auto .5rem}
+.home-quote blockquote{
+  font-family:'Playfair Display',Georgia,serif;
+  font-size:clamp(1.05rem,2.3vw,1.5rem);
+  color:#e8e0d0;font-style:italic;
+  max-width:780px;margin:0 auto .65rem;line-height:1.65;
+}
+.home-quote cite{
+  font-size:.7rem;color:#6a4a4a;letter-spacing:.22em;
+  text-transform:uppercase;display:block;
+}
 
-/* ── LIGHTBOX ── */
-#lightbox{
-  display:none;position:fixed;inset:0;z-index:1000;
-  background:rgba(0,0,0,.96);justify-content:center;align-items:center;flex-direction:column;
+/* ── MOSAÏQUE DE PHOTOS ── */
+.home-mosaic{
+  max-width:1100px;margin:0 auto;
+  padding:2.75rem 1.5rem 0;
 }
-#lightbox.open{display:flex}
-#lightbox img{max-width:90vw;max-height:82vh;object-fit:contain;border-radius:var(--radius);border:1px solid rgba(212,168,67,.2)}
-.lb-nav{display:flex;gap:2rem;margin-top:1rem;align-items:center}
-.lb-btn{
-  background:transparent;border:1px solid rgba(212,168,67,.4);color:var(--gold);
-  padding:.4rem 1.4rem;cursor:pointer;font-size:1.2rem;font-family:inherit;
-  transition:all .2s;border-radius:var(--radius);
+.home-mosaic-eyebrow{
+  font-size:.64rem;letter-spacing:.4em;color:var(--gold2);
+  text-transform:uppercase;margin-bottom:1rem;
+  display:flex;align-items:center;gap:.65rem;
 }
-.lb-btn:hover{background:var(--gold2);color:#000;border-color:var(--gold)}
-#lb-close{
-  position:absolute;top:1.5rem;right:2rem;font-size:1.8rem;cursor:pointer;
-  color:var(--text3);background:none;border:none;line-height:1;transition:color .2s;
+.home-mosaic-eyebrow::before{content:'';display:block;width:24px;height:1px;background:var(--gold2);}
+.home-mosaic-grid{
+  display:grid;
+  grid-template-columns:1.65fr 1fr 1fr;
+  grid-template-rows:270px;
+  gap:.4rem;
 }
-#lb-close:hover{color:var(--gold)}
-#lb-counter{font-size:.75rem;color:var(--text3);letter-spacing:.1em}
+.home-mosaic-grid figure{
+  position:relative;overflow:hidden;cursor:pointer;margin:0;
+}
+.home-mosaic-grid figure img{
+  width:100%;height:100%;object-fit:cover;
+  filter:sepia(.18) brightness(.86) contrast(1.06);
+  transition:filter .4s,transform .45s;
+  display:block;
+}
+.home-mosaic-grid figure:hover img{
+  filter:sepia(.04) brightness(1.02);transform:scale(1.04);
+}
+.home-mosaic-grid figcaption{
+  position:absolute;bottom:0;left:0;right:0;
+  background:linear-gradient(to top,rgba(10,8,5,.82) 0%,transparent 100%);
+  color:#d8cfc0;font-size:.66rem;letter-spacing:.04em;
+  padding:.8rem .8rem .55rem;
+  opacity:0;transition:opacity .3s;
+}
+.home-mosaic-grid figure:hover figcaption{opacity:1;}
+
+/* ── FRISE DE DATES ── */
+.home-dates-band{
+  background:var(--bg2);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  padding:1.75rem 1.5rem;
+  margin-top:2.5rem;
+}
+.home-dates-inner{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:.5rem;
+}
+.home-date-item{
+  text-align:center;padding:.75rem .5rem;
+  border-left:1px solid var(--border);
+}
+.home-date-item:first-child{border-left:none;}
+.home-date-num{
+  font-family:'Playfair Display',Georgia,serif;
+  font-size:1.35rem;color:var(--gold);display:block;
+  line-height:1.1;margin-bottom:.3rem;
+}
+.home-date-label{
+  font-size:.82rem;color:var(--text2);
+  letter-spacing:.03em;
+  line-height:1.4;
+}
+
+/* ── INTRO TEXTE ── */
+.home-intro{
+  max-width:760px;margin:0 auto;padding:4rem 1.5rem 1rem;text-align:center;
+}
+.home-intro .intro-text{margin:0 auto;text-align:left;}
+
+/* ── GRILLE DE NAVIGATION ── */
+.home-nav-section{max-width:1100px;margin:0 auto;padding:1.5rem 1.5rem 5rem;}
+.home-nav-section .section-label{margin-bottom:2rem;}
+/* Titres des nav-cards agrandis */
+.nav-card-title{font-size:1.22rem!important;line-height:1.25!important;}
+.nav-card{padding:0!important;overflow:hidden;}
+.nav-card-body{padding:1.5rem;}
+/* Thumbnail photo en haut de chaque card */
+.nav-card-thumb{
+  height:150px;overflow:hidden;
+  border-bottom:1px solid var(--border);
+}
+.nav-card-thumb img{
+  width:100%;height:100%;object-fit:cover;
+  filter:sepia(.22) brightness(.85) contrast(1.05);
+  transition:filter .4s,transform .5s;
+  display:block;
+}
+.nav-card:hover .nav-card-thumb img{
+  filter:sepia(.05) brightness(1.02);transform:scale(1.06);
+}
 
 /* ── RESPONSIVE ── */
-@media(max-width:760px){
-  .timeline::before{left:20px}
-  .jalon{grid-template-columns:40px 1fr;margin-bottom:3rem}
-  .jalon:nth-child(odd) .jalon-content,
-  .jalon:nth-child(even) .jalon-content{grid-column:2;text-align:left;padding:0 0 0 1rem}
-  .jalon:nth-child(odd) .jalon-images,
-  .jalon:nth-child(even) .jalon-images{grid-column:2;grid-row:2;padding:0 0 0 1rem}
-  .jalon-dot{grid-column:1;grid-row:1;justify-content:center;align-items:flex-start}
-  .jalon:nth-child(odd) .jalon-audio{justify-content:flex-start}
-  .gallery-grid{columns:2 130px}
-  .sites-grid{grid-template-columns:1fr}
-}
-@media(max-width:480px){
-  .gallery-grid{columns:2 110px}
-  .hero-title{font-size:2.2rem}
+@media(max-width:680px){
+  .home-mosaic-grid{
+    grid-template-columns:1fr;
+    grid-template-rows:repeat(3,200px);
+  }
+  .home-date-item{border-left:none;border-top:1px solid var(--border);}
+  .home-date-item:first-child{border-top:none;}
 }
 </style>
 </head>
@@ -293,691 +146,242 @@ footer p{font-size:.74rem;color:var(--text3);line-height:1.9;max-width:720px;mar
 
 <!-- HERO -->
 <header id="hero">
-  <div class="hero-eyebrow" data-fr="2e Bataille de la Marne · Été 1918" data-en="Second Battle of the Marne · Summer 1918">2e Bataille de la Marne · Été 1918</div>
-  <h1 class="hero-title" data-fr="Jaulgonne" data-en="Jaulgonne">Jaulgonne</h1>
-  <p class="hero-subtitle" data-fr="La libération du village &amp; la 2e Bataille de la Marne" data-en="The Liberation of the Village &amp; the Second Battle of the Marne">La libération du village &amp; la 2<sup>e</sup> Bataille de la Marne</p>
-  <div class="hero-dates" data-fr="27 mai → 24 juillet 1918" data-en="May 27 → July 24, 1918">27 mai → 24 juillet 1918</div>
+  <div class="hero-eyebrow">2e Bataille de la Marne · Été 1918</div>
+  <h1 class="hero-title">Jaulgonne</h1>
+  <p class="hero-subtitle">La libération du village &amp; la 2<sup>e</sup> Bataille de la Marne</p>
+  <div class="hero-dates">27 mai → 24 juillet 1918</div>
   <div class="hero-flags">🇫🇷 🇺🇸</div>
-  <button class="lang-btn" id="lang-toggle" onclick="toggleLang()">English</button>
-  <div class="scroll-hint" data-fr="Défiler" data-en="Scroll">Défiler</div>
+  <div class="scroll-hint">Découvrir</div>
 </header>
 
 <!-- NAV -->
 <nav id="main-nav">
-  <a href="#intro" data-fr="Introduction" data-en="Introduction">Introduction</a>
-  <a href="#timeline-section" data-fr="Chronologie" data-en="Timeline">Chronologie</a>
-  <a href="#gallery-section" data-fr="Archives" data-en="Archives">Archives</a>
-  <a href="#memorial" data-fr="Mémorial" data-en="Memorial">Mémorial</a>
+  <a href="index.html" class="active">Accueil</a>
+  <a href="geographie.html">Géographie</a>
+  <a href="evenements.html">Événements</a>
+  <a href="foret-ris.html">Forêt de Ris</a>
+  <a href="bataille.html">La Bataille</a>
+  <a href="hommage-us.html">Hommage US</a>
+  <a href="memoire.html">Mémorial</a>
+  <a href="galerie.html">Archives</a>
+  <a href="carte_bataille.html">Carte</a>
 </nav>
 
+<!-- CITATION -->
+<div class="home-quote">
+  <blockquote>
+    «&nbsp;La deuxième bataille de la Marne marque le tournant définitif — l'Allemagne n'a plus jamais repris l'initiative.&nbsp;»
+  </blockquote>
+  <cite>— Maréchal Ferdinand Foch, Commandant suprême des Armées alliées</cite>
+</div>
+
+<!-- MOSAÏQUE PHOTOS -->
+<div class="home-mosaic">
+  <div class="home-mosaic-eyebrow">Archives photographiques · Documents d'époque</div>
+  <div class="home-mosaic-grid">
+
+    <figure onclick="openLB('selection_photo/FI-0732-0343.jpg','Vue aérienne — coude de Jaulgonne, 6 juin 1918 (IMAGE\'EST)')">
+      <img src="selection_photo/FI-0732-0343.jpg" alt="Vue aérienne du coude de Jaulgonne, juin 1918" loading="lazy">
+      <figcaption>Vue aérienne — coude de Jaulgonne, 6 juin 1918</figcaption>
+    </figure>
+
+    <figure style="cursor:default">
+      <video controls preload="none"
+             poster="selection_photo/argonnaute_jaulgonne_troupes_americaines_1918.jpg"
+             style="width:100%;height:100%;object-fit:cover;display:block;background:#000">
+        <source src="selection_photo/Videos/111-h-1365-r1.mp4" type="video/mp4">
+      </video>
+      <figcaption style="opacity:1;background:linear-gradient(to top,rgba(10,8,5,.88) 0%,transparent 100%)">Signal Corps H-1365 · Aisne-Marne, juillet–août 1918 · NARA</figcaption>
+    </figure>
+
+    <figure onclick="openLB('selection_photo/Up_JAULGONNEplace_de_la_Mairie.jpg','Place de la Mairie de Jaulgonne en ruines, été 1918')">
+      <img src="selection_photo/Up_JAULGONNEplace_de_la_Mairie.jpg" alt="Place de la Mairie de Jaulgonne en ruines" loading="lazy">
+      <figcaption>Place de la Mairie en ruines, été 1918</figcaption>
+    </figure>
+
+  </div>
+</div>
+
+<!-- FRISE DATES CLÉS -->
+<div class="home-dates-band">
+  <div class="home-dates-inner">
+    <div class="home-date-item">
+      <span class="home-date-num">27 mai</span>
+      <span class="home-date-label">Franchissement allemand de la Marne</span>
+    </div>
+    <div class="home-date-item">
+      <span class="home-date-num">15 juil.</span>
+      <span class="home-date-label">Friedensturm repoussé — Rock of the Marne</span>
+    </div>
+    <div class="home-date-item">
+      <span class="home-date-num">18 juil.</span>
+      <span class="home-date-label">Contre-offensive Mangin</span>
+    </div>
+    <div class="home-date-item">
+      <span class="home-date-num">24 juil.</span>
+      <span class="home-date-label">Libération définitive de Jaulgonne</span>
+    </div>
+    <div class="home-date-item">
+      <span class="home-date-num">3 août</span>
+      <span class="home-date-label">Front stabilisé sur le Vesle</span>
+    </div>
+  </div>
+</div>
+
 <!-- INTRO -->
-<section id="intro">
-  <div class="section-label" data-fr="Contexte géographique" data-en="Geographic Context">Contexte géographique</div>
-  <h2 data-fr="Un verrou sur la route de Paris" data-en="A Bolt on the Road to Paris">Un verrou sur la route de Paris</h2>
-  <p class="intro-text" data-fr="En cet été 1918, sur les rives de la Marne, à soixante kilomètres seulement de Paris, se joue le destin de la France. Jaulgonne, petit village de la vallée, tient le dernier verrou naturel avant la capitale. Sa position est unique : ici, la Marne fait un coude serré au sud — le «&nbsp;Coude de Jaulgonne&nbsp;» — rendant toute traversée périlleuse. Sur les hauteurs au-dessus du village dominent la Ferme des Franquets et la Forêt de Ris au nord-est. Le confluent du Surmelin ouvre une voie vers l'intérieur des terres. Qui tient Jaulgonne, tient la route de Paris."
-     data-en="In the summer of 1918, on the banks of the Marne River, just thirty-seven miles from Paris, the fate of France hangs in the balance. Jaulgonne, a small valley village, holds the last natural lock before the capital. Its position is unique: here the Marne bends sharply southward — the 'Jaulgonne Bend' — making any crossing treacherous. On the heights above the village stand the Ferme des Franquets farmhouse and the Forêt de Ris forest to the northeast. The confluence of the Surmelin stream opens a path inland. Whoever holds Jaulgonne holds the road to Paris.">
-    En cet été 1918, sur les rives de la Marne, à soixante kilomètres seulement de Paris, se joue le destin de la France. Jaulgonne, petit village de la vallée, tient le dernier verrou naturel avant la capitale. Sa position est unique : ici, la Marne fait un coude serré au sud — le «&nbsp;Coude de Jaulgonne&nbsp;» — rendant toute traversée périlleuse. Sur les hauteurs au-dessus du village dominent la Ferme des Franquets et la Forêt de Ris au nord-est. Le confluent du Surmelin ouvre une voie vers l'intérieur des terres. Qui tient Jaulgonne, tient la route de Paris.
+<div class="home-intro">
+  <div class="section-label">Présentation</div>
+  <h2>Un village au cœur de la Grande Guerre</h2>
+  <p class="intro-text">
+    Ce site retrace les événements qui se sont déroulés à Jaulgonne et dans la vallée de la Marne durant l'été 1918 — du franchissement allemand du 27 mai à la libération définitive du 24 juillet. Un village qui fut, pendant quelques semaines, le verrou naturel de la route de Paris, et dont les habitants payèrent le prix fort pour la victoire alliée.
   </p>
-
-  <!-- ANIMATED SVG MAP -->
-  <div id="map-container">
-    <h3 data-fr="Progression des lignes de front — Juillet 1918" data-en="Front Line Progression — July 1918">Progression des lignes de front — Juillet 1918</h3>
-    <svg id="battle-map" viewBox="0 0 780 420" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <marker id="arrow-de" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
-          <path d="M0,0 L0,7 L7,3.5 z" fill="#cc3333"/>
-        </marker>
-        <marker id="arrow-fr" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
-          <path d="M0,0 L0,7 L7,3.5 z" fill="#4477cc"/>
-        </marker>
-        <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
-          <feGaussianBlur stdDeviation="2.5" result="blur"/>
-          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-        </filter>
-      </defs>
-
-      <!-- Background terrain -->
-      <rect width="780" height="420" fill="#111008"/>
-      <!-- Terrain nord (rive nord) -->
-      <rect x="0" y="0" width="780" height="190" fill="#151410" rx="0"/>
-      <!-- Terrain sud (rive sud, défenseurs) -->
-      <rect x="0" y="250" width="780" height="170" fill="#131510" rx="0"/>
-
-      <!-- Forêt de Ris (nord-est de Jaulgonne) -->
-      <g opacity="0.6">
-        <rect x="460" y="40" width="120" height="80" fill="#1e2818" rx="4"/>
-        <text x="520" y="72" fill="#3a5530" font-size="9.5" text-anchor="middle" font-family="Georgia">🌲 Forêt de Ris</text>
-      </g>
-
-      <!-- Marne River avec le Coude de Jaulgonne (S-bend vers le sud) -->
-      <!-- Rive nord -->
-      <path d="M0,175 Q90,168 170,172 Q240,175 290,180 Q320,186 345,210 Q360,228 380,235 Q400,228 420,210 Q445,186 480,175 Q560,165 650,168 Q710,170 780,165"
-        fill="#1a3a7a" stroke="none" opacity="1"/>
-      <!-- Rive sud -->
-      <path d="M0,195 Q90,188 170,192 Q240,195 290,200 Q320,208 345,235 Q360,255 380,263 Q400,255 420,235 Q445,208 480,195 Q560,185 650,188 Q710,190 780,185"
-        fill="#0d1a3a" stroke="none" opacity="1"/>
-      <!-- Eau centrale (le fleuve) -->
-      <path d="M0,185 Q90,178 170,182 Q240,185 290,190 Q320,197 345,222 Q360,241 380,249 Q400,241 420,222 Q445,197 480,185 Q560,175 650,178 Q710,180 780,175"
-        fill="#1e408a" stroke="#2a55aa" stroke-width="0.5" opacity="0.85"/>
-      <!-- Label Marne -->
-      <text x="68" y="196" fill="#4a72bc" font-size="10.5" font-family="Georgia" font-style="italic">Marne</text>
-
-      <!-- Surmelin (affluent, rive sud, rejoint la Marne à l'est de Jaulgonne) -->
-      <path d="M440,249 Q438,275 435,300 Q432,325 428,360"
-        fill="none" stroke="#1e408a" stroke-width="6" opacity="0.45"/>
-
-      <!-- LOCATIONS -->
-      <!-- Château-Thierry (west, hors-cadre) -->
-      <text x="10" y="400" fill="#3a3020" font-size="9" font-family="Georgia">← Château-Thierry (28 km)</text>
-
-      <!-- Dormans (ouest, rive sud) -->
-      <circle cx="95" cy="255" r="4" fill="#555" stroke="#3a3020" stroke-width="1"/>
-      <text x="95" y="270" fill="#666" font-size="9" text-anchor="middle" font-family="Georgia">Dormans</text>
-
-      <!-- Mont-Saint-Père (rive sud, ouest de Jaulgonne) -->
-      <circle cx="245" cy="278" r="4" fill="#666" stroke="#444" stroke-width="1"/>
-      <text x="245" y="294" fill="#777" font-size="9" text-anchor="middle" font-family="Georgia">Mont-St-Père</text>
-
-      <!-- Jaulgonne (rive SUD — point central du coude) -->
-      <circle cx="380" cy="300" r="8" fill="var(--gold)" stroke="#8a6010" stroke-width="2" filter="url(#glow)" id="dot-jaulgonne"/>
-      <text x="380" y="318" fill="var(--gold)" font-size="12" text-anchor="middle" font-family="Georgia" font-weight="bold">Jaulgonne</text>
-
-      <!-- Ferme des Franquets (hauteurs SUD de Jaulgonne) -->
-      <rect x="355" y="340" width="12" height="8" fill="#7a6030" stroke="#a08040" stroke-width="1"/>
-      <text x="373" y="350" fill="#9a7a50" font-size="8.5" font-family="Georgia">Ferme des Franquets</text>
-
-      <!-- Mézy-Moulins (rive sud, est) -->
-      <circle cx="495" cy="258" r="4.5" fill="#666" stroke="#444" stroke-width="1"/>
-      <text x="495" y="273" fill="#777" font-size="9" text-anchor="middle" font-family="Georgia">Mézy-Moulins</text>
-
-      <!-- Chartèves (rive NORD, est) -->
-      <circle cx="555" cy="148" r="4" fill="#666" stroke="#444" stroke-width="1"/>
-      <text x="555" y="136" fill="#777" font-size="9" text-anchor="middle" font-family="Georgia">Chartèves</text>
-
-      <!-- Épernay (east) -->
-      <text x="690" y="400" fill="#3a3020" font-size="9" font-family="Georgia">Épernay → (40 km)</text>
-
-      <!-- Nord indicator -->
-      <text x="22" y="22" fill="#4a4030" font-size="12" font-family="Georgia" font-weight="bold">N</text>
-      <line x1="26" y1="25" x2="26" y2="42" stroke="#4a4030" stroke-width="1.5"/>
-      <path d="M22,32 L26,25 L30,32" fill="none" stroke="#4a4030" stroke-width="1.5"/>
-
-      <!-- ANIMATED LAYERS (all have CSS transition via style) -->
-
-      <!-- State 0: Avant l'offensive — ligne allemande loin au nord -->
-      <g id="state-0" style="opacity:1">
-        <path d="M0,72 Q200,58 390,68 Q570,78 780,62"
-          fill="none" stroke="#cc3333" stroke-width="2" stroke-dasharray="10,5" opacity="0.65"/>
-        <text x="390" y="52" fill="#cc3333" font-size="10" text-anchor="middle" font-family="Georgia" font-style="italic">— Ligne allemande (mai 1918)</text>
-        <text x="390" y="90" fill="#555" font-size="9" text-anchor="middle" font-family="Georgia">Défenseurs alliés (FR+US) sur la rive sud</text>
-      </g>
-
-      <!-- State 1: 30 mai — Blücher-Yorck, franchissement de la Marne -->
-      <g id="state-1" style="opacity:0">
-        <!-- Ligne allemande avancée jusqu'à la rive nord de la Marne -->
-        <path d="M0,165 Q200,152 390,160 Q570,168 780,154"
-          fill="none" stroke="#cc3333" stroke-width="2" stroke-dasharray="8,5" opacity="0.75"/>
-        <text x="150" y="145" fill="#cc3333" font-size="9.5" font-family="Georgia" font-style="italic">— Blücher-Yorck (30 mai)</text>
-        <!-- Flèches allemandes traversant la Marne (nord→sud, à Jaulgonne) -->
-        <line x1="380" y1="80" x2="380" y2="285" stroke="#cc3333" stroke-width="2.5" marker-end="url(#arrow-de)"/>
-        <line x1="240" y1="80" x2="240" y2="265" stroke="#cc3333" stroke-width="2" marker-end="url(#arrow-de)" stroke-dasharray="5,3" opacity="0.7"/>
-        <line x1="520" y1="80" x2="520" y2="250" stroke="#cc3333" stroke-width="2" marker-end="url(#arrow-de)" stroke-dasharray="5,3" opacity="0.6"/>
-        <!-- Pont flottant à Jaulgonne -->
-        <rect x="370" y="248" width="22" height="6" fill="#cc3333" opacity="0.8" rx="1"/>
-        <text x="381" y="272" fill="#cc5555" font-size="8.5" text-anchor="middle" font-family="Georgia">pont flottant</text>
-        <!-- Jaulgonne tombe -->
-        <text x="340" y="295" fill="#cc3333" font-size="9" font-family="Georgia" font-weight="bold">× occupé</text>
-      </g>
-
-      <!-- State 2: 15 juillet — Friedensturm, gaz + multiples ponts -->
-      <g id="state-2" style="opacity:0">
-        <!-- Nuages de gaz (rive nord, avant le franchissement) -->
-        <ellipse cx="380" cy="155" rx="70" ry="38" fill="#6a8a20" opacity="0.14"/>
-        <ellipse cx="240" cy="162" rx="50" ry="28" fill="#6a8a20" opacity="0.10"/>
-        <ellipse cx="520" cy="152" rx="55" ry="30" fill="#6a8a20" opacity="0.10"/>
-        <text x="380" y="118" fill="#7a9a30" font-size="10" text-anchor="middle" font-family="Georgia">☁ Gaz toxiques ☁</text>
-        <!-- Flèches allemandes traversant massivement -->
-        <line x1="380" y1="80" x2="380" y2="285" stroke="#cc3333" stroke-width="3" marker-end="url(#arrow-de)"/>
-        <line x1="495" y1="80" x2="495" y2="244" stroke="#cc3333" stroke-width="2.5" marker-end="url(#arrow-de)"/>
-        <line x1="245" y1="80" x2="245" y2="265" stroke="#cc3333" stroke-width="2" marker-end="url(#arrow-de)" stroke-dasharray="4,3" opacity="0.75"/>
-        <!-- Multiples ponts flottants -->
-        <rect x="370" y="248" width="22" height="6" fill="#cc3333" opacity="0.9" rx="1"/>
-        <rect x="485" y="240" width="22" height="6" fill="#cc3333" opacity="0.8" rx="1"/>
-        <rect x="235" y="260" width="22" height="6" fill="#cc3333" opacity="0.65" rx="1"/>
-        <!-- Position fer à cheval 38e US à Mézy -->
-        <path d="M475,260 Q495,285 520,260" fill="none" stroke="#4477cc" stroke-width="2.5"/>
-        <text x="497" y="300" fill="#5588ee" font-size="9" text-anchor="middle" font-family="Georgia">38e RI US — fer à cheval</text>
-        <!-- Contre-attaque 73e DI FR à 7h35 -->
-        <line x1="245" y1="295" x2="335" y2="252" stroke="#4477cc" stroke-width="2" marker-end="url(#arrow-fr)" stroke-dasharray="6,3"/>
-        <text x="258" y="310" fill="#4477cc" font-size="8.5" font-family="Georgia">73e DI FR (7h35)</text>
-        <text x="380" y="116" fill="#cc3333" font-size="9.5" text-anchor="middle" font-family="Georgia" font-style="italic">— Friedensturm (15 juil.)</text>
-      </g>
-
-      <!-- State 3: 18-22 juillet — contre-offensive alliée, libération -->
-      <g id="state-3" style="opacity:0">
-        <!-- Flèches alliées remontant vers le nord -->
-        <line x1="380" y1="380" x2="380" y2="264" stroke="#4477cc" stroke-width="3" marker-end="url(#arrow-fr)"/>
-        <line x1="245" y1="370" x2="245" y2="280" stroke="#4477cc" stroke-width="2.5" marker-end="url(#arrow-fr)"/>
-        <line x1="495" y1="365" x2="495" y2="267" stroke="#4477cc" stroke-width="2.5" marker-end="url(#arrow-fr)"/>
-        <line x1="550" y1="360" x2="550" y2="245" stroke="#4477cc" stroke-width="2" marker-end="url(#arrow-fr)" stroke-dasharray="5,3" opacity="0.7"/>
-        <!-- Ligne alliée progressive -->
-        <path d="M0,380 Q200,368 390,373 Q570,380 780,368"
-          fill="none" stroke="#4477cc" stroke-width="1.5" stroke-dasharray="8,5" opacity="0.55"/>
-        <!-- Ligne allemande refoulée vers le nord -->
-        <path d="M0,110 Q200,98 390,106 Q570,114 780,100"
-          fill="none" stroke="#cc3333" stroke-width="1.5" stroke-dasharray="6,5" opacity="0.45"/>
-        <text x="160" y="88" fill="#cc3333" font-size="9" font-family="Georgia" font-style="italic">— Ligne all. refoulée</text>
-        <!-- Jaulgonne libéré -->
-        <circle cx="380" cy="300" r="16" fill="none" stroke="var(--gold)" stroke-width="2" opacity="0.8" filter="url(#glow)"/>
-        <text x="380" y="272" fill="var(--gold)" font-size="11" text-anchor="middle" font-family="Georgia" font-weight="bold">★ Libéré 22 juil.</text>
-        <text x="160" y="368" fill="#4477cc" font-size="9" font-family="Georgia" font-style="italic">— Ligne alliée (18 juil.)</text>
-        <!-- Ferme des Franquets prise le 24 juil. -->
-        <text x="420" y="360" fill="var(--gold)" font-size="8.5" font-family="Georgia">Ferme prise 24 juil.</text>
-      </g>
-    </svg>
-
-    <div class="map-controls">
-      <button class="map-btn active" onclick="setMapState(0)" data-state="0" data-fr="Avant l'offensive" data-en="Before Offensive">Avant l'offensive</button>
-      <button class="map-btn" onclick="setMapState(1)" data-state="1" data-fr="30 mai — Blücher" data-en="May 30 — Blücher">30 mai — Blücher</button>
-      <button class="map-btn" onclick="setMapState(2)" data-state="2" data-fr="15 juil. — Gaz & Ponts" data-en="July 15 — Gas & Bridges">15 juil. — Gaz &amp; Ponts</button>
-      <button class="map-btn" onclick="setMapState(3)" data-state="3" data-fr="22 juil. — Libération" data-en="July 22 — Liberation">22 juil. — Libération</button>
-    </div>
-    <div id="map-legend"></div>
-  </div>
-</section>
-
-<!-- TIMELINE -->
-<div id="timeline-section">
-  <div style="max-width:1200px;margin:0 auto;padding:0 1.5rem 2.5rem">
-    <div class="section-label" data-fr="Chronologie" data-en="Timeline">Chronologie</div>
-    <h2 data-fr="Les événements — Été 1918" data-en="The Events — Summer 1918">Les événements — Été 1918</h2>
-  </div>
-  <div class="timeline" id="timeline">
-    <!-- Jalons generated by JS -->
-  </div>
 </div>
 
-<!-- GALLERY -->
-<div id="gallery-section">
-  <div class="section-label" data-fr="Archives photographiques" data-en="Photographic Archives">Archives photographiques</div>
-  <h2 data-fr="Documents &amp; Photographies" data-en="Documents &amp; Photographs">Documents &amp; Photographies</h2>
-  <div class="gallery-filters">
-    <button class="filter-btn active" data-filter="all" data-fr="Tout" data-en="All" onclick="filterGallery('all')">Tout</button>
-    <button class="filter-btn" data-filter="photos" data-fr="Photos" data-en="Photos" onclick="filterGallery('photos')">Photos</button>
-    <button class="filter-btn" data-filter="cartes" data-fr="Cartes" data-en="Maps" onclick="filterGallery('cartes')">Cartes</button>
-    <button class="filter-btn" data-filter="textes" data-fr="Documents" data-en="Documents" onclick="filterGallery('textes')">Documents</button>
-    <span id="gallery-count"></span>
+<!-- GRILLE DE NAVIGATION -->
+<div class="home-nav-section">
+  <div class="section-label">Les thématiques du site</div>
+  <div class="nav-cards">
+
+    <a href="geographie.html" class="nav-card">
+      <div class="nav-card-thumb">
+        <img src="selection_photo/01e7b172347875435730ca5e97645ff90a7c2f8267.jpg" alt="Vue aérienne de Jaulgonne" loading="lazy">
+      </div>
+      <div class="nav-card-body">
+        <div class="nav-card-num">01</div>
+        <div class="nav-card-title">La position stratégique de Jaulgonne</div>
+        <div class="nav-card-desc">Le coude de la Marne, le confluent du Surmelin, la Ferme des Franquets et la Forêt de Ris : pourquoi Jaulgonne était le dernier verrou avant Paris.</div>
+        <span class="nav-card-tag">Carte interactive · Géographie</span>
+      </div>
+    </a>
+
+    <a href="evenements.html" class="nav-card">
+      <div class="nav-card-thumb">
+        <img src="selection_photo/01a1a0e89809046f0ab57f7207a3ff46d885605da9.jpg" alt="Équipe de mitrailleuse en position" loading="lazy">
+      </div>
+      <div class="nav-card-body">
+        <div class="nav-card-num">02</div>
+        <div class="nav-card-title">Les événements — Été 1918</div>
+        <div class="nav-card-desc">Des bombardements massifs du 15 juillet aux passerelles flottantes, de la nuit des gaz à la reprise rue par rue : la chronologie complète des six semaines qui ont changé la guerre.</div>
+        <span class="nav-card-tag">Chronologie · 6 chapitres</span>
+      </div>
+    </a>
+
+    <a href="liberation.html" class="nav-card">
+      <div class="nav-card-thumb">
+        <img src="selection_photo/Up_JAULGONNEplace_de_la_Mairie.jpg" alt="Place de la Mairie de Jaulgonne en ruines" loading="lazy">
+      </div>
+      <div class="nav-card-body">
+        <div class="nav-card-num">03</div>
+        <div class="nav-card-title">La Libération de Jaulgonne</div>
+        <div class="nav-card-desc">21–24 juillet 1918 : les passerelles du génie, le franchissement de la Marne, l'entrée du 38e Régiment US dans le village. Du premier coup de main à la libération définitive.</div>
+        <span class="nav-card-tag">21–24 juillet · 38e Rgt US · Mondésir</span>
+      </div>
+    </a>
+
+    <a href="foret-ris.html" class="nav-card">
+      <div class="nav-card-thumb">
+        <img src="selection_photo/Illustrations_foret_de_Ris/m2-042.jpg" alt="Soldats américains dans le Bois Belleau" loading="lazy">
+      </div>
+      <div class="nav-card-body">
+        <div class="nav-card-num">04</div>
+        <div class="nav-card-title">Le Charmel &amp; la Forêt de Ris</div>
+        <div class="nav-card-desc">La difficile bataille dans les bois au nord de Jaulgonne : la prise du Charmel, le Bois Meunière, et la relève des unités épuisées. Sources primaires françaises et américaines.</div>
+        <span class="nav-card-tag">Combat de forêt · Sources primaires</span>
+      </div>
+    </a>
+
+    <a href="bataille.html" class="nav-card">
+      <div class="nav-card-thumb">
+        <img src="selection_photo/0187ffc063937ce287cd69d7e71a077bea11733437.jpg" alt="Carte American Operations Aisne-Marne" loading="lazy">
+      </div>
+      <div class="nav-card-body">
+        <div class="nav-card-num">05</div>
+        <div class="nav-card-title">L'ampleur de la bataille</div>
+        <div class="nav-card-desc">La 2e Bataille de la Marne vue depuis l'ensemble du front : 24 divisions alliées, 350 chars, 200 villages libérés, 35 000 prisonniers. Le tournant définitif de la Grande Guerre.</div>
+        <span class="nav-card-tag">Contexte général · En enrichissement</span>
+      </div>
+    </a>
+
+    <a href="hommage-us.html" class="nav-card">
+      <div class="nav-card-thumb">
+        <img src="selection_photo/argonnaute_jaulgonne_troupes_americaines_1918.jpg" alt="Troupes américaines au repos à Jaulgonne" loading="lazy">
+      </div>
+      <div class="nav-card-body">
+        <div class="nav-card-num">06</div>
+        <div class="nav-card-title">Hommage à la Division Américaine</div>
+        <div class="nav-card-desc">Les «&nbsp;Rochers de la Marne&nbsp;» — 3e Division US, 38e Régiment d'Infanterie. Les soldats noirs américains à Jaulgonne, Franquets Farm et Château-Thierry. Leur rôle décisif, leurs sacrifices.</div>
+        <span class="nav-card-tag">Rock of the Marne · Buffalo Soldiers</span>
+      </div>
+    </a>
+
+    <a href="galerie.html" class="nav-card">
+      <div class="nav-card-thumb">
+        <img src="selection_photo/m2-037.jpg" alt="Soldat de dos contemplant les ruines" loading="lazy">
+      </div>
+      <div class="nav-card-body">
+        <div class="nav-card-num">07</div>
+        <div class="nav-card-title">Archives photographiques</div>
+        <div class="nav-card-desc">45 documents d'archives sélectionnés : photographies de soldats, vues aériennes, cartes tactiques, ruines de Jaulgonne, mémoriaux. Sources primaires annotées.</div>
+        <span class="nav-card-tag">45 documents · Galerie annotée</span>
+      </div>
+    </a>
+
+    <a href="carte_bataille.html" class="nav-card">
+      <div class="nav-card-thumb">
+        <img src="selection_photo/01d0335f9060ed41fd72afec94b6430112afa77d03.jpg" alt="Carte tactique de Jaulgonne" loading="lazy">
+      </div>
+      <div class="nav-card-body">
+        <div class="nav-card-num">08</div>
+        <div class="nav-card-title">Carte animée de la bataille</div>
+        <div class="nav-card-desc">La progression des lignes de front en 9 étapes, du 14 juillet au 3 août 1918. Têtes de pont, unités engagées, libération de Jaulgonne — sur fond topographique interactif.</div>
+        <span class="nav-card-tag">Carte Leaflet · 9 étapes animées</span>
+      </div>
+    </a>
+
+    <a href="memoire.html" class="nav-card">
+      <div class="nav-card-thumb">
+        <img src="selection_photo/chateau-thierry-usa-mem-jp-201.jpg" alt="Monument Aisne-Marne, Château-Thierry" loading="lazy">
+      </div>
+      <div class="nav-card-body">
+        <div class="nav-card-num">09</div>
+        <div class="nav-card-title">Les lieux de mémoire</div>
+        <div class="nav-card-desc">Dormans, Château-Thierry, Bois Belleau — les mémoriaux qui perpétuent le souvenir des combattants français, américains et de leurs alliés dans la vallée de la Marne.</div>
+        <span class="nav-card-tag">Dormans · Château-Thierry · Belleau Wood</span>
+      </div>
+    </a>
+
   </div>
-  <div class="gallery-grid" id="gallery-grid"></div>
-</div>
-
-<!-- MEMORIAL -->
-<div id="memorial">
-<section>
-  <div class="section-label" data-fr="Pour eux" data-en="For Them">Pour eux</div>
-  <h2 data-fr="Mémorial — Les soldats de Jaulgonne" data-en="Memorial — The Soldiers of Jaulgonne">Mémorial — Les soldats de Jaulgonne</h2>
-
-  <blockquote class="memorial-quote">
-    <span data-fr="«&nbsp;Ce n'est pas la célébrité qui fait la bravoure. Ce sont des hommes simples, avec une peur simple et un devoir simple, qui ont tenu quand tout invitait à fuir.&nbsp;»" data-en="«&nbsp;It is not fame that makes bravery. They were simple men, with a simple fear and a simple duty, who held when everything invited them to flee.&nbsp;»">«&nbsp;Ce n'est pas la célébrité qui fait la bravoure. Ce sont des hommes simples, avec une peur simple et un devoir simple, qui ont tenu quand tout invitait à fuir.&nbsp;»</span>
-    <cite data-fr="— Hommage aux soldats de la Marne, 1918" data-en="— Tribute to the Soldiers of the Marne, 1918">— Hommage aux soldats de la Marne, 1918</cite>
-  </blockquote>
-
-  <div class="divider"></div>
-
-  <div class="units">
-    <div class="unit-card">
-      <div class="unit-card-band fr"></div>
-      <div class="unit-card-body">
-        <div class="unit-flag">🇫🇷</div>
-        <div class="unit-name">47<sup>e</sup> Régiment d'Infanterie</div>
-        <div class="unit-theater" data-fr="Ferme des Franquets · Forêt de Ris · mai–juin 1918" data-en="Ferme des Franquets · Forêt de Ris · May–June 1918">Ferme des Franquets · Forêt de Ris · mai–juin 1918</div>
-        <p class="unit-desc" data-fr="Bataillons Sagnières et Taureau. Ils ont tenu la Ferme des Franquets et les pentes au-dessus de Jaulgonne lors de l'offensive Blücher-Yorck de mai 1918. Des poilus qui ont résisté jusqu'à la contre-attaque franco-américaine, dans les gaz et sous les obus." data-en="Sagnières and Taureau Battalions. They held the Ferme des Franquets and the slopes above Jaulgonne during the May 1918 Blücher-Yorck offensive. Poilus who held until the Franco-American counter-attack, through gas and shellfire.">Bataillons Sagnières et Taureau. Ils ont tenu la Ferme des Franquets et les pentes au-dessus de Jaulgonne lors de l'offensive Blücher-Yorck de mai 1918. Des poilus qui ont résisté jusqu'à la contre-attaque franco-américaine.</p>
-      </div>
-    </div>
-    <div class="unit-card">
-      <div class="unit-card-band fr"></div>
-      <div class="unit-card-body">
-        <div class="unit-flag">🇫🇷</div>
-        <div class="unit-name">131<sup>e</sup> Régiment d'Infanterie</div>
-        <div class="unit-theater" data-fr="Varennes · face à Jaulgonne · 15 juillet 1918" data-en="Varennes · facing Jaulgonne · July 15, 1918">Varennes · face à Jaulgonne · 15 juillet 1918</div>
-        <p class="unit-desc" data-fr="Positionnés à Varennes, en face de Jaulgonne, face à la Marne. Ils ont maintenu la ligne défensive aux côtés des soldats américains du 38e Régiment d'Infanterie, dans les gaz et sous les obus, la nuit du 15 juillet 1918." data-en="Positioned at Varennes, facing Jaulgonne across the Marne. They held the defensive line alongside American soldiers of the 38th Infantry Regiment, through gas and shellfire, on the night of July 15, 1918.">Positionnés à Varennes, face à la Marne. Ils ont maintenu la ligne défensive aux côtés des soldats américains, dans les gaz et sous les obus, la nuit du 15 juillet 1918.</p>
-      </div>
-    </div>
-    <div class="unit-card">
-      <div class="unit-card-band us"></div>
-      <div class="unit-card-body">
-        <div class="unit-flag">🇺🇸</div>
-        <div class="unit-name">38<sup>th</sup> Infantry Regiment — 3<sup>rd</sup> Division</div>
-        <div class="unit-theater" data-fr="Mézy-Moulins · Jaulgonne · 15–22 juillet 1918" data-en="Mézy-Moulins · Jaulgonne · July 15–22, 1918">Mézy-Moulins · Jaulgonne · 15–22 juillet 1918</div>
-        <p class="unit-desc" data-fr="Les «&nbsp;Rochers de la Marne&nbsp;». Des hommes de l'Ohio, du Michigan, de Pennsylvanie. Le 15 juillet, encerclés en position de fer à cheval à Mézy, sans ordre de retraite, dans les gaz, face à 6 régiments allemands pendant 14 heures. Le 22 juillet, ils libèrent Jaulgonne." data-en="The 'Rock of the Marne'. Men from Ohio, Michigan, Pennsylvania. On July 15, surrounded in a horseshoe position at Mézy, without orders to retreat, through gas, against 6 German regiments for 14 hours. On July 22, they liberate Jaulgonne.">Les «&nbsp;Rochers de la Marne&nbsp;». Des hommes de l'Ohio, du Michigan, de Pennsylvanie. Le 15 juillet, encerclés à Mézy, sans ordre de retraite, dans les gaz, face à 6 régiments pendant 14 heures. Le 22 juillet, ils libèrent Jaulgonne.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="divider"></div>
-
-  <blockquote class="memorial-quote" style="font-size:.95rem">
-    <span data-fr="«&nbsp;L'action des troupes américaines sur la Marne est l'une des pages les plus brillantes de l'histoire militaire.&nbsp;»" data-en="«&nbsp;The action of the American troops on the Marne is one of the most brilliant pages in the annals of military history.&nbsp;»">«&nbsp;L'action des troupes américaines sur la Marne est l'une des pages les plus brillantes de l'histoire militaire.&nbsp;»</span>
-    <cite>— Général John J. Pershing, AEF</cite>
-  </blockquote>
-
-  <div class="divider"></div>
-
-  <!-- Lieux de mémoire -->
-  <div class="memorial-sites-title" data-fr="Les lieux de mémoire" data-en="Places of Remembrance">Les lieux de mémoire</div>
-  <div class="sites-grid" id="sites-grid">
-    <div class="site-card">
-      <div style="height:200px;background:linear-gradient(135deg,#1a1a10 0%,#2a2010 100%);display:flex;align-items:center;justify-content:center;font-size:3rem">🏛️</div>
-      <div class="site-card-body">
-        <div class="site-name" data-fr="Monument Aisne-Marne (Château-Thierry)" data-en="Aisne-Marne American Monument (Château-Thierry)">Monument Aisne-Marne (Château-Thierry)</div>
-        <div class="site-dist" data-fr="28 km à l'ouest de Jaulgonne" data-en="28 km west of Jaulgonne">28 km à l'ouest de Jaulgonne</div>
-        <p class="site-desc" data-fr="Monument américain inauguré en 1937 sur la colline dominant Château-Thierry. Dédié aux soldats de la 1re Armée américaine. Colonnade de granit de 60 m surmontée de deux figures allégoriques symbolisant la France et les États-Unis." data-en="American monument inaugurated in 1937 on the hill overlooking Château-Thierry. Dedicated to soldiers of the 1st American Army. 60-meter granite colonnade crowned with two allegorical figures symbolizing France and the United States.">Monument américain inauguré en 1937 sur la colline dominant Château-Thierry. Dédié aux soldats de la 1re Armée américaine. Colonnade de granit surmontée de deux figures allégoriques symbolisant la France et les États-Unis.</p>
-      </div>
-    </div>
-    <div class="site-card">
-      <div style="height:200px;background:linear-gradient(135deg,#180d0d 0%,#2a1515 100%);display:flex;align-items:center;justify-content:center;font-size:3rem">⛪</div>
-      <div class="site-card-body">
-        <div class="site-name" data-fr="Mémorial de Dormans" data-en="Dormans Memorial">Mémorial de Dormans</div>
-        <div class="site-dist" data-fr="12 km à l'ouest de Jaulgonne" data-en="12 km west of Jaulgonne">12 km à l'ouest de Jaulgonne</div>
-        <p class="site-desc" data-fr="Ossuaire-chapelle du Souvenir dédié à la 2e bataille de la Marne. Construit entre 1921 et 1935, il renferme les restes de 1 500 soldats des deux guerres mondiales. Son clocher de 57 mètres domine la Marne." data-en="Ossuary-chapel of Remembrance dedicated to the 2nd Battle of the Marne. Built between 1921 and 1935, it houses the remains of 1,500 soldiers from both World Wars. Its 57-meter bell tower overlooks the Marne.">Ossuaire-chapelle du Souvenir dédié à la 2e bataille de la Marne. Construit entre 1921 et 1935, il renferme les restes de 1 500 soldats des deux guerres. Son clocher domine la Marne.</p>
-      </div>
-    </div>
-    <div class="site-card">
-      <div style="height:200px;background:linear-gradient(135deg,#0d1810 0%,#152415 100%);display:flex;align-items:center;justify-content:center;font-size:3rem">🌿</div>
-      <div class="site-card-body">
-        <div class="site-name" data-fr="Bois Belleau (Belleau Wood)" data-en="Belleau Wood">Bois Belleau (Belleau Wood)</div>
-        <div class="site-dist" data-fr="22 km à l'ouest de Jaulgonne" data-en="22 km west of Jaulgonne">22 km à l'ouest de Jaulgonne</div>
-        <p class="site-desc" data-fr="Forêt sanctuaire de la Marne — théâtre de la bataille des US Marines en juin 1918. Le cimetière américain d'Aisne-Marne jouxte les bois : 2 289 tombes. La forêt demeure propriété des États-Unis, transmise à l'ABMC." data-en="Sanctuary forest of the Marne — site of the US Marines battle in June 1918. The Aisne-Marne American Cemetery adjoins the woods: 2,289 graves. The forest remains US property, administered by the ABMC.">Forêt sanctuaire de la Marne — théâtre de la bataille des US Marines en juin 1918. Le cimetière américain d'Aisne-Marne jouxte les bois : 2 289 tombes. La forêt demeure propriété des États-Unis.</p>
-      </div>
-    </div>
-  </div>
-
-</section>
 </div>
 
 <!-- FOOTER -->
 <footer>
-  <p data-fr="Sources historiques : Chemins de mémoire (cheminsdememoire.gouv.fr) · U.S. Army History (army.mil) · Mémorial de Dormans · La Contemporaine / Argonnaute · Library of Congress · Smithsonian National Museum of American History · Wikipedia FR/EN"
-     data-en="Historical sources: Chemins de mémoire (cheminsdememoire.gouv.fr) · U.S. Army History (army.mil) · Mémorial de Dormans · La Contemporaine / Argonnaute · Library of Congress · Smithsonian National Museum of American History · Wikipedia FR/EN">
-    Sources historiques : Chemins de mémoire · U.S. Army History · Mémorial de Dormans · La Contemporaine / Argonnaute · Library of Congress · Smithsonian NMAH
-  </p>
-  <p style="margin-top:1rem;font-size:.68rem;color:#332f28" data-fr="En mémoire des soldats français et américains tombés à Jaulgonne — Été 1918" data-en="In memory of the French and American soldiers who fell at Jaulgonne — Summer 1918">En mémoire des soldats français et américains tombés à Jaulgonne — Été 1918</p>
+  <p>Sources historiques : Chemins de mémoire · U.S. Army History · Mémorial de Dormans · La Contemporaine / Argonnaute · Library of Congress · Smithsonian NMAH</p>
+  <p style="margin-top:1rem;font-size:.68rem;color:#7a6a5a">En mémoire des soldats français et américains tombés à Jaulgonne — Été 1918</p>
 </footer>
 
 <!-- LIGHTBOX -->
 <div id="lightbox">
-  <button id="lb-close" onclick="closeLightbox()">✕</button>
+  <button id="lb-close" onclick="closeLB()">✕</button>
   <img id="lb-img" src="" alt="">
-  <div class="lb-nav">
-    <button class="lb-btn" onclick="lbNav(-1)">&#8592;</button>
-    <span id="lb-counter"></span>
-    <button class="lb-btn" onclick="lbNav(1)">&#8594;</button>
-  </div>
+  <div class="lb-nav"><span id="lb-counter"></span></div>
 </div>
 
 <script>
-// ── ALL IMAGES (chemins relatifs depuis la racine du projet) ──
-// 34 photos racine + 6 cartes militaires + 4 textes militaires = 44 total
-// Catégories: "photos" (0-33) | "cartes" (34-39) | "textes" (40-43)
-const ALL_IMGS = [
-  // Photos racine Jaulgonne/ — indices 0–33
-  "Jaulgonne/01c63a49aa6283f1826876a76dd141ca1565dd8f52.jpg",   // 0  — vue aérienne 3e Div, tranchées
-  "Jaulgonne/0139056a1b91a4a684bf03e48496d3e11070ce55d8.jpg",   // 1  — pont détruit Château-Thierry
-  "Jaulgonne/0177e3918c13d5cc4c840476e5d24c7d902994d7be.jpg",   // 2  — pont flottant US 34e Div
-  "Jaulgonne/013baba702d1f19dc38d2409d97c4bb75e17268dbf.jpg",   // 3  — carte 28e Div 15-18 juil.
-  "Jaulgonne/01fd3702b3729044a6473bd6824f994109487cd5e8.jpg",   // 4  — portrait soldats américains
-  "Jaulgonne/01753ca06e135746a46159bcfaf597ee7d9c142760.jpg",   // 5  — CPA Jaulgonne ruines panorama
-  "Jaulgonne/015db71eecb9c3f866bbd1824c6ca2242583bd7359.jpg",   // 6  — CPA Jaulgonne ruines (variante)
-  "Jaulgonne/01e7b172347875435730ca5e97645ff90a7c2f8267.jpg",   // 7  — vue aérienne Jaulgonne 30 juil.
-  "Jaulgonne/01b9017aa41b86efed3ffba6b331b197cf92de8354.jpg",   // 8  — vue aérienne vallée Jaulgonne
-  "Jaulgonne/0190ff78c4259ac5b0a1640554cc4f9695dd03f292.jpg",   // 9  — vue aérienne pont intact Marne
-  "Jaulgonne/0185bc756e354851248a955e2763b3c15f41201184.jpg",   // 10 — soldats + obusier all. capturé
-  "Jaulgonne/019cd3f3c28ccc11aab95831868e4dbf3216c25cb9.jpg",   // 11 — soldats US rue du village 24 juil
-  "Jaulgonne/0188bae17f3575be4385d1f73d9e3ed3cb2a74258f.jpg",   // 12 — soldats US recevant ordres
-  "Jaulgonne/01a1a0e89809046f0ab57f7207a3ff46d885605da9.jpg",   // 13 — équipe mitrailleuse défensive
-  "Jaulgonne/0188f52171400e427c57aad019d794420aa8ae16e3.jpg",   // 14 — soldats en position défensive
-  "Jaulgonne/01b2a1d0e325ece3769fd31719f056087f6a00e112.jpg",   // 15 — soldats français en marche
-  "Jaulgonne/01ea53b54b71957b8cbaf0505be4b46b3e2dc0607f.jpg",   // 16 — soldats en tranchée/foxhole
-  "Jaulgonne/013786aaa60d4ad7767c5df8a436a8aea9a047fd04.jpg",   // 17 — soldats en position de tir
-  "Jaulgonne/0143db47ff5098187cd92fa8ae3e28dca1f6660697.jpg",   // 18 — CPA Jaulgonne ruiné juil. 1918
-  "Jaulgonne/013223c8525e4ff1913b31db08d32192c8c89f1c7d.jpg",   // 19 — carte zones destruction France
-  "Jaulgonne/01cc3f8caf58c6f44f71ad5e2bbb8c175c6d845038.jpg",   // 20 — CPA Jaulgonne place église avant-gue
-  "Jaulgonne/013bb916f7ea70b91edfc7bdc256217dccc37928bf.jpg",   // 21 — ruines maisons village
-  "Jaulgonne/01cad8720c2c384c5536ccad5f740e842fb64dab77.jpg",   // 22 — vue aérienne Jaulgonne 30 juil. (2)
-  "Jaulgonne/0146f60ea55cd8fb29c8d455c554296ea9a393d216.jpg",   // 23 — place centrale détruite
-  "Jaulgonne/01a949e0be128504c3547725ebda2ec11e17d6510a.jpg",   // 24 — CPA rue avant-guerre, enfants
-  "Jaulgonne/01ff352fcbb084596d78f977495c7edfec194cea57.jpg",   // 25 — soldats dans rue du village
-  "Jaulgonne/012e6c74ddb0794641e7dd08edfc5cfd8597f51532.jpg",   // 26 — CPA rue Fère-en-Tardenois ruines
-  "Jaulgonne/012e6c74ddb0794641e7dd08edfc5cfd8597f51532_00001.jpg", // 27 — idem (recto)
-  "Jaulgonne/0139bfa33a9668319ae966fcfe0e30151faa5b8d7f.jpg",   // 28 — CPA Route du Pont détruite
-  "Jaulgonne/012520b09b3717f1ed025fc2b5c35f320e7d5c7312.jpg",   // 29 — soldats US boucherie Jaulgonne
-  "Jaulgonne/01b573c9d748d509c5d1ecd4bec1d3308e13753043.jpg",   // 30 — PC villa Jaulgonne 28e Div.
-  "Jaulgonne/01e75bab93d6413d15a67df42e55cb442cbf51e58f.jpg",   // 31 — CPA Route du Pont ruines
-  "Jaulgonne/014debc5c71fe14b16023e2e8f8135e0d95752d3c5.jpg",   // 32 — livre/doc ruines Château-Thierry
-  "Jaulgonne/01d1ec026e79c1daad66f7437e99ad1583abd6faad.jpg",   // 33 — CPA Dormans ruines
-
-  // Cartes militaires — indices 34–39
-  "Jaulgonne/cartes_militaires/013839074274480d6562ca1e36e85e1d7ae5423542.jpg",  // 34 — carte "Somme & Aisne — 2e bte Marne"
-  "Jaulgonne/cartes_militaires/0196164cd1b88b587eb3b049626a226aebb705e950.jpg",  // 35 — carte défense Marne 3e Div / 28e Div
-  "Jaulgonne/cartes_militaires/01868192daebe99812924199e0a400624a2dbd6f71.jpg",  // 36 — carte défense Marne, positions
-  "Jaulgonne/cartes_militaires/01d0335f9060ed41fd72afec94b6430112afa77d03.jpg",  // 37 — carte tactique Jaulgonne
-  "Jaulgonne/cartes_militaires/0187ffc063937ce287cd69d7e71a077bea11733437.jpg",  // 38 — carte "American Ops Aisne-Marne"
-  "Jaulgonne/cartes_militaires/0103c1fb1f76ec0cbb63a93fcaba8aba0c7283728b.jpg",  // 39 — carte région Marne (texte hist.)
-
-  // Textes militaires — indices 40–43
-  "Jaulgonne/texte_miltaire_fr/017e1b4e90f9cf54714f78f1796805061fbf0eb0fa.jpg",  // 40 — doc. "Travaux d'investissement"
-  "Jaulgonne/texte_miltaire_fr/01e4a75b82d8910becbc9f5b266cc1b294a17a9b32.jpg",  // 41 — "Les armées françaises" (positions)
-  "Jaulgonne/texte_miltaire_fr/01aa52fb319300a0542e878ac2f81368e0beabac0c.jpg",  // 42 — "Les armées françaises" (org.)
-  "Jaulgonne/texte_miltaire_fr/01c0a89fb6172be7082762ba5ba50d0bf9d5355385.jpg"   // 43 — "Les armées françaises" p.520
-];
-
-// Catégories par index (pour les filtres galerie)
-function imgCategory(i){
-  if(i<=33) return 'photos';
-  if(i<=39) return 'cartes';
-  return 'textes';
-}
-
-// ── JALONS DATA ──
-// Images choisies sur la base de l'analyse visuelle de chaque photo
-const JALONS = [
-  {
-    date:{fr:"27 mai – 4 juin 1918", en:"May 27 – June 4, 1918"},
-    title:{fr:"L'offensive Blücher — La Marne franchie, Jaulgonne tombé", en:"Operation Blücher — The Marne Crossed, Jaulgonne Falls"},
-    body:{
-      fr:"Le 30 mai 1918 au soir, les soldats allemands de la 28e division atteignent les rives de la Marne à Jaulgonne. Soixante kilomètres les séparent de Paris. Dans les nuits du 31 mai au 2 juin, un bataillon de la 36e division tente le passage. Face à eux, des poilus du Bataillon Sagnières (47e RI) tiennent la Ferme des Franquets sur les hauteurs. Ceux du Bataillon Taureau s'accrochent aux pentes entre la ferme et la forêt. Le 2 juin, une contre-attaque franco-américaine rejette les envahisseurs. Le pont flottant est détruit. Cent prisonniers. Jaulgonne est sauvé… pour l'instant.",
-      en:"On the evening of May 30, 1918, German soldiers of the 28th Division reach the banks of the Marne at Jaulgonne — just 37 miles from Paris. During the nights of May 31 to June 2, a battalion of the 36th Division attempts the crossing. Facing them, French soldiers of the Sagnières Battalion (47th RI) hold the Ferme des Franquets on the heights. The Taureau Battalion clings to the slopes between the farm and the forest. On June 2, a Franco-American counter-attack throws the invaders back. The pontoon bridge is destroyed. One hundred prisoners. Jaulgonne is saved… for now."
-    },
-    images:[34,37,40,41]
-  },
-  {
-    date:{fr:"15–17 juillet 1918", en:"July 15–17, 1918"},
-    title:{fr:"Friedensturm — La nuit des gaz et de l'acier", en:"Friedensturm — The Night of Gas and Steel"},
-    body:{
-      fr:"Dans la nuit du 14 au 15 juillet, un déluge d'acier et de gaz s'abat sur les positions alliées. Les Allemands lancent le «&nbsp;Friedensturm&nbsp;» — l'assaut de la paix. Phosgène, ypérite, gaz «&nbsp;Croix Bleue&nbsp;» : des nuages mortels enveloppent Jaulgonne et la Forêt de Ris. L'aviation alliée effectue des bombardements massifs. Puis des ponts flottants de huit à dix mètres sont jetés sur le fleuve. Dès 7h35, la <strong>73e Division d'Infanterie française</strong> contre-attaque dans la boucle de Jaulgonne. Les doughboys du 38e Régiment d'Infanterie US — des hommes ordinaires de l'Ohio, du Michigan, de Pennsylvanie — se retrouvent encerclés en position de fer à cheval à Mézy. Pendant quatorze heures, sans ordre de retraite, dans les gaz et sous les obus, ils résistent seuls à six régiments allemands. On les appellera «&nbsp;les Rochers de la Marne&nbsp;».",
-      en:"In the night of July 14 to 15, a deluge of steel and gas falls upon Allied positions. The Germans launch the 'Friedensturm' — the Peace Assault. Phosgene, mustard gas, Blue Cross shells: deadly clouds shroud Jaulgonne and the Forêt de Ris. Allied aircraft carry out massive bombing raids. Then pontoon bridges 8 to 10 meters wide are thrown across the river. At 7:35 AM, the <strong>French 73rd Infantry Division</strong> counter-attacks in the Jaulgonne Bend. The doughboys of the 38th US Infantry Regiment — ordinary men from Ohio, Michigan, Pennsylvania — find themselves surrounded in a horseshoe position at Mézy. For fourteen hours, without orders to retreat, through gas and shellfire, they hold alone against six German regiments. They will be called 'the Rock of the Marne'."
-    },
-    images:[35,38,13,14]
-  },
-  {
-    date:{fr:"18 juillet 1918", en:"July 18, 1918"},
-    title:{fr:"La riposte alliée — Sans barrage, la surprise totale", en:"The Allied Counter-Offensive — No Artillery, Total Surprise"},
-    body:{
-      fr:"Le 18 juillet à l'aube, sans barrage d'artillerie préparatoire — la surprise totale — vingt-quatre divisions alliées et trois cent cinquante chars s'élancent. Le général Mangin attaque. Des soldats français et américains avancent côte à côte à travers les bois, les blés mûrs, les vignes de la Marne. En un seul jour, les lignes allemandes reculent de trois à huit kilomètres. Ce jour marque le tournant définitif de la Grande Guerre : pour la première fois depuis 1914, l'armée allemande est contrainte de reculer sur tout le front occidental.",
-      en:"On July 18 at dawn, with no preparatory artillery barrage — complete surprise — twenty-four Allied divisions and 350 tanks surge forward. General Mangin attacks. French and American soldiers advance side by side through the woods, the ripe wheat fields, the Marne vineyards. In a single day, German lines fall back three to five miles. This day marks the turning point of the Great War: for the first time since 1914, the German army is forced back along the entire Western Front."
-    },
-    images:[2,0,10,4]
-  },
-  {
-    date:{fr:"22–24 juillet 1918", en:"July 22–24, 1918"},
-    title:{fr:"Jaulgonne libéré — Rue par rue, ferme par ferme", en:"Jaulgonne Liberated — Street by Street, Farm by Farm"},
-    body:{
-      fr:"Le 22 juillet, les soldats du 38e Régiment d'Infanterie américain traversent la Marne et montent à l'assaut de Jaulgonne. Dans le même secteur, la <strong>28e Division américaine</strong> combat dans les forêts au nord. D'abord cloués au sol par les mitrailleuses et l'artillerie, ils percent finalement les défenses. Jaulgonne est libéré le 22 juillet. Mont-Saint-Père et Chartèves tombent à leur tour. Les combats pour la Ferme des Franquets se prolongent les 22, 23 et <strong>24 juillet — date de sa prise définitive</strong>. Près de trois cents soldats ennemis sont faits prisonniers dans le secteur.",
-      en:"On July 22, soldiers of the 38th US Infantry Regiment cross the Marne and assault Jaulgonne. In the same sector, the <strong>28th US Division</strong> fights through the forests to the north. Initially pinned down by machine guns and artillery, they finally break through. Jaulgonne is liberated on July 22. Mont-Saint-Père and Chartèves fall in turn. Fighting for the Ferme des Franquets continues on July 22, 23, and <strong>24 — when it is finally secured</strong>. Nearly three hundred enemy soldiers are taken prisoner in the sector."
-    },
-    images:[11,15,29,1]
-  },
-  {
-    date:{fr:"Été – Automne 1918", en:"Summer – Autumn 1918"},
-    title:{fr:"Jaulgonne libéré, mais anéanti", en:"Jaulgonne Freed, but in Ruins"},
-    body:{
-      fr:"Libéré, Jaulgonne est anéanti. Les maisons éventrées, l'église dévastée, les ponts détruits, les quais de la Marne jonchés de débris. En trois semaines de contre-offensive, deux cents villages ont été libérés dans la région, trente-cinq mille prisonniers capturés, sept cents canons pris. L'armée allemande ne lancera plus jamais d'offensive de cette ampleur. La Grande Guerre touche à sa fin. Mais pour les habitants de Jaulgonne, la vie n'existe plus.",
-      en:"Liberated, Jaulgonne lies in ruins. Houses gutted, the church devastated, bridges destroyed, the Marne quays strewn with debris. In three weeks of counter-offensive, 200 villages liberated, 35,000 prisoners captured, 700 guns taken. The German army will never again launch an offensive of this scale. The Great War nears its end. But for the people of Jaulgonne, life no longer exists."
-    },
-    images:[7,22,18,28,21,33]
-  },
-  {
-    date:{fr:"1919 et après", en:"1919 and After"},
-    title:{fr:"Se souvenir — Pour que nul ne soit oublié", en:"Remembrance — So That None Are Forgotten"},
-    body:{
-      fr:"Ils avaient des noms inconnus. Ils portaient leur numéro de régiment comme seul identifiant. Certains venaient de Paris, de Lyon, de Bretagne. D'autres de New York, de Chicago, de fermes du Middle West. La loi du 17 avril 1919 a permis de rebâtir les pierres. Le mémorial américain d'Aisne-Marne à Château-Thierry, l'ossuaire de Dormans, la forêt de Bois Belleau se dressent pour eux. Ce site se dresse pour eux. Pour que nul ne soit oublié.",
-      en:"They had no famous names. They bore their regiment number as their only identifier. Some came from Paris, Lyon, Brittany. Others from New York, Chicago, farms in the Midwest. The law of April 17, 1919 allowed the stones to be rebuilt. The Aisne-Marne Memorial at Château-Thierry, the Dormans ossuary, Belleau Wood stand for them. This site stands for them. So that none are forgotten."
-    },
-    images:[5,20,19,32]
-  }
-];
-
-// Map legends per state
-const MAP_LEGENDS = {
-  fr:[
-    "Situation avant l'offensive — Les Alliés défendent la rive sud de la Marne. Jaulgonne est sur la rive sud, à 60 km de Paris.",
-    "30 mai 1918 — L'offensive Blücher-Yorck : les Allemands franchissent la Marne à Jaulgonne (rive sud). Les Bataillons Sagnières et Taureau (47e RI) tiennent les hauteurs. Contre-attaque alliée le 2 juin.",
-    "15 juillet 1918 — Friedensturm : gaz toxiques, multiples ponts flottants, bombardements aériens alliés. La 73e DI française contre-attaque à 7h35. Le 38e RI US tient la position de fer à cheval à Mézy pendant 14 heures.",
-    "22–24 juillet 1918 — Contre-offensive alliée (lancée le 18 juillet). Jaulgonne libéré le 22. Mont-Saint-Père, Chartèves tombent. La Ferme des Franquets est prise définitivement le 24 juillet."
-  ],
-  en:[
-    "Situation before the offensive — Allies defend the south bank of the Marne. Jaulgonne is on the south bank, 37 miles from Paris.",
-    "May 30, 1918 — Operation Blücher-Yorck: Germans cross the Marne at Jaulgonne (south bank). Sagnières and Taureau Battalions (47th RI) hold the heights. Allied counter-attack June 2.",
-    "July 15, 1918 — Friedensturm: toxic gas, multiple pontoon bridges, Allied aerial bombing. French 73rd DI counter-attacks at 7:35 AM. US 38th Infantry holds horseshoe position at Mézy for 14 hours.",
-    "July 22–24, 1918 — Allied counter-offensive (launched July 18). Jaulgonne liberated July 22. Mont-Saint-Père, Chartèves fall. Ferme des Franquets finally taken July 24."
-  ]
-};
-
-// ── STATE ──
-let currentLang = 'fr';
-let currentMapState = 0;
-let galleryImages = [];
-let lbIndex = 0;
-let activeAudio = null;
-
-// ── LANGUAGE TOGGLE ──
-function toggleLang(){
-  currentLang = currentLang === 'fr' ? 'en' : 'fr';
-  document.documentElement.setAttribute('data-lang', currentLang);
-  document.getElementById('lang-toggle').textContent = currentLang === 'fr' ? 'English' : 'Français';
-  document.querySelectorAll('[data-fr]').forEach(el=>{
-    el.innerHTML = el.getAttribute('data-'+currentLang);
-  });
-  document.getElementById('map-legend').textContent = MAP_LEGENDS[currentLang][currentMapState];
-  updateAudioSources();
-}
-
-// ── MAP ANIMATION ──
-function setMapState(n){
-  document.getElementById('state-'+currentMapState).style.opacity='0';
-  document.querySelectorAll('.map-btn').forEach(b=>{
-    b.classList.toggle('active', parseInt(b.dataset.state)===n);
-  });
-  currentMapState = n;
-  setTimeout(()=>{
-    document.getElementById('state-'+n).style.opacity='1';
-  },60);
-  document.getElementById('map-legend').textContent = MAP_LEGENDS[currentLang][n];
-}
-
-// ── AUDIO ──
-function updateAudioSources(){
-  JALONS.forEach((_,idx)=>{
-    const audio = document.getElementById('audio-'+idx);
-    if(audio && audio.src){
-      const wasPlaying = !audio.paused;
-      audio.src = `audio/${currentLang}/jalon_${idx}.mp3`;
-      if(wasPlaying) audio.play().catch(()=>{});
-    }
-  });
-}
-
-function toggleAudio(idx, btn){
-  const audio = document.getElementById('audio-'+idx);
-  if(!audio) return;
-  if(!audio.src || audio.src===window.location.href){
-    audio.src = `audio/${currentLang}/jalon_${idx}.mp3`;
-  }
-  if(activeAudio && activeAudio!==audio){
-    activeAudio.pause();
-    activeAudio.currentTime=0;
-    document.querySelectorAll('.audio-btn.playing').forEach(b=>{
-      b.classList.remove('playing');
-      b.innerHTML='▶ <span data-fr="Écouter" data-en="Listen">'+(currentLang==='fr'?'Écouter':'Listen')+'</span>';
-    });
-  }
-  if(audio.paused){
-    audio.play().then(()=>{
-      btn.classList.add('playing');
-      btn.innerHTML='⏸ <span data-fr="Pause" data-en="Pause">Pause</span>';
-      activeAudio = audio;
-    }).catch(()=>{
-      const s = document.getElementById('audio-status-'+idx);
-      if(s) s.textContent = currentLang==='fr'?'Fichier audio non disponible':'Audio file not available';
-    });
-  } else {
-    audio.pause();
-    btn.classList.remove('playing');
-    btn.innerHTML='▶ <span data-fr="Écouter" data-en="Listen">'+(currentLang==='fr'?'Écouter':'Listen')+'</span>';
-    activeAudio = null;
-  }
-  audio.onended=()=>{
-    btn.classList.remove('playing');
-    btn.innerHTML='▶ <span data-fr="Écouter" data-en="Listen">'+(currentLang==='fr'?'Écouter':'Listen')+'</span>';
-    activeAudio=null;
-  };
-}
-
-// ── TIMELINE ──
-function buildTimeline(){
-  const container = document.getElementById('timeline');
-  JALONS.forEach((j,idx)=>{
-    const imgs = j.images.map(i=>ALL_IMGS[i]).filter(Boolean);
-    const div = document.createElement('div');
-    div.className='jalon';
-
-    // Dot (numbered)
-    const dot = document.createElement('div');
-    dot.className='jalon-dot';
-    const num = String(idx+1).padStart(2,'0');
-    dot.innerHTML=`<span>${num}</span>`;
-
-    // Content
-    const content = document.createElement('div');
-    content.className='jalon-content';
-    content.innerHTML=`
-      <div class="jalon-date" data-fr="${j.date.fr}" data-en="${j.date.en}">${j.date.fr}</div>
-      <div class="jalon-title" data-fr="${j.title.fr}" data-en="${j.title.en}">${j.title.fr}</div>
-      <div class="jalon-body" data-fr="${j.body.fr}" data-en="${j.body.en}">${j.body.fr}</div>
-      <div class="jalon-audio">
-        <button class="audio-btn" onclick="toggleAudio(${idx},this)">▶ <span data-fr="Écouter" data-en="Listen">Écouter</span></button>
-        <span class="audio-status" id="audio-status-${idx}"></span>
-      </div>
-      <audio id="audio-${idx}" preload="none"></audio>
-    `;
-
-    // Images grid
-    const imgGrid = document.createElement('div');
-    imgGrid.className='jalon-images';
-    const grid = document.createElement('div');
-    grid.className='jalon-thumb-grid';
-    imgs.slice(0,4).forEach(path=>{
-      const img = document.createElement('img');
-      img.src=path;
-      img.loading='lazy';
-      img.alt='Document historique';
-      img.onclick=()=>openLightboxImg(path);
-      grid.appendChild(img);
-    });
-    imgGrid.appendChild(grid);
-
-    div.appendChild(dot);
-    div.appendChild(content);
-    div.appendChild(imgGrid);
-    container.appendChild(div);
-  });
-}
-
-// ── GALLERY ──
-function buildGallery(){
-  galleryImages = ALL_IMGS.slice();
-  const grid = document.getElementById('gallery-grid');
-  ALL_IMGS.forEach((path,i)=>{
-    const img = document.createElement('img');
-    img.src=path;
-    img.loading='lazy';
-    img.alt='Document historique';
-    img.dataset.category=imgCategory(i);
-    img.onclick=()=>openLightbox(i);
-    grid.appendChild(img);
-  });
-  updateGalleryCount();
-}
-
-function filterGallery(cat){
-  document.querySelectorAll('.filter-btn').forEach(b=>{
-    b.classList.toggle('active',b.dataset.filter===cat);
-  });
-  document.querySelectorAll('#gallery-grid img').forEach(img=>{
-    img.classList.toggle('hidden', cat!=='all' && img.dataset.category!==cat);
-  });
-  updateGalleryCount();
-}
-
-function updateGalleryCount(){
-  const visible = document.querySelectorAll('#gallery-grid img:not(.hidden)').length;
-  const el = document.getElementById('gallery-count');
-  if(el) el.textContent=`${visible} document${visible>1?'s':''}`;
-}
-
-// ── LIGHTBOX ──
-let lbGalleryImages=[];
-function openLightbox(idx){
-  lbGalleryImages = galleryImages;
-  lbIndex=idx;
-  document.getElementById('lb-img').src=lbGalleryImages[idx];
-  document.getElementById('lb-counter').textContent=`${idx+1} / ${lbGalleryImages.length}`;
+function openLB(src, cap){
+  document.getElementById('lb-img').src = src;
+  document.getElementById('lb-img').alt = cap || '';
+  document.getElementById('lb-counter').textContent = cap || '';
   document.getElementById('lightbox').classList.add('open');
 }
-function openLightboxImg(src){
-  const idx=galleryImages.indexOf(src);
-  if(idx>=0) openLightbox(idx);
-  else{galleryImages.push(src);openLightbox(galleryImages.length-1);}
-}
-function closeLightbox(){
+function closeLB(){
   document.getElementById('lightbox').classList.remove('open');
 }
-function lbNav(dir){
-  lbIndex=(lbIndex+dir+lbGalleryImages.length)%lbGalleryImages.length;
-  document.getElementById('lb-img').src=lbGalleryImages[lbIndex];
-  document.getElementById('lb-counter').textContent=`${lbIndex+1} / ${lbGalleryImages.length}`;
-}
-document.getElementById('lightbox').addEventListener('click',function(e){
-  if(e.target===this) closeLightbox();
+document.getElementById('lightbox').addEventListener('click', function(e){
+  if(e.target === this) closeLB();
 });
-document.addEventListener('keydown',e=>{
-  if(!document.getElementById('lightbox').classList.contains('open')) return;
-  if(e.key==='Escape') closeLightbox();
-  if(e.key==='ArrowLeft') lbNav(-1);
-  if(e.key==='ArrowRight') lbNav(1);
+document.addEventListener('keydown', e => {
+  if(e.key === 'Escape') closeLB();
 });
-
-// ── SCROLL ANIMATIONS ──
-function initScrollAnim(){
-  const obs=new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{if(e.isIntersecting) e.target.classList.add('visible');});
-  },{threshold:0.12});
-  document.querySelectorAll('.jalon').forEach(j=>obs.observe(j));
-}
-
-// ── NAV ACTIVE LINK ──
-function initNavHighlight(){
-  const sections=document.querySelectorAll('section[id], div[id]');
-  const links=document.querySelectorAll('nav a');
-  const obs=new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){
-        const id=e.target.id;
-        links.forEach(l=>{
-          l.classList.toggle('active',l.getAttribute('href')==='#'+id);
-        });
-      }
-    });
-  },{threshold:0.3});
-  sections.forEach(s=>obs.observe(s));
-}
-
-// ── INIT ──
-buildTimeline();
-buildGallery();
-initScrollAnim();
-initNavHighlight();
-setMapState(0);
 </script>
 </body>
 </html>

@@ -49,7 +49,28 @@
       "WebFetch(domain:archives.aisne.fr)",
       "Bash(curl -L -o \"cartorum_jaulgonne_avenue_bois_plessier.jpg\" \"https://p.cartorum.fr/recto/800/000/313/496-jaulgonne-jaulgonne-avenue-bois-plessier.jpg\" -A \"Mozilla/5.0\" --max-time 20 -s)",
       "Bash(curl -L -o \"cartorum_jaulgonne_chateau.jpg\" \"https://p.cartorum.fr/recto/800/000/480/619-jaulgonne-jaulgonne-chateau.jpg\" -A \"Mozilla/5.0\" --max-time 20 -s)",
-      "WebFetch(domain:www.annuaire-mairie.fr)"
+      "WebFetch(domain:www.annuaire-mairie.fr)",
+      "WebFetch(domain:en.wikipedia.org)",
+      "WebFetch(domain:www.loc.gov)",
+      "WebFetch(domain:www.flickr.com)",
+      "WebFetch(domain:commons.wikimedia.org)",
+      "WebFetch(domain:www.guerre1914-1918.fr)",
+      "WebFetch(domain:fr.wikipedia.org)",
+      "WebFetch(domain:api.commons.wikimedia.org)",
+      "WebFetch(domain:en.m.wikipedia.org)",
+      "WebFetch(domain:www.cyark.org)",
+      "WebFetch(domain:www.ww1cemeteries.com)",
+      "Bash(curl -L -o \"abmc_monument_main.jpg\" \"https://blobazeabmcprod.blob.core.windows.net/wordpress-uploads/20150503_wp_chateauthierry_ABMC_015reduced-2.jpg\" -w \"HTTP %{http_code} Size: %{size_download}\\\\n\")",
+      "Bash(curl -L -o \"abmc_monument_operations_map.jpg\" \"https://blobazeabmcprod.blob.core.windows.net/wordpress-uploads/20150701_wp_chateautheirry_ABMC_043.jpg\" -w \"HTTP %{http_code} Size: %{size_download}\\\\n\")",
+      "Bash(curl -L -o \"abmc_monument_west_sculptures.jpg\" \"https://blobazeabmcprod.blob.core.windows.net/wordpress-uploads/20150701_wp_chateauthierry_ABMC_022.jpg\" -w \"HTTP %{http_code} Size: %{size_download}\\\\n\")",
+      "Bash(curl -L -o \"abmc_vintage_poster.png\" \"https://blobazeabmcprod.blob.core.windows.net/wordpress-uploads/Vintage-poster-of-Chateau-Thierry-American-Monument-1-768x1187.png\" -w \"HTTP %{http_code} Size: %{size_download}\\\\n\")",
+      "Bash(curl -L -o \"abmc_visitor_center_1.jpg\" \"https://blobazeabmcprod.blob.core.windows.net/wordpress-uploads/1120Nov20201820CT20Mon2028429-768x576.jpg\" -w \"HTTP %{http_code} Size: %{size_download}\\\\n\")",
+      "Bash(curl -L -o \"abmc_monument_event.jpg\" \"https://blobazeabmcprod.blob.core.windows.net/wordpress-uploads/DBL_8718-4-768x511.jpg\" -w \"HTTP %{http_code} Size: %{size_download}\\\\n\")",
+      "Bash(curl -L -o \"delcampe_postcard_recto.jpg\" \"https://www.delcampe.net/static/img_large/auction/002/508/183/713_001.jpg?v=2\" -w \"HTTP %{http_code} Size: %{size_download}\\\\n\")",
+      "Bash(curl -L -o \"delcampe_postcard_verso.jpg\" \"https://www.delcampe.net/static/img_large/auction/002/508/183/713_002.jpg?v=2\" -w \"HTTP %{http_code} Size: %{size_download}\\\\n\")",
+      "Bash(curl -L -o \"guerre1914-1918_monument_header.jpg\" \"https://www.guerre1914-1918.fr/wp-content/uploads/2020/04/monument-americain-de-la-cote-204-a-achateau-thierry-header.jpg\" -w \"HTTP %{http_code} Size: %{size_download}\\\\n\")",
+      "WebFetch(domain:www.abmc.gov)",
+      "WebFetch(domain:www.cfa.gov)"
     ]
   }
 }
