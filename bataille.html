@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -158,9 +158,10 @@ section.bg2 > .inner { max-width: 1100px; margin: 0 auto; }
 
 <!-- PAGE HERO -->
 <div class="page-hero">
-  <div class="page-hero-eyebrow">Jaulgonne 1918 · Contexte général</div>
-  <h1 class="page-hero-title">L'Ampleur de la Bataille</h1>
-  <p class="page-hero-subtitle">La 2e Bataille de la Marne — tournant décisif de la Grande Guerre</p>
+  <div class="page-hero-eyebrow" data-fr="Jaulgonne 1918 · Contexte général" data-en="Jaulgonne 1918 · General context">Jaulgonne 1918 · Contexte général</div>
+  <h1 class="page-hero-title" data-fr="L'Ampleur de la Bataille" data-en="The Scale of the Battle">L'Ampleur de la Bataille</h1>
+  <p class="page-hero-subtitle" data-fr="La 2e Bataille de la Marne — tournant décisif de la Grande Guerre" data-en="The 2nd Battle of the Marne — decisive turning point of the Great War">La 2e Bataille de la Marne — tournant décisif de la Grande Guerre</p>
+  <button class="lang-btn" id="lang-toggle" onclick="toggleLang()">English</button>
 </div>
 
 <!-- NAV -->
@@ -184,26 +185,26 @@ section.bg2 > .inner { max-width: 1100px; margin: 0 auto; }
   <div class="bt-grid bt-grid-lg" style="align-items:end">
 
     <div>
-      <div class="section-label">Le contexte</div>
-      <h2>La bataille qui a retourné la guerre</h2>
-      <p class="intro-text" style="margin-bottom:1.25rem">
+      <div class="section-label" data-fr="Le contexte" data-en="Context">Le contexte</div>
+      <h2 data-fr="La bataille qui a retourné la guerre" data-en="The battle that turned the war">La bataille qui a retourné la guerre</h2>
+      <p class="intro-text" style="margin-bottom:1.25rem" data-fr="La 2e Bataille de la Marne (15 juillet – 6 août 1918) est l'une des batailles décisives de la Première Guerre mondiale. Commencée par une offensive allemande censée être la dernière grande offensive («&nbsp;Friedensturm&nbsp;» — l'assaut de la paix), elle se retourne en sept jours contre ses initiateurs. La contre-offensive alliée du 18 juillet marque le début des «&nbsp;Cent Jours&nbsp;» — la période finale qui aboutira à l'armistice du 11 novembre 1918." data-en="The 2nd Battle of the Marne (July 15 – August 6, 1918) is one of the decisive battles of the First World War. Begun by a German offensive intended to be the final great push (&laquo;Friedensturm&raquo; — the assault of peace), it turned against its initiators within seven days. The Allied counter-offensive of July 18 marks the beginning of the &laquo;Hundred Days&raquo; — the final period that led to the armistice of November 11, 1918.">
         La 2e Bataille de la Marne (15 juillet – 6 août 1918) est l'une des batailles décisives de la Première Guerre mondiale. Commencée par une offensive allemande censée être la dernière grande offensive (<em>«&nbsp;Friedensturm&nbsp;»</em> — l'assaut de la paix), elle se retourne en sept jours contre ses initiateurs. La contre-offensive alliée du 18 juillet marque le début des <strong>«&nbsp;Cent Jours&nbsp;»</strong> — la période finale qui aboutira à l'armistice du 11 novembre 1918.
       </p>
       <!-- Chiffres clés -->
       <div class="stats-row" style="margin-top:0">
-        <div class="stat-card"><div class="stat-num">24</div><div class="stat-label">Divisions alliées le 18 juillet</div></div>
-        <div class="stat-card"><div class="stat-num">350</div><div class="stat-label">Chars engagés</div></div>
-        <div class="stat-card"><div class="stat-num">200</div><div class="stat-label">Villages libérés</div></div>
-        <div class="stat-card"><div class="stat-num">35 000</div><div class="stat-label">Prisonniers capturés</div></div>
-        <div class="stat-card"><div class="stat-num">700</div><div class="stat-label">Canons pris</div></div>
-        <div class="stat-card"><div class="stat-num">60 km</div><div class="stat-label">Distance de Paris au front</div></div>
+        <div class="stat-card"><div class="stat-num">24</div><div class="stat-label" data-fr="Divisions alliées le 18 juillet" data-en="Allied divisions on July 18">Divisions alliées le 18 juillet</div></div>
+        <div class="stat-card"><div class="stat-num">350</div><div class="stat-label" data-fr="Chars engagés" data-en="Tanks engaged">Chars engagés</div></div>
+        <div class="stat-card"><div class="stat-num">200</div><div class="stat-label" data-fr="Villages libérés" data-en="Villages liberated">Villages libérés</div></div>
+        <div class="stat-card"><div class="stat-num">35 000</div><div class="stat-label" data-fr="Prisonniers capturés" data-en="Prisoners captured">Prisonniers capturés</div></div>
+        <div class="stat-card"><div class="stat-num">700</div><div class="stat-label" data-fr="Canons pris" data-en="Guns captured">Canons pris</div></div>
+        <div class="stat-card"><div class="stat-num">60 km</div><div class="stat-label" data-fr="Distance de Paris au front" data-en="Distance from Paris to the front">Distance de Paris au front</div></div>
       </div>
     </div>
 
     <figure class="bt-fig">
       <img src="selection_sources/L'ensemble_du_front/map-of-the-western-front-in-world-war-i-1914-1918-21586.png"
            alt="Carte du front occidental, 1914-1918" loading="lazy">
-      <figcaption>Le front occidental 1914–1918. La zone de Jaulgonne se situe sur la Marne, entre Château-Thierry et Épernay — flanc droit de toute l'offensive Friedensturm. — World History Encyclopedia</figcaption>
+      <figcaption data-fr="Le front occidental 1914–1918. La zone de Jaulgonne se situe sur la Marne, entre Château-Thierry et Épernay — flanc droit de toute l'offensive Friedensturm. — World History Encyclopedia" data-en="The Western Front 1914–1918. The Jaulgonne area lies on the Marne, between Château-Thierry and Épernay — the right flank of the entire Friedensturm offensive. — World History Encyclopedia">Le front occidental 1914–1918. La zone de Jaulgonne se situe sur la Marne, entre Château-Thierry et Épernay — flanc droit de toute l'offensive Friedensturm. — World History Encyclopedia</figcaption>
     </figure>
 
   </div>
@@ -214,9 +215,9 @@ section.bg2 > .inner { max-width: 1100px; margin: 0 auto; }
 ══════════════════════════════════════ -->
 <section id="neiberg" class="bg2">
 <div class="inner">
-  <div class="section-label">Regard d'historien</div>
-  <h2 style="margin-bottom:.5rem">«&nbsp;Une bataille qui défie tous les stéréotypes de la Grande Guerre&nbsp;»</h2>
-  <p style="font-size:.83rem;color:var(--text3);margin-bottom:1.25rem">
+  <div class="section-label" data-fr="Regard d'historien" data-en="A historian's view">Regard d'historien</div>
+  <h2 style="margin-bottom:.5rem" data-fr="«&nbsp;Une bataille qui défie tous les stéréotypes de la Grande Guerre&nbsp;»" data-en="«&nbsp;A battle that defies every stereotype of the Great War&nbsp;»">«&nbsp;Une bataille qui défie tous les stéréotypes de la Grande Guerre&nbsp;»</h2>
+  <p style="font-size:.83rem;color:var(--text3);margin-bottom:1.25rem" data-fr="Michael Neiberg, professeur d'histoire à l'U.S. Army War College, spécialiste américain de la 2e Bataille de la Marne." data-en="Michael Neiberg, professor of history at the U.S. Army War College, leading American scholar on the 2nd Battle of the Marne.">
     Michael Neiberg, professeur d'histoire à l'U.S. Army War College, spécialiste américain de la 2e Bataille de la Marne.
   </p>
 
@@ -233,7 +234,7 @@ section.bg2 > .inner { max-width: 1100px; margin: 0 auto; }
 
   <blockquote class="neiberg-bq-wide">
     «&nbsp;The turning point of 1918 is the Second Marne — not Amiens. And you cannot, <em>cannot</em>, cannot write the French Army out of this war.&nbsp;»
-    <cite>Michael Neiberg — 35 000 prisonniers à la 2e Marne, vs 20 000 à Amiens</cite>
+    <cite data-fr="Michael Neiberg — 35 000 prisonniers à la 2e Marne, vs 20 000 à Amiens" data-en="Michael Neiberg — 35,000 prisoners at the 2nd Marne vs. 20,000 at Amiens">Michael Neiberg — 35 000 prisonniers à la 2e Marne, vs 20 000 à Amiens</cite>
   </blockquote>
 
   <a href="https://youtu.be/PYSVVsYN00k" target="_blank" rel="noopener" class="video-link">
@@ -251,27 +252,27 @@ section.bg2 > .inner { max-width: 1100px; margin: 0 auto; }
      FRIEDENSTURM
 ══════════════════════════════════════ -->
 <section id="friedensturm">
-  <div class="section-label">15 juillet 1918</div>
-  <h2>L'offensive Friedensturm — le dernier pari</h2>
+  <div class="section-label" data-fr="15 juillet 1918" data-en="July 15, 1918">15 juillet 1918</div>
+  <h2 data-fr="L'offensive Friedensturm — le dernier pari" data-en="The Friedensturm offensive — the final gamble">L'offensive Friedensturm — le dernier pari</h2>
 
   <div class="bt-grid" style="margin-top:1.25rem">
     <div>
-      <p style="font-size:.93rem;color:var(--text2);line-height:1.85;margin-bottom:1rem">
+      <p style="font-size:.93rem;color:var(--text2);line-height:1.85;margin-bottom:1rem" data-fr="Le Général Ludendorff lance la «&nbsp;paix par l'épée&nbsp;» : une attaque sur un front de 90 km entre Soissons et Reims. L'objectif est de percer vers Paris avant que les renforts américains ne deviennent décisifs. Quarante-sept divisions allemandes sont engagées." data-en="General Ludendorff launches 'peace through the sword': an attack across a 90 km front between Soissons and Reims. The objective is to break through toward Paris before American reinforcements become decisive. Forty-seven German divisions are committed.">
         Le Général Ludendorff lance la «&nbsp;paix par l'épée&nbsp;» : une attaque sur un front de 90 km entre Soissons et Reims. L'objectif est de percer vers Paris avant que les renforts américains ne deviennent décisifs. Quarante-sept divisions allemandes sont engagées.
       </p>
-      <p style="font-size:.93rem;color:var(--text2);line-height:1.85;margin-bottom:1.25rem">
+      <p style="font-size:.93rem;color:var(--text2);line-height:1.85;margin-bottom:1.25rem" data-fr="Mais les Alliés ont été informés par des déserteurs et des prisonniers. À minuit 10, avant même le barrage allemand, l'artillerie alliée ouvre une contre-préparation sur les zones de rassemblement. Les troupes allemandes attaquent à l'aube et trouvent des positions préparées." data-en="But the Allies had been warned by deserters and prisoners. At 12:10 a.m., even before the German barrage, Allied artillery opens a counter-preparation on the assembly areas. The German troops attack at dawn and find prepared positions.">
         Mais les Alliés ont été informés par des déserteurs et des prisonniers. À minuit 10, avant même le barrage allemand, l'artillerie alliée ouvre une contre-préparation sur les zones de rassemblement. Les troupes allemandes attaquent à l'aube et trouvent des positions préparées.
       </p>
       <div class="info-box" style="margin-bottom:1rem">
-        <h3>La défense élastique (doctrine Pétain)</h3>
-        <p>Pétain applique la «&nbsp;défense en profondeur&nbsp;» : la première ligne cède du terrain pour épuiser l'élan ennemi. Sur le secteur de Jaulgonne, la 125e DI recule de 5 à 8 km selon ce plan — pendant que le 38e RI US choisit de ne pas reculer d'un pouce.</p>
+        <h3 data-fr="La défense élastique (doctrine Pétain)" data-en="The elastic defense (Pétain doctrine)">La défense élastique (doctrine Pétain)</h3>
+        <p data-fr="Pétain applique la «&nbsp;défense en profondeur&nbsp;» : la première ligne cède du terrain pour épuiser l'élan ennemi. Sur le secteur de Jaulgonne, la 125e DI recule de 5 à 8 km selon ce plan — pendant que le 38e RI US choisit de ne pas reculer d'un pouce." data-en="Pétain applies 'defense in depth': the front line yields ground to exhaust the enemy's momentum. In the Jaulgonne sector, the 125th DI falls back 5 to 8 km according to this plan — while the 38th US Infantry chooses not to yield an inch.">Pétain applique la «&nbsp;défense en profondeur&nbsp;» : la première ligne cède du terrain pour épuiser l'élan ennemi. Sur le secteur de Jaulgonne, la 125e DI recule de 5 à 8 km selon ce plan — pendant que le 38e RI US choisit de ne pas reculer d'un pouce.</p>
       </div>
     </div>
 
     <figure class="bt-fig">
       <img src="selection_sources/L'ensemble_du_front/general_gouraud_french_army_world_war_i_machinegun_marne_1918_2.jpeg"
            alt="Soldats français en position dans des ruines, Marne 1918" loading="lazy">
-      <figcaption>Soldats français en position dans les ruines d'un village de la Marne, été 1918. Mitrailleuses depuis les décombres — la défense en profondeur en pratique. — Coll. privée</figcaption>
+      <figcaption data-fr="Soldats français en position dans les ruines d'un village de la Marne, été 1918. Mitrailleuses depuis les décombres — la défense en profondeur en pratique. — Coll. privée" data-en="French soldiers in position amid the ruins of a Marne village, summer 1918. Machine guns from the rubble — defense in depth in practice. — Private collection">Soldats français en position dans les ruines d'un village de la Marne, été 1918. Mitrailleuses depuis les décombres — la défense en profondeur en pratique. — Coll. privée</figcaption>
     </figure>
   </div>
 
@@ -282,26 +283,26 @@ section.bg2 > .inner { max-width: 1100px; margin: 0 auto; }
       <figure class="bt-fig">
         <img src="selection_sources/L'ensemble_du_front/01b2a1d0e325ece3769fd31719f056087f6a00e112.jpg"
              alt="Carte progression allemande 29-31 mai 1918" loading="lazy">
-        <figcaption>Progression allemande du 27 au 31 mai 1918 : de l'Aisne à la Marne en quatre jours. Jaulgonne figure en bas à droite. — État-major français</figcaption>
+        <figcaption data-fr="Progression allemande du 27 au 31 mai 1918 : de l'Aisne à la Marne en quatre jours. Jaulgonne figure en bas à droite. — État-major français" data-en="German advance from May 27 to 31, 1918: from the Aisne to the Marne in four days. Jaulgonne appears at the lower right. — French General Staff">Progression allemande du 27 au 31 mai 1918 : de l'Aisne à la Marne en quatre jours. Jaulgonne figure en bas à droite. — État-major français</figcaption>
       </figure>
 
       <div>
         <div class="section-label" style="margin-bottom:.5rem">Reichsarchiv Band 34</div>
-        <h3 style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:var(--text);margin-bottom:1rem">Près de 1 700 batteries sur 120 km de front</h3>
-        <p style="font-size:.91rem;color:var(--text2);line-height:1.8;margin-bottom:1rem">
+        <h3 style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:var(--text);margin-bottom:1rem" data-fr="Près de 1 700 batteries sur 120 km de front" data-en="Nearly 1,700 batteries across 120 km of front">Près de 1 700 batteries sur 120 km de front</h3>
+        <p style="font-size:.91rem;color:var(--text2);line-height:1.8;margin-bottom:1rem" data-fr="Les archives officielles allemandes donnent le chiffre global : «&nbsp;outre plusieurs centaines de lanceurs de mines, près de 1 700 batteries devaient entrer en action.&nbsp;» Pour la seule 7e Armée (secteur Marne) : 456 bataillons de campagne, 258 bataillons lourds, plus de 650 unités de lance-mines." data-en="The German official archives give the overall figure: 'besides several hundred mortar launchers, nearly 1,700 batteries were to go into action.' For the 7th Army alone (Marne sector): 456 field battalions, 258 heavy battalions, over 650 mortar units.">
           Les archives officielles allemandes donnent le chiffre global : <strong>«&nbsp;outre plusieurs centaines de lanceurs de mines, près de 1 700 batteries devaient entrer en action.&nbsp;»</strong> Pour la seule 7e Armée (secteur Marne) : 456 bataillons de campagne, 258 bataillons lourds, plus de 650 unités de lance-mines.
         </p>
-        <p style="font-size:.91rem;color:var(--text2);line-height:1.8;margin-bottom:1rem">
+        <p style="font-size:.91rem;color:var(--text2);line-height:1.8;margin-bottom:1rem" data-fr="L'approvisionnement de nuit — le seul possible à cause de l'aviation alliée — s'avéra impossible à tenir : le jour J, fixé au 10 juillet, fut repoussé de cinq jours pour cette seule raison." data-en="Night resupply — the only option because of Allied aviation — proved impossible to maintain: D-Day, set for July 10, was pushed back five days for this reason alone.">
           L'approvisionnement de nuit — le seul possible à cause de l'aviation alliée — s'avéra impossible à tenir : le jour J, fixé au 10 juillet, fut repoussé de <strong>cinq jours</strong> pour cette seule raison.
         </p>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem">
           <div class="info-box">
-            <h3>Verdict allemand sur Jaulgonne</h3>
-            <p>Le Reichsarchiv (p. 151) qualifie le feu allié à Jaulgonne de <strong>«&nbsp;sehr wirksam&nbsp;»</strong> (très efficace). À l'ouest vers Barzy : «&nbsp;ziemlich erfolglos&nbsp;» (assez inefficace). La ligne entre succès et échec se trace ici.</p>
+            <h3 data-fr="Verdict allemand sur Jaulgonne" data-en="German verdict on Jaulgonne">Verdict allemand sur Jaulgonne</h3>
+            <p data-fr="Le Reichsarchiv (p. 151) qualifie le feu allié à Jaulgonne de «&nbsp;sehr wirksam&nbsp;» (très efficace). À l'ouest vers Barzy : «&nbsp;ziemlich erfolglos&nbsp;» (assez inefficace). La ligne entre succès et échec se trace ici." data-en="The Reichsarchiv (p. 151) describes Allied fire at Jaulgonne as «sehr wirksam» (very effective). To the west toward Barzy: «ziemlich erfolglos» (rather ineffective). The line between success and failure was drawn here.">Le Reichsarchiv (p. 151) qualifie le feu allié à Jaulgonne de <strong>«&nbsp;sehr wirksam&nbsp;»</strong> (très efficace). À l'ouest vers Barzy : «&nbsp;ziemlich erfolglos&nbsp;» (assez inefficace). La ligne entre succès et échec se trace ici.</p>
           </div>
           <div class="info-box">
-            <h3>23e DI saxonne bloquée</h3>
-            <p>L'artillerie d'accompagnement, devant traverser la forêt de nuit, fut bloquée par des tirs alliés sur un passage boueux. Il était <strong>7h20</strong> quand les batteries purent enfin franchir les ponts — l'infanterie avait attaqué seule depuis l'aube.</p>
+            <h3 data-fr="23e DI saxonne bloquée" data-en="Saxon 23rd DI blocked">23e DI saxonne bloquée</h3>
+            <p data-fr="L'artillerie d'accompagnement, devant traverser la forêt de nuit, fut bloquée par des tirs alliés sur un passage boueux. Il était 7h20 quand les batteries purent enfin franchir les ponts — l'infanterie avait attaqué seule depuis l'aube." data-en="The accompanying artillery, crossing the forest at night, was blocked by Allied fire on a muddy passage. It was 7:20 a.m. before the batteries could finally cross the bridges — the infantry had been attacking alone since dawn.">L'artillerie d'accompagnement, devant traverser la forêt de nuit, fut bloquée par des tirs alliés sur un passage boueux. Il était <strong>7h20</strong> quand les batteries purent enfin franchir les ponts — l'infanterie avait attaqué seule depuis l'aube.</p>
           </div>
         </div>
       </div>
@@ -315,92 +316,92 @@ section.bg2 > .inner { max-width: 1100px; margin: 0 auto; }
 ══════════════════════════════════════ -->
 <section class="bg2" id="forces">
 <div class="inner">
-  <div class="section-label">Ordre de bataille · 15 juillet – 6 août 1918</div>
-  <h2>Forces en présence &amp; bilan comparatif</h2>
+  <div class="section-label" data-fr="Ordre de bataille · 15 juillet – 6 août 1918" data-en="Order of battle · July 15 – August 6, 1918">Ordre de bataille · 15 juillet – 6 août 1918</div>
+  <h2 data-fr="Forces en présence &amp; bilan comparatif" data-en="Forces engaged &amp; comparative balance sheet">Forces en présence &amp; bilan comparatif</h2>
 
   <div class="forces-wrap">
   <table class="forces-table">
-    <caption>Sources : Reichsarchiv Band 34 · CMH Pub 77-5 · Chemins de mémoire · Neiberg (2008)</caption>
+    <caption data-fr="Sources : Reichsarchiv Band 34 · CMH Pub 77-5 · Chemins de mémoire · Neiberg (2008)" data-en="Sources: Reichsarchiv Band 34 · CMH Pub 77-5 · Chemins de mémoire · Neiberg (2008)">Sources : Reichsarchiv Band 34 · CMH Pub 77-5 · Chemins de mémoire · Neiberg (2008)</caption>
     <thead>
       <tr>
         <th></th>
-        <th>🇫🇷 🇺🇸 Alliés (FR / US / IT)</th>
-        <th>🇩🇪 Allemagne</th>
+        <th>🇫🇷 🇺🇸 <span data-fr="Alliés (FR / US / IT)" data-en="Allies (FR / US / IT)">Alliés (FR / US / IT)</span></th>
+        <th>🇩🇪 <span data-fr="Allemagne" data-en="Germany">Allemagne</span></th>
       </tr>
     </thead>
     <tbody>
 
-      <tr class="section-row"><td colspan="3">Commandement</td></tr>
+      <tr class="section-row"><td colspan="3" data-fr="Commandement" data-en="Command">Commandement</td></tr>
       <tr>
-        <td>Commandant suprême</td>
+        <td data-fr="Commandant suprême" data-en="Supreme commander">Commandant suprême</td>
         <td>Maréchal Ferdinand <strong>Foch</strong></td>
         <td>Général Erich <strong>Ludendorff</strong></td>
       </tr>
       <tr>
-        <td>Commandant secteur Marne</td>
+        <td data-fr="Commandant secteur Marne" data-en="Marne sector commander">Commandant secteur Marne</td>
         <td>Gén. Pétain (GA Centre) · Gén. Mangin (10e Armée)</td>
         <td>Kronprinz Wilhelm · Gén. Boehn (7e Armée)</td>
       </tr>
       <tr>
-        <td>Armées engagées</td>
+        <td data-fr="Armées engagées" data-en="Armies engaged">Armées engagées</td>
         <td>4e (Gouraud) · 5e (Berthelot) · 6e (Degoutte) · 10e (Mangin)</td>
         <td>1re (von Below) · 3e (von Einem) · 7e (Boehn)</td>
       </tr>
 
       <tr class="sep"><td colspan="3"></td></tr>
-      <tr class="section-row"><td colspan="3">Forces</td></tr>
+      <tr class="section-row"><td colspan="3" data-fr="Forces" data-en="Forces">Forces</td></tr>
       <tr>
-        <td>Divisions</td>
-        <td class="val-good">~85 divisions (dont 9 US, 2 IT)</td>
-        <td>47 divisions d'assaut (Friedensturm)</td>
+        <td data-fr="Divisions" data-en="Divisions">Divisions</td>
+        <td class="val-good" data-fr="~85 divisions (dont 9 US, 2 IT)" data-en="~85 divisions (incl. 9 US, 2 IT)">~85 divisions (dont 9 US, 2 IT)</td>
+        <td data-fr="47 divisions d'assaut (Friedensturm)" data-en="47 assault divisions (Friedensturm)">47 divisions d'assaut (Friedensturm)</td>
       </tr>
       <tr>
-        <td>Effectifs estimés</td>
-        <td class="val-good">~900 000 hommes</td>
-        <td>~600 000 hommes</td>
+        <td data-fr="Effectifs estimés" data-en="Estimated strength">Effectifs estimés</td>
+        <td class="val-good">~900 000 <span data-fr="hommes" data-en="men">hommes</span></td>
+        <td>~600 000 <span data-fr="hommes" data-en="men">hommes</span></td>
       </tr>
       <tr>
-        <td>Chars</td>
+        <td data-fr="Chars" data-en="Tanks">Chars</td>
         <td class="val-good">350 (Renault FT · Schneider · Saint-Chamond)</td>
-        <td class="val-bad">0 (aucun char engagé)</td>
+        <td class="val-bad" data-fr="0 (aucun char engagé)" data-en="0 (no tanks engaged)">0 (aucun char engagé)</td>
       </tr>
       <tr>
-        <td>Avions</td>
-        <td class="val-good">~1 500 appareils</td>
-        <td>~900 appareils</td>
+        <td data-fr="Avions" data-en="Aircraft">Avions</td>
+        <td class="val-good">~1 500 <span data-fr="appareils" data-en="aircraft">appareils</span></td>
+        <td>~900 <span data-fr="appareils" data-en="aircraft">appareils</span></td>
       </tr>
       <tr>
-        <td>Artillerie (sect. Marne)</td>
-        <td>Contre-préparation dès minuit 10</td>
-        <td>~1 700 batteries · 456 bat. campagne · 258 bat. lourds</td>
+        <td data-fr="Artillerie (sect. Marne)" data-en="Artillery (Marne sector)">Artillerie (sect. Marne)</td>
+        <td data-fr="Contre-préparation dès minuit 10" data-en="Counter-preparation from 12:10 a.m.">Contre-préparation dès minuit 10</td>
+        <td data-fr="~1 700 batteries · 456 bat. campagne · 258 bat. lourds" data-en="~1,700 batteries · 456 field btn. · 258 heavy btn.">~1 700 batteries · 456 bat. campagne · 258 bat. lourds</td>
       </tr>
 
       <tr class="sep"><td colspan="3"></td></tr>
-      <tr class="section-row"><td colspan="3">Résultats &amp; pertes</td></tr>
+      <tr class="section-row"><td colspan="3" data-fr="Résultats &amp; pertes" data-en="Results &amp; losses">Résultats &amp; pertes</td></tr>
       <tr>
-        <td>Tués &amp; blessés</td>
-        <td>~95 000 (dont ~12 000 US)</td>
+        <td data-fr="Tués &amp; blessés" data-en="Killed &amp; wounded">Tués &amp; blessés</td>
+        <td data-fr="~95 000 (dont ~12 000 US)" data-en="~95,000 (incl. ~12,000 US)">~95 000 (dont ~12 000 US)</td>
         <td class="val-bad">~168 000</td>
       </tr>
       <tr>
-        <td>Prisonniers</td>
+        <td data-fr="Prisonniers" data-en="Prisoners">Prisonniers</td>
         <td>—</td>
-        <td class="val-bad">35 000 capturés</td>
+        <td class="val-bad" data-fr="35 000 capturés" data-en="35,000 captured">35 000 capturés</td>
       </tr>
       <tr>
-        <td>Matériel perdu</td>
-        <td>~200 canons</td>
-        <td class="val-bad">700+ canons capturés</td>
+        <td data-fr="Matériel perdu" data-en="Equipment lost">Matériel perdu</td>
+        <td data-fr="~200 canons" data-en="~200 guns">~200 canons</td>
+        <td class="val-bad" data-fr="700+ canons capturés" data-en="700+ guns captured">700+ canons capturés</td>
       </tr>
       <tr>
-        <td>Territoire</td>
-        <td class="val-good">+200 km de front reconquis · 200 villages libérés</td>
-        <td class="val-bad">Saillant perdu · repli sur la Vesle</td>
+        <td data-fr="Territoire" data-en="Territory">Territoire</td>
+        <td class="val-good" data-fr="+200 km de front reconquis · 200 villages libérés" data-en="+200 km of front recaptured · 200 villages liberated">+200 km de front reconquis · 200 villages libérés</td>
+        <td class="val-bad" data-fr="Saillant perdu · repli sur la Vesle" data-en="Salient lost · retreat to the Vesle">Saillant perdu · repli sur la Vesle</td>
       </tr>
       <tr>
-        <td>Initiative stratégique</td>
-        <td class="val-good">Alliés — définitivement conservée jusqu'au 11 nov.</td>
-        <td class="val-bad">Perdue après le 18 juillet, jamais retrouvée</td>
+        <td data-fr="Initiative stratégique" data-en="Strategic initiative">Initiative stratégique</td>
+        <td class="val-good" data-fr="Alliés — définitivement conservée jusqu'au 11 nov." data-en="Allies — permanently held until Nov. 11">Alliés — définitivement conservée jusqu'au 11 nov.</td>
+        <td class="val-bad" data-fr="Perdue après le 18 juillet, jamais retrouvée" data-en="Lost after July 18, never regained">Perdue après le 18 juillet, jamais retrouvée</td>
       </tr>
 
     </tbody>
@@ -413,32 +414,32 @@ section.bg2 > .inner { max-width: 1100px; margin: 0 auto; }
      CONTRE-OFFENSIVE
 ══════════════════════════════════════ -->
 <section id="contre-offensive">
-  <div class="section-label">18 juillet 1918</div>
-  <h2>La contre-offensive Mangin — le choc en retour</h2>
+  <div class="section-label" data-fr="18 juillet 1918" data-en="July 18, 1918">18 juillet 1918</div>
+  <h2 data-fr="La contre-offensive Mangin — le choc en retour" data-en="The Mangin counter-offensive — the shock in return">La contre-offensive Mangin — le choc en retour</h2>
 
   <div class="bt-grid bt-grid-lg" style="margin-top:1.25rem">
     <div>
-      <p style="font-size:.93rem;color:var(--text2);line-height:1.85;margin-bottom:1rem">
+      <p style="font-size:.93rem;color:var(--text2);line-height:1.85;margin-bottom:1rem" data-fr="Trois jours après le début de l'offensive allemande, le général Mangin lance depuis la Forêt de Villers-Cotterêts la plus grande offensive blindée de la guerre. Aucun barrage préparatoire — la surprise est totale. Les 350 chars émergent des bois au lever du soleil, talonnés par 24 divisions d'infanterie." data-en="Three days after the German offensive began, General Mangin launches from the Forest of Villers-Cotterêts the largest armored offensive of the war. No preparatory barrage — the surprise is total. The 350 tanks emerge from the woods at sunrise, followed closely by 24 infantry divisions.">
         Trois jours après le début de l'offensive allemande, le général Mangin lance depuis la Forêt de Villers-Cotterêts la plus grande offensive blindée de la guerre. Aucun barrage préparatoire — la surprise est totale. Les 350 chars émergent des bois au lever du soleil, talonnés par 24 divisions d'infanterie.
       </p>
-      <p style="font-size:.93rem;color:var(--text2);line-height:1.85;margin-bottom:1.25rem">
+      <p style="font-size:.93rem;color:var(--text2);line-height:1.85;margin-bottom:1.25rem" data-fr="En un seul jour, les lignes allemandes reculent de 3 à 8 km sur tout le front. Menacés d'encerclement par leur flanc ouest, les Allemands doivent évacuer le saillant conquis depuis mai. Ludendorff dira :" data-en="In a single day, the German lines fall back 3 to 8 km across the entire front. Threatened with encirclement on their western flank, the Germans must evacuate the salient won since May. Ludendorff would say:">
         En un seul jour, les lignes allemandes reculent de 3 à 8 km sur tout le front. Menacés d'encerclement par leur flanc ouest, les Allemands doivent évacuer le saillant conquis depuis mai. Ludendorff dira :
       </p>
       <blockquote style="font-family:'Playfair Display',Georgia,serif;font-size:1rem;font-style:italic;color:var(--gold);line-height:1.7;border-left:3px solid var(--gold);padding-left:1.25rem;margin:0 0 1.25rem">
         «&nbsp;C'est le jour de deuil le plus noir de la guerre pour l'Armée allemande.&nbsp;»
-        <cite style="display:block;font-size:.67rem;color:var(--text2);margin-top:.6rem;font-style:normal;letter-spacing:.12em;text-transform:uppercase">— Général Erich Ludendorff, 18 juillet 1918</cite>
+        <cite style="display:block;font-size:.67rem;color:var(--text2);margin-top:.6rem;font-style:normal;letter-spacing:.12em;text-transform:uppercase" data-fr="— Général Erich Ludendorff, 18 juillet 1918" data-en="— General Erich Ludendorff, July 18, 1918">— Général Erich Ludendorff, 18 juillet 1918</cite>
       </blockquote>
 
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem">
         <figure class="bt-fig" style="position:static">
           <img src="selection_sources/L'ensemble_du_front/21576.png.webp"
                alt="Char Renault FT en forêt, 1918" loading="lazy">
-          <figcaption>Char Renault FT en lisière de forêt, été 1918. Les 350 chars du 18 juillet surgissent sans barrage préparatoire. — NARA / Signal Corps</figcaption>
+          <figcaption data-fr="Char Renault FT en lisière de forêt, été 1918. Les 350 chars du 18 juillet surgissent sans barrage préparatoire. — NARA / Signal Corps" data-en="Renault FT tank at the forest edge, summer 1918. The 350 tanks of July 18 emerge with no preparatory barrage. — NARA / Signal Corps">Char Renault FT en lisière de forêt, été 1918. Les 350 chars du 18 juillet surgissent sans barrage préparatoire. — NARA / Signal Corps</figcaption>
         </figure>
         <div>
           <div class="info-box" style="height:100%;box-sizing:border-box">
-            <h3>La surprise de Villers-Cotterêts</h3>
-            <p>L'absence totale de barrage préparatoire — une première — laisse les défenseurs allemands sans aucun avertissement. Les chars émergent des bois dans la brume matinale. Plusieurs unités allemandes sont encerclées avant d'avoir pu réagir.</p>
+            <h3 data-fr="La surprise de Villers-Cotterêts" data-en="The surprise of Villers-Cotterêts">La surprise de Villers-Cotterêts</h3>
+            <p data-fr="L'absence totale de barrage préparatoire — une première — laisse les défenseurs allemands sans aucun avertissement. Les chars émergent des bois dans la brume matinale. Plusieurs unités allemandes sont encerclées avant d'avoir pu réagir." data-en="The complete absence of a preparatory barrage — a first — leaves German defenders with no warning. The tanks emerge from the woods in the morning mist. Several German units are encircled before they can react.">L'absence totale de barrage préparatoire — une première — laisse les défenseurs allemands sans aucun avertissement. Les chars émergent des bois dans la brume matinale. Plusieurs unités allemandes sont encerclées avant d'avoir pu réagir.</p>
           </div>
         </div>
       </div>
@@ -447,7 +448,7 @@ section.bg2 > .inner { max-width: 1100px; margin: 0 auto; }
     <figure class="bt-fig">
       <img src="selection_sources/L'ensemble_du_front/Capture d'écran 2026-04-07 211852.png"
            alt="Carte contre-offensive française, 18 juillet – 4 août 1918" loading="lazy">
-      <figcaption>La contre-offensive française du 18 juillet au 4 août 1918. Le saillant se referme progressivement. Jaulgonne est libéré le 24 juillet. — Source cartographique française</figcaption>
+      <figcaption data-fr="La contre-offensive française du 18 juillet au 4 août 1918. Le saillant se referme progressivement. Jaulgonne est libéré le 24 juillet. — Source cartographique française" data-en="The French counter-offensive from July 18 to August 4, 1918. The salient gradually closes. Jaulgonne is liberated on July 24. — French cartographic source">La contre-offensive française du 18 juillet au 4 août 1918. Le saillant se referme progressivement. Jaulgonne est libéré le 24 juillet. — Source cartographique française</figcaption>
     </figure>
   </div>
 </section>
@@ -457,29 +458,29 @@ section.bg2 > .inner { max-width: 1100px; margin: 0 auto; }
 ══════════════════════════════════════ -->
 <section class="bg2" id="bilan">
 <div class="inner">
-  <div class="section-label">3 août 1918</div>
-  <h2>Le bilan de la bataille</h2>
+  <div class="section-label" data-fr="3 août 1918" data-en="August 3, 1918">3 août 1918</div>
+  <h2 data-fr="Le bilan de la bataille" data-en="The outcome of the battle">Le bilan de la bataille</h2>
 
   <div class="bt-grid bt-grid-lg" style="margin-top:1.25rem">
     <div>
-      <p style="font-size:.93rem;color:var(--text2);line-height:1.85;margin-bottom:1rem">
+      <p style="font-size:.93rem;color:var(--text2);line-height:1.85;margin-bottom:1rem" data-fr="Le 3 août, les Allemands repassent la Vesle à Fismes. En vingt jours de contre-offensive, les Alliés ont reconquis un saillant de 200 km de front, libéré 200 villages, fait 35 000 prisonniers et capturé 700 canons." data-en="On August 3, the Germans recross the Vesle at Fismes. In twenty days of counter-offensive, the Allies have retaken a salient 200 km wide, liberated 200 villages, taken 35,000 prisoners and captured 700 guns.">
         Le 3 août, les Allemands repassent la Vesle à Fismes. En vingt jours de contre-offensive, les Alliés ont reconquis un saillant de 200 km de front, libéré 200 villages, fait 35 000 prisonniers et capturé 700 canons.
       </p>
-      <p style="font-size:.93rem;color:var(--text2);line-height:1.85;margin-bottom:1.25rem">
+      <p style="font-size:.93rem;color:var(--text2);line-height:1.85;margin-bottom:1.25rem" data-fr="Pour le seul 38e Corps d'Armée (secteur de Jaulgonne) : 1 500 prisonniers, 13 canons capturés, 4 500 hommes engagés. Des villages entiers, dont Jaulgonne, sont réduits en ruines." data-en="For the 38th Army Corps alone (Jaulgonne sector): 1,500 prisoners, 13 guns captured, 4,500 men engaged. Entire villages, including Jaulgonne, are reduced to ruins.">
         Pour le seul <strong>38e Corps d'Armée</strong> (secteur de Jaulgonne) : 1 500 prisonniers, 13 canons capturés, 4 500 hommes engagés. Des villages entiers, dont Jaulgonne, sont réduits en ruines.
       </p>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem">
         <div class="info-box">
-          <h3>Le tournant de la guerre</h3>
-          <p>Après le 18 juillet 1918, l'armée allemande n'a plus jamais repris l'initiative stratégique. Les «&nbsp;Cent Jours&nbsp;» aboutissent à l'armistice du 11 novembre 1918.</p>
+          <h3 data-fr="Le tournant de la guerre" data-en="The turning point of the war">Le tournant de la guerre</h3>
+          <p data-fr="Après le 18 juillet 1918, l'armée allemande n'a plus jamais repris l'initiative stratégique. Les «&nbsp;Cent Jours&nbsp;» aboutissent à l'armistice du 11 novembre 1918." data-en="After July 18, 1918, the German army never again regained the strategic initiative. The 'Hundred Days' ended with the armistice of November 11, 1918.">Après le 18 juillet 1918, l'armée allemande n'a plus jamais repris l'initiative stratégique. Les «&nbsp;Cent Jours&nbsp;» aboutissent à l'armistice du 11 novembre 1918.</p>
         </div>
         <div class="info-box">
-          <h3>Le rôle décisif des Américains</h3>
-          <p>270 000 soldats américains débarquent en juillet 1918. Leur présence brise le moral du commandement allemand. La 3e Division US à Jaulgonne en est le symbole.</p>
+          <h3 data-fr="Le rôle décisif des Américains" data-en="The decisive role of the Americans">Le rôle décisif des Américains</h3>
+          <p data-fr="270 000 soldats américains débarquent en juillet 1918. Leur présence brise le moral du commandement allemand. La 3e Division US à Jaulgonne en est le symbole." data-en="270,000 American soldiers arrive in July 1918. Their presence breaks the morale of the German command. The 3rd US Division at Jaulgonne is the symbol of this.">270 000 soldats américains débarquent en juillet 1918. Leur présence brise le moral du commandement allemand. La 3e Division US à Jaulgonne en est le symbole.</p>
         </div>
         <div class="info-box" style="grid-column:span 2">
-          <h3>Carte animée disponible</h3>
-          <p>La progression des lignes en 9 étapes du 14 juillet au 3 août 1918 — voir la <a href="carte_bataille.html" style="color:var(--gold)">carte animée de la bataille</a>.</p>
+          <h3 data-fr="Carte animée disponible" data-en="Animated map available">Carte animée disponible</h3>
+          <p data-fr="La progression des lignes en 9 étapes du 14 juillet au 3 août 1918 — voir la carte animée de la bataille." data-en="The advance of front lines in 9 steps from July 14 to August 3, 1918 — see the animated battle map.">La progression des lignes en 9 étapes du 14 juillet au 3 août 1918 — voir la <a href="carte_bataille.html" style="color:var(--gold)" data-fr="carte animée de la bataille" data-en="animated battle map">carte animée de la bataille</a>.</p>
         </div>
       </div>
     </div>
@@ -487,7 +488,7 @@ section.bg2 > .inner { max-width: 1100px; margin: 0 auto; }
     <figure class="bt-fig">
       <img src="selection_sources/L'ensemble_du_front/Riflemen-1918-Western-Front.jpg"
            alt="Graphique effectifs alliés vs allemands, 1918" loading="lazy">
-      <figcaption>Effectifs en «&nbsp;baïonnettes&nbsp;» des armées alliées et allemandes, avril–novembre 1918. Le croisement des courbes à l'été 1918 illustre le basculement définitif du rapport de force. — CMH, U.S. Army War College</figcaption>
+      <figcaption data-fr="Effectifs en «&nbsp;baïonnettes&nbsp;» des armées alliées et allemandes, avril–novembre 1918. Le croisement des courbes à l'été 1918 illustre le basculement définitif du rapport de force. — CMH, U.S. Army War College" data-en="'Bayonet' strength of Allied and German armies, April–November 1918. The crossing of the curves in summer 1918 illustrates the definitive shift in the balance of power. — CMH, U.S. Army War College">Effectifs en «&nbsp;baïonnettes&nbsp;» des armées alliées et allemandes, avril–novembre 1918. Le croisement des courbes à l'été 1918 illustre le basculement définitif du rapport de force. — CMH, U.S. Army War College</figcaption>
     </figure>
   </div>
 </div>
@@ -495,9 +496,19 @@ section.bg2 > .inner { max-width: 1100px; margin: 0 auto; }
 
 <!-- FOOTER -->
 <footer>
-  <p>Sources : Chemins de mémoire · U.S. Army Center of Military History (CMH Pub 77-5) · Général Mangin — écrits et correspondances · Mémoires Ludendorff · Reichsarchiv Band 34 — <em>Die letzte deutsche Offensive, Reims 1918</em></p>
-  <p style="margin-top:.75rem;font-size:.68rem;color:#7a6a5a">En mémoire des soldats des deux camps tombés sur la Marne — Été 1918</p>
+  <p data-fr="Sources : Chemins de mémoire · U.S. Army Center of Military History (CMH Pub 77-5) · Général Mangin — écrits et correspondances · Mémoires Ludendorff · Reichsarchiv Band 34 — Die letzte deutsche Offensive, Reims 1918" data-en="Sources: Chemins de mémoire · U.S. Army Center of Military History (CMH Pub 77-5) · General Mangin — writings and correspondence · Ludendorff Memoirs · Reichsarchiv Band 34 — Die letzte deutsche Offensive, Reims 1918">Sources : Chemins de mémoire · U.S. Army Center of Military History (CMH Pub 77-5) · Général Mangin — écrits et correspondances · Mémoires Ludendorff · Reichsarchiv Band 34 — <em>Die letzte deutsche Offensive, Reims 1918</em></p>
+  <p style="margin-top:.75rem;font-size:.68rem;color:#7a6a5a" data-fr="En mémoire des soldats des deux camps tombés sur la Marne — Été 1918" data-en="In memory of the soldiers of both sides who fell on the Marne — Summer 1918">En mémoire des soldats des deux camps tombés sur la Marne — Été 1918</p>
 </footer>
 <script src="lightbox.js"></script>
+<script>
+function toggleLang(){
+  const l=document.documentElement.getAttribute('data-lang')==='fr'?'en':'fr';
+  document.documentElement.setAttribute('data-lang',l);
+  document.getElementById('lang-toggle').textContent=l==='fr'?'English':'Français';
+  document.querySelectorAll('[data-fr]').forEach(el=>{
+    el.innerHTML=el.getAttribute('data-'+l);
+  });
+}
+</script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -146,12 +146,13 @@
 
 <!-- HERO -->
 <header id="hero">
-  <div class="hero-eyebrow">2e Bataille de la Marne · Été 1918</div>
+  <div class="hero-eyebrow" data-fr="2e Bataille de la Marne · Été 1918" data-en="2nd Battle of the Marne · Summer 1918">2e Bataille de la Marne · Été 1918</div>
   <h1 class="hero-title">Jaulgonne</h1>
-  <p class="hero-subtitle">La libération du village &amp; la 2<sup>e</sup> Bataille de la Marne</p>
+  <p class="hero-subtitle" data-fr="La libération du village &amp; la 2e Bataille de la Marne" data-en="The liberation of the village &amp; the 2nd Battle of the Marne">La libération du village &amp; la 2<sup>e</sup> Bataille de la Marne</p>
   <div class="hero-dates">27 mai → 24 juillet 1918</div>
   <div class="hero-flags">🇫🇷 🇺🇸</div>
-  <div class="scroll-hint">Découvrir</div>
+  <div class="scroll-hint" data-fr="Découvrir" data-en="Discover">Découvrir</div>
+  <button class="lang-btn" id="lang-toggle" onclick="toggleLang()">English</button>
 </header>
 
 <!-- NAV -->
@@ -169,32 +170,32 @@
 
 <!-- CITATION -->
 <div class="home-quote">
-  <blockquote>
+  <blockquote data-fr="«&nbsp;La deuxième bataille de la Marne marque le tournant définitif — l'Allemagne n'a plus jamais repris l'initiative.&nbsp;»" data-en="«&nbsp;The Second Battle of the Marne marks the definitive turning point — Germany never regained the initiative.&nbsp;»">
     «&nbsp;La deuxième bataille de la Marne marque le tournant définitif — l'Allemagne n'a plus jamais repris l'initiative.&nbsp;»
   </blockquote>
-  <cite>— Maréchal Ferdinand Foch, Commandant suprême des Armées alliées</cite>
+  <cite data-fr="— Maréchal Ferdinand Foch, Commandant suprême des Armées alliées" data-en="— Marshal Ferdinand Foch, Supreme Commander of the Allied Armies">— Maréchal Ferdinand Foch, Commandant suprême des Armées alliées</cite>
 </div>
 
 <!-- MOSAÏQUE PHOTOS -->
 <div class="home-mosaic">
-  <div class="home-mosaic-eyebrow">Archives photographiques · Documents d'époque</div>
+  <div class="home-mosaic-eyebrow" data-fr="Archives photographiques · Documents d'époque" data-en="Photographic archives · Period documents">Archives photographiques · Documents d'époque</div>
   <div class="home-mosaic-grid">
 
     <figure>
       <img src="selection_sources/FI-0732-0343.jpg" alt="Vue aérienne du coude de Jaulgonne, juin 1918" loading="lazy">
-      <figcaption>Vue aérienne — coude de Jaulgonne, 6 juin 1918 (IMAGE'EST)</figcaption>
+      <figcaption data-fr="Vue aérienne — coude de Jaulgonne, 6 juin 1918 (IMAGE'EST)" data-en="Aerial view — Jaulgonne bend, June 6, 1918 (IMAGE'EST)">Vue aérienne — coude de Jaulgonne, 6 juin 1918 (IMAGE'EST)</figcaption>
     </figure>
 
     <figure style="cursor:default">
       <iframe src="https://www.youtube.com/embed/PZGQJ9HcuxQ?start=234&autoplay=1&mute=1&loop=1&playlist=PZGQJ9HcuxQ&controls=1&modestbranding=1"
               style="width:100%;height:100%;display:block;border:none;background:#000"
               allow="autoplay; encrypted-media" allowfullscreen title="Signal Corps H-1365 · Aisne-Marne 1918"></iframe>
-      <figcaption style="opacity:1;background:linear-gradient(to top,rgba(10,8,5,.88) 0%,transparent 100%)">Signal Corps H-1365 · Aisne-Marne, juillet–août 1918 · NARA</figcaption>
+      <figcaption style="opacity:1;background:linear-gradient(to top,rgba(10,8,5,.88) 0%,transparent 100%)" data-fr="Signal Corps H-1365 · Aisne-Marne, juillet–août 1918 · NARA" data-en="Signal Corps H-1365 · Aisne-Marne, July–August 1918 · NARA">Signal Corps H-1365 · Aisne-Marne, juillet–août 1918 · NARA</figcaption>
     </figure>
 
     <figure>
       <img src="selection_sources/Up_JAULGONNEplace_de_la_Mairie.jpg" alt="Place de la Mairie de Jaulgonne en ruines" loading="lazy">
-      <figcaption>Place de la Mairie en ruines, été 1918</figcaption>
+      <figcaption data-fr="Place de la Mairie en ruines, été 1918" data-en="Town Hall square in ruins, summer 1918">Place de la Mairie en ruines, été 1918</figcaption>
     </figure>
 
   </div>
@@ -205,7 +206,7 @@
   <div class="home-dates-inner">
     <div class="home-date-item">
       <span class="home-date-num">27 mai</span>
-      <span class="home-date-label">Franchissement allemand de la Marne</span>
+      <span class="home-date-label" data-fr="Franchissement allemand de la Marne" data-en="German crossing of the Marne">Franchissement allemand de la Marne</span>
     </div>
     <div class="home-date-item">
       <span class="home-date-num">15 juil.</span>
@@ -213,31 +214,31 @@
     </div>
     <div class="home-date-item">
       <span class="home-date-num">18 juil.</span>
-      <span class="home-date-label">Contre-offensive Mangin</span>
+      <span class="home-date-label" data-fr="Contre-offensive Mangin" data-en="Mangin counter-offensive">Contre-offensive Mangin</span>
     </div>
     <div class="home-date-item">
       <span class="home-date-num">24 juil.</span>
-      <span class="home-date-label">Libération définitive de Jaulgonne</span>
+      <span class="home-date-label" data-fr="Libération définitive de Jaulgonne" data-en="Final liberation of Jaulgonne">Libération définitive de Jaulgonne</span>
     </div>
     <div class="home-date-item">
       <span class="home-date-num">3 août</span>
-      <span class="home-date-label">Front stabilisé sur le Vesle</span>
+      <span class="home-date-label" data-fr="Front stabilisé sur le Vesle" data-en="Front stabilized on the Vesle">Front stabilisé sur le Vesle</span>
     </div>
   </div>
 </div>
 
 <!-- INTRO -->
 <div class="home-intro">
-  <div class="section-label">Présentation</div>
-  <h2>Un village au cœur de la Grande Guerre</h2>
-  <p class="intro-text">
+  <div class="section-label" data-fr="Présentation" data-en="About">Présentation</div>
+  <h2 data-fr="Un village au cœur de la Grande Guerre" data-en="A village at the heart of the Great War">Un village au cœur de la Grande Guerre</h2>
+  <p class="intro-text" data-fr="Ce site retrace les événements qui se sont déroulés à Jaulgonne et dans la vallée de la Marne durant l'été 1918 — du franchissement allemand du 27 mai à la libération définitive du 24 juillet. Un village qui fut, pendant quelques semaines, le verrou naturel de la route de Paris, et dont les habitants payèrent le prix fort pour la victoire alliée." data-en="This site traces the events that unfolded in Jaulgonne and the Marne valley during the summer of 1918 — from the German crossing on May 27 to the final liberation on July 24. A village that was, for a few weeks, the natural lock on the road to Paris, whose inhabitants paid a heavy price for the Allied victory.">
     Ce site retrace les événements qui se sont déroulés à Jaulgonne et dans la vallée de la Marne durant l'été 1918 — du franchissement allemand du 27 mai à la libération définitive du 24 juillet. Un village qui fut, pendant quelques semaines, le verrou naturel de la route de Paris, et dont les habitants payèrent le prix fort pour la victoire alliée.
   </p>
 </div>
 
 <!-- GRILLE DE NAVIGATION -->
 <div class="home-nav-section">
-  <div class="section-label">Les thématiques du site</div>
+  <div class="section-label" data-fr="Les thématiques du site" data-en="Site themes">Les thématiques du site</div>
   <div class="nav-cards">
 
     <a href="geographie.html" class="nav-card">
@@ -246,9 +247,9 @@
       </div>
       <div class="nav-card-body">
         <div class="nav-card-num">01</div>
-        <div class="nav-card-title">La position stratégique de Jaulgonne</div>
-        <div class="nav-card-desc">Le coude de la Marne, le confluent du Surmelin, la Ferme des Franquets et la Forêt de Ris : pourquoi Jaulgonne était le dernier verrou avant Paris.</div>
-        <span class="nav-card-tag">Carte interactive · Géographie</span>
+        <div class="nav-card-title" data-fr="La position stratégique de Jaulgonne" data-en="The strategic position of Jaulgonne">La position stratégique de Jaulgonne</div>
+        <div class="nav-card-desc" data-fr="Le coude de la Marne, le confluent du Surmelin, la Ferme des Franquets et la Forêt de Ris : pourquoi Jaulgonne était le dernier verrou avant Paris." data-en="The bend of the Marne, the Surmelin confluence, Franquets Farm and the Forest of Ris: why Jaulgonne was the last lock before Paris.">Le coude de la Marne, le confluent du Surmelin, la Ferme des Franquets et la Forêt de Ris : pourquoi Jaulgonne était le dernier verrou avant Paris.</div>
+        <span class="nav-card-tag" data-fr="Carte interactive · Géographie" data-en="Interactive map · Geography">Carte interactive · Géographie</span>
       </div>
     </a>
 
@@ -258,9 +259,9 @@
       </div>
       <div class="nav-card-body">
         <div class="nav-card-num">02</div>
-        <div class="nav-card-title">Les événements — Été 1918</div>
-        <div class="nav-card-desc">Des bombardements massifs du 15 juillet aux passerelles flottantes, de la nuit des gaz à la reprise rue par rue : la chronologie complète des six semaines qui ont changé la guerre.</div>
-        <span class="nav-card-tag">Chronologie · 6 chapitres</span>
+        <div class="nav-card-title" data-fr="Les événements — Été 1918" data-en="The events — Summer 1918">Les événements — Été 1918</div>
+        <div class="nav-card-desc" data-fr="Des bombardements massifs du 15 juillet aux passerelles flottantes, de la nuit des gaz à la reprise rue par rue : la chronologie complète des six semaines qui ont changé la guerre." data-en="From the massive bombardments of July 15 to the floating footbridges, from the night of gas to the street-by-street recapture: the full chronology of the six weeks that changed the war.">Des bombardements massifs du 15 juillet aux passerelles flottantes, de la nuit des gaz à la reprise rue par rue : la chronologie complète des six semaines qui ont changé la guerre.</div>
+        <span class="nav-card-tag" data-fr="Chronologie · 6 chapitres" data-en="Timeline · 6 chapters">Chronologie · 6 chapitres</span>
       </div>
     </a>
 
@@ -270,9 +271,9 @@
       </div>
       <div class="nav-card-body">
         <div class="nav-card-num">03</div>
-        <div class="nav-card-title">La Libération de Jaulgonne</div>
-        <div class="nav-card-desc">21–24 juillet 1918 : les passerelles du génie, le franchissement de la Marne, l'entrée du 38e Régiment US dans le village. Du premier coup de main à la libération définitive.</div>
-        <span class="nav-card-tag">21–24 juillet · 38e Rgt US · Mondésir</span>
+        <div class="nav-card-title" data-fr="La Libération de Jaulgonne" data-en="The Liberation of Jaulgonne">La Libération de Jaulgonne</div>
+        <div class="nav-card-desc" data-fr="21–24 juillet 1918 : les passerelles du génie, le franchissement de la Marne, l'entrée du 38e Régiment US dans le village. Du premier coup de main à la libération définitive." data-en="July 21–24, 1918: the engineer footbridges, crossing the Marne, the 38th US Regiment entering the village. From the first raid to the final liberation.">21–24 juillet 1918 : les passerelles du génie, le franchissement de la Marne, l'entrée du 38e Régiment US dans le village. Du premier coup de main à la libération définitive.</div>
+        <span class="nav-card-tag" data-fr="21–24 juillet · 38e Rgt US · Mondésir" data-en="July 21–24 · 38th Rgt US · Mondésir">21–24 juillet · 38e Rgt US · Mondésir</span>
       </div>
     </a>
 
@@ -282,9 +283,9 @@
       </div>
       <div class="nav-card-body">
         <div class="nav-card-num">04</div>
-        <div class="nav-card-title">Le Charmel &amp; la Forêt de Ris</div>
-        <div class="nav-card-desc">La difficile bataille dans les bois au nord de Jaulgonne : la prise du Charmel, le Bois Meunière, et la relève des unités épuisées. Sources primaires françaises et américaines.</div>
-        <span class="nav-card-tag">Combat de forêt · Sources primaires</span>
+        <div class="nav-card-title" data-fr="Le Charmel &amp; la Forêt de Ris" data-en="Le Charmel &amp; the Forest of Ris">Le Charmel &amp; la Forêt de Ris</div>
+        <div class="nav-card-desc" data-fr="La difficile bataille dans les bois au nord de Jaulgonne : la prise du Charmel, le Bois Meunière, et la relève des unités épuisées. Sources primaires françaises et américaines." data-en="The difficult battle in the woods north of Jaulgonne: the capture of Le Charmel, the Bois Meunière, and the relief of exhausted units. French and American primary sources.">La difficile bataille dans les bois au nord de Jaulgonne : la prise du Charmel, le Bois Meunière, et la relève des unités épuisées. Sources primaires françaises et américaines.</div>
+        <span class="nav-card-tag" data-fr="Combat de forêt · Sources primaires" data-en="Forest combat · Primary sources">Combat de forêt · Sources primaires</span>
       </div>
     </a>
 
@@ -294,9 +295,9 @@
       </div>
       <div class="nav-card-body">
         <div class="nav-card-num">05</div>
-        <div class="nav-card-title">L'ampleur de la bataille</div>
-        <div class="nav-card-desc">La 2e Bataille de la Marne vue depuis l'ensemble du front : 24 divisions alliées, 350 chars, 200 villages libérés, 35 000 prisonniers. Le tournant définitif de la Grande Guerre.</div>
-        <span class="nav-card-tag">Contexte général · En enrichissement</span>
+        <div class="nav-card-title" data-fr="L'ampleur de la bataille" data-en="The scale of the battle">L'ampleur de la bataille</div>
+        <div class="nav-card-desc" data-fr="La 2e Bataille de la Marne vue depuis l'ensemble du front : 24 divisions alliées, 350 chars, 200 villages libérés, 35 000 prisonniers. Le tournant définitif de la Grande Guerre." data-en="The 2nd Battle of the Marne from the whole front: 24 Allied divisions, 350 tanks, 200 liberated villages, 35,000 prisoners. The definitive turning point of the Great War.">La 2e Bataille de la Marne vue depuis l'ensemble du front : 24 divisions alliées, 350 chars, 200 villages libérés, 35 000 prisonniers. Le tournant définitif de la Grande Guerre.</div>
+        <span class="nav-card-tag" data-fr="Contexte général · En enrichissement" data-en="General context · Being enriched">Contexte général · En enrichissement</span>
       </div>
     </a>
 
@@ -306,8 +307,8 @@
       </div>
       <div class="nav-card-body">
         <div class="nav-card-num">06</div>
-        <div class="nav-card-title">Hommage à la Division Américaine</div>
-        <div class="nav-card-desc">Les «&nbsp;Rochers de la Marne&nbsp;» — 3e Division US, 38e Régiment d'Infanterie. Les soldats noirs américains à Jaulgonne, Franquets Farm et Château-Thierry. Leur rôle décisif, leurs sacrifices.</div>
+        <div class="nav-card-title" data-fr="Hommage à la Division Américaine" data-en="Tribute to the American Division">Hommage à la Division Américaine</div>
+        <div class="nav-card-desc" data-fr="Les «&nbsp;Rochers de la Marne&nbsp;» — 3e Division US, 38e Régiment d'Infanterie. Les soldats noirs américains à Jaulgonne, Franquets Farm et Château-Thierry. Leur rôle décisif, leurs sacrifices." data-en="The 'Rock of the Marne' — 3rd US Division, 38th Infantry Regiment. The Black American soldiers at Jaulgonne, Franquets Farm and Château-Thierry. Their decisive role, their sacrifices.">Les «&nbsp;Rochers de la Marne&nbsp;» — 3e Division US, 38e Régiment d'Infanterie. Les soldats noirs américains à Jaulgonne, Franquets Farm et Château-Thierry. Leur rôle décisif, leurs sacrifices.</div>
         <span class="nav-card-tag">Rock of the Marne · Buffalo Soldiers</span>
       </div>
     </a>
@@ -318,9 +319,9 @@
       </div>
       <div class="nav-card-body">
         <div class="nav-card-num">07</div>
-        <div class="nav-card-title">Archives photographiques</div>
-        <div class="nav-card-desc">45 documents d'archives sélectionnés : photographies de soldats, vues aériennes, cartes tactiques, ruines de Jaulgonne, mémoriaux. Sources primaires annotées.</div>
-        <span class="nav-card-tag">45 documents · Galerie annotée</span>
+        <div class="nav-card-title" data-fr="Archives photographiques" data-en="Photographic archives">Archives photographiques</div>
+        <div class="nav-card-desc" data-fr="45 documents d'archives sélectionnés : photographies de soldats, vues aériennes, cartes tactiques, ruines de Jaulgonne, mémoriaux. Sources primaires annotées." data-en="45 selected archival documents: photographs of soldiers, aerial views, tactical maps, ruins of Jaulgonne, memorials. Annotated primary sources.">45 documents d'archives sélectionnés : photographies de soldats, vues aériennes, cartes tactiques, ruines de Jaulgonne, mémoriaux. Sources primaires annotées.</div>
+        <span class="nav-card-tag" data-fr="45 documents · Galerie annotée" data-en="45 documents · Annotated gallery">45 documents · Galerie annotée</span>
       </div>
     </a>
 
@@ -330,9 +331,9 @@
       </div>
       <div class="nav-card-body">
         <div class="nav-card-num">08</div>
-        <div class="nav-card-title">Carte animée de la bataille</div>
-        <div class="nav-card-desc">La progression des lignes de front en 9 étapes, du 14 juillet au 3 août 1918. Têtes de pont, unités engagées, libération de Jaulgonne — sur fond topographique interactif.</div>
-        <span class="nav-card-tag">Carte Leaflet · 9 étapes animées</span>
+        <div class="nav-card-title" data-fr="Carte animée de la bataille" data-en="Animated battle map">Carte animée de la bataille</div>
+        <div class="nav-card-desc" data-fr="La progression des lignes de front en 9 étapes, du 14 juillet au 3 août 1918. Têtes de pont, unités engagées, libération de Jaulgonne — sur fond topographique interactif." data-en="The advance of front lines in 9 steps, from July 14 to August 3, 1918. Bridgeheads, engaged units, liberation of Jaulgonne — on an interactive topographic base.">La progression des lignes de front en 9 étapes, du 14 juillet au 3 août 1918. Têtes de pont, unités engagées, libération de Jaulgonne — sur fond topographique interactif.</div>
+        <span class="nav-card-tag" data-fr="Carte Leaflet · 9 étapes animées" data-en="Leaflet map · 9 animated steps">Carte Leaflet · 9 étapes animées</span>
       </div>
     </a>
 
@@ -342,8 +343,8 @@
       </div>
       <div class="nav-card-body">
         <div class="nav-card-num">09</div>
-        <div class="nav-card-title">Les lieux de mémoire</div>
-        <div class="nav-card-desc">Dormans, Château-Thierry, Bois Belleau — les mémoriaux qui perpétuent le souvenir des combattants français, américains et de leurs alliés dans la vallée de la Marne.</div>
+        <div class="nav-card-title" data-fr="Les lieux de mémoire" data-en="Memorial sites">Les lieux de mémoire</div>
+        <div class="nav-card-desc" data-fr="Dormans, Château-Thierry, Bois Belleau — les mémoriaux qui perpétuent le souvenir des combattants français, américains et de leurs alliés dans la vallée de la Marne." data-en="Dormans, Château-Thierry, Belleau Wood — the memorials that preserve the memory of French, American and Allied soldiers in the Marne valley.">Dormans, Château-Thierry, Bois Belleau — les mémoriaux qui perpétuent le souvenir des combattants français, américains et de leurs alliés dans la vallée de la Marne.</div>
         <span class="nav-card-tag">Dormans · Château-Thierry · Belleau Wood</span>
       </div>
     </a>
@@ -353,17 +354,18 @@
 
 <!-- FOOTER -->
 <footer>
-  <p>Sources historiques : Chemins de mémoire · U.S. Army History · Mémorial de Dormans · La Contemporaine / Argonnaute · Library of Congress · Smithsonian NMAH</p>
-  <p style="margin-top:1rem;font-size:.68rem;color:#7a6a5a">En mémoire des soldats français et américains tombés à Jaulgonne — Été 1918</p>
+  <p data-fr="Sources historiques : Chemins de mémoire · U.S. Army History · Mémorial de Dormans · La Contemporaine / Argonnaute · Library of Congress · Smithsonian NMAH" data-en="Historical sources: Chemins de mémoire · U.S. Army History · Mémorial de Dormans · La Contemporaine / Argonnaute · Library of Congress · Smithsonian NMAH">Sources historiques : Chemins de mémoire · U.S. Army History · Mémorial de Dormans · La Contemporaine / Argonnaute · Library of Congress · Smithsonian NMAH</p>
+  <p style="margin-top:1rem;font-size:.68rem;color:#7a6a5a" data-fr="En mémoire des soldats français et américains tombés à Jaulgonne — Été 1918" data-en="In memory of the French and American soldiers who fell at Jaulgonne — Summer 1918">En mémoire des soldats français et américains tombés à Jaulgonne — Été 1918</p>
 </footer>
 
 <script src="lightbox.js"></script>
 <script>
-var v = document.getElementById('hero-video');
-if(v){
-  v.addEventListener('loadedmetadata', function(){
-    v.currentTime = 5;
-    v.play();
+function toggleLang(){
+  const l=document.documentElement.getAttribute('data-lang')==='fr'?'en':'fr';
+  document.documentElement.setAttribute('data-lang',l);
+  document.getElementById('lang-toggle').textContent=l==='fr'?'English':'Français';
+  document.querySelectorAll('[data-fr]').forEach(el=>{
+    el.innerHTML=el.getAttribute('data-'+l);
   });
 }
 </script>

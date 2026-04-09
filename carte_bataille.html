@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -146,6 +146,26 @@
     white-space: nowrap;
     align-self: center;
   }
+  html[data-lang="en"] #steps::before { content: 'STEPS'; }
+
+  .lang-btn-map {
+    margin-left: auto;
+    background: transparent;
+    border: 1px solid #4a4a48;
+    color: #a09078;
+    font-size: .65rem;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: .2rem .65rem;
+    border-radius: 2px;
+    cursor: pointer;
+    font-family: 'Source Sans 3', sans-serif;
+    transition: border-color .15s, color .15s;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .lang-btn-map:hover { border-color: #8a7456; color: #d4c4a8; }
 
   .step-btn {
     background: #fff;
@@ -314,35 +334,41 @@
 
 <!-- NAV SITE -->
 <nav style="position:sticky;top:0;z-index:500;background:rgba(26,26,24,.97);backdrop-filter:blur(14px);border-bottom:3px solid #7a1a1a;display:flex;justify-content:center;flex-wrap:wrap;gap:.1rem;padding:.5rem 1rem">
-  <a href="index.html" style="color:#a09078;text-decoration:none;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:.45rem 1rem;border-radius:3px;transition:color .2s">Accueil</a>
-  <a href="geographie.html" style="color:#a09078;text-decoration:none;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:.45rem 1rem;border-radius:3px;transition:color .2s">Géographie</a>
-  <a href="evenements.html" style="color:#a09078;text-decoration:none;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:.45rem 1rem;border-radius:3px;transition:color .2s">Événements</a>
-  <a href="foret-ris.html" style="color:#a09078;text-decoration:none;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:.45rem 1rem;border-radius:3px;transition:color .2s">Forêt de Ris</a>
-  <a href="bataille.html" style="color:#a09078;text-decoration:none;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:.45rem 1rem;border-radius:3px;transition:color .2s">La Bataille</a>
-  <a href="hommage-us.html" style="color:#a09078;text-decoration:none;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:.45rem 1rem;border-radius:3px;transition:color .2s">Les Américains</a>
-  <a href="memoire.html" style="color:#a09078;text-decoration:none;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:.45rem 1rem;border-radius:3px;transition:color .2s">Mémorial</a>
-  <a href="galerie.html" style="color:#a09078;text-decoration:none;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:.45rem 1rem;border-radius:3px;transition:color .2s">Archives</a>
-  <a href="carte_bataille.html" style="color:#f5f0e8;text-decoration:none;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:.45rem 1rem;border-radius:3px">Carte</a>
+  <a href="index.html" data-fr="Accueil" data-en="Home" style="color:#a09078;text-decoration:none;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:.45rem 1rem;border-radius:3px;transition:color .2s">Accueil</a>
+  <a href="geographie.html" data-fr="Géographie" data-en="Geography" style="color:#a09078;text-decoration:none;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:.45rem 1rem;border-radius:3px;transition:color .2s">Géographie</a>
+  <a href="evenements.html" data-fr="Événements" data-en="Events" style="color:#a09078;text-decoration:none;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:.45rem 1rem;border-radius:3px;transition:color .2s">Événements</a>
+  <a href="foret-ris.html" data-fr="Forêt de Ris" data-en="Forest of Ris" style="color:#a09078;text-decoration:none;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:.45rem 1rem;border-radius:3px;transition:color .2s">Forêt de Ris</a>
+  <a href="bataille.html" data-fr="La Bataille" data-en="The Battle" style="color:#a09078;text-decoration:none;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:.45rem 1rem;border-radius:3px;transition:color .2s">La Bataille</a>
+  <a href="hommage-us.html" data-fr="Les Américains" data-en="The Americans" style="color:#a09078;text-decoration:none;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:.45rem 1rem;border-radius:3px;transition:color .2s">Les Américains</a>
+  <a href="memoire.html" data-fr="Mémorial" data-en="Memorial" style="color:#a09078;text-decoration:none;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:.45rem 1rem;border-radius:3px;transition:color .2s">Mémorial</a>
+  <a href="galerie.html" data-fr="Archives" data-en="Archives" style="color:#a09078;text-decoration:none;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:.45rem 1rem;border-radius:3px;transition:color .2s">Archives</a>
+  <a href="carte_bataille.html" data-fr="Carte" data-en="Map" style="color:#f5f0e8;text-decoration:none;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:.45rem 1rem;border-radius:3px">Carte</a>
 </nav>
 
 <div id="header">
-  <h1>⚔ 2<sup>e</sup> Bataille de la Marne — Ligne de front animée</h1>
-  <span class="subtitle">Secteur Jaulgonne · Juillet–Août 1918 · Sources : batmarn2, CMH US Army, 3d Division Summary</span>
+  <h1 data-fr="⚔ 2&lt;sup&gt;e&lt;/sup&gt; Bataille de la Marne — Ligne de front animée"
+      data-en="⚔ 2&lt;sup&gt;nd&lt;/sup&gt; Battle of the Marne — Animated Front Line">⚔ 2<sup>e</sup> Bataille de la Marne — Ligne de front animée</h1>
+  <span class="subtitle"
+        data-fr="Secteur Jaulgonne · Juillet–Août 1918 · Sources : batmarn2, CMH US Army, 3d Division Summary"
+        data-en="Jaulgonne Sector · July–August 1918 · Sources: batmarn2, CMH US Army, 3d Division Summary">Secteur Jaulgonne · Juillet–Août 1918 · Sources : batmarn2, CMH US Army, 3d Division Summary</span>
+  <button class="lang-btn-map" id="lang-toggle" onclick="toggleLang()">English</button>
 </div>
 
 <div id="map"></div>
 
 <div id="legend">
-  <h3>LÉGENDE</h3>
-  <div class="leg-row"><div class="leg-line" style="background:#c0392b;height:4px"></div><span>Ligne de front allemande</span></div>
-  <div class="leg-row"><div class="leg-line" style="background:rgba(139,32,32,.35);height:10px;width:24px;border:1px solid #c0392b"></div><span>Zone allemande</span></div>
-  <div class="leg-row"><div class="leg-dot" style="background:#c0392b;border:2px solid #fff"></div><span>Unité allemande</span></div>
-  <div class="leg-row"><div class="leg-dot" style="background:#1a3a8c;border:2px solid #fff"></div><span>Unité française</span></div>
-  <div class="leg-row"><div class="leg-dot" style="background:#2a6e2a;border:2px solid #fff"></div><span>Unité américaine (US)</span></div>
-  <div class="leg-row"><div class="leg-line" style="background:#3a7bd5;height:3px"></div><span>Marne (fleuve)</span></div>
-  <div class="leg-row"><div class="leg-line" style="background:#555;height:2px;border-bottom:1px dashed #888"></div><span>Voie ferrée</span></div>
+  <h3 data-fr="LÉGENDE" data-en="LEGEND">LÉGENDE</h3>
+  <div class="leg-row"><div class="leg-line" style="background:#c0392b;height:4px"></div><span data-fr="Ligne de front allemande" data-en="German front line">Ligne de front allemande</span></div>
+  <div class="leg-row"><div class="leg-line" style="background:rgba(139,32,32,.35);height:10px;width:24px;border:1px solid #c0392b"></div><span data-fr="Zone allemande" data-en="German zone">Zone allemande</span></div>
+  <div class="leg-row"><div class="leg-dot" style="background:#c0392b;border:2px solid #fff"></div><span data-fr="Unité allemande" data-en="German unit">Unité allemande</span></div>
+  <div class="leg-row"><div class="leg-dot" style="background:#1a3a8c;border:2px solid #fff"></div><span data-fr="Unité française" data-en="French unit">Unité française</span></div>
+  <div class="leg-row"><div class="leg-dot" style="background:#2a6e2a;border:2px solid #fff"></div><span data-fr="Unité américaine (US)" data-en="American unit (US)">Unité américaine (US)</span></div>
+  <div class="leg-row"><div class="leg-line" style="background:#3a7bd5;height:3px"></div><span data-fr="Marne (fleuve)" data-en="Marne (river)">Marne (fleuve)</span></div>
+  <div class="leg-row"><div class="leg-line" style="background:#555;height:2px;border-bottom:1px dashed #888"></div><span data-fr="Voie ferrée" data-en="Railway">Voie ferrée</span></div>
   <hr style="border-color:#333;margin:.4rem 0">
-  <div style="color:var(--text2);font-size:.65rem;font-style:italic">Positions approximatives<br>d'après sources primaires</div>
+  <div style="color:var(--text2);font-size:.65rem;font-style:italic"
+       data-fr="Positions approximatives&lt;br&gt;d'après sources primaires"
+       data-en="Approximate positions&lt;br&gt;based on primary sources">Positions approximatives<br>d'après sources primaires</div>
 </div>
 
 <div id="timeline">
@@ -813,5 +839,15 @@ L.marker([49.120, 3.545], {
 
 </script>
 <script src="lightbox.js"></script>
+<script>
+function toggleLang(){
+  const l=document.documentElement.getAttribute('data-lang')==='fr'?'en':'fr';
+  document.documentElement.setAttribute('data-lang',l);
+  document.getElementById('lang-toggle').textContent=l==='fr'?'English':'Français';
+  document.querySelectorAll('[data-fr]').forEach(el=>{
+    el.innerHTML=el.getAttribute('data-'+l);
+  });
+}
+</script>
 </body>
 </html>

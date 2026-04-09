@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,60 +46,80 @@
 
 <!-- PAGE HERO -->
 <div class="page-hero">
-  <div class="page-hero-eyebrow">Jaulgonne 1918 · L'Amérique sur la Marne</div>
+  <div class="page-hero-eyebrow"
+       data-fr="Jaulgonne 1918 · L'Amérique sur la Marne"
+       data-en="Jaulgonne 1918 · America on the Marne">Jaulgonne 1918 · L'Amérique sur la Marne</div>
   <div style="display:flex;align-items:center;justify-content:center;gap:1.25rem;position:relative;flex-wrap:wrap">
     <img src="selection_sources/3rd_US/Symbole_3rd_divison2.png"
          alt="Insigne de la 3e Division d'Infanterie US"
          style="height:72px;width:auto;filter:drop-shadow(0 2px 10px rgba(0,0,0,.6));flex-shrink:0">
     <h1 class="page-hero-title" style="margin-bottom:0">The Rock of the Marne</h1>
   </div>
-  <p class="page-hero-subtitle">La 3e Division US, les Marines de Belleau Wood, les Harlem Hellfighters — juin à août 1918</p>
+  <p class="page-hero-subtitle"
+     data-fr="La 3e Division US, les Marines de Belleau Wood, les Harlem Hellfighters — juin à août 1918"
+     data-en="The 3rd US Division, the Marines of Belleau Wood, the Harlem Hellfighters — June to August 1918">La 3e Division US, les Marines de Belleau Wood, les Harlem Hellfighters — juin à août 1918</p>
+  <button class="lang-btn" id="lang-toggle" onclick="toggleLang()">English</button>
 </div>
 
 <!-- NAV -->
 <nav id="main-nav">
-  <a href="index.html">Accueil</a>
-  <a href="geographie.html">Géographie</a>
-  <a href="evenements.html">Événements</a>
-  <a href="liberation.html">Libération</a>
-  <a href="foret-ris.html">Forêt de Ris</a>
-  <a href="bataille.html">La Bataille</a>
-  <a href="hommage-us.html" class="active">Les Américains</a>
-  <a href="memoire.html">Mémorial</a>
-  <a href="galerie.html">Archives</a>
-  <a href="carte_bataille.html">Carte</a>
+  <a href="index.html" data-fr="Accueil" data-en="Home">Accueil</a>
+  <a href="geographie.html" data-fr="Géographie" data-en="Geography">Géographie</a>
+  <a href="evenements.html" data-fr="Événements" data-en="Events">Événements</a>
+  <a href="liberation.html" data-fr="Libération" data-en="Liberation">Libération</a>
+  <a href="foret-ris.html" data-fr="Forêt de Ris" data-en="Forest of Ris">Forêt de Ris</a>
+  <a href="bataille.html" data-fr="La Bataille" data-en="The Battle">La Bataille</a>
+  <a href="hommage-us.html" class="active" data-fr="Les Américains" data-en="The Americans">Les Américains</a>
+  <a href="memoire.html" data-fr="Mémorial" data-en="Memorial">Mémorial</a>
+  <a href="galerie.html" data-fr="Archives" data-en="Archives">Archives</a>
+  <a href="carte_bataille.html" data-fr="Carte" data-en="Map">Carte</a>
 </nav>
 
 <!-- INTRO -->
 <section>
-  <div class="section-label">La 3e Division US — «&nbsp;Marne Division&nbsp;»</div>
-  <h2>Des hommes ordinaires devant l'Histoire</h2>
-  <p class="intro-text">
+  <div class="section-label"
+       data-fr="La 3e Division US — «&amp;nbsp;Marne Division&amp;nbsp;»"
+       data-en="The 3rd US Division — «&amp;nbsp;Marne Division&amp;nbsp;»">La 3e Division US — «&nbsp;Marne Division&nbsp;»</div>
+  <h2 data-fr="Des hommes ordinaires devant l'Histoire"
+      data-en="Ordinary Men Facing History">Des hommes ordinaires devant l'Histoire</h2>
+  <p class="intro-text"
+     data-fr="Ils venaient de l'Ohio, du Michigan, de Pennsylvanie. Des fils de fermiers, d'ouvriers, d'immigrants récents. Certains n'avaient jamais vu la France. La 3e Division américaine est engagée sur le secteur de Jaulgonne depuis le début de juin 1918. Le 15 juillet, elle fait face à l'offensive allemande finale. Le 22 juillet, elle libère Jaulgonne. Le 30 juillet, elle est relevée — épuisée, après 44 jours en ligne et 6&amp;nbsp;600 tués ou blessés."
+     data-en="They came from Ohio, Michigan, Pennsylvania. Sons of farmers, workers, recent immigrants. Some had never seen France. The 3rd American Division had been deployed in the Jaulgonne sector since early June 1918. On July 15, it faced the final German offensive. On July 22, it liberated Jaulgonne. On July 30, it was relieved — exhausted, after 44 days in the line and 6,600 killed or wounded.">
     Ils venaient de l'Ohio, du Michigan, de Pennsylvanie. Des fils de fermiers, d'ouvriers, d'immigrants récents. Certains n'avaient jamais vu la France. La 3e Division américaine est engagée sur le secteur de Jaulgonne depuis le début de juin 1918. Le 15 juillet, elle fait face à l'offensive allemande finale. Le 22 juillet, elle libère Jaulgonne. Le 30 juillet, elle est relevée — épuisée, après 44 jours en ligne et 6 600 tués ou blessés.
   </p>
 
   <div class="stats-row" style="margin-top:2.5rem">
     <div class="stat-card">
       <div class="stat-num">6 600</div>
-      <div class="stat-label">Tués ou blessés — 3e Division US (juin–30 juillet)</div>
+      <div class="stat-label"
+           data-fr="Tués ou blessés — 3e Division US (juin–30 juillet)"
+           data-en="Killed or wounded — 3rd US Division (June–July 30)">Tués ou blessés — 3e Division US (juin–30 juillet)</div>
     </div>
     <div class="stat-card">
       <div class="stat-num">3 151</div>
-      <div class="stat-label">Pertes en 3 jours — 15 au 17 juillet seulement</div>
+      <div class="stat-label"
+           data-fr="Pertes en 3 jours — 15 au 17 juillet seulement"
+           data-en="Casualties in 3 days — July 15–17 only">Pertes en 3 jours — 15 au 17 juillet seulement</div>
     </div>
     <div class="stat-card">
       <div class="stat-num">632</div>
-      <div class="stat-label">Pertes du 38e RI — 15–17 juillet</div>
+      <div class="stat-label"
+           data-fr="Pertes du 38e RI — 15–17 juillet"
+           data-en="38th Infantry casualties — July 15–17">Pertes du 38e RI — 15–17 juillet</div>
     </div>
     <div class="stat-card">
       <div class="stat-num">44</div>
-      <div class="stat-label">Jours en ligne — sans relève</div>
+      <div class="stat-label"
+           data-fr="Jours en ligne — sans relève"
+           data-en="Days in the line — without relief">Jours en ligne — sans relève</div>
     </div>
   </div>
 
   <blockquote class="memorial-quote" style="margin-top:3rem">
-    «&nbsp;Un seul régiment de la 3e Division a écrit l'une des pages les plus brillantes de nos annales militaires. Il a empêché le franchissement allemand sur certains points de son front, tandis que sur ses deux flancs les Allemands qui avaient pris pied avançaient. Nos hommes, tirant dans trois directions, ont repoussé les attaques allemandes par des contre-attaques aux points critiques et réussi à jeter deux divisions allemandes dans la confusion complète, capturant 600 prisonniers.&nbsp;»
-    <cite>— Général John J. Pershing, rapport final sur l'AEF — au sujet du 38e Régiment d'Infanterie, 15 juillet 1918</cite>
+    <span data-fr="«&amp;nbsp;Un seul régiment de la 3e Division a écrit l'une des pages les plus brillantes de nos annales militaires. Il a empêché le franchissement allemand sur certains points de son front, tandis que sur ses deux flancs les Allemands qui avaient pris pied avançaient. Nos hommes, tirant dans trois directions, ont repoussé les attaques allemandes par des contre-attaques aux points critiques et réussi à jeter deux divisions allemandes dans la confusion complète, capturant 600 prisonniers.&amp;nbsp;»"
+          data-en="«&amp;nbsp;A single regiment of the 3rd Division wrote one of the most brilliant pages in our military annals. It prevented the German crossing at certain points along its front, while on both flanks the Germans who had gained a foothold were advancing. Our men, firing in three directions, repelled the German attacks by counterattacks at critical points and succeeded in throwing two German divisions into complete confusion, capturing 600 prisoners.&amp;nbsp;»">«&nbsp;Un seul régiment de la 3e Division a écrit l'une des pages les plus brillantes de nos annales militaires. Il a empêché le franchissement allemand sur certains points de son front, tandis que sur ses deux flancs les Allemands qui avaient pris pied avançaient. Nos hommes, tirant dans trois directions, ont repoussé les attaques allemandes par des contre-attaques aux points critiques et réussi à jeter deux divisions allemandes dans la confusion complète, capturant 600 prisonniers.&nbsp;»</span>
+    <cite data-fr="— Général John J. Pershing, rapport final sur l'AEF — au sujet du 38e Régiment d'Infanterie, 15 juillet 1918"
+          data-en="— General John J. Pershing, final report on the AEF — regarding the 38th Infantry Regiment, July 15, 1918">— Général John J. Pershing, rapport final sur l'AEF — au sujet du 38e Régiment d'Infanterie, 15 juillet 1918</cite>
   </blockquote>
 
   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-top:2.5rem">
@@ -119,34 +139,49 @@
          style="width:100%;aspect-ratio:4/3;object-fit:cover;cursor:pointer;border:1px solid var(--border)"
          title="Compagnie A, 9e Bataillon de Mitrailleuses, 3e Division AEF — Château-Thierry, 6 juillet 1918 (NARA 530730)">
   </div>
-  <p class="photo-caption">Soldats américains de la 3e Division — secteur de la Marne, été 1918. À droite : Compagnie A, 9e Bataillon de Mitrailleuses — Château-Thierry, 6 juillet 1918 (NARA).</p>
+  <p class="photo-caption"
+     data-fr="Soldats américains de la 3e Division — secteur de la Marne, été 1918. À droite : Compagnie A, 9e Bataillon de Mitrailleuses — Château-Thierry, 6 juillet 1918 (NARA)."
+     data-en="American soldiers of the 3rd Division — Marne sector, summer 1918. Right: Company A, 9th Machine Gun Battalion — Château-Thierry, July 6, 1918 (NARA).">Soldats américains de la 3e Division — secteur de la Marne, été 1918. À droite : Compagnie A, 9e Bataillon de Mitrailleuses — Château-Thierry, 6 juillet 1918 (NARA).</p>
 </section>
 
 <!-- SECTION : BELLEAU WOOD -->
 <section style="background:var(--bg2);border-top:1px solid var(--border);max-width:100%;padding:4rem 1.5rem">
 <div style="max-width:1100px;margin:0 auto">
-  <div class="section-label">1–26 juin 1918 · Le prélude</div>
+  <div class="section-label"
+       data-fr="1–26 juin 1918 · Le prélude"
+       data-en="June 1–26, 1918 · The Prelude">1–26 juin 1918 · Le prélude</div>
   <h2>Belleau Wood — «&nbsp;Retreat? Hell, we just got here.&nbsp;»</h2>
-  <p style="font-size:.95rem;color:var(--text2);max-width:700px;line-height:1.85;margin-bottom:1.5rem">
+  <p style="font-size:.95rem;color:var(--text2);max-width:700px;line-height:1.85;margin-bottom:1.5rem"
+     data-fr="Six semaines avant Jaulgonne, les soldats américains ont prouvé pour la première fois en Europe qu'ils pouvaient tenir une ligne. Le <strong>Bois de Belleau</strong> — 45 km à l'ouest, en bordure du front — est la première grande bataille de l'armée américaine depuis la guerre civile. Elle forge le mythe."
+     data-en="Six weeks before Jaulgonne, American soldiers proved for the first time in Europe that they could hold a line. <strong>Belleau Wood</strong> — 45 km to the west, at the edge of the front — was the first major battle of the American army since the Civil War. It forged the myth.">
     Six semaines avant Jaulgonne, les soldats américains ont prouvé pour la première fois en Europe qu'ils pouvaient tenir une ligne. Le <strong>Bois de Belleau</strong> — 45 km à l'ouest, en bordure du front — est la première grande bataille de l'armée américaine depuis la guerre civile. Elle forge le mythe.
   </p>
-  <p style="font-size:.95rem;color:var(--text2);max-width:700px;line-height:1.85;margin-bottom:1.5rem">
+  <p style="font-size:.95rem;color:var(--text2);max-width:700px;line-height:1.85;margin-bottom:1.5rem"
+     data-fr="L'offensive Blücher (27 mai) a défoncé le front sur 60 km. Les Allemands atteignent la Marne le 30 mai, à 70 km de Paris. L'état-major français conseille la retraite générale. C'est à ce moment que la <strong>4e Brigade de Marines</strong> (2e Division AEF) reçoit l'ordre de tenir la route de Paris. Un officier français, en retraite, croise les Marines qui avancent en sens inverse. Il leur conseille de reculer. Réponse du capitaine Lloyd Williams, 96e Compagnie :"
+     data-en="The Blücher offensive (May 27) shattered the front over 60 km. The Germans reached the Marne on May 30, 70 km from Paris. The French high command advised a general retreat. It was at this moment that the <strong>4th Marine Brigade</strong> (2nd AEF Division) received orders to hold the road to Paris. A French officer, in retreat, encountered the Marines advancing in the opposite direction. He advised them to fall back. The reply came from Captain Lloyd Williams, 96th Company:">
     L'offensive Blücher (27 mai) a défoncé le front sur 60 km. Les Allemands atteignent la Marne le 30 mai, à 70 km de Paris. L'état-major français conseille la retraite générale. C'est à ce moment que la <strong>4e Brigade de Marines</strong> (2e Division AEF) reçoit l'ordre de tenir la route de Paris. Un officier français, en retraite, croise les Marines qui avancent en sens inverse. Il leur conseille de reculer. Réponse du capitaine Lloyd Williams, 96e Compagnie :
   </p>
 
   <blockquote style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-style:italic;color:var(--gold);max-width:600px;margin:1.5rem auto;text-align:center;line-height:1.75;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:1.5rem 0">
-    «&nbsp;Retraite ? Bon sang, on vient juste d'arriver.&nbsp;»
-    <cite style="display:block;font-size:.7rem;color:var(--text2);margin-top:.9rem;font-style:normal;letter-spacing:.12em;text-transform:uppercase">— Capitaine Lloyd Williams, USMC · 1er juin 1918</cite>
+    <span data-fr="«&amp;nbsp;Retraite ? Bon sang, on vient juste d'arriver.&amp;nbsp;»"
+          data-en="«&amp;nbsp;Retreat? Hell, we just got here.&amp;nbsp;»">«&nbsp;Retraite ? Bon sang, on vient juste d'arriver.&nbsp;»</span>
+    <cite style="display:block;font-size:.7rem;color:var(--text2);margin-top:.9rem;font-style:normal;letter-spacing:.12em;text-transform:uppercase"
+          data-fr="— Capitaine Lloyd Williams, USMC · 1er juin 1918"
+          data-en="— Captain Lloyd Williams, USMC · June 1, 1918">— Capitaine Lloyd Williams, USMC · 1er juin 1918</cite>
   </blockquote>
 
-  <p style="font-size:.95rem;color:var(--text2);max-width:700px;line-height:1.85;margin-bottom:1.5rem">
+  <p style="font-size:.95rem;color:var(--text2);max-width:700px;line-height:1.85;margin-bottom:1.5rem"
+     data-fr="Pendant trois semaines, les Marines se battent pied à pied dans les sous-bois. Ils traversent les champs de blé en lignes serrées — ancien style, pertes catastrophiques — pour dégager les nids de mitrailleuses. Le sergent-chef <strong>Dan Daly</strong> mène sa section à l'assaut en criant : <em>&quot;Come on, you sons of bitches, do you want to live forever?&quot;</em> Les Allemands, impressionnés par leur agressivité, les surnomment <strong>Teufelshunden</strong> — les Chiens du Diable (<em>Devil Dogs</em>). Le surnom reste."
+     data-en="For three weeks, the Marines fought inch by inch through the undergrowth. They crossed wheat fields in tight lines — old-style, with catastrophic losses — to clear machine gun nests. Gunnery Sergeant <strong>Dan Daly</strong> led his platoon into the assault shouting: <em>&quot;Come on, you sons of bitches, do you want to live forever?&quot;</em> The Germans, impressed by their aggression, nicknamed them <strong>Teufelshunden</strong> — the Devil Hounds (<em>Devil Dogs</em>). The name stuck.">
     Pendant trois semaines, les Marines se battent pied à pied dans les sous-bois. Ils traversent les champs de blé en lignes serrées — ancien style, pertes catastrophiques — pour dégager les nids de mitrailleuses. Le sergent-chef <strong>Dan Daly</strong> mène sa section à l'assaut en criant : <em>"Come on, you sons of bitches, do you want to live forever?"</em> Les Allemands, impressionnés par leur agressivité, les surnomment <strong>Teufelshunden</strong> — les Chiens du Diable (<em>Devil Dogs</em>). Le surnom reste.
   </p>
 
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin:2rem 0">
     <div class="info-box">
-      <h3>Le bilan de Belleau Wood</h3>
-      <p>
+      <h3 data-fr="Le bilan de Belleau Wood"
+          data-en="The Belleau Wood Toll">Le bilan de Belleau Wood</h3>
+      <p data-fr="· 26 jours de combats — 1er au 26 juin 1918&lt;br&gt;· <strong>7&amp;nbsp;820 pertes</strong> dans la 2e Division (Marines + infanterie)&lt;br&gt;· Forêt entièrement dégagée le 26 juin. Dernier message : <em>&quot;Woods now occupied by US Marines.&quot;</em>&lt;br&gt;· La France rebaptise officiellement le lieu : <strong>Bois de la Brigade de Marine</strong> — nom qu'il porte encore aujourd'hui."
+         data-en="· 26 days of fighting — June 1 to 26, 1918&lt;br&gt;· <strong>7,820 casualties</strong> in the 2nd Division (Marines + infantry)&lt;br&gt;· Forest entirely cleared on June 26. Final message: <em>&quot;Woods now occupied by US Marines.&quot;</em>&lt;br&gt;· France officially renamed the site: <strong>Bois de la Brigade de Marine</strong> — the name it still bears today.">
         · 26 jours de combats — 1er au 26 juin 1918<br>
         · <strong>7 820 pertes</strong> dans la 2e Division (Marines + infanterie)<br>
         · Forêt entièrement dégagée le 26 juin. Dernier message : <em>"Woods now occupied by US Marines."</em><br>
@@ -154,8 +189,10 @@
       </p>
     </div>
     <div class="info-box">
-      <h3>La signification pour Jaulgonne</h3>
-      <p>
+      <h3 data-fr="La signification pour Jaulgonne"
+          data-en="What It Means for Jaulgonne">La signification pour Jaulgonne</h3>
+      <p data-fr="Belleau Wood n'est pas la bataille de la 3e Division — c'est celle des Marines, 2e Division. Mais elle établit l'essentiel : les soldats américains <em>ne reculent pas</em>. Quand six semaines plus tard la 3e Division arrive sur la Marne à Jaulgonne, les Alliés et les Allemands savent déjà à quoi s'attendre. Le <em>Rock of the Marne</em> confirme Belleau Wood. L'Amérique est là pour rester."
+         data-en="Belleau Wood was not the 3rd Division's battle — it belonged to the Marines, 2nd Division. But it established the essential point: American soldiers <em>do not retreat</em>. When six weeks later the 3rd Division arrived on the Marne at Jaulgonne, both the Allies and the Germans already knew what to expect. The <em>Rock of the Marne</em> confirmed Belleau Wood. America was there to stay.">
         Belleau Wood n'est pas la bataille de la 3e Division — c'est celle des Marines, 2e Division. Mais elle établit l'essentiel : les soldats américains <em>ne reculent pas</em>. Quand six semaines plus tard la 3e Division arrive sur la Marne à Jaulgonne, les Alliés et les Allemands savent déjà à quoi s'attendre. Le <em>Rock of the Marne</em> confirme Belleau Wood. L'Amérique est là pour rester.
       </p>
     </div>
@@ -171,57 +208,88 @@
          onclick="openLB(this.src)"
          title="Carte du secteur — Belleau Wood (ouest) et la Marne jusqu'à Jaulgonne (est)">
   </div>
-  <p class="photo-caption">À gauche : le secteur de Château-Thierry et Vaux, zone des combats américains de l'été 1918. À droite : carte du secteur — Belleau Wood à l'ouest, Jaulgonne à l'est, la Marne qui relie les deux batailles.</p>
+  <p class="photo-caption"
+     data-fr="À gauche : le secteur de Château-Thierry et Vaux, zone des combats américains de l'été 1918. À droite : carte du secteur — Belleau Wood à l'ouest, Jaulgonne à l'est, la Marne qui relie les deux batailles."
+     data-en="Left: the Château-Thierry and Vaux sector, area of the American summer 1918 battles. Right: sector map — Belleau Wood to the west, Jaulgonne to the east, the Marne linking both battles.">À gauche : le secteur de Château-Thierry et Vaux, zone des combats américains de l'été 1918. À droite : carte du secteur — Belleau Wood à l'ouest, Jaulgonne à l'est, la Marne qui relie les deux batailles.</p>
 </div>
 </section>
 
 <!-- SECTION : GRANDS FAITS D'ARMES -->
 <section style="background:var(--bg2);border-top:1px solid var(--border);max-width:100%;padding:4rem 1.5rem">
 <div style="max-width:1100px;margin:0 auto">
-  <div class="section-label">Chronologie des combats</div>
-  <h2>Les grands faits d'armes de la 3e Division</h2>
+  <div class="section-label"
+       data-fr="Chronologie des combats"
+       data-en="Combat Chronology">Chronologie des combats</div>
+  <h2 data-fr="Les grands faits d'armes de la 3e Division"
+      data-en="The 3rd Division's Major Engagements">Les grands faits d'armes de la 3e Division</h2>
 
   <div class="info-box" style="margin-bottom:1.25rem">
-    <h3>15 juillet 1918 — La défense de la Marne · «&nbsp;Rock of the Marne&nbsp;»</h3>
-    <p>À 00h00, un bombardement d'une violence extrême s'abat sur les positions américaines. À l'aube, six régiments allemands tentent le franchissement. Le 38e RI (Col. McAlexander), encerclé en position de fer à cheval à Mézy, tient 14 heures sans ordre de retraite, tirant dans trois directions à la fois. La Compagnie G (Capt. Wooldridge) lance cinq contre-attaques successives contre le 6e Régiment de Grenadiers allemand, faisant plusieurs centaines de prisonniers. Pertes : 632 pour le 38e RI, 730 pour le 7e RI, 3 151 au total pour la division en trois jours. Un vétéran allemand estimera que 60 % des hommes qui ont attaqué les Américains sur la Marne sont devenus des pertes.</p>
-    <p style="font-size:.75rem;color:var(--text3);margin-top:.5rem">Sources : US Army CMH Pub 77-5 · Mondésir, <em>38e Corps d'Armée</em></p>
+    <h3 data-fr="15 juillet 1918 — La défense de la Marne · «&amp;nbsp;Rock of the Marne&amp;nbsp;»"
+        data-en="July 15, 1918 — The Defense of the Marne · «&amp;nbsp;Rock of the Marne&amp;nbsp;»">15 juillet 1918 — La défense de la Marne · «&nbsp;Rock of the Marne&nbsp;»</h3>
+    <p data-fr="À 00h00, un bombardement d'une violence extrême s'abat sur les positions américaines. À l'aube, six régiments allemands tentent le franchissement. Le 38e RI (Col. McAlexander), encerclé en position de fer à cheval à Mézy, tient 14 heures sans ordre de retraite, tirant dans trois directions à la fois. La Compagnie G (Capt. Wooldridge) lance cinq contre-attaques successives contre le 6e Régiment de Grenadiers allemand, faisant plusieurs centaines de prisonniers. Pertes : 632 pour le 38e RI, 730 pour le 7e RI, 3&amp;nbsp;151 au total pour la division en trois jours. Un vétéran allemand estimera que 60 % des hommes qui ont attaqué les Américains sur la Marne sont devenus des pertes."
+       data-en="At midnight, an extremely violent bombardment struck the American positions. At dawn, six German regiments attempted the crossing. The 38th Infantry (Col. McAlexander), surrounded in a horseshoe position at Mézy, held for 14 hours without orders to retreat, firing in three directions at once. Company G (Capt. Wooldridge) launched five successive counterattacks against the German 6th Grenadier Regiment, taking several hundred prisoners. Casualties: 632 for the 38th Infantry, 730 for the 7th Infantry, 3,151 total for the division over three days. A German veteran would later estimate that 60% of the men who attacked the Americans on the Marne became casualties.">À 00h00, un bombardement d'une violence extrême s'abat sur les positions américaines. À l'aube, six régiments allemands tentent le franchissement. Le 38e RI (Col. McAlexander), encerclé en position de fer à cheval à Mézy, tient 14 heures sans ordre de retraite, tirant dans trois directions à la fois. La Compagnie G (Capt. Wooldridge) lance cinq contre-attaques successives contre le 6e Régiment de Grenadiers allemand, faisant plusieurs centaines de prisonniers. Pertes : 632 pour le 38e RI, 730 pour le 7e RI, 3 151 au total pour la division en trois jours. Un vétéran allemand estimera que 60 % des hommes qui ont attaqué les Américains sur la Marne sont devenus des pertes.</p>
+    <p style="font-size:.75rem;color:var(--text3);margin-top:.5rem"
+       data-fr="Sources : US Army CMH Pub 77-5 · Mondésir, <em>38e Corps d'Armée</em>"
+       data-en="Sources: US Army CMH Pub 77-5 · Mondésir, <em>38th Army Corps</em>">Sources : US Army CMH Pub 77-5 · Mondésir, <em>38e Corps d'Armée</em></p>
   </div>
 
   <div class="info-box" style="margin-bottom:1.25rem">
-    <h3>22 juillet 1918 — Libération de Jaulgonne</h3>
-    <p>À 04h00, le 38e RI franchit la Marne à Mézy. Jaulgonne est occupé avant midi. Le 1er bataillon pousse vers le nord et atteint Le Charmel à 13h15 — mais sans appui, il doit se replier vers Jaulgonne dans l'après-midi. Sur les hauteurs au nord, les arrière-gardes allemandes du Régiment 378 (10e Division Landwehr) résistent sur les pentes de la Ferme des Franquets et repoussent temporairement les Américains dans les bois à l'ouest de Jaulgonne. La progression reprend. Le soir, la 3e Division tient une ligne de Le Chanois à Jaulgonne.</p>
-    <p style="font-size:.75rem;color:var(--text3);margin-top:.5rem">Sources : US Army CMH Pub 77-5 · Reichsarchiv, <em>Der Weltkrieg</em>, vol. 14 (Rgt. 378)</p>
+    <h3 data-fr="22 juillet 1918 — Libération de Jaulgonne"
+        data-en="July 22, 1918 — Liberation of Jaulgonne">22 juillet 1918 — Libération de Jaulgonne</h3>
+    <p data-fr="À 04h00, le 38e RI franchit la Marne à Mézy. Jaulgonne est occupé avant midi. Le 1er bataillon pousse vers le nord et atteint Le Charmel à 13h15 — mais sans appui, il doit se replier vers Jaulgonne dans l'après-midi. Sur les hauteurs au nord, les arrière-gardes allemandes du Régiment 378 (10e Division Landwehr) résistent sur les pentes de la Ferme des Franquets et repoussent temporairement les Américains dans les bois à l'ouest de Jaulgonne. La progression reprend. Le soir, la 3e Division tient une ligne de Le Chanois à Jaulgonne."
+       data-en="At 4:00 a.m., the 38th Infantry crossed the Marne at Mézy. Jaulgonne was occupied before noon. The 1st battalion pushed north and reached Le Charmel at 1:15 p.m. — but without support, it had to fall back toward Jaulgonne in the afternoon. On the heights to the north, the German rear guard of Regiment 378 (10th Landwehr Division) resisted on the slopes of Franquets Farm and temporarily pushed the Americans back into the woods west of Jaulgonne. The advance resumed. By evening, the 3rd Division held a line from Le Chanois to Jaulgonne.">À 04h00, le 38e RI franchit la Marne à Mézy. Jaulgonne est occupé avant midi. Le 1er bataillon pousse vers le nord et atteint Le Charmel à 13h15 — mais sans appui, il doit se replier vers Jaulgonne dans l'après-midi. Sur les hauteurs au nord, les arrière-gardes allemandes du Régiment 378 (10e Division Landwehr) résistent sur les pentes de la Ferme des Franquets et repoussent temporairement les Américains dans les bois à l'ouest de Jaulgonne. La progression reprend. Le soir, la 3e Division tient une ligne de Le Chanois à Jaulgonne.</p>
+    <p style="font-size:.75rem;color:var(--text3);margin-top:.5rem"
+       data-fr="Sources : US Army CMH Pub 77-5 · Reichsarchiv, <em>Der Weltkrieg</em>, vol. 14 (Rgt. 378)"
+       data-en="Sources: US Army CMH Pub 77-5 · Reichsarchiv, <em>Der Weltkrieg</em>, vol. 14 (Rgt. 378)">Sources : US Army CMH Pub 77-5 · Reichsarchiv, <em>Der Weltkrieg</em>, vol. 14 (Rgt. 378)</p>
   </div>
 
   <div class="info-box" style="margin-bottom:1.25rem">
-    <h3>24–25 juillet 1918 — La Ferme des Franquets &amp; Le Charmel</h3>
-    <p>Le 30e RI relève le 38e RI dans la nuit du 23 au 24. Le 3e bataillon prend position «&nbsp;sur les pentes au sud et au sud-ouest de la Ferme des Franquets&nbsp;». À 09h00, il reçoit l'ordre d'avancer. Il progresse le long de la crête depuis les bois au sud-ouest de la ferme vers Le Charmel, en surmontant la résistance des nids de mitrailleuses. Il atteint la limite sud-ouest du village dans l'après-midi et y organise la ligne de front. Le 25, le 3e bataillon du 4e RI avance à 06h00 et occupe Le Charmel au soir. Les Allemands résistent jusqu'au crépuscule. Mondésir : «&nbsp;Au Charmel, les 4e et 30e régiments de la 3e D.U.S. se distinguèrent.&nbsp;»</p>
-    <p style="font-size:.75rem;color:var(--text3);margin-top:.5rem">Sources : ABMC, <em>Summary of Operations — 3d Division on the Ourcq</em> · Mondésir, <em>38e Corps d'Armée</em></p>
+    <h3 data-fr="24–25 juillet 1918 — La Ferme des Franquets &amp; Le Charmel"
+        data-en="July 24–25, 1918 — Franquets Farm &amp; Le Charmel">24–25 juillet 1918 — La Ferme des Franquets &amp; Le Charmel</h3>
+    <p data-fr="Le 30e RI relève le 38e RI dans la nuit du 23 au 24. Le 3e bataillon prend position «&amp;nbsp;sur les pentes au sud et au sud-ouest de la Ferme des Franquets&amp;nbsp;». À 09h00, il reçoit l'ordre d'avancer. Il progresse le long de la crête depuis les bois au sud-ouest de la ferme vers Le Charmel, en surmontant la résistance des nids de mitrailleuses. Il atteint la limite sud-ouest du village dans l'après-midi et y organise la ligne de front. Le 25, le 3e bataillon du 4e RI avance à 06h00 et occupe Le Charmel au soir. Les Allemands résistent jusqu'au crépuscule. Mondésir : «&amp;nbsp;Au Charmel, les 4e et 30e régiments de la 3e D.U.S. se distinguèrent.&amp;nbsp;»"
+       data-en="The 30th Infantry relieved the 38th Infantry on the night of the 23rd to 24th. The 3rd battalion took position 'on the slopes south and southwest of Franquets Farm.' At 9:00 a.m., it received orders to advance. It moved along the ridge from the woods southwest of the farm toward Le Charmel, overcoming resistance from machine gun nests. It reached the southwest edge of the village in the afternoon and organized the front line there. On the 25th, the 3rd battalion of the 4th Infantry advanced at 6:00 a.m. and occupied Le Charmel by evening. The Germans resisted until dusk. Mondésir: 'At Le Charmel, the 4th and 30th regiments of the 3rd US Division distinguished themselves.'">Le 30e RI relève le 38e RI dans la nuit du 23 au 24. Le 3e bataillon prend position «&nbsp;sur les pentes au sud et au sud-ouest de la Ferme des Franquets&nbsp;». À 09h00, il reçoit l'ordre d'avancer. Il progresse le long de la crête depuis les bois au sud-ouest de la ferme vers Le Charmel, en surmontant la résistance des nids de mitrailleuses. Il atteint la limite sud-ouest du village dans l'après-midi et y organise la ligne de front. Le 25, le 3e bataillon du 4e RI avance à 06h00 et occupe Le Charmel au soir. Les Allemands résistent jusqu'au crépuscule. Mondésir : «&nbsp;Au Charmel, les 4e et 30e régiments de la 3e D.U.S. se distinguèrent.&nbsp;»</p>
+    <p style="font-size:.75rem;color:var(--text3);margin-top:.5rem"
+       data-fr="Sources : ABMC, <em>Summary of Operations — 3d Division on the Ourcq</em> · Mondésir, <em>38e Corps d'Armée</em>"
+       data-en="Sources: ABMC, <em>Summary of Operations — 3d Division on the Ourcq</em> · Mondésir, <em>38th Army Corps</em>">Sources : ABMC, <em>Summary of Operations — 3d Division on the Ourcq</em> · Mondésir, <em>38e Corps d'Armée</em></p>
   </div>
 
   <div class="info-box">
-    <h3>28–30 juillet 1918 — L'Ourcq &amp; la relève</h3>
-    <p>La 3e Division franchit l'Ourcq le 28 juillet avec le 3e bataillon du 4e RI en tête et prend Ronchères vers 15h00. La progression vers le Bois des Grimpettes et les hauteurs de Cierges est bloquée par des tirs de mitrailleuses et d'artillerie. Le 30 juillet, la 32e Division américaine relève la 3e Division — qui est restée en ligne sans interruption depuis le début de juin. Total des pertes : <strong>6 600 tués ou blessés</strong>. «&nbsp;La 3e Division U.S. est restée en ligne depuis le début de juin et a combattu superbement.&nbsp;» Sa brigade d'artillerie restera en soutien jusqu'au 2 août.</p>
-    <p style="font-size:.75rem;color:var(--text3);margin-top:.5rem">Sources : ABMC, <em>Summary of Operations</em> · <em>American armies and battlefields in Europe</em>, CMH 1938</p>
+    <h3 data-fr="28–30 juillet 1918 — L'Ourcq &amp; la relève"
+        data-en="July 28–30, 1918 — The Ourcq &amp; Relief">28–30 juillet 1918 — L'Ourcq &amp; la relève</h3>
+    <p data-fr="La 3e Division franchit l'Ourcq le 28 juillet avec le 3e bataillon du 4e RI en tête et prend Ronchères vers 15h00. La progression vers le Bois des Grimpettes et les hauteurs de Cierges est bloquée par des tirs de mitrailleuses et d'artillerie. Le 30 juillet, la 32e Division américaine relève la 3e Division — qui est restée en ligne sans interruption depuis le début de juin. Total des pertes : <strong>6&amp;nbsp;600 tués ou blessés</strong>. «&amp;nbsp;La 3e Division U.S. est restée en ligne depuis le début de juin et a combattu superbement.&amp;nbsp;» Sa brigade d'artillerie restera en soutien jusqu'au 2 août."
+       data-en="The 3rd Division crossed the Ourcq on July 28 with the 3rd battalion of the 4th Infantry in the lead and took Ronchères around 3:00 p.m. The advance toward the Bois des Grimpettes and the heights of Cierges was blocked by machine gun and artillery fire. On July 30, the 32nd American Division relieved the 3rd Division — which had been in the line continuously since early June. Total casualties: <strong>6,600 killed or wounded</strong>. 'The 3rd US Division has been in the line since early June and has fought superbly.' Its artillery brigade would remain in support until August 2.">La 3e Division franchit l'Ourcq le 28 juillet avec le 3e bataillon du 4e RI en tête et prend Ronchères vers 15h00. La progression vers le Bois des Grimpettes et les hauteurs de Cierges est bloquée par des tirs de mitrailleuses et d'artillerie. Le 30 juillet, la 32e Division américaine relève la 3e Division — qui est restée en ligne sans interruption depuis le début de juin. Total des pertes : <strong>6 600 tués ou blessés</strong>. «&nbsp;La 3e Division U.S. est restée en ligne depuis le début de juin et a combattu superbement.&nbsp;» Sa brigade d'artillerie restera en soutien jusqu'au 2 août.</p>
+    <p style="font-size:.75rem;color:var(--text3);margin-top:.5rem"
+       data-fr="Sources : ABMC, <em>Summary of Operations</em> · <em>American armies and battlefields in Europe</em>, CMH 1938"
+       data-en="Sources: ABMC, <em>Summary of Operations</em> · <em>American armies and battlefields in Europe</em>, CMH 1938">Sources : ABMC, <em>Summary of Operations</em> · <em>American armies and battlefields in Europe</em>, CMH 1938</p>
   </div>
 </div>
 </section>
 
 <!-- SECTION : COLONEL McALEXANDER -->
 <section>
-  <div class="section-label">Le «&nbsp;Lion du 38e&nbsp;»</div>
+  <div class="section-label"
+       data-fr="Le «&amp;nbsp;Lion du 38e&amp;nbsp;»"
+       data-en="The «&amp;nbsp;Lion of the 38th&amp;nbsp;»">Le «&nbsp;Lion du 38e&nbsp;»</div>
   <h2>Colonel Ulysses Grant McAlexander</h2>
-  <p style="font-size:.95rem;color:var(--text2);max-width:700px;line-height:1.85;margin-bottom:1.5rem">
+  <p style="font-size:.95rem;color:var(--text2);max-width:700px;line-height:1.85;margin-bottom:1.5rem"
+     data-fr="Le Colonel <strong>Ulysses Grant McAlexander</strong>, commandant du 38e Régiment d'Infanterie US, est l'homme qui a refusé de reculer. Alors que la doctrine de «&amp;nbsp;défense élastique&amp;nbsp;» de Pétain prévoyait un repli organisé en cas d'attaque, McAlexander a choisi de tenir sa position sur la rive de la Marne — coûte que coûte."
+     data-en="Colonel <strong>Ulysses Grant McAlexander</strong>, commanding the 38th US Infantry Regiment, was the man who refused to fall back. While Pétain's 'elastic defense' doctrine called for an organized withdrawal under attack, McAlexander chose to hold his position on the bank of the Marne — at all costs.">
     Le Colonel <strong>Ulysses Grant McAlexander</strong>, commandant du 38e Régiment d'Infanterie US, est l'homme qui a refusé de reculer. Alors que la doctrine de «&nbsp;défense élastique&nbsp;» de Pétain prévoyait un repli organisé en cas d'attaque, McAlexander a choisi de tenir sa position sur la rive de la Marne — coûte que coûte.
   </p>
-  <p style="font-size:.95rem;color:var(--text2);max-width:700px;line-height:1.85;margin-bottom:1.5rem">
+  <p style="font-size:.95rem;color:var(--text2);max-width:700px;line-height:1.85;margin-bottom:1.5rem"
+     data-fr="Le 15 juillet à l'aube, face à six régiments allemands, encerclé en position de fer à cheval à Mézy, son régiment tient pendant quatorze heures sans ordre de retraite — tirant dans trois directions à la fois, lançant des contre-attaques locales pour contenir les infiltrations. Ce choix — tenir ou mourir — est ce qui donnera au 38e RI le surnom de «&amp;nbsp;Rock of the Marne&amp;nbsp;» et à toute la 3e Division le titre de «&amp;nbsp;Marne Division&amp;nbsp;»."
+     data-en="On the morning of July 15, facing six German regiments, surrounded in a horseshoe position at Mézy, his regiment held for fourteen hours without orders to retreat — firing in three directions at once, launching local counterattacks to contain infiltrations. This choice — hold or die — was what earned the 38th Infantry the nickname 'Rock of the Marne' and the entire 3rd Division the title of 'Marne Division.'">
     Le 15 juillet à l'aube, face à six régiments allemands, encerclé en position de fer à cheval à Mézy, son régiment tient pendant quatorze heures sans ordre de retraite — tirant dans trois directions à la fois, lançant des contre-attaques locales pour contenir les infiltrations. Ce choix — tenir ou mourir — est ce qui donnera au 38e RI le surnom de «&nbsp;Rock of the Marne&nbsp;» et à toute la 3e Division le titre de «&nbsp;Marne Division&nbsp;».
   </p>
   <blockquote class="memorial-quote" style="margin-bottom:1.5rem">
-    «&nbsp;[McAlexander fut] comme le rocher de la vallée du Surmelin, comme George H. Thomas à Chickamauga.&nbsp;»
-    <cite>— Colonel Robert H. C. Kelton, chef d'état-major de la 3e Division, lettre écrite peu après la bataille</cite>
+    <span data-fr="«&amp;nbsp;[McAlexander fut] comme le rocher de la vallée du Surmelin, comme George H. Thomas à Chickamauga.&amp;nbsp;»"
+          data-en="«&amp;nbsp;[McAlexander was] like the rock of the Surmelin valley, like George H. Thomas at Chickamauga.&amp;nbsp;»">«&nbsp;[McAlexander fut] comme le rocher de la vallée du Surmelin, comme George H. Thomas à Chickamauga.&nbsp;»</span>
+    <cite data-fr="— Colonel Robert H. C. Kelton, chef d'état-major de la 3e Division, lettre écrite peu après la bataille"
+          data-en="— Colonel Robert H. C. Kelton, Chief of Staff of the 3rd Division, letter written shortly after the battle">— Colonel Robert H. C. Kelton, chef d'état-major de la 3e Division, lettre écrite peu après la bataille</cite>
   </blockquote>
-  <p style="font-size:.85rem;color:var(--text3);max-width:700px;line-height:1.7;margin-bottom:1.5rem">
+  <p style="font-size:.85rem;color:var(--text3);max-width:700px;line-height:1.7;margin-bottom:1.5rem"
+     data-fr="Le surnom, initialement appliqué à McAlexander seul, fut légèrement modifié et étendu au 38e RI tout entier : «&amp;nbsp;The Rock of the Marne&amp;nbsp;». La 3e Division reçut le titre de «&amp;nbsp;Marne Division&amp;nbsp;».&lt;br&gt;&lt;span style='font-size:.68rem'&gt;Source : US Army CMH Pub 77-5, <em>The Marne, 1918</em>&lt;/span&gt;"
+     data-en="The nickname, initially applied to McAlexander alone, was slightly modified and extended to the entire 38th Infantry: 'The Rock of the Marne.' The 3rd Division received the title 'Marne Division.'&lt;br&gt;&lt;span style='font-size:.68rem'&gt;Source: US Army CMH Pub 77-5, <em>The Marne, 1918</em>&lt;/span&gt;">
     Le surnom, initialement appliqué à McAlexander seul, fut légèrement modifié et étendu au 38e RI tout entier : «&nbsp;The Rock of the Marne&nbsp;». La 3e Division reçut le titre de «&nbsp;Marne Division&nbsp;».
     <br><span style="font-size:.68rem">Source : US Army CMH Pub 77-5, <em>The Marne, 1918</em></span>
   </p>
@@ -231,33 +299,46 @@
 <!-- SECTION : SOLDATS NOIRS -->
 <section style="background:var(--bg2);border-top:1px solid var(--border);max-width:100%;padding:4rem 1.5rem">
 <div style="max-width:1100px;margin:0 auto">
-  <div class="section-label">Les soldats noirs américains</div>
+  <div class="section-label"
+       data-fr="Les soldats noirs américains"
+       data-en="African American Soldiers">Les soldats noirs américains</div>
   <h2>Buffalo Soldiers &amp; Harlem Hellfighters</h2>
-  <p style="font-size:.95rem;color:var(--text2);max-width:700px;line-height:1.85;margin-bottom:1.5rem">
+  <p style="font-size:.95rem;color:var(--text2);max-width:700px;line-height:1.85;margin-bottom:1.5rem"
+     data-fr="L'armée américaine de 1918 est ségréguée. Les soldats noirs servent dans des régiments séparés — et souvent, parce que le commandement américain ne voulait pas les intégrer dans les unités blanches, ils sont affectés aux armées françaises qui les accueillent sans discrimination."
+     data-en="The 1918 American army was segregated. Black soldiers served in separate regiments — and often, because the American command refused to integrate them into white units, they were assigned to the French armies, which welcomed them without discrimination.">
     L'armée américaine de 1918 est ségréguée. Les soldats noirs servent dans des régiments séparés — et souvent, parce que le commandement américain ne voulait pas les intégrer dans les unités blanches, ils sont affectés aux armées françaises qui les accueillent sans discrimination.
   </p>
-  <p style="font-size:.95rem;color:var(--text2);max-width:700px;line-height:1.85;margin-bottom:1.5rem">
+  <p style="font-size:.95rem;color:var(--text2);max-width:700px;line-height:1.85;margin-bottom:1.5rem"
+     data-fr="Sur le secteur de Jaulgonne, Franquets Farm et la zone de Château-Thierry, des unités de soldats noirs américains combattent sous commandement français. Ils font preuve du même courage que leurs camarades blancs — pour une démocratie qui leur refuse encore, dans leur propre pays, les droits civiques élémentaires."
+     data-en="In the Jaulgonne sector, at Franquets Farm and in the Château-Thierry area, units of Black American soldiers fought under French command. They displayed the same courage as their white comrades — for a democracy that still denied them, in their own country, the most basic civil rights.">
     Sur le secteur de Jaulgonne, Franquets Farm et la zone de Château-Thierry, des unités de soldats noirs américains combattent sous commandement français. Ils font preuve du même courage que leurs camarades blancs — pour une démocratie qui leur refuse encore, dans leur propre pays, les droits civiques élémentaires.
   </p>
 
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin:1.5rem 0">
     <div class="info-box">
-      <h3>Le 369e Régiment — «&nbsp;Harlem Hellfighters&nbsp;»</h3>
-      <p>
+      <h3 data-fr="Le 369e Régiment — «&amp;nbsp;Harlem Hellfighters&amp;nbsp;»"
+          data-en="The 369th Regiment — «&amp;nbsp;Harlem Hellfighters&amp;nbsp;»">Le 369e Régiment — «&nbsp;Harlem Hellfighters&nbsp;»</h3>
+      <p data-fr="Affecté à la <strong>161e Division d'Infanterie française</strong>, le 369e RI US combat dans le secteur de Champagne-Marne. Jamais un seul homme ne fut capturé. Jamais une position ne fut abandonnée. L'ensemble du régiment reçut la <strong>Croix de Guerre française</strong>. 171 membres furent cités individuellement. Le sergent <strong>Henry Johnson</strong> et le soldat <strong>Needham Roberts</strong> furent les premiers Américains de la Grande Guerre à recevoir la Croix de Guerre — après avoir repoussé seuls une patrouille allemande de vingt hommes à la baïonnette."
+         data-en="Assigned to the <strong>French 161st Infantry Division</strong>, the 369th US Infantry fought in the Champagne-Marne sector. Not a single man was ever captured. Not a single position was ever abandoned. The entire regiment received the <strong>French Croix de Guerre</strong>. 171 members were individually cited. Sergeant <strong>Henry Johnson</strong> and Private <strong>Needham Roberts</strong> were the first Americans of the Great War to receive the Croix de Guerre — after the two of them alone repelled a twenty-man German patrol with bayonets.">
         Affecté à la <strong>161e Division d'Infanterie française</strong>, le 369e RI US combat dans le secteur de Champagne-Marne. Jamais un seul homme ne fut capturé. Jamais une position ne fut abandonnée. L'ensemble du régiment reçut la <strong>Croix de Guerre française</strong>. 171 membres furent cités individuellement. Le sergent <strong>Henry Johnson</strong> et le soldat <strong>Needham Roberts</strong> furent les premiers Américains de la Grande Guerre à recevoir la Croix de Guerre — après avoir repoussé seuls une patrouille allemande de vingt hommes à la baïonnette.
       </p>
     </div>
     <div class="info-box">
-      <h3>Le 92e Corps d'Armée — «&nbsp;Buffalo Soldiers&nbsp;»</h3>
-      <p>
+      <h3 data-fr="Le 92e Corps d'Armée — «&amp;nbsp;Buffalo Soldiers&amp;nbsp;»"
+          data-en="The 92nd Corps — «&amp;nbsp;Buffalo Soldiers&amp;nbsp;»">Le 92e Corps d'Armée — «&nbsp;Buffalo Soldiers&nbsp;»</h3>
+      <p data-fr="Environ <strong>380&amp;nbsp;000 Noirs américains</strong> servent dans la Grande Guerre — dont 200&amp;nbsp;000 en France. L'armée américaine étant ségréguée, le Général Pershing affecte la plupart des régiments noirs aux armées françaises, qui les intègrent sans discrimination. Les soldats noirs reçoivent les mêmes rations, les mêmes médailles, le même commandement que les Français. De retour aux États-Unis, ils seront accueillis par les lois Jim Crow — et pour beaucoup, par les émeutes raciales de l'<strong>Été rouge de 1919</strong>."
+         data-en="Approximately <strong>380,000 Black Americans</strong> served in the Great War — of whom 200,000 were in France. With the American army segregated, General Pershing assigned most Black regiments to the French armies, which integrated them without discrimination. Black soldiers received the same rations, the same medals, the same command as the French. Upon returning to the United States, they were greeted by Jim Crow laws — and for many, by the racial riots of the <strong>Red Summer of 1919</strong>.">
         Environ <strong>380 000 Noirs américains</strong> servent dans la Grande Guerre — dont 200 000 en France. L'armée américaine étant ségréguée, le Général Pershing affecte la plupart des régiments noirs aux armées françaises, qui les intègrent sans discrimination. Les soldats noirs reçoivent les mêmes rations, les mêmes médailles, le même commandement que les Français. De retour aux États-Unis, ils seront accueillis par les lois Jim Crow — et pour beaucoup, par les émeutes raciales de l'<strong>Été rouge de 1919</strong>.
       </p>
     </div>
   </div>
 
   <blockquote style="font-family:'Playfair Display',Georgia,serif;font-size:.97rem;font-style:italic;color:var(--gold);max-width:680px;border-left:3px solid var(--border);padding-left:1.5rem;margin:1.5rem 0;line-height:1.85">
-    «&nbsp;Les soldats noirs ont combattu pour la liberté en France. Ils sont rentrés dans leur propre pays et ont constaté que la liberté n'y existait pas.&nbsp;»
-    <cite style="display:block;font-size:.72rem;color:var(--text2);margin-top:.75rem;font-style:normal;letter-spacing:.1em;text-transform:uppercase">— W.E.B. Du Bois, <em>The Crisis</em>, 1919</cite>
+    <span data-fr="«&amp;nbsp;Les soldats noirs ont combattu pour la liberté en France. Ils sont rentrés dans leur propre pays et ont constaté que la liberté n'y existait pas.&amp;nbsp;»"
+          data-en="«&amp;nbsp;Black soldiers fought for liberty in France. They came home to their own country and found that liberty did not exist there.&amp;nbsp;»">«&nbsp;Les soldats noirs ont combattu pour la liberté en France. Ils sont rentrés dans leur propre pays et ont constaté que la liberté n'y existait pas.&nbsp;»</span>
+    <cite style="display:block;font-size:.72rem;color:var(--text2);margin-top:.75rem;font-style:normal;letter-spacing:.1em;text-transform:uppercase"
+          data-fr="— W.E.B. Du Bois, <em>The Crisis</em>, 1919"
+          data-en="— W.E.B. Du Bois, <em>The Crisis</em>, 1919">— W.E.B. Du Bois, <em>The Crisis</em>, 1919</cite>
   </blockquote>
 
   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin:2rem 0">
@@ -277,37 +358,56 @@
          style="width:100%;aspect-ratio:4/3;object-fit:cover;cursor:pointer;border:1px solid var(--border)"
          title="Soldats américains — secteur de la Marne, 1918">
   </div>
-  <p class="photo-caption">Soldats américains à Jaulgonne — 24 juillet 1918 et 21 août 1918. Ces hommes — blancs et noirs — ont combattu côte à côte sur la Marne.</p>
+  <p class="photo-caption"
+     data-fr="Soldats américains à Jaulgonne — 24 juillet 1918 et 21 août 1918. Ces hommes — blancs et noirs — ont combattu côte à côte sur la Marne."
+     data-en="American soldiers at Jaulgonne — July 24, 1918 and August 21, 1918. These men — white and Black — fought side by side on the Marne.">Soldats américains à Jaulgonne — 24 juillet 1918 et 21 août 1918. Ces hommes — blancs et noirs — ont combattu côte à côte sur la Marne.</p>
 </div>
 </section>
 
 <!-- SECTION : FRANQUETS FARM & CHÂTEAU-THIERRY -->
 <section>
-  <div class="section-label">Secteur élargi</div>
-  <h2>La Ferme des Franquets &amp; Château-Thierry</h2>
+  <div class="section-label"
+       data-fr="Secteur élargi"
+       data-en="Broader Sector">Secteur élargi</div>
+  <h2 data-fr="La Ferme des Franquets &amp; Château-Thierry"
+      data-en="Franquets Farm &amp; Château-Thierry">La Ferme des Franquets &amp; Château-Thierry</h2>
 
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:1.5rem">
     <div>
-      <h3 style="font-size:1rem;margin-bottom:.75rem">La Ferme des Franquets — position clé</h3>
-      <p style="font-size:.88rem;color:var(--text2);line-height:1.75">
+      <h3 style="font-size:1rem;margin-bottom:.75rem"
+          data-fr="La Ferme des Franquets — position clé"
+          data-en="Franquets Farm — A Key Position">La Ferme des Franquets — position clé</h3>
+      <p style="font-size:.88rem;color:var(--text2);line-height:1.75"
+         data-fr="La ferme domine les hauteurs au nord de Jaulgonne sur la crête qui mène vers Le Charmel. Tenue par le 47e RI (Bataillons Sagnières et Taureau) lors de l'offensive allemande de mai 1918, elle devient l'axe de la résistance franco-américaine lors de la contre-offensive de juillet."
+         data-en="The farm commands the heights north of Jaulgonne on the ridge leading toward Le Charmel. Held by the 47th Infantry (Sagnières and Taureau Battalions) during the German offensive of May 1918, it became the axis of Franco-American resistance during the July counter-offensive.">
         La ferme domine les hauteurs au nord de Jaulgonne sur la crête qui mène vers Le Charmel. Tenue par le 47e RI (Bataillons Sagnières et Taureau) lors de l'offensive allemande de mai 1918, elle devient l'axe de la résistance franco-américaine lors de la contre-offensive de juillet.
       </p>
-      <p style="font-size:.88rem;color:var(--text2);line-height:1.75;margin-top:.75rem">
+      <p style="font-size:.88rem;color:var(--text2);line-height:1.75;margin-top:.75rem"
+         data-fr="<strong>22 juillet</strong> : en progressant depuis Jaulgonne vers le nord, des éléments américains atteignent la ferme, mais le Régiment d'Infanterie 378 allemand (10e Division Landwehr) leur oppose une résistance et les repousse temporairement dans les bois à l'ouest de Jaulgonne <em>(source : Reichsarchiv, vol. 14)</em>."
+         data-en="<strong>July 22</strong>: advancing north from Jaulgonne, American elements reached the farm, but German Infantry Regiment 378 (10th Landwehr Division) resisted and temporarily pushed them back into the woods west of Jaulgonne <em>(source: Reichsarchiv, vol. 14)</em>.">
         <strong>22 juillet</strong> : en progressant depuis Jaulgonne vers le nord, des éléments américains atteignent la ferme, mais le Régiment d'Infanterie 378 allemand (10e Division Landwehr) leur oppose une résistance et les repousse temporairement dans les bois à l'ouest de Jaulgonne <em>(source : Reichsarchiv, vol. 14)</em>.
       </p>
-      <p style="font-size:.88rem;color:var(--text2);line-height:1.75;margin-top:.75rem">
+      <p style="font-size:.88rem;color:var(--text2);line-height:1.75;margin-top:.75rem"
+         data-fr="<strong>24 juillet</strong> : le 3e bataillon du 30e RI prend position «&amp;nbsp;sur les pentes au sud et au sud-ouest de la Ferme des Franquets&amp;nbsp;», puis avance le long de la crête vers Le Charmel en surmontant la résistance des nids de mitrailleuses <em>(source : ABMC, Summary of Operations)</em>."
+         data-en="<strong>July 24</strong>: the 3rd battalion of the 30th Infantry took position 'on the slopes south and southwest of Franquets Farm,' then advanced along the ridge toward Le Charmel, overcoming machine gun nest resistance <em>(source: ABMC, Summary of Operations)</em>.">
         <strong>24 juillet</strong> : le 3e bataillon du 30e RI prend position «&nbsp;sur les pentes au sud et au sud-ouest de la Ferme des Franquets&nbsp;», puis avance le long de la crête vers Le Charmel en surmontant la résistance des nids de mitrailleuses <em>(source : ABMC, Summary of Operations)</em>.
       </p>
     </div>
     <div>
       <h3 style="font-size:1rem;margin-bottom:.75rem">Château-Thierry</h3>
-      <p style="font-size:.88rem;color:var(--text2);line-height:1.75">
+      <p style="font-size:.88rem;color:var(--text2);line-height:1.75"
+         data-fr="Ville à 28 km à l'ouest de Jaulgonne. Défendue par la 10e Division d'Infanterie coloniale française et des unités américaines. Théâtre d'intenses combats de rue en mai–juin 1918. Symbole de la résistance alliée à l'offensive Blücher. Aujourd'hui siège du Monument Aisne-Marne américain inauguré en 1937."
+         data-en="Town 28 km west of Jaulgonne. Defended by the French 10th Colonial Infantry Division and American units. Scene of intense street fighting in May–June 1918. Symbol of Allied resistance to the Blücher offensive. Today the site of the American Aisne-Marne Monument, inaugurated in 1937.">
         Ville à 28 km à l'ouest de Jaulgonne. Défendue par la 10e Division d'Infanterie coloniale française et des unités américaines. Théâtre d'intenses combats de rue en mai–juin 1918. Symbole de la résistance alliée à l'offensive Blücher. Aujourd'hui siège du Monument Aisne-Marne américain inauguré en 1937.
       </p>
     </div>
     <div>
-      <h3 style="font-size:1rem;margin-bottom:.75rem">Les passerelles sur la Marne</h3>
-      <p style="font-size:.88rem;color:var(--text2);line-height:1.75">
+      <h3 style="font-size:1rem;margin-bottom:.75rem"
+          data-fr="Les passerelles sur la Marne"
+          data-en="The Bridges over the Marne">Les passerelles sur la Marne</h3>
+      <p style="font-size:.88rem;color:var(--text2);line-height:1.75"
+         data-fr="Le 22 juillet à midi, après la libération de Jaulgonne, quatre passerelles sont opérationnelles sur la Marne, dont un pont d'équipage renforcé jusqu'à 8,5 tonnes. Le 22 à 18h00, un pont de pilotis léger pour voitures. Le 23 juillet à 00h00, un second pont d'équipage normal. Ces ouvrages permettent le franchissement des renforts, de l'artillerie et du ravitaillement vers la rive nord <em>(source : Mondésir, 38e Corps d'Armée)</em>."
+         data-en="On July 22 at noon, after the liberation of Jaulgonne, four footbridges were operational on the Marne, including a reinforced pontoon bridge rated up to 8.5 tonnes. At 6:00 p.m. on the 22nd, a light pile bridge for vehicles. On July 23 at midnight, a second standard pontoon bridge. These structures allowed the crossing of reinforcements, artillery, and supplies to the north bank <em>(source: Mondésir, 38th Army Corps)</em>.">
         Le 22 juillet à midi, après la libération de Jaulgonne, quatre passerelles sont opérationnelles sur la Marne, dont un pont d'équipage renforcé jusqu'à 8,5 tonnes. Le 22 à 18h00, un pont de pilotis léger pour voitures. Le 23 juillet à 00h00, un second pont d'équipage normal. Ces ouvrages permettent le franchissement des renforts, de l'artillerie et du ravitaillement vers la rive nord <em>(source : Mondésir, 38e Corps d'Armée)</em>.
       </p>
     </div>
@@ -317,15 +417,22 @@
     <img src="selection_sources/pg168.jpg" alt="Soldats US construisant un pont flottant" onclick="openLB(this.src)" title="Soldats américains construisant un pont flottant sur la Marne">
     <img src="selection_sources/smithsonian_marne_jaulgonne_1918_peixotto.jpg" alt="Croquis Peixotto, pont flottant" onclick="openLB(this.src)" title="Croquis de Peixotto — pont flottant sur la Marne à Jaulgonne, août 1918">
   </div>
-  <p class="photo-caption">Construction d'un pont flottant sur la Marne — illustrations de la contre-offensive américaine</p>
+  <p class="photo-caption"
+     data-fr="Construction d'un pont flottant sur la Marne — illustrations de la contre-offensive américaine"
+     data-en="Construction of a floating bridge on the Marne — illustrations of the American counter-offensive">Construction d'un pont flottant sur la Marne — illustrations de la contre-offensive américaine</p>
 </section>
 
 <!-- GALERIE PHOTOGRAPHIQUE -->
 <section style="background:var(--bg2);border-top:1px solid var(--border);max-width:100%;padding:4rem 1.5rem">
 <div style="max-width:1100px;margin:0 auto">
-  <div class="section-label">Archives photographiques</div>
-  <h2>Images de la campagne Aisne-Marne</h2>
-  <p style="font-size:.9rem;color:var(--text3);max-width:600px;line-height:1.7;margin-bottom:2rem">
+  <div class="section-label"
+       data-fr="Archives photographiques"
+       data-en="Photographic Archives">Archives photographiques</div>
+  <h2 data-fr="Images de la campagne Aisne-Marne"
+      data-en="Images from the Aisne-Marne Campaign">Images de la campagne Aisne-Marne</h2>
+  <p style="font-size:.9rem;color:var(--text3);max-width:600px;line-height:1.7;margin-bottom:2rem"
+     data-fr="Photographies des opérations américaines dans la zone Château-Thierry / Marne, été 1918. Sources : NARA, ABMC, archives diverses."
+     data-en="Photographs of American operations in the Château-Thierry / Marne area, summer 1918. Sources: NARA, ABMC, various archives.">
     Photographies des opérations américaines dans la zone Château-Thierry / Marne, été 1918. Sources : NARA, ABMC, archives diverses.
   </p>
 
@@ -355,16 +462,22 @@
          onclick="openLB(this.src)"
          style="width:100%;aspect-ratio:4/3;object-fit:cover;cursor:pointer;border:1px solid var(--border)">
   </div>
-  <p class="photo-caption">Archives photographiques — campagne Aisne-Marne, été 1918. Cliquer pour agrandir.</p>
+  <p class="photo-caption"
+     data-fr="Archives photographiques — campagne Aisne-Marne, été 1918. Cliquer pour agrandir."
+     data-en="Photographic archives — Aisne-Marne campaign, summer 1918. Click to enlarge.">Archives photographiques — campagne Aisne-Marne, été 1918. Cliquer pour agrandir.</p>
 </div>
 </section>
 
 <!-- DOCUMENT FILMÉ — REEL 2 -->
 <div class="video-section">
   <div class="video-section-inner">
-    <div class="video-eyebrow">Document filmé · Archives nationales américaines · Reel 2</div>
+    <div class="video-eyebrow"
+         data-fr="Document filmé · Archives nationales américaines · Reel 2"
+         data-en="Filmed Document · U.S. National Archives · Reel 2">Document filmé · Archives nationales américaines · Reel 2</div>
     <div class="video-title">The Aisne-Marne Operations, July 18 to August 6, 1918</div>
-    <div class="video-sub">Signal Corps Historical Film No. H-1365 — Reel 2 · 24 scènes · 871 pieds · édité en 1936</div>
+    <div class="video-sub"
+         data-fr="Signal Corps Historical Film No. H-1365 — Reel 2 · 24 scènes · 871 pieds · édité en 1936"
+         data-en="Signal Corps Historical Film No. H-1365 — Reel 2 · 24 scenes · 871 feet · edited 1936">Signal Corps Historical Film No. H-1365 — Reel 2 · 24 scènes · 871 pieds · édité en 1936</div>
     <video class="video-player"
            controls autoplay muted
            preload="auto"
@@ -373,19 +486,22 @@
     </video>
     <div class="video-meta">
       <div class="video-source">
-        <strong>Source</strong>
-        National Archives and Records Administration (NARA)<br>
+        <strong data-fr="Source" data-en="Source">Source</strong>
+        <span data-fr="National Archives and Records Administration (NARA)&lt;br&gt;Record Group 111 — Records of the Office of the Chief Signal Officer&lt;br&gt;Series : Historical Films · NAID 24868 · Local ID : 111-H-1365&lt;br&gt;Domaine public (gouvernement américain)"
+              data-en="National Archives and Records Administration (NARA)&lt;br&gt;Record Group 111 — Records of the Office of the Chief Signal Officer&lt;br&gt;Series: Historical Films · NAID 24868 · Local ID: 111-H-1365&lt;br&gt;Public domain (U.S. government)">National Archives and Records Administration (NARA)<br>
         Record Group 111 — Records of the Office of the Chief Signal Officer<br>
         Series : Historical Films · NAID 24868 · Local ID : 111-H-1365<br>
-        Domaine public (gouvernement américain)
+        Domaine public (gouvernement américain)</span>
       </div>
       <div class="video-scenes">
-        <strong>Scènes clés du Reel 2</strong>
-        Sc. 32–33 — Château-Thierry tenu par les Allemands · pont de la Marne détruit par les Français (5 juin 1918)<br>
+        <strong data-fr="Scènes clés du Reel 2"
+                data-en="Key Scenes from Reel 2">Scènes clés du Reel 2</strong>
+        <span data-fr="Sc. 32–33 — Château-Thierry tenu par les Allemands · pont de la Marne détruit par les Français (5 juin 1918)&lt;br&gt;Sc. 34 — Meaux, 17 juillet · infirmières de la Croix-Rouge française et officiers américains&lt;br&gt;Sc. 42 — Château-Thierry, 10 août · les réfugiés rentrent chez eux&lt;br&gt;Sc. 54 — Dépôt de couronnes sur des tombes américaines, Charles Sheldon (New York Times)&lt;br&gt;Sc. 55 — &lt;em&gt;Vue aérienne depuis 500 m — Vallée de la Marne entre Jaulgonne et Château-Thierry, 11 août 1918 — là où la 3&lt;sup&gt;e&lt;/sup&gt; Division US a tenu la ligne&lt;/em&gt; (258 pieds)"
+              data-en="Sc. 32–33 — Château-Thierry held by the Germans · Marne bridge destroyed by the French (June 5, 1918)&lt;br&gt;Sc. 34 — Meaux, July 17 · French Red Cross nurses and American officers&lt;br&gt;Sc. 42 — Château-Thierry, August 10 · refugees returning home&lt;br&gt;Sc. 54 — Wreath-laying on American graves, Charles Sheldon (New York Times)&lt;br&gt;Sc. 55 — &lt;em&gt;Aerial view from 500 m — Marne Valley between Jaulgonne and Château-Thierry, August 11, 1918 — where the 3&lt;sup&gt;rd&lt;/sup&gt; US Division held the line&lt;/em&gt; (258 feet)">Sc. 32–33 — Château-Thierry tenu par les Allemands · pont de la Marne détruit par les Français (5 juin 1918)<br>
         Sc. 34 — Meaux, 17 juillet · infirmières de la Croix-Rouge française et officiers américains<br>
         Sc. 42 — Château-Thierry, 10 août · les réfugiés rentrent chez eux<br>
         Sc. 54 — Dépôt de couronnes sur des tombes américaines, Charles Sheldon (New York Times)<br>
-        Sc. 55 — <em>Vue aérienne depuis 500 m — Vallée de la Marne entre Jaulgonne et Château-Thierry, 11 août 1918 — là où la 3<sup>e</sup> Division US a tenu la ligne</em> (258 pieds)
+        Sc. 55 — <em>Vue aérienne depuis 500 m — Vallée de la Marne entre Jaulgonne et Château-Thierry, 11 août 1918 — là où la 3<sup>e</sup> Division US a tenu la ligne</em> (258 pieds)</span>
       </div>
     </div>
   </div>
@@ -393,10 +509,23 @@
 
 <!-- FOOTER -->
 <footer>
-  <p>Sources : U.S. Army Center of Military History · Library of Congress · Smithsonian National Museum of American History · National Archives (NARA) · La Contemporaine / Argonnaute</p>
-  <p style="margin-top:.75rem;font-size:.68rem;color:#7a6a5a">En mémoire des soldats américains — blancs et noirs — tombés sur la Marne pour la liberté — Été 1918</p>
+  <p data-fr="Sources : U.S. Army Center of Military History · Library of Congress · Smithsonian National Museum of American History · National Archives (NARA) · La Contemporaine / Argonnaute"
+     data-en="Sources: U.S. Army Center of Military History · Library of Congress · Smithsonian National Museum of American History · National Archives (NARA) · La Contemporaine / Argonnaute">Sources : U.S. Army Center of Military History · Library of Congress · Smithsonian National Museum of American History · National Archives (NARA) · La Contemporaine / Argonnaute</p>
+  <p style="margin-top:.75rem;font-size:.68rem;color:#7a6a5a"
+     data-fr="En mémoire des soldats américains — blancs et noirs — tombés sur la Marne pour la liberté — Été 1918"
+     data-en="In memory of the American soldiers — white and Black — who fell on the Marne for liberty — Summer 1918">En mémoire des soldats américains — blancs et noirs — tombés sur la Marne pour la liberté — Été 1918</p>
 </footer>
 
 <script src="lightbox.js"></script>
+<script>
+function toggleLang(){
+  const l=document.documentElement.getAttribute('data-lang')==='fr'?'en':'fr';
+  document.documentElement.setAttribute('data-lang',l);
+  document.getElementById('lang-toggle').textContent=l==='fr'?'English':'Français';
+  document.querySelectorAll('[data-fr]').forEach(el=>{
+    el.innerHTML=el.getAttribute('data-'+l);
+  });
+}
+</script>
 </body>
 </html>

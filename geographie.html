@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,9 +15,10 @@
 
 <!-- PAGE HERO -->
 <div class="page-hero">
-  <div class="page-hero-eyebrow">Jaulgonne 1918 · Géographie</div>
-  <h1 class="page-hero-title">La position stratégique de Jaulgonne</h1>
-  <p class="page-hero-subtitle">Le coude de la Marne et ses villages — géographie d'un champ de bataille</p>
+  <div class="page-hero-eyebrow" data-fr="Jaulgonne 1918 · Géographie" data-en="Jaulgonne 1918 · Geography">Jaulgonne 1918 · Géographie</div>
+  <h1 class="page-hero-title" data-fr="La position stratégique de Jaulgonne" data-en="The strategic position of Jaulgonne">La position stratégique de Jaulgonne</h1>
+  <p class="page-hero-subtitle" data-fr="Le coude de la Marne et ses villages — géographie d'un champ de bataille" data-en="The bend of the Marne and its villages — geography of a battlefield">Le coude de la Marne et ses villages — géographie d'un champ de bataille</p>
+  <button class="lang-btn" id="lang-toggle" onclick="toggleLang()">English</button>
 </div>
 
 <!-- NAV -->
@@ -36,46 +37,46 @@
 
 <!-- INTRO GÉOGRAPHIQUE -->
 <section id="intro">
-  <div class="section-label">Contexte géographique</div>
-  <h2>Un verrou sur la route de Paris</h2>
-  <p class="intro-text">
+  <div class="section-label" data-fr="Contexte géographique" data-en="Geographic context">Contexte géographique</div>
+  <h2 data-fr="Un verrou sur la route de Paris" data-en="A lock on the road to Paris">Un verrou sur la route de Paris</h2>
+  <p class="intro-text" data-fr="En cet été 1918, sur les rives de la Marne, à soixante kilomètres seulement de Paris, se joue le destin de la France. Jaulgonne, petit village de la vallée, tient le dernier verrou naturel avant la capitale. Sa position est unique : ici, la Marne fait un coude serré au sud — le «&nbsp;Coude de Jaulgonne&nbsp;» — rendant toute traversée périlleuse. Sur les hauteurs au-dessus du village dominent la Ferme des Franquets et la Forêt de Ris au nord-est. Le confluent du Surmelin ouvre une voie vers l'intérieur des terres. Qui tient Jaulgonne, tient la route de Paris." data-en="In the summer of 1918, on the banks of the Marne, just sixty kilometres from Paris, the fate of France was being decided. Jaulgonne, a small valley village, held the last natural lock before the capital. Its position was unique: here the Marne makes a sharp southward bend — the 'Bend of Jaulgonne' — making any crossing perilous. On the heights above the village stood Franquets Farm and the Forest of Ris to the north-east. The confluence of the Surmelin opened a route inland. Whoever held Jaulgonne held the road to Paris.">
     En cet été 1918, sur les rives de la Marne, à soixante kilomètres seulement de Paris, se joue le destin de la France. Jaulgonne, petit village de la vallée, tient le dernier verrou naturel avant la capitale. Sa position est unique : ici, la Marne fait un coude serré au sud — le «&nbsp;Coude de Jaulgonne&nbsp;» — rendant toute traversée périlleuse. Sur les hauteurs au-dessus du village dominent la Ferme des Franquets et la Forêt de Ris au nord-est. Le confluent du Surmelin ouvre une voie vers l'intérieur des terres. Qui tient Jaulgonne, tient la route de Paris.
   </p>
 
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin:2.5rem 0">
     <div class="info-box">
-      <h3>Le Coude de Jaulgonne</h3>
-      <p>La Marne effectue ici un virage prononcé vers le sud. Ce méandre ralentit le courant et rend tout franchissement visible depuis les deux rives — avantage défensif considérable pour qui tient la rive sud.</p>
+      <h3 data-fr="Le Coude de Jaulgonne" data-en="The Bend of Jaulgonne">Le Coude de Jaulgonne</h3>
+      <p data-fr="La Marne effectue ici un virage prononcé vers le sud. Ce méandre ralentit le courant et rend tout franchissement visible depuis les deux rives — avantage défensif considérable pour qui tient la rive sud." data-en="The Marne makes a sharp southward turn here. This meander slows the current and makes any crossing visible from both banks — a considerable defensive advantage for whoever holds the southern bank.">La Marne effectue ici un virage prononcé vers le sud. Ce méandre ralentit le courant et rend tout franchissement visible depuis les deux rives — avantage défensif considérable pour qui tient la rive sud.</p>
     </div>
     <div class="info-box">
-      <h3>La Ferme des Franquets</h3>
-      <p>Position dominante sur les hauteurs au nord-est du village. Tenue par les Bataillons Sagnières et Taureau (47e RI) en mai–juin 1918. Clé du dispositif défensif allié : qui tient la Ferme contrôle les approches de la vallée.</p>
+      <h3 data-fr="La Ferme des Franquets" data-en="Franquets Farm">La Ferme des Franquets</h3>
+      <p data-fr="Position dominante sur les hauteurs au nord-est du village. Tenue par les Bataillons Sagnières et Taureau (47e RI) en mai–juin 1918. Clé du dispositif défensif allié : qui tient la Ferme contrôle les approches de la vallée." data-en="A commanding position on the heights north-east of the village. Held by the Sagnières and Taureau Battalions (47th RI) in May–June 1918. Key to the Allied defensive position: whoever held the Farm controlled the approaches to the valley.">Position dominante sur les hauteurs au nord-est du village. Tenue par les Bataillons Sagnières et Taureau (47e RI) en mai–juin 1918. Clé du dispositif défensif allié : qui tient la Ferme contrôle les approches de la vallée.</p>
     </div>
     <div class="info-box">
-      <h3>La Forêt de Ris</h3>
-      <p>Massif boisé au nord-est de Jaulgonne. Utilisé par les Allemands comme dépôt logistique et axe d'approche. Théâtre de combats acharnés du 22 au 27 juillet 1918. Contre-attaque allemande à l'Érolle le 27 juillet.</p>
+      <h3 data-fr="La Forêt de Ris" data-en="The Forest of Ris">La Forêt de Ris</h3>
+      <p data-fr="Massif boisé au nord-est de Jaulgonne. Utilisé par les Allemands comme dépôt logistique et axe d'approche. Théâtre de combats acharnés du 22 au 27 juillet 1918. Contre-attaque allemande à l'Érolle le 27 juillet." data-en="Wooded massif north-east of Jaulgonne. Used by the Germans as a logistics depot and approach axis. Scene of fierce fighting from July 22 to 27, 1918. German counter-attack at l'Érolle on July 27.">Massif boisé au nord-est de Jaulgonne. Utilisé par les Allemands comme dépôt logistique et axe d'approche. Théâtre de combats acharnés du 22 au 27 juillet 1918. Contre-attaque allemande à l'Érolle le 27 juillet.</p>
     </div>
     <div class="info-box">
-      <h3>Le confluent du Surmelin</h3>
-      <p>La rivière Surmelin se jette dans la Marne en face de Jaulgonne, côté nord. Ce confluent crée une voie d'approche naturelle vers l'intérieur des terres et un couloir d'infiltration que les deux camps cherchèrent à contrôler.</p>
+      <h3 data-fr="Le confluent du Surmelin" data-en="The Surmelin confluence">Le confluent du Surmelin</h3>
+      <p data-fr="La rivière Surmelin se jette dans la Marne en face de Jaulgonne, côté nord. Ce confluent crée une voie d'approche naturelle vers l'intérieur des terres et un couloir d'infiltration que les deux camps cherchèrent à contrôler." data-en="The Surmelin river joins the Marne opposite Jaulgonne on the northern side. This confluence creates a natural approach route inland and an infiltration corridor that both sides sought to control.">La rivière Surmelin se jette dans la Marne en face de Jaulgonne, côté nord. Ce confluent crée une voie d'approche naturelle vers l'intérieur des terres et un couloir d'infiltration que les deux camps cherchèrent à contrôler.</p>
     </div>
   </div>
 
   <!-- CARTE LEAFLET INTERACTIVE -->
   <div id="map-container">
-    <h3>Progression des lignes de front — Juillet–Août 1918</h3>
+    <h3 data-fr="Progression des lignes de front — Juillet–Août 1918" data-en="Advance of front lines — July–August 1918">Progression des lignes de front — Juillet–Août 1918</h3>
     <div id="battle-map-wrapper">
       <div id="battle-map-leaflet"></div>
       <div id="battle-legend-box">
-        <h3>LÉGENDE</h3>
-        <div class="bl-row"><div class="bl-line" style="background:#c0392b;height:4px"></div><span>Front allemand</span></div>
-        <div class="bl-row"><div class="bl-line" style="background:rgba(139,32,32,.35);height:10px;width:22px;border:1px solid #c0392b"></div><span>Zone all.</span></div>
-        <div class="bl-row"><div class="bl-dot" style="background:#c0392b;border:2px solid #fff"></div><span>Unité all.</span></div>
-        <div class="bl-row"><div class="bl-dot" style="background:#1a3a8c;border:2px solid #fff"></div><span>Unité FR</span></div>
-        <div class="bl-row"><div class="bl-dot" style="background:#2a6e2a;border:2px solid #fff"></div><span>Unité US</span></div>
+        <h3 data-fr="LÉGENDE" data-en="LEGEND">LÉGENDE</h3>
+        <div class="bl-row"><div class="bl-line" style="background:#c0392b;height:4px"></div><span data-fr="Front allemand" data-en="German front">Front allemand</span></div>
+        <div class="bl-row"><div class="bl-line" style="background:rgba(139,32,32,.35);height:10px;width:22px;border:1px solid #c0392b"></div><span data-fr="Zone all." data-en="German zone">Zone all.</span></div>
+        <div class="bl-row"><div class="bl-dot" style="background:#c0392b;border:2px solid #fff"></div><span data-fr="Unité all." data-en="German unit">Unité all.</span></div>
+        <div class="bl-row"><div class="bl-dot" style="background:#1a3a8c;border:2px solid #fff"></div><span data-fr="Unité FR" data-en="French unit">Unité FR</span></div>
+        <div class="bl-row"><div class="bl-dot" style="background:#2a6e2a;border:2px solid #fff"></div><span data-fr="Unité US" data-en="US unit">Unité US</span></div>
         <div class="bl-row"><div class="bl-line" style="background:#3a7bd5;height:3px"></div><span>Marne</span></div>
         <hr>
-        <div style="color:var(--text3);font-size:.62rem;font-style:italic">Positions approx.<br>Sources primaires</div>
+        <div style="color:var(--text3);font-size:.62rem;font-style:italic" data-fr="Positions approx. Sources primaires" data-en="Approx. positions. Primary sources">Positions approx.<br>Sources primaires</div>
       </div>
     </div>
     <div id="battle-timeline-panel">
@@ -99,32 +100,32 @@
 <!-- SECTION : LOCALITÉS -->
 <section style="background:var(--bg2);border-top:1px solid var(--border);max-width:100%;padding:4rem 1.5rem">
 <div style="max-width:1100px;margin:0 auto">
-  <div class="section-label">Les localités du secteur</div>
-  <h2>Villages et positions clés</h2>
+  <div class="section-label" data-fr="Les localités du secteur" data-en="Localities of the sector">Les localités du secteur</div>
+  <h2 data-fr="Villages et positions clés" data-en="Key villages and positions">Villages et positions clés</h2>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem">
     <div class="info-box">
       <h3>Jaulgonne</h3>
-      <p>Village rive nord de la Marne. Occupé par les Allemands le 2 juin 1918, libéré le 22 juillet par le 38e RI US (3e Division). Entièrement détruit lors des combats.</p>
+      <p data-fr="Village rive nord de la Marne. Occupé par les Allemands le 2 juin 1918, libéré le 22 juillet par le 38e RI US (3e Division). Entièrement détruit lors des combats." data-en="Village on the north bank of the Marne. Occupied by the Germans on June 2, 1918, liberated on July 22 by the 38th US Infantry (3rd Division). Entirely destroyed in the fighting.">Village rive nord de la Marne. Occupé par les Allemands le 2 juin 1918, libéré le 22 juillet par le 38e RI US (3e Division). Entièrement détruit lors des combats.</p>
     </div>
     <div class="info-box">
       <h3>Mézy-Moulins</h3>
-      <p>Rive sud. Point de franchissement du 6e Régiment de Grenadiers (15 juillet). Tête de pont réduite par le 38e RI US après 14 heures de combats. Les «&nbsp;Rochers de la Marne&nbsp;».</p>
+      <p data-fr="Rive sud. Point de franchissement du 6e Régiment de Grenadiers (15 juillet). Tête de pont réduite par le 38e RI US après 14 heures de combats. Les «&nbsp;Rochers de la Marne&nbsp;»." data-en="South bank. Crossing point of the 6th Grenadier Regiment (July 15). Bridgehead reduced by the 38th US Infantry after 14 hours of fighting. The 'Rock of the Marne'.">Rive sud. Point de franchissement du 6e Régiment de Grenadiers (15 juillet). Tête de pont réduite par le 38e RI US après 14 heures de combats. Les «&nbsp;Rochers de la Marne&nbsp;».</p>
     </div>
     <div class="info-box">
       <h3>Fossoy</h3>
-      <p>Rive sud, à l'ouest de Mézy. Franchissement du 5e Régiment de Grenadiers (15 juillet). Repoussé par le 30e RI US. Verrou occidental du dispositif américain.</p>
+      <p data-fr="Rive sud, à l'ouest de Mézy. Franchissement du 5e Régiment de Grenadiers (15 juillet). Repoussé par le 30e RI US. Verrou occidental du dispositif américain." data-en="South bank, west of Mézy. Crossing of the 5th Grenadier Regiment (July 15). Repelled by the 30th US Infantry. Western anchor of the American defensive position.">Rive sud, à l'ouest de Mézy. Franchissement du 5e Régiment de Grenadiers (15 juillet). Repoussé par le 30e RI US. Verrou occidental du dispositif américain.</p>
     </div>
     <div class="info-box">
       <h3>Varennes-en-Argonne</h3>
-      <p>Rive nord, à l'ouest de Jaulgonne. Pris par les grenadiers allemands et le 175e RI. Base de départ vers le Charmel et la Forêt de Ris.</p>
+      <p data-fr="Rive nord, à l'ouest de Jaulgonne. Pris par les grenadiers allemands et le 175e RI. Base de départ vers le Charmel et la Forêt de Ris." data-en="North bank, west of Jaulgonne. Taken by the German grenadiers and the 175th RI. Starting base toward Le Charmel and the Forest of Ris.">Rive nord, à l'ouest de Jaulgonne. Pris par les grenadiers allemands et le 175e RI. Base de départ vers le Charmel et la Forêt de Ris.</p>
     </div>
     <div class="info-box">
       <h3>Le Charmel</h3>
-      <p>Village sur les hauteurs au nord-est, à 9 km de Jaulgonne. Capturé le 25 juillet par le 3e bataillon du 4e RI US à 18h. Position allemande clé dans les crêtes boisées.</p>
+      <p data-fr="Village sur les hauteurs au nord-est, à 9 km de Jaulgonne. Capturé le 25 juillet par le 3e bataillon du 4e RI US à 18h. Position allemande clé dans les crêtes boisées." data-en="Village on the heights to the north-east, 9 km from Jaulgonne. Captured on July 25 by the 3rd battalion of the 4th US Infantry at 6 p.m. Key German position in the wooded ridges.">Village sur les hauteurs au nord-est, à 9 km de Jaulgonne. Capturé le 25 juillet par le 3e bataillon du 4e RI US à 18h. Position allemande clé dans les crêtes boisées.</p>
     </div>
     <div class="info-box">
       <h3>Dormans</h3>
-      <p>Ville à 12 km à l'ouest de Jaulgonne. Libérée le 20 juillet par le 32e RI français. Siège aujourd'hui du Mémorial de la 2e Bataille de la Marne.</p>
+      <p data-fr="Ville à 12 km à l'ouest de Jaulgonne. Libérée le 20 juillet par le 32e RI français. Siège aujourd'hui du Mémorial de la 2e Bataille de la Marne." data-en="Town 12 km west of Jaulgonne. Liberated on July 20 by the French 32nd Infantry. Today the site of the Memorial of the 2nd Battle of the Marne.">Ville à 12 km à l'ouest de Jaulgonne. Libérée le 20 juillet par le 32e RI français. Siège aujourd'hui du Mémorial de la 2e Bataille de la Marne.</p>
     </div>
   </div>
 </div>
@@ -132,8 +133,8 @@
 
 <!-- FOOTER -->
 <footer>
-  <p>Sources : Chemins de mémoire · U.S. Army History · La Contemporaine / Argonnaute · Library of Congress</p>
-  <p style="margin-top:.75rem;font-size:.68rem;color:#7a6a5a">En mémoire des soldats français et américains tombés à Jaulgonne — Été 1918</p>
+  <p data-fr="Sources : Chemins de mémoire · U.S. Army History · La Contemporaine / Argonnaute · Library of Congress" data-en="Sources: Chemins de mémoire · U.S. Army History · La Contemporaine / Argonnaute · Library of Congress">Sources : Chemins de mémoire · U.S. Army History · La Contemporaine / Argonnaute · Library of Congress</p>
+  <p style="margin-top:.75rem;font-size:.68rem;color:#7a6a5a" data-fr="En mémoire des soldats français et américains tombés à Jaulgonne — Été 1918" data-en="In memory of the French and American soldiers who fell at Jaulgonne — Summer 1918">En mémoire des soldats français et américains tombés à Jaulgonne — Été 1918</p>
 </footer>
 
 <script>
@@ -339,5 +340,15 @@
 })();
 </script>
 <script src="lightbox.js"></script>
+<script>
+function toggleLang(){
+  const l=document.documentElement.getAttribute('data-lang')==='fr'?'en':'fr';
+  document.documentElement.setAttribute('data-lang',l);
+  document.getElementById('lang-toggle').textContent=l==='fr'?'English':'Français';
+  document.querySelectorAll('[data-fr]').forEach(el=>{
+    el.innerHTML=el.getAttribute('data-'+l);
+  });
+}
+</script>
 </body>
 </html>
