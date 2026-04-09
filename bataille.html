@@ -8,6 +8,151 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="museum.css">
+<style>
+
+/* ── GRILLES TEXTE + IMAGE ── */
+.bt-grid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 2rem;
+  align-items: start;
+}
+.bt-grid-lg { grid-template-columns: 1fr 360px; }
+.bt-grid-rev { grid-template-columns: 300px 1fr; }
+
+/* ── FIGURE DANS GRILLE ── */
+.bt-fig {
+  border: 1px solid var(--border);
+  background: var(--charcoal);
+}
+.bt-fig img {
+  width: 100%; height: auto; display: block;
+  filter: sepia(.12) brightness(.88) contrast(1.06);
+  transition: filter .35s;
+}
+.bt-fig:hover img { filter: sepia(.03) brightness(1.02); }
+.bt-fig figcaption {
+  font-size: .65rem; color: var(--text3); line-height: 1.45;
+  padding: .5rem .65rem; border-top: 1px solid var(--border);
+  letter-spacing: .02em;
+}
+
+/* ── SECTIONS : padding réduit ── */
+section { padding: 2.25rem 1.5rem; }
+section.bg2 {
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  max-width: 100%;
+  padding: 2.25rem 1.5rem;
+}
+section.bg2 > .inner { max-width: 1100px; margin: 0 auto; }
+
+/* ── TABLEAU FORCES ── */
+.forces-wrap {
+  overflow-x: auto;
+  margin: 1.75rem 0 .5rem;
+}
+.forces-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .85rem;
+  color: var(--text2);
+}
+.forces-table caption {
+  font-size: .64rem; letter-spacing: .35em; text-transform: uppercase;
+  color: var(--gold2); text-align: left; padding-bottom: .65rem;
+}
+.forces-table thead th {
+  padding: .65rem 1rem;
+  text-align: left;
+  font-size: .72rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--text3);
+  border-bottom: 2px solid var(--border);
+}
+.forces-table thead th:nth-child(2) { color: #7a9cbf; }
+.forces-table thead th:nth-child(3) { color: #8f6a4a; }
+.forces-table tbody tr { border-bottom: 1px solid rgba(255,255,255,.05); }
+.forces-table tbody tr:hover { background: rgba(255,255,255,.03); }
+.forces-table td {
+  padding: .6rem 1rem;
+  vertical-align: top;
+  line-height: 1.55;
+}
+.forces-table td:first-child {
+  font-size: .7rem; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--text3); white-space: nowrap; width: 160px;
+  border-right: 1px solid var(--border);
+}
+.forces-table .sep td {
+  padding: 0; height: 1px;
+  background: var(--border);
+  font-size: 0;
+}
+.forces-table .section-row td {
+  padding: .5rem 1rem .3rem;
+  font-size: .64rem; letter-spacing: .3em; text-transform: uppercase;
+  color: var(--gold2); background: rgba(0,0,0,.18);
+  border-bottom: 1px solid var(--border);
+}
+.val-good { color: #7fbf7f; font-weight: 600; }
+.val-bad  { color: #bf7a7a; font-weight: 600; }
+
+/* ── CITATIONS NEIBERG ── */
+.neiberg-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+.neiberg-bq {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: .93rem; font-style: italic;
+  color: var(--text); line-height: 1.75;
+  background: var(--bg2); border-left: 3px solid var(--gold);
+  padding: 1rem 1.25rem; margin: 0;
+}
+.neiberg-bq cite {
+  display: block; font-size: .64rem; color: var(--text3);
+  margin-top: .65rem; font-style: normal;
+  letter-spacing: .1em; text-transform: uppercase;
+}
+.neiberg-bq-wide {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1rem; font-style: italic; color: var(--gold);
+  text-align: center; line-height: 1.75;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 1.25rem 0; margin: 0 0 1.25rem;
+}
+.neiberg-bq-wide cite {
+  display: block; font-size: .67rem; color: var(--text2);
+  margin-top: .75rem; font-style: normal;
+  letter-spacing: .12em; text-transform: uppercase;
+}
+
+/* ── LIEN VIDÉO ── */
+.video-link {
+  display: flex; align-items: center; gap: 1rem;
+  background: var(--charcoal); color: #e8e0d0; text-decoration: none;
+  padding: .85rem 1.25rem; border: 1px solid rgba(122,26,26,.3);
+  max-width: 440px; transition: border-color .2s;
+}
+.video-link:hover { border-color: rgba(122,26,26,.7); }
+.video-play {
+  flex-shrink: 0; width: 44px; height: 44px;
+  background: var(--gold); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+}
+.video-meta { font-size: .68rem; letter-spacing: .22em; text-transform: uppercase; color: #7a6a5a; margin-bottom: .25rem; }
+.video-title { font-family: 'Playfair Display', Georgia, serif; font-size: .9rem; line-height: 1.3; }
+.video-url   { font-size: .68rem; color: #7a6a5a; margin-top: .2rem; }
+
+/* ── RESPONSIVE ── */
+@media(max-width:780px){
+  .bt-grid, .bt-grid-lg, .bt-grid-rev,
+  .neiberg-grid { grid-template-columns: 1fr; }
+}
+</style>
 </head>
 <body>
 
@@ -26,172 +171,333 @@
   <a href="liberation.html">Libération</a>
   <a href="foret-ris.html">Forêt de Ris</a>
   <a href="bataille.html" class="active">La Bataille</a>
-  <a href="hommage-us.html">Hommage US</a>
+  <a href="hommage-us.html">Les Américains</a>
   <a href="memoire.html">Mémorial</a>
   <a href="galerie.html">Archives</a>
   <a href="carte_bataille.html">Carte</a>
 </nav>
 
-<!-- INTRO -->
+<!-- ══════════════════════════════════════
+     INTRO
+══════════════════════════════════════ -->
 <section id="intro">
-  <div class="section-label">Le contexte</div>
-  <h2>La bataille qui a retourné la guerre</h2>
-  <p class="intro-text">
-    La 2e Bataille de la Marne (15 juillet – 6 août 1918) est l'une des batailles décisives de la Première Guerre mondiale. Commencée par une offensive allemande censée être la dernière grande offensive («&nbsp;Friedensturm&nbsp;» — l'assaut de la paix), elle se retourne en sept jours contre ses initiateurs. La contre-offensive alliée du 18 juillet marque le début de ce que les historiens appellent les «&nbsp;Cent Jours&nbsp;» — la période finale de la guerre qui aboutira à l'armistice du 11 novembre 1918.
-  </p>
+  <div class="bt-grid bt-grid-lg" style="align-items:end">
 
-  <!-- Chiffres clés -->
-  <div class="stats-row">
-    <div class="stat-card">
-      <div class="stat-num">24</div>
-      <div class="stat-label">Divisions alliées le 18 juillet</div>
+    <div>
+      <div class="section-label">Le contexte</div>
+      <h2>La bataille qui a retourné la guerre</h2>
+      <p class="intro-text" style="margin-bottom:1.25rem">
+        La 2e Bataille de la Marne (15 juillet – 6 août 1918) est l'une des batailles décisives de la Première Guerre mondiale. Commencée par une offensive allemande censée être la dernière grande offensive (<em>«&nbsp;Friedensturm&nbsp;»</em> — l'assaut de la paix), elle se retourne en sept jours contre ses initiateurs. La contre-offensive alliée du 18 juillet marque le début des <strong>«&nbsp;Cent Jours&nbsp;»</strong> — la période finale qui aboutira à l'armistice du 11 novembre 1918.
+      </p>
+      <!-- Chiffres clés -->
+      <div class="stats-row" style="margin-top:0">
+        <div class="stat-card"><div class="stat-num">24</div><div class="stat-label">Divisions alliées le 18 juillet</div></div>
+        <div class="stat-card"><div class="stat-num">350</div><div class="stat-label">Chars engagés</div></div>
+        <div class="stat-card"><div class="stat-num">200</div><div class="stat-label">Villages libérés</div></div>
+        <div class="stat-card"><div class="stat-num">35 000</div><div class="stat-label">Prisonniers capturés</div></div>
+        <div class="stat-card"><div class="stat-num">700</div><div class="stat-label">Canons pris</div></div>
+        <div class="stat-card"><div class="stat-num">60 km</div><div class="stat-label">Distance de Paris au front</div></div>
+      </div>
     </div>
-    <div class="stat-card">
-      <div class="stat-num">350</div>
-      <div class="stat-label">Chars engagés</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num">200</div>
-      <div class="stat-label">Villages libérés</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num">35 000</div>
-      <div class="stat-label">Prisonniers capturés</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num">700</div>
-      <div class="stat-label">Canons pris</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num">60 km</div>
-      <div class="stat-label">Distance de Paris au front</div>
-    </div>
+
+    <figure class="bt-fig">
+      <img src="selection_sources/L'ensemble_du_front/map-of-the-western-front-in-world-war-i-1914-1918-21586.png"
+           alt="Carte du front occidental, 1914-1918" loading="lazy">
+      <figcaption>Le front occidental 1914–1918. La zone de Jaulgonne se situe sur la Marne, entre Château-Thierry et Épernay — flanc droit de toute l'offensive Friedensturm. — World History Encyclopedia</figcaption>
+    </figure>
+
   </div>
 </section>
 
-<!-- NEIBERG -->
-<section id="neiberg">
+<!-- ══════════════════════════════════════
+     NEIBERG
+══════════════════════════════════════ -->
+<section id="neiberg" class="bg2">
+<div class="inner">
   <div class="section-label">Regard d'historien</div>
-  <h2>«&nbsp;Une bataille qui défie tous les stéréotypes de la Grande Guerre&nbsp;»</h2>
-  <p style="font-size:.88rem;color:var(--text3);margin-bottom:2rem">
-    Michael Neiberg, professeur d'histoire à l'U.S. Army War College, est l'un des meilleurs spécialistes américains de la 2e Bataille de la Marne.
+  <h2 style="margin-bottom:.5rem">«&nbsp;Une bataille qui défie tous les stéréotypes de la Grande Guerre&nbsp;»</h2>
+  <p style="font-size:.83rem;color:var(--text3);margin-bottom:1.25rem">
+    Michael Neiberg, professeur d'histoire à l'U.S. Army War College, spécialiste américain de la 2e Bataille de la Marne.
   </p>
 
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:2rem">
-
-    <blockquote style="font-family:'Playfair Display',Georgia,serif;font-size:.97rem;font-style:italic;color:var(--text);line-height:1.8;background:var(--bg2);border-left:3px solid var(--gold);padding:1.25rem 1.5rem;margin:0">
-      «&nbsp;This is a battle that defies every stereotype you have about World War I. There are no trenches at this battle. This is a battle that goes more or less to plan — at least for the Allies. This is a battle that involves a lot of movement, a lot of fluidity, and it has a <em>decision</em> at the end.&nbsp;»
-      <cite style="display:block;font-size:.67rem;color:var(--text3);margin-top:.8rem;font-style:normal;letter-spacing:.1em;text-transform:uppercase">Michael Neiberg — U.S. Army War College</cite>
+  <div class="neiberg-grid">
+    <blockquote class="neiberg-bq">
+      «&nbsp;This is a battle that defies every stereotype you have about World War I. There are no trenches. This is a battle that goes more or less to plan — at least for the Allies. It involves a lot of movement, a lot of fluidity, and it has a <em>decision</em> at the end.&nbsp;»
+      <cite>Michael Neiberg — U.S. Army War College</cite>
     </blockquote>
-
-    <blockquote style="font-family:'Playfair Display',Georgia,serif;font-size:.97rem;font-style:italic;color:var(--text);line-height:1.8;background:var(--bg2);border-left:3px solid var(--gold);padding:1.25rem 1.5rem;margin:0">
-      «&nbsp;The Second Battle of the Marne in 1918 looks nothing like the First Battle of the Marne in 1914. It is as if they came from two different centuries. Armor, advanced weaponry, modern doctrine, modern strategy — this battle in my mind looks much more like something out of 1939 or 1940.&nbsp;»
-      <cite style="display:block;font-size:.67rem;color:var(--text3);margin-top:.8rem;font-style:normal;letter-spacing:.1em;text-transform:uppercase">Michael Neiberg — U.S. Army War College</cite>
+    <blockquote class="neiberg-bq">
+      «&nbsp;The Second Battle of the Marne looks nothing like the First. It is as if they came from two different centuries. Armor, advanced weaponry, modern doctrine — this battle looks much more like something out of 1939 or 1940.&nbsp;»
+      <cite>Michael Neiberg — U.S. Army War College</cite>
     </blockquote>
-
   </div>
 
-  <blockquote style="font-family:'Playfair Display',Georgia,serif;font-size:1.05rem;font-style:italic;color:var(--gold);max-width:720px;margin:0 auto 2rem;text-align:center;line-height:1.75;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:1.5rem 0">
+  <blockquote class="neiberg-bq-wide">
     «&nbsp;The turning point of 1918 is the Second Marne — not Amiens. And you cannot, <em>cannot</em>, cannot write the French Army out of this war.&nbsp;»
-    <cite style="display:block;font-size:.7rem;color:var(--text2);margin-top:.9rem;font-style:normal;letter-spacing:.12em;text-transform:uppercase">Michael Neiberg — 35 000 prisonniers à la 2e Marne, vs 20 000 à Amiens</cite>
+    <cite>Michael Neiberg — 35 000 prisonniers à la 2e Marne, vs 20 000 à Amiens</cite>
   </blockquote>
 
-  <!-- Vignette vidéo -->
-  <div style="display:flex;justify-content:center">
-    <a href="https://youtu.be/PYSVVsYN00k" target="_blank" rel="noopener"
-       style="display:flex;align-items:center;gap:1.1rem;background:var(--charcoal);color:#e8e0d0;text-decoration:none;
-              padding:1rem 1.5rem;border-radius:3px;border:1px solid rgba(122,26,26,.3);
-              max-width:480px;width:100%;transition:border-color .2s"
-       onmouseover="this.style.borderColor='rgba(122,26,26,.7)'"
-       onmouseout="this.style.borderColor='rgba(122,26,26,.3)'">
-      <div style="flex-shrink:0;width:48px;height:48px;background:var(--gold);border-radius:50%;
-                  display:flex;align-items:center;justify-content:center;font-size:1.3rem">▶</div>
-      <div>
-        <div style="font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;color:#7a6a5a;margin-bottom:.3rem">YouTube Short · ~5 min</div>
-        <div style="font-family:'Playfair Display',Georgia,serif;font-size:.95rem;line-height:1.3">Prof. Michael Neiberg — <em>The Second Battle of the Marne</em></div>
-        <div style="font-size:.72rem;color:#7a6a5a;margin-top:.25rem">U.S. Army War College · youtu.be/PYSVVsYN00k</div>
+  <a href="https://youtu.be/PYSVVsYN00k" target="_blank" rel="noopener" class="video-link">
+    <div class="video-play">▶</div>
+    <div>
+      <div class="video-meta">YouTube · ~5 min</div>
+      <div class="video-title">Prof. Michael Neiberg — <em>The Second Battle of the Marne</em></div>
+      <div class="video-url">U.S. Army War College · youtu.be/PYSVVsYN00k</div>
+    </div>
+  </a>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════
+     FRIEDENSTURM
+══════════════════════════════════════ -->
+<section id="friedensturm">
+  <div class="section-label">15 juillet 1918</div>
+  <h2>L'offensive Friedensturm — le dernier pari</h2>
+
+  <div class="bt-grid" style="margin-top:1.25rem">
+    <div>
+      <p style="font-size:.93rem;color:var(--text2);line-height:1.85;margin-bottom:1rem">
+        Le Général Ludendorff lance la «&nbsp;paix par l'épée&nbsp;» : une attaque sur un front de 90 km entre Soissons et Reims. L'objectif est de percer vers Paris avant que les renforts américains ne deviennent décisifs. Quarante-sept divisions allemandes sont engagées.
+      </p>
+      <p style="font-size:.93rem;color:var(--text2);line-height:1.85;margin-bottom:1.25rem">
+        Mais les Alliés ont été informés par des déserteurs et des prisonniers. À minuit 10, avant même le barrage allemand, l'artillerie alliée ouvre une contre-préparation sur les zones de rassemblement. Les troupes allemandes attaquent à l'aube et trouvent des positions préparées.
+      </p>
+      <div class="info-box" style="margin-bottom:1rem">
+        <h3>La défense élastique (doctrine Pétain)</h3>
+        <p>Pétain applique la «&nbsp;défense en profondeur&nbsp;» : la première ligne cède du terrain pour épuiser l'élan ennemi. Sur le secteur de Jaulgonne, la 125e DI recule de 5 à 8 km selon ce plan — pendant que le 38e RI US choisit de ne pas reculer d'un pouce.</p>
       </div>
-    </a>
+    </div>
+
+    <figure class="bt-fig">
+      <img src="selection_sources/L'ensemble_du_front/general_gouraud_french_army_world_war_i_machinegun_marne_1918_2.jpeg"
+           alt="Soldats français en position dans des ruines, Marne 1918" loading="lazy">
+      <figcaption>Soldats français en position dans les ruines d'un village de la Marne, été 1918. Mitrailleuses depuis les décombres — la défense en profondeur en pratique. — Coll. privée</figcaption>
+    </figure>
+  </div>
+
+  <!-- Reichsarchiv -->
+  <div style="border-top:1px solid var(--border);padding-top:1.5rem;margin-top:1.5rem">
+    <div class="bt-grid bt-grid-rev">
+
+      <figure class="bt-fig">
+        <img src="selection_sources/L'ensemble_du_front/01b2a1d0e325ece3769fd31719f056087f6a00e112.jpg"
+             alt="Carte progression allemande 29-31 mai 1918" loading="lazy">
+        <figcaption>Progression allemande du 27 au 31 mai 1918 : de l'Aisne à la Marne en quatre jours. Jaulgonne figure en bas à droite. — État-major français</figcaption>
+      </figure>
+
+      <div>
+        <div class="section-label" style="margin-bottom:.5rem">Reichsarchiv Band 34</div>
+        <h3 style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:var(--text);margin-bottom:1rem">Près de 1 700 batteries sur 120 km de front</h3>
+        <p style="font-size:.91rem;color:var(--text2);line-height:1.8;margin-bottom:1rem">
+          Les archives officielles allemandes donnent le chiffre global : <strong>«&nbsp;outre plusieurs centaines de lanceurs de mines, près de 1 700 batteries devaient entrer en action.&nbsp;»</strong> Pour la seule 7e Armée (secteur Marne) : 456 bataillons de campagne, 258 bataillons lourds, plus de 650 unités de lance-mines.
+        </p>
+        <p style="font-size:.91rem;color:var(--text2);line-height:1.8;margin-bottom:1rem">
+          L'approvisionnement de nuit — le seul possible à cause de l'aviation alliée — s'avéra impossible à tenir : le jour J, fixé au 10 juillet, fut repoussé de <strong>cinq jours</strong> pour cette seule raison.
+        </p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem">
+          <div class="info-box">
+            <h3>Verdict allemand sur Jaulgonne</h3>
+            <p>Le Reichsarchiv (p. 151) qualifie le feu allié à Jaulgonne de <strong>«&nbsp;sehr wirksam&nbsp;»</strong> (très efficace). À l'ouest vers Barzy : «&nbsp;ziemlich erfolglos&nbsp;» (assez inefficace). La ligne entre succès et échec se trace ici.</p>
+          </div>
+          <div class="info-box">
+            <h3>23e DI saxonne bloquée</h3>
+            <p>L'artillerie d'accompagnement, devant traverser la forêt de nuit, fut bloquée par des tirs alliés sur un passage boueux. Il était <strong>7h20</strong> quand les batteries purent enfin franchir les ponts — l'infanterie avait attaqué seule depuis l'aube.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
-<!-- L'OFFENSIVE ALLEMANDE -->
-<section style="background:var(--bg2);border-top:1px solid var(--border);max-width:100%;padding:4rem 1.5rem">
-<div style="max-width:1100px;margin:0 auto">
-  <div class="section-label">15 juillet 1918</div>
-  <h2>L'offensive Friedensturm — le dernier pari</h2>
-  <p style="font-size:.95rem;color:var(--text2);max-width:700px;line-height:1.85;margin-bottom:1.5rem">
-    Le Général Ludendorff lance la «&nbsp;paix par l'épée&nbsp;» : une attaque sur un front de 90 kilomètres entre Soissons et Reims. L'objectif est de percer vers Paris pour forcer un armistice avant que les renforts américains ne deviennent décisifs. Quarante-sept divisions allemandes sont engagées.
-  </p>
-  <p style="font-size:.95rem;color:var(--text2);max-width:700px;line-height:1.85;margin-bottom:1.5rem">
-    Mais les Alliés ont été informés de l'offensive par des déserteurs et des prisonniers. À minuit 10, avant même que les Allemands ne déclenchent leur barrage, l'artillerie alliée ouvre une contre-préparation sur les zones de rassemblement allemandes. Quand les troupes allemandes attaquent à l'aube, elles trouvent des positions défensives préparées et des soldats qui les attendent.
-  </p>
+<!-- ══════════════════════════════════════
+     TABLEAU DES FORCES
+══════════════════════════════════════ -->
+<section class="bg2" id="forces">
+<div class="inner">
+  <div class="section-label">Ordre de bataille · 15 juillet – 6 août 1918</div>
+  <h2>Forces en présence &amp; bilan comparatif</h2>
 
-  <div class="info-box">
-    <h3>La défense élastique (doctrine Pétain)</h3>
-    <p>Face à l'offensive Friedensturm, Pétain applique sa doctrine de «&nbsp;défense en profondeur&nbsp;» : la première ligne est tenue avec peu de troupes, qui cèdent du terrain pour épuiser l'élan ennemi. La résistance réelle se fait en seconde ligne. Sur le secteur de Jaulgonne, la 125e DI recule de 5 à 8 km selon ce plan — pendant que le 38e RI US, lui, choisit de ne pas reculer d'un pouce.</p>
-  </div>
+  <div class="forces-wrap">
+  <table class="forces-table">
+    <caption>Sources : Reichsarchiv Band 34 · CMH Pub 77-5 · Chemins de mémoire · Neiberg (2008)</caption>
+    <thead>
+      <tr>
+        <th></th>
+        <th>🇫🇷 🇺🇸 Alliés (FR / US / IT)</th>
+        <th>🇩🇪 Allemagne</th>
+      </tr>
+    </thead>
+    <tbody>
 
-  <div class="placeholder-section">
-    <p>Section à enrichir — Contexte stratégique complet : Ludendorff et les offensives du Printemps 1918, rôle des renforts américains, plan Pétain vs initiative McAlexander. Sources : CMH Pub 77-5 (US Army), archives SHAT.</p>
+      <tr class="section-row"><td colspan="3">Commandement</td></tr>
+      <tr>
+        <td>Commandant suprême</td>
+        <td>Maréchal Ferdinand <strong>Foch</strong></td>
+        <td>Général Erich <strong>Ludendorff</strong></td>
+      </tr>
+      <tr>
+        <td>Commandant secteur Marne</td>
+        <td>Gén. Pétain (GA Centre) · Gén. Mangin (10e Armée)</td>
+        <td>Kronprinz Wilhelm · Gén. Boehn (7e Armée)</td>
+      </tr>
+      <tr>
+        <td>Armées engagées</td>
+        <td>4e (Gouraud) · 5e (Berthelot) · 6e (Degoutte) · 10e (Mangin)</td>
+        <td>1re (von Below) · 3e (von Einem) · 7e (Boehn)</td>
+      </tr>
+
+      <tr class="sep"><td colspan="3"></td></tr>
+      <tr class="section-row"><td colspan="3">Forces</td></tr>
+      <tr>
+        <td>Divisions</td>
+        <td class="val-good">~85 divisions (dont 9 US, 2 IT)</td>
+        <td>47 divisions d'assaut (Friedensturm)</td>
+      </tr>
+      <tr>
+        <td>Effectifs estimés</td>
+        <td class="val-good">~900 000 hommes</td>
+        <td>~600 000 hommes</td>
+      </tr>
+      <tr>
+        <td>Chars</td>
+        <td class="val-good">350 (Renault FT · Schneider · Saint-Chamond)</td>
+        <td class="val-bad">0 (aucun char engagé)</td>
+      </tr>
+      <tr>
+        <td>Avions</td>
+        <td class="val-good">~1 500 appareils</td>
+        <td>~900 appareils</td>
+      </tr>
+      <tr>
+        <td>Artillerie (sect. Marne)</td>
+        <td>Contre-préparation dès minuit 10</td>
+        <td>~1 700 batteries · 456 bat. campagne · 258 bat. lourds</td>
+      </tr>
+
+      <tr class="sep"><td colspan="3"></td></tr>
+      <tr class="section-row"><td colspan="3">Résultats &amp; pertes</td></tr>
+      <tr>
+        <td>Tués &amp; blessés</td>
+        <td>~95 000 (dont ~12 000 US)</td>
+        <td class="val-bad">~168 000</td>
+      </tr>
+      <tr>
+        <td>Prisonniers</td>
+        <td>—</td>
+        <td class="val-bad">35 000 capturés</td>
+      </tr>
+      <tr>
+        <td>Matériel perdu</td>
+        <td>~200 canons</td>
+        <td class="val-bad">700+ canons capturés</td>
+      </tr>
+      <tr>
+        <td>Territoire</td>
+        <td class="val-good">+200 km de front reconquis · 200 villages libérés</td>
+        <td class="val-bad">Saillant perdu · repli sur la Vesle</td>
+      </tr>
+      <tr>
+        <td>Initiative stratégique</td>
+        <td class="val-good">Alliés — définitivement conservée jusqu'au 11 nov.</td>
+        <td class="val-bad">Perdue après le 18 juillet, jamais retrouvée</td>
+      </tr>
+
+    </tbody>
+  </table>
   </div>
 </div>
 </section>
 
-<!-- LA CONTRE-OFFENSIVE -->
-<section>
+<!-- ══════════════════════════════════════
+     CONTRE-OFFENSIVE
+══════════════════════════════════════ -->
+<section id="contre-offensive">
   <div class="section-label">18 juillet 1918</div>
   <h2>La contre-offensive Mangin — le choc en retour</h2>
-  <p style="font-size:.95rem;color:var(--text2);max-width:700px;line-height:1.85;margin-bottom:1.5rem">
-    Trois jours après le début de l'offensive allemande, le général Mangin lance depuis la Forêt de Villers-Cotterêts la plus grande offensive blindée de la guerre à ce jour. Aucun barrage préparatoire ne précède l'attaque — la surprise est totale. Les 350 chars Renault FT et Schneider émergent des bois au lever du soleil, talonnés par 24 divisions d'infanterie française et américaine.
-  </p>
-  <p style="font-size:.95rem;color:var(--text2);max-width:700px;line-height:1.85;margin-bottom:1.5rem">
-    En un seul jour, les lignes allemandes reculent de 3 à 8 kilomètres sur tout le front. Les Allemands, qui avaient lancé leur offensive trois jours plus tôt, se retrouvent soudain menacés d'encerclement par leur flanc ouest. Ludendorff, apprenant la nouvelle depuis son quartier général, dira : «&nbsp;C'est le jour de deuil le plus noir de la guerre.&nbsp;»
-  </p>
 
-  <blockquote style="font-family:'Playfair Display',Georgia,serif;font-size:1.05rem;font-style:italic;color:var(--gold);max-width:600px;margin:2.5rem auto;text-align:center;line-height:1.75">
-    «&nbsp;C'est le jour de deuil le plus noir de la guerre pour l'Armée allemande.&nbsp;»
-    <cite style="display:block;font-size:.72rem;color:var(--text2);margin-top:.75rem;font-style:normal;letter-spacing:.12em;text-transform:uppercase">— Général Erich Ludendorff, 18 juillet 1918</cite>
-  </blockquote>
+  <div class="bt-grid bt-grid-lg" style="margin-top:1.25rem">
+    <div>
+      <p style="font-size:.93rem;color:var(--text2);line-height:1.85;margin-bottom:1rem">
+        Trois jours après le début de l'offensive allemande, le général Mangin lance depuis la Forêt de Villers-Cotterêts la plus grande offensive blindée de la guerre. Aucun barrage préparatoire — la surprise est totale. Les 350 chars émergent des bois au lever du soleil, talonnés par 24 divisions d'infanterie.
+      </p>
+      <p style="font-size:.93rem;color:var(--text2);line-height:1.85;margin-bottom:1.25rem">
+        En un seul jour, les lignes allemandes reculent de 3 à 8 km sur tout le front. Menacés d'encerclement par leur flanc ouest, les Allemands doivent évacuer le saillant conquis depuis mai. Ludendorff dira :
+      </p>
+      <blockquote style="font-family:'Playfair Display',Georgia,serif;font-size:1rem;font-style:italic;color:var(--gold);line-height:1.7;border-left:3px solid var(--gold);padding-left:1.25rem;margin:0 0 1.25rem">
+        «&nbsp;C'est le jour de deuil le plus noir de la guerre pour l'Armée allemande.&nbsp;»
+        <cite style="display:block;font-size:.67rem;color:var(--text2);margin-top:.6rem;font-style:normal;letter-spacing:.12em;text-transform:uppercase">— Général Erich Ludendorff, 18 juillet 1918</cite>
+      </blockquote>
 
-  <div class="placeholder-section">
-    <p>Section à enrichir — Récit détaillé de la contre-offensive : rôle de Foch, organisation des Corps d'Armée alliés, progression jour par jour, bilan humain complet. Sources : Chemins de mémoire, U.S. Army CMH.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem">
+        <figure class="bt-fig" style="position:static">
+          <img src="selection_sources/L'ensemble_du_front/21576.png.webp"
+               alt="Char Renault FT en forêt, 1918" loading="lazy">
+          <figcaption>Char Renault FT en lisière de forêt, été 1918. Les 350 chars du 18 juillet surgissent sans barrage préparatoire. — NARA / Signal Corps</figcaption>
+        </figure>
+        <div>
+          <div class="info-box" style="height:100%;box-sizing:border-box">
+            <h3>La surprise de Villers-Cotterêts</h3>
+            <p>L'absence totale de barrage préparatoire — une première — laisse les défenseurs allemands sans aucun avertissement. Les chars émergent des bois dans la brume matinale. Plusieurs unités allemandes sont encerclées avant d'avoir pu réagir.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <figure class="bt-fig">
+      <img src="selection_sources/L'ensemble_du_front/Capture d'écran 2026-04-07 211852.png"
+           alt="Carte contre-offensive française, 18 juillet – 4 août 1918" loading="lazy">
+      <figcaption>La contre-offensive française du 18 juillet au 4 août 1918. Le saillant se referme progressivement. Jaulgonne est libéré le 24 juillet. — Source cartographique française</figcaption>
+    </figure>
   </div>
 </section>
 
-<!-- LE BILAN -->
-<section style="background:var(--bg2);border-top:1px solid var(--border);max-width:100%;padding:4rem 1.5rem">
-<div style="max-width:1100px;margin:0 auto">
+<!-- ══════════════════════════════════════
+     BILAN
+══════════════════════════════════════ -->
+<section class="bg2" id="bilan">
+<div class="inner">
   <div class="section-label">3 août 1918</div>
   <h2>Le bilan de la bataille</h2>
-  <p style="font-size:.95rem;color:var(--text2);max-width:700px;line-height:1.85;margin-bottom:1.5rem">
-    Le 3 août, les Allemands repassent la Vesle à Fismes. La 2e Bataille de la Marne est officiellement terminée. En vingt jours de contre-offensive, les Alliés ont reconquis un saillant de 200 kilomètres de front, libéré 200 villages, fait 35 000 prisonniers et capturé 700 canons.
-  </p>
-  <p style="font-size:.95rem;color:var(--text2);max-width:700px;line-height:1.85">
-    Pour le seul <strong>38e Corps d'Armée</strong> (secteur de Jaulgonne), le bilan est : 1 500 prisonniers, 13 canons capturés, 4 500 hommes engagés. Le prix humain est lourd des deux côtés — des villages entiers, dont Jaulgonne, sont réduits en ruines.
-  </p>
 
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:2rem">
-    <div class="info-box">
-      <h3>Le tournant de la guerre</h3>
-      <p>Après le 18 juillet 1918, l'armée allemande n'a plus jamais repris l'initiative stratégique sur le front occidental. Les «&nbsp;Cent Jours&nbsp;» qui suivent aboutissent à l'armistice du 11 novembre 1918.</p>
+  <div class="bt-grid bt-grid-lg" style="margin-top:1.25rem">
+    <div>
+      <p style="font-size:.93rem;color:var(--text2);line-height:1.85;margin-bottom:1rem">
+        Le 3 août, les Allemands repassent la Vesle à Fismes. En vingt jours de contre-offensive, les Alliés ont reconquis un saillant de 200 km de front, libéré 200 villages, fait 35 000 prisonniers et capturé 700 canons.
+      </p>
+      <p style="font-size:.93rem;color:var(--text2);line-height:1.85;margin-bottom:1.25rem">
+        Pour le seul <strong>38e Corps d'Armée</strong> (secteur de Jaulgonne) : 1 500 prisonniers, 13 canons capturés, 4 500 hommes engagés. Des villages entiers, dont Jaulgonne, sont réduits en ruines.
+      </p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem">
+        <div class="info-box">
+          <h3>Le tournant de la guerre</h3>
+          <p>Après le 18 juillet 1918, l'armée allemande n'a plus jamais repris l'initiative stratégique. Les «&nbsp;Cent Jours&nbsp;» aboutissent à l'armistice du 11 novembre 1918.</p>
+        </div>
+        <div class="info-box">
+          <h3>Le rôle décisif des Américains</h3>
+          <p>270 000 soldats américains débarquent en juillet 1918. Leur présence brise le moral du commandement allemand. La 3e Division US à Jaulgonne en est le symbole.</p>
+        </div>
+        <div class="info-box" style="grid-column:span 2">
+          <h3>Carte animée disponible</h3>
+          <p>La progression des lignes en 9 étapes du 14 juillet au 3 août 1918 — voir la <a href="carte_bataille.html" style="color:var(--gold)">carte animée de la bataille</a>.</p>
+        </div>
+      </div>
     </div>
-    <div class="info-box">
-      <h3>Le rôle décisif des Américains</h3>
-      <p>270 000 soldats américains débarquent en France en juillet 1918. Leur présence — et la promesse de millions d'autres — brise le moral du commandement allemand. La 3e Division US à Jaulgonne en est le symbole le plus visible.</p>
-    </div>
-    <div class="info-box">
-      <h3>Carte animée disponible</h3>
-      <p>Pour suivre la progression des lignes de front en 9 étapes du 14 juillet au 3 août 1918, voir la <a href="carte_bataille.html" style="color:var(--gold)">carte animée de la bataille</a>.</p>
-    </div>
+
+    <figure class="bt-fig">
+      <img src="selection_sources/L'ensemble_du_front/Riflemen-1918-Western-Front.jpg"
+           alt="Graphique effectifs alliés vs allemands, 1918" loading="lazy">
+      <figcaption>Effectifs en «&nbsp;baïonnettes&nbsp;» des armées alliées et allemandes, avril–novembre 1918. Le croisement des courbes à l'été 1918 illustre le basculement définitif du rapport de force. — CMH, U.S. Army War College</figcaption>
+    </figure>
   </div>
 </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p>Sources : Chemins de mémoire · U.S. Army Center of Military History (CMH Pub 77-5) · Général Mangin — écrits et correspondances · Mémoires Ludendorff</p>
+  <p>Sources : Chemins de mémoire · U.S. Army Center of Military History (CMH Pub 77-5) · Général Mangin — écrits et correspondances · Mémoires Ludendorff · Reichsarchiv Band 34 — <em>Die letzte deutsche Offensive, Reims 1918</em></p>
   <p style="margin-top:.75rem;font-size:.68rem;color:#7a6a5a">En mémoire des soldats des deux camps tombés sur la Marne — Été 1918</p>
 </footer>
+<script src="lightbox.js"></script>
 </body>
 </html>

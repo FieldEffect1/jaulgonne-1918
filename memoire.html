@@ -8,6 +8,99 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="museum.css">
+<style>
+/* Grille mémoriaux : 3 colonnes fixes */
+#sites-grid {
+  grid-template-columns: repeat(3, 1fr) !important;
+}
+/* Bloc texte à droite de Jaulgonne : occupe les 2 colonnes restantes */
+.sites-grid-text {
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem 2.25rem;
+  border: 1px solid var(--border);
+  background: var(--bg2);
+}
+.sites-grid-text .section-label {
+  margin-bottom: .5rem;
+}
+.sites-grid-text h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 1.5rem;
+  line-height: 1.35;
+}
+.sites-grid-text blockquote {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.75;
+  border-left: 3px solid var(--gold);
+  padding-left: 1.25rem;
+  margin: 0 0 1rem;
+}
+.sites-grid-text cite {
+  font-size: .7rem;
+  color: var(--text3);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-style: normal;
+  display: block;
+  padding-left: 1.25rem;
+}
+@media(max-width:780px) {
+  #sites-grid { grid-template-columns: 1fr !important; }
+  .sites-grid-text { grid-column: span 1; }
+}
+
+.unit-header {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  margin-bottom: .85rem;
+}
+/* Boîte drapeau — taille fixe */
+.unit-flag-box {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+/* Séparateur discret entre drapeau et insigne */
+.unit-header-sep {
+  width: 1px;
+  height: 36px;
+  background: var(--border);
+  flex-shrink: 0;
+}
+/* Boîte insigne — même taille que drapeau */
+.unit-insigne-box {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.unit-insigne-box img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 1px 4px rgba(0,0,0,.55));
+  display: block;
+}
+</style>
 </head>
 <body>
 
@@ -27,7 +120,7 @@
   <a href="liberation.html">Libération</a>
   <a href="foret-ris.html">Forêt de Ris</a>
   <a href="bataille.html">La Bataille</a>
-  <a href="hommage-us.html">Hommage US</a>
+  <a href="hommage-us.html">Les Américains</a>
   <a href="memoire.html" class="active">Mémorial</a>
   <a href="galerie.html">Archives</a>
   <a href="carte_bataille.html">Carte</a>
@@ -36,13 +129,58 @@
 <!-- CITATION D'OUVERTURE -->
 <div id="memorial">
 <section>
-  <div class="section-label" data-fr="Pour eux" data-en="For Them">Pour eux</div>
-  <h2 data-fr="Mémorial — Les soldats de Jaulgonne" data-en="Memorial — The Soldiers of Jaulgonne">Mémorial — Les soldats de Jaulgonne</h2>
 
-  <blockquote class="memorial-quote">
-    <span data-fr="«&nbsp;Ce n'est pas la célébrité qui fait la bravoure. Ce sont des hommes simples, avec une peur simple et un devoir simple, qui ont tenu quand tout invitait à fuir.&nbsp;»" data-en="«&nbsp;It is not fame that makes bravery. They were simple men, with a simple fear and a simple duty, who held when everything invited them to flee.&nbsp;»">«&nbsp;Ce n'est pas la célébrité qui fait la bravoure. Ce sont des hommes simples, avec une peur simple et un devoir simple, qui ont tenu quand tout invitait à fuir.&nbsp;»</span>
-    <cite data-fr="— Hommage aux soldats de la Marne, 1918" data-en="— Tribute to the Soldiers of the Marne, 1918">— Hommage aux soldats de la Marne, 1918</cite>
-  </blockquote>
+  <!-- LIEUX DE MÉMOIRE -->
+  <div class="memorial-sites-title" data-fr="Les lieux de mémoire" data-en="Places of Remembrance">Les lieux de mémoire</div>
+  <div class="sites-grid" id="sites-grid">
+
+    <div class="site-card">
+      <img src="selection_sources/chateau-thierry-usa-mem-jp-201.jpg" alt="Monument Aisne-Marne" style="width:100%;height:200px;object-fit:cover;filter:sepia(.15);cursor:pointer" onclick="openLB(this.src)">
+      <div class="site-card-body">
+        <div class="site-name" data-fr="Monument Aisne-Marne (Château-Thierry)" data-en="Aisne-Marne American Monument (Château-Thierry)">Monument Aisne-Marne (Château-Thierry)</div>
+        <div class="site-dist" data-fr="28 km à l'ouest de Jaulgonne" data-en="28 km west of Jaulgonne">28 km à l'ouest de Jaulgonne</div>
+        <p class="site-desc" data-fr="Monument américain inauguré en 1937 sur la colline dominant Château-Thierry. Dédié aux soldats de la 1re Armée américaine. Colonnade de granit de 60 m surmontée de deux figures allégoriques symbolisant la France et les États-Unis. Administré par l'ABMC." data-en="American monument inaugurated in 1937 on the hill overlooking Château-Thierry. Dedicated to soldiers of the 1st American Army. 60-meter granite colonnade crowned with two allegorical figures symbolizing France and the United States. Administered by the ABMC.">Monument américain inauguré en 1937 sur la colline dominant Château-Thierry. Dédié aux soldats de la 1re Armée américaine. Colonnade de granit surmontée de deux figures allégoriques symbolisant la France et les États-Unis.</p>
+      </div>
+    </div>
+
+    <div class="site-card">
+      <img src="selection_sources/Memorial/B9733967259Z.1_20230408110619_000+GNMMI7H07.1-0.jpg" alt="Mémorial de Dormans — ossuaire-chapelle du Souvenir" style="width:100%;height:200px;object-fit:cover;filter:sepia(.15);cursor:pointer" onclick="openLB(this.src)">
+      <div class="site-card-body">
+        <div class="site-name" data-fr="Mémorial de Dormans" data-en="Dormans Memorial">Mémorial de Dormans</div>
+        <div class="site-dist" data-fr="12 km à l'ouest de Jaulgonne" data-en="12 km west of Jaulgonne">12 km à l'ouest de Jaulgonne</div>
+        <p class="site-desc" data-fr="Ossuaire-chapelle du Souvenir dédié à la 2e bataille de la Marne. Construit entre 1921 et 1935, il renferme les restes de 1 500 soldats des deux guerres mondiales. Son clocher de 57 mètres domine la Marne. Classé monument historique." data-en="Ossuary-chapel of Remembrance dedicated to the 2nd Battle of the Marne. Built between 1921 and 1935, it houses the remains of 1,500 soldiers from both World Wars. Its 57-meter bell tower overlooks the Marne. Listed historic monument.">Ossuaire-chapelle du Souvenir dédié à la 2e bataille de la Marne. Construit entre 1921 et 1935, il renferme les restes de 1 500 soldats des deux guerres. Son clocher domine la Marne.</p>
+      </div>
+    </div>
+
+    <div class="site-card">
+      <img src="selection_sources/Memorial/20150506_wp_aisnemarne_ABMC_0142-1.jpg" alt="Bois Belleau — cimetière américain et mémorial" style="width:100%;height:200px;object-fit:cover;filter:sepia(.15);cursor:pointer" onclick="openLB(this.src)">
+      <div class="site-card-body">
+        <div class="site-name" data-fr="Bois Belleau (Belleau Wood)" data-en="Belleau Wood">Bois Belleau (Belleau Wood)</div>
+        <div class="site-dist" data-fr="22 km à l'ouest de Jaulgonne" data-en="22 km west of Jaulgonne">22 km à l'ouest de Jaulgonne</div>
+        <p class="site-desc" data-fr="Forêt sanctuaire de la Marne — théâtre de la bataille des US Marines en juin 1918. Le cimetière américain d'Aisne-Marne jouxte les bois : 2 289 tombes. La forêt demeure propriété des États-Unis, transmise à l'ABMC. Le nom «&nbsp;Devil Dog Wood&nbsp;» vient des Marines." data-en="Sanctuary forest of the Marne — site of the US Marines battle in June 1918. The Aisne-Marne American Cemetery adjoins the woods: 2,289 graves. The forest remains US property, administered by the ABMC. The name 'Devil Dog Wood' comes from the Marines.">Forêt sanctuaire de la Marne — théâtre de la bataille des US Marines en juin 1918. Le cimetière américain d'Aisne-Marne jouxte les bois : 2 289 tombes. La forêt demeure propriété des États-Unis.</p>
+      </div>
+    </div>
+
+    <div class="site-card">
+      <img src="selection_sources/Memorial/Jaulgonne_7311_vue-generale.jpg" alt="Vue générale de Jaulgonne aujourd'hui" style="width:100%;height:200px;object-fit:cover;filter:sepia(.08);cursor:pointer" onclick="openLB(this.src)">
+      <div class="site-card-body">
+        <div class="site-name" data-fr="Jaulgonne — Le village aujourd'hui" data-en="Jaulgonne — The village today">Jaulgonne — Le village aujourd'hui</div>
+        <div class="site-dist" data-fr="Le village lui-même" data-en="The village itself">Le village lui-même</div>
+        <p class="site-desc" data-fr="Entièrement anéanti en 1918 — la place de la Mairie, les rues, le pont sur la Marne — Jaulgonne fut reconstruit grâce à la loi du 17 avril 1919. Le village que l'on voit aujourd'hui est né de ces cendres. Sa mémoire collective porte encore les traces de cet été terrible." data-en="Entirely destroyed in 1918 — the town hall square, the streets, the bridge over the Marne — Jaulgonne was rebuilt under the law of April 17, 1919. The village seen today was born from those ashes. Its collective memory still carries the traces of that terrible summer.">Entièrement anéanti en 1918, Jaulgonne fut reconstruit après-guerre. Le village que l'on voit aujourd'hui est né de ces cendres. Sa mémoire collective porte encore les traces de cet été terrible.</p>
+      </div>
+    </div><!-- fin site-card Jaulgonne -->
+
+    <!-- TEXTE À DROITE DE JAULGONNE -->
+    <div class="sites-grid-text">
+      <div class="section-label" data-fr="Pour eux" data-en="For Them">Pour eux</div>
+      <h3 data-fr="Mémorial — Les soldats de Jaulgonne" data-en="Memorial — The Soldiers of Jaulgonne">Mémorial — Les soldats de Jaulgonne</h3>
+      <blockquote>
+        <span data-fr="«&nbsp;Ce n'est pas la célébrité qui fait la bravoure. Ce sont des hommes simples, avec une peur simple et un devoir simple, qui ont tenu quand tout invitait à fuir.&nbsp;»" data-en="«&nbsp;It is not fame that makes bravery. They were simple men, with a simple fear and a simple duty, who held when everything invited them to flee.&nbsp;»">«&nbsp;Ce n'est pas la célébrité qui fait la bravoure. Ce sont des hommes simples, avec une peur simple et un devoir simple, qui ont tenu quand tout invitait à fuir.&nbsp;»</span>
+      </blockquote>
+      <cite data-fr="— Hommage aux soldats de la Marne, 1918" data-en="— Tribute to the Soldiers of the Marne, 1918">— Hommage aux soldats de la Marne, 1918</cite>
+    </div><!-- fin sites-grid-text -->
+
+  </div><!-- fin sites-grid -->
 
   <div class="divider"></div>
 
@@ -50,7 +188,13 @@
     <div class="unit-card">
       <div class="unit-card-band fr"></div>
       <div class="unit-card-body">
-        <div class="unit-flag">🇫🇷</div>
+        <div class="unit-header">
+          <div class="unit-flag-box">🇫🇷</div>
+          <div class="unit-header-sep"></div>
+          <div class="unit-insigne-box">
+            <img src="selection_sources/Memorial/insigne_47e_RI.jpg" alt="Insigne 47e RI">
+          </div>
+        </div>
         <div class="unit-name">47<sup>e</sup> Régiment d'Infanterie</div>
         <div class="unit-theater" data-fr="Ferme des Franquets · Forêt de Ris · mai–juin 1918" data-en="Ferme des Franquets · Forêt de Ris · May–June 1918">Ferme des Franquets · Forêt de Ris · mai–juin 1918</div>
         <p class="unit-desc" data-fr="Bataillons Sagnières et Taureau. Ils ont tenu la Ferme des Franquets et les pentes au-dessus de Jaulgonne lors de l'offensive Blücher-Yorck de mai 1918. Des poilus qui ont résisté jusqu'à la contre-attaque franco-américaine, dans les gaz et sous les obus." data-en="Sagnières and Taureau Battalions. They held the Ferme des Franquets and the slopes above Jaulgonne during the May 1918 Blücher-Yorck offensive. Poilus who held until the Franco-American counter-attack, through gas and shellfire.">Bataillons Sagnières et Taureau. Ils ont tenu la Ferme des Franquets et les pentes au-dessus de Jaulgonne lors de l'offensive Blücher-Yorck de mai 1918. Des poilus qui ont résisté jusqu'à la contre-attaque franco-américaine.</p>
@@ -59,7 +203,13 @@
     <div class="unit-card">
       <div class="unit-card-band fr"></div>
       <div class="unit-card-body">
-        <div class="unit-flag">🇫🇷</div>
+        <div class="unit-header">
+          <div class="unit-flag-box">🇫🇷</div>
+          <div class="unit-header-sep"></div>
+          <div class="unit-insigne-box">
+            <img src="selection_sources/Memorial/insigne_131e_RI.jpg" alt="Insigne 131e RI">
+          </div>
+        </div>
         <div class="unit-name">131<sup>e</sup> Régiment d'Infanterie</div>
         <div class="unit-theater" data-fr="Varennes · face à Jaulgonne · 15 juillet 1918" data-en="Varennes · facing Jaulgonne · July 15, 1918">Varennes · face à Jaulgonne · 15 juillet 1918</div>
         <p class="unit-desc" data-fr="Positionnés à Varennes, en face de Jaulgonne, face à la Marne. Ils ont maintenu la ligne défensive aux côtés des soldats américains du 38e Régiment d'Infanterie, dans les gaz et sous les obus, la nuit du 15 juillet 1918." data-en="Positioned at Varennes, facing Jaulgonne across the Marne. They held the defensive line alongside American soldiers of the 38th Infantry Regiment, through gas and shellfire, on the night of July 15, 1918.">Positionnés à Varennes, face à la Marne. Ils ont maintenu la ligne défensive aux côtés des soldats américains, dans les gaz et sous les obus, la nuit du 15 juillet 1918.</p>
@@ -68,7 +218,13 @@
     <div class="unit-card">
       <div class="unit-card-band us"></div>
       <div class="unit-card-body">
-        <div class="unit-flag">🇺🇸</div>
+        <div class="unit-header">
+          <div class="unit-flag-box">🇺🇸</div>
+          <div class="unit-header-sep"></div>
+          <div class="unit-insigne-box">
+            <img src="selection_sources/Memorial/38th_Infantry_Division_SSI.svg.png" alt="Insigne 38th Infantry Division">
+          </div>
+        </div>
         <div class="unit-name">38<sup>th</sup> Infantry Regiment — 3<sup>rd</sup> Division</div>
         <div class="unit-theater" data-fr="Mézy-Moulins · Jaulgonne · 15–22 juillet 1918" data-en="Mézy-Moulins · Jaulgonne · July 15–22, 1918">Mézy-Moulins · Jaulgonne · 15–22 juillet 1918</div>
         <p class="unit-desc" data-fr="Les «&nbsp;Rochers de la Marne&nbsp;». Des hommes de l'Ohio, du Michigan, de Pennsylvanie. Le 15 juillet, encerclés en position de fer à cheval à Mézy, sans ordre de retraite, dans les gaz, face à 6 régiments allemands pendant 14 heures. Le 22 juillet, ils libèrent Jaulgonne." data-en="The 'Rock of the Marne'. Men from Ohio, Michigan, Pennsylvania. On July 15, surrounded in a horseshoe position at Mézy, without orders to retreat, through gas, against 6 German regiments for 14 hours. On July 22, they liberate Jaulgonne.">Les «&nbsp;Rochers de la Marne&nbsp;». Des hommes de l'Ohio, du Michigan, de Pennsylvanie. Le 15 juillet, encerclés à Mézy, sans ordre de retraite, dans les gaz, face à 6 régiments pendant 14 heures. Le 22 juillet, ils libèrent Jaulgonne.</p>
@@ -83,52 +239,6 @@
     <cite>— Général John J. Pershing, AEF</cite>
   </blockquote>
 
-  <div class="divider"></div>
-
-  <!-- LIEUX DE MÉMOIRE -->
-  <div class="memorial-sites-title" data-fr="Les lieux de mémoire" data-en="Places of Remembrance">Les lieux de mémoire</div>
-  <div class="sites-grid" id="sites-grid">
-
-    <div class="site-card">
-      <img src="selection_photo/chateau-thierry-usa-mem-jp-201.jpg" alt="Monument Aisne-Marne" style="width:100%;height:200px;object-fit:cover;filter:sepia(.15);cursor:pointer" onclick="openLB(this.src)">
-      <div class="site-card-body">
-        <div class="site-name" data-fr="Monument Aisne-Marne (Château-Thierry)" data-en="Aisne-Marne American Monument (Château-Thierry)">Monument Aisne-Marne (Château-Thierry)</div>
-        <div class="site-dist" data-fr="28 km à l'ouest de Jaulgonne" data-en="28 km west of Jaulgonne">28 km à l'ouest de Jaulgonne</div>
-        <p class="site-desc" data-fr="Monument américain inauguré en 1937 sur la colline dominant Château-Thierry. Dédié aux soldats de la 1re Armée américaine. Colonnade de granit de 60 m surmontée de deux figures allégoriques symbolisant la France et les États-Unis. Administré par l'ABMC." data-en="American monument inaugurated in 1937 on the hill overlooking Château-Thierry. Dedicated to soldiers of the 1st American Army. 60-meter granite colonnade crowned with two allegorical figures symbolizing France and the United States. Administered by the ABMC.">Monument américain inauguré en 1937 sur la colline dominant Château-Thierry. Dédié aux soldats de la 1re Armée américaine. Colonnade de granit surmontée de deux figures allégoriques symbolisant la France et les États-Unis.</p>
-      </div>
-    </div>
-
-    <div class="site-card">
-      <img src="selection_photo/chateau-thierry-usa-mem-jp-204.jpg" alt="Monument Aisne-Marne, tour" style="width:100%;height:200px;object-fit:cover;filter:sepia(.15);cursor:pointer" onclick="openLB(this.src)">
-      <div class="site-card-body">
-        <div class="site-name" data-fr="Mémorial de Dormans" data-en="Dormans Memorial">Mémorial de Dormans</div>
-        <div class="site-dist" data-fr="12 km à l'ouest de Jaulgonne" data-en="12 km west of Jaulgonne">12 km à l'ouest de Jaulgonne</div>
-        <p class="site-desc" data-fr="Ossuaire-chapelle du Souvenir dédié à la 2e bataille de la Marne. Construit entre 1921 et 1935, il renferme les restes de 1 500 soldats des deux guerres mondiales. Son clocher de 57 mètres domine la Marne. Classé monument historique." data-en="Ossuary-chapel of Remembrance dedicated to the 2nd Battle of the Marne. Built between 1921 and 1935, it houses the remains of 1,500 soldiers from both World Wars. Its 57-meter bell tower overlooks the Marne. Listed historic monument.">Ossuaire-chapelle du Souvenir dédié à la 2e bataille de la Marne. Construit entre 1921 et 1935, il renferme les restes de 1 500 soldats des deux guerres. Son clocher domine la Marne.</p>
-      </div>
-    </div>
-
-    <div class="site-card">
-      <div style="height:200px;background:linear-gradient(135deg,#d0e0cc 0%,#b8d0b4 100%);display:flex;align-items:center;justify-content:center;font-size:3rem">🌿</div>
-      <div class="site-card-body">
-        <div class="site-name" data-fr="Bois Belleau (Belleau Wood)" data-en="Belleau Wood">Bois Belleau (Belleau Wood)</div>
-        <div class="site-dist" data-fr="22 km à l'ouest de Jaulgonne" data-en="22 km west of Jaulgonne">22 km à l'ouest de Jaulgonne</div>
-        <p class="site-desc" data-fr="Forêt sanctuaire de la Marne — théâtre de la bataille des US Marines en juin 1918. Le cimetière américain d'Aisne-Marne jouxte les bois : 2 289 tombes. La forêt demeure propriété des États-Unis, transmise à l'ABMC. Le nom «&nbsp;Devil Dog Wood&nbsp;» vient des Marines." data-en="Sanctuary forest of the Marne — site of the US Marines battle in June 1918. The Aisne-Marne American Cemetery adjoins the woods: 2,289 graves. The forest remains US property, administered by the ABMC. The name 'Devil Dog Wood' comes from the Marines.">Forêt sanctuaire de la Marne — théâtre de la bataille des US Marines en juin 1918. Le cimetière américain d'Aisne-Marne jouxte les bois : 2 289 tombes. La forêt demeure propriété des États-Unis.</p>
-      </div>
-    </div>
-
-    <div class="site-card">
-      <div style="height:200px;background:linear-gradient(135deg,#e8e0d0 0%,#d5cbc0 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem">
-        <img src="selection_photo/Up_JAULGONNEplace_de_la_Mairie.jpg" alt="Place de la Mairie de Jaulgonne en ruines" style="width:100%;height:200px;object-fit:cover;filter:sepia(.3);cursor:pointer" onclick="openLB(this.src)">
-      </div>
-      <div class="site-card-body">
-        <div class="site-name" data-fr="Jaulgonne — Place de la Mairie" data-en="Jaulgonne — Town Hall Square">Jaulgonne — Place de la Mairie</div>
-        <div class="site-dist" data-fr="Le village lui-même" data-en="The village itself">Le village lui-même</div>
-        <p class="site-desc" data-fr="Jaulgonne fut entièrement détruit lors des combats de l'été 1918. La place de la Mairie, les rues, le pont sur la Marne — tout fut anéanti. Reconstruit après la guerre grâce à la loi du 17 avril 1919, le village porte encore dans sa mémoire collective les traces de cet été terrible." data-en="Jaulgonne was entirely destroyed during the summer 1918 fighting. The town hall square, the streets, the bridge over the Marne — all were annihilated. Rebuilt after the war under the law of April 17, 1919, the village still carries in its collective memory the traces of that terrible summer.">Jaulgonne fut entièrement détruit lors des combats de l'été 1918. Reconstruit après-guerre grâce à la loi du 17 avril 1919, le village porte encore les traces de cet été terrible.</p>
-      </div>
-    </div>
-
-  </div>
-
 </section>
 </div>
 
@@ -140,13 +250,7 @@
   <p style="margin-top:1rem;font-size:.68rem;color:#7a6a5a" data-fr="En mémoire des soldats français et américains tombés à Jaulgonne — Été 1918" data-en="In memory of the French and American soldiers who fell at Jaulgonne — Summer 1918">En mémoire des soldats français et américains tombés à Jaulgonne — Été 1918</p>
 </footer>
 
-<!-- LIGHTBOX simple -->
-<div id="lightbox">
-  <button id="lb-close" onclick="document.getElementById('lightbox').classList.remove('open')">✕</button>
-  <img id="lb-img" src="" alt="">
-  <div class="lb-nav"><span id="lb-counter"></span></div>
-</div>
-
+<script src="lightbox.js"></script>
 <script>
 let currentLang='fr';
 function toggleLang(){
@@ -157,16 +261,6 @@ function toggleLang(){
     el.innerHTML=el.getAttribute('data-'+currentLang);
   });
 }
-function openLB(src){
-  document.getElementById('lb-img').src=src;
-  document.getElementById('lightbox').classList.add('open');
-}
-document.getElementById('lightbox').addEventListener('click',function(e){
-  if(e.target===this) this.classList.remove('open');
-});
-document.addEventListener('keydown',e=>{
-  if(e.key==='Escape') document.getElementById('lightbox').classList.remove('open');
-});
 </script>
 </body>
 </html>

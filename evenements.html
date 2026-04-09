@@ -27,7 +27,7 @@
   <a href="liberation.html">Libération</a>
   <a href="foret-ris.html">Forêt de Ris</a>
   <a href="bataille.html">La Bataille</a>
-  <a href="hommage-us.html">Hommage US</a>
+  <a href="hommage-us.html">Les Américains</a>
   <a href="memoire.html">Mémorial</a>
   <a href="galerie.html">Archives</a>
   <a href="carte_bataille.html">Carte</a>
@@ -47,70 +47,60 @@
   </div>
 </div>
 
-<!-- LIGHTBOX -->
-<div id="lightbox">
-  <button id="lb-close" onclick="closeLightbox()">✕</button>
-  <img id="lb-img" src="" alt="">
-  <div class="lb-nav">
-    <button class="lb-btn" onclick="lbNav(-1)">&#8592;</button>
-    <span id="lb-counter"></span>
-    <button class="lb-btn" onclick="lbNav(1)">&#8594;</button>
-  </div>
-</div>
-
 <!-- FOOTER -->
 <footer>
   <p data-fr="Sources : Chemins de mémoire · U.S. Army History · La Contemporaine / Argonnaute · Library of Congress · Smithsonian NMAH" data-en="Sources: Chemins de mémoire · U.S. Army History · La Contemporaine / Argonnaute · Library of Congress · Smithsonian NMAH">Sources : Chemins de mémoire · U.S. Army History · La Contemporaine / Argonnaute · Library of Congress · Smithsonian NMAH</p>
   <p style="margin-top:.75rem;font-size:.68rem;color:#7a6a5a" data-fr="En mémoire des soldats français et américains tombés à Jaulgonne — Été 1918" data-en="In memory of the French and American soldiers who fell at Jaulgonne — Summer 1918">En mémoire des soldats français et américains tombés à Jaulgonne — Été 1918</p>
 </footer>
 
+<script src="lightbox.js"></script>
 <script>
 const ALL_IMGS = [
-  "selection_photo/FI-0732-0343.jpg",
-  "selection_photo/argonnaute_jaulgonne_troupes_americaines_1918.jpg",
-  "selection_photo/smithsonian_marne_jaulgonne_1918_peixotto.jpg",
-  "selection_photo/pg168.jpg",
-  "selection_photo/0177e3918c13d5cc4c840476e5d24c7d902994d7be.jpg",
-  "selection_photo/01c63a49aa6283f1826876a76dd141ca1565dd8f52.jpg",
-  "selection_photo/01e7b172347875435730ca5e97645ff90a7c2f8267.jpg",
-  "selection_photo/01cad8720c2c384c5536ccad5f740e842fb64dab77.jpg",
-  "selection_photo/01a1a0e89809046f0ab57f7207a3ff46d885605da9.jpg",
-  "selection_photo/0188bae17f3575be4385d1f73d9e3ed3cb2a74258f.jpg",
-  "selection_photo/019cd3f3c28ccc11aab95831868e4dbf3216c25cb9.jpg",
-  "selection_photo/01b2a1d0e325ece3769fd31719f056087f6a00e112.jpg",
-  "selection_photo/0185bc756e354851248a955e2763b3c15f41201184.jpg",
-  "selection_photo/01fd3702b3729044a6473bd6824f994109487cd5e8.jpg",
-  "selection_photo/01ff352fcbb084596d78f977495c7edfec194cea57.jpg",
-  "selection_photo/m2-026.jpg",
-  "selection_photo/m2-051.jpg",
-  "selection_photo/Veteran035.jpg",
-  "selection_photo/Veteran031.jpg",
-  "selection_photo/Up_JAULGONNEplace_de_la_Mairie.jpg",
-  "selection_photo/m2-085.jpg",
-  "selection_photo/m2-046.jpg",
-  "selection_photo/m2-037.jpg",
-  "selection_photo/m2-086.jpg",
-  "selection_photo/Eglise_Charteves.jpg",
-  "selection_photo/0143db47ff5098187cd92fa8ae3e28dca1f6660697.jpg",
-  "selection_photo/015db71eecb9c3f866bbd1824c6ca2242583bd7359.jpg",
-  "selection_photo/013bb916f7ea70b91edfc7bdc256217dccc37928bf.jpg",
-  "selection_photo/0146f60ea55cd8fb29c8d455c554296ea9a393d216.jpg",
-  "selection_photo/0139bfa33a9668319ae966fcfe0e30151faa5b8d7f.jpg",
-  "selection_photo/012e6c74ddb0794641e7dd08edfc5cfd8597f51532.jpg",
-  "selection_photo/01d1ec026e79c1daad66f7437e99ad1583abd6faad.jpg",
-  "selection_photo/01b573c9d748d509c5d1ecd4bec1d3308e13753043.jpg",
-  "selection_photo/m2-063.jpg",
-  "selection_photo/Veteran012.jpg",
-  "selection_photo/Veteran018.jpg",
-  "selection_photo/Veteran021.jpg",
-  "selection_photo/Veteran028.jpg",
-  "selection_photo/01d0335f9060ed41fd72afec94b6430112afa77d03.jpg",
-  "selection_photo/0187ffc063937ce287cd69d7e71a077bea11733437.jpg",
-  "selection_photo/013223c8525e4ff1913b31db08d32192c8c89f1c7d.jpg",
-  "selection_photo/chateau-thierry-usa-mem-jp-201.jpg",
-  "selection_photo/chateau-thierry-usa-mem-jp-204.jpg",
-  "selection_photo/chateau-thierry-usa-mem-jp-206.jpg",
-  "selection_photo/chateau-thierry-usa-mem-jp-209.jpg",
+  "selection_sources/FI-0732-0343.jpg",
+  "selection_sources/argonnaute_jaulgonne_troupes_americaines_1918.jpg",
+  "selection_sources/smithsonian_marne_jaulgonne_1918_peixotto.jpg",
+  "selection_sources/pg168.jpg",
+  "selection_sources/0177e3918c13d5cc4c840476e5d24c7d902994d7be.jpg",
+  "selection_sources/01c63a49aa6283f1826876a76dd141ca1565dd8f52.jpg",
+  "selection_sources/01e7b172347875435730ca5e97645ff90a7c2f8267.jpg",
+  "selection_sources/01cad8720c2c384c5536ccad5f740e842fb64dab77.jpg",
+  "selection_sources/01a1a0e89809046f0ab57f7207a3ff46d885605da9.jpg",
+  "selection_sources/0188bae17f3575be4385d1f73d9e3ed3cb2a74258f.jpg",
+  "selection_sources/019cd3f3c28ccc11aab95831868e4dbf3216c25cb9.jpg",
+  "selection_sources/01b2a1d0e325ece3769fd31719f056087f6a00e112.jpg",
+  "selection_sources/0185bc756e354851248a955e2763b3c15f41201184.jpg",
+  "selection_sources/01fd3702b3729044a6473bd6824f994109487cd5e8.jpg",
+  "selection_sources/01ff352fcbb084596d78f977495c7edfec194cea57.jpg",
+  "selection_sources/m2-026.jpg",
+  "selection_sources/m2-051.jpg",
+  "selection_sources/Veteran035.jpg",
+  "selection_sources/Veteran031.jpg",
+  "selection_sources/Up_JAULGONNEplace_de_la_Mairie.jpg",
+  "selection_sources/m2-085.jpg",
+  "selection_sources/m2-046.jpg",
+  "selection_sources/m2-037.jpg",
+  "selection_sources/m2-086.jpg",
+  "selection_sources/Eglise_Charteves.jpg",
+  "selection_sources/0143db47ff5098187cd92fa8ae3e28dca1f6660697.jpg",
+  "selection_sources/015db71eecb9c3f866bbd1824c6ca2242583bd7359.jpg",
+  "selection_sources/013bb916f7ea70b91edfc7bdc256217dccc37928bf.jpg",
+  "selection_sources/0146f60ea55cd8fb29c8d455c554296ea9a393d216.jpg",
+  "selection_sources/0139bfa33a9668319ae966fcfe0e30151faa5b8d7f.jpg",
+  "selection_sources/012e6c74ddb0794641e7dd08edfc5cfd8597f51532.jpg",
+  "selection_sources/01d1ec026e79c1daad66f7437e99ad1583abd6faad.jpg",
+  "selection_sources/01b573c9d748d509c5d1ecd4bec1d3308e13753043.jpg",
+  "selection_sources/m2-063.jpg",
+  "selection_sources/Veteran012.jpg",
+  "selection_sources/Veteran018.jpg",
+  "selection_sources/Veteran021.jpg",
+  "selection_sources/Veteran028.jpg",
+  "selection_sources/01d0335f9060ed41fd72afec94b6430112afa77d03.jpg",
+  "selection_sources/0187ffc063937ce287cd69d7e71a077bea11733437.jpg",
+  "selection_sources/013223c8525e4ff1913b31db08d32192c8c89f1c7d.jpg",
+  "selection_sources/chateau-thierry-usa-mem-jp-201.jpg",
+  "selection_sources/chateau-thierry-usa-mem-jp-204.jpg",
+  "selection_sources/chateau-thierry-usa-mem-jp-206.jpg",
+  "selection_sources/chateau-thierry-usa-mem-jp-209.jpg",
 ];
 
 const JALONS = [
@@ -256,6 +246,15 @@ function buildTimeline(){
   });
 }
 
+// Injection de la barre de navigation dans l'overlay partagé
+document.addEventListener('DOMContentLoaded',function(){
+  if(!document.getElementById('lb-counter')){
+    const nav=document.createElement('div');
+    nav.className='lb-nav';
+    nav.innerHTML='<button class="lb-btn" onclick="lbNav(-1)">&#8592;</button><span id="lb-counter"></span><button class="lb-btn" onclick="lbNav(1)">&#8594;</button>';
+    document.getElementById('lb-overlay').appendChild(nav);
+  }
+});
 function openLightboxImg(src){
   const idx=galleryImages.indexOf(src);
   if(idx>=0) openLightbox(idx);
@@ -264,19 +263,19 @@ function openLightboxImg(src){
 function openLightbox(idx){
   lbIndex=idx;
   document.getElementById('lb-img').src=galleryImages[idx];
+  document.getElementById('lb-caption').textContent='';
   document.getElementById('lb-counter').textContent=`${idx+1} / ${galleryImages.length}`;
-  document.getElementById('lightbox').classList.add('open');
+  document.getElementById('lb-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
 }
-function closeLightbox(){document.getElementById('lightbox').classList.remove('open');}
+function closeLightbox(){window.closeLB();}
 function lbNav(dir){
   lbIndex=(lbIndex+dir+galleryImages.length)%galleryImages.length;
   document.getElementById('lb-img').src=galleryImages[lbIndex];
   document.getElementById('lb-counter').textContent=`${lbIndex+1} / ${galleryImages.length}`;
 }
-document.getElementById('lightbox').addEventListener('click',function(e){if(e.target===this)closeLightbox();});
 document.addEventListener('keydown',e=>{
-  if(!document.getElementById('lightbox').classList.contains('open')) return;
-  if(e.key==='Escape') closeLightbox();
+  if(!document.getElementById('lb-overlay').classList.contains('open')) return;
   if(e.key==='ArrowLeft') lbNav(-1);
   if(e.key==='ArrowRight') lbNav(1);
 });

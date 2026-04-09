@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hommage US — Jaulgonne 1918</title>
+<title>Les soldats américains — Jaulgonne 1918</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
@@ -46,9 +46,14 @@
 
 <!-- PAGE HERO -->
 <div class="page-hero">
-  <div class="page-hero-eyebrow">Jaulgonne 1918 · Hommage</div>
-  <h1 class="page-hero-title">The Rock of the Marne</h1>
-  <p class="page-hero-subtitle">Hommage à la 3e Division américaine et aux soldats noirs américains</p>
+  <div class="page-hero-eyebrow">Jaulgonne 1918 · L'Amérique sur la Marne</div>
+  <div style="display:flex;align-items:center;justify-content:center;gap:1.25rem;position:relative;flex-wrap:wrap">
+    <img src="selection_sources/3rd_US/Symbole_3rd_divison2.png"
+         alt="Insigne de la 3e Division d'Infanterie US"
+         style="height:72px;width:auto;filter:drop-shadow(0 2px 10px rgba(0,0,0,.6));flex-shrink:0">
+    <h1 class="page-hero-title" style="margin-bottom:0">The Rock of the Marne</h1>
+  </div>
+  <p class="page-hero-subtitle">La 3e Division US, les Marines de Belleau Wood, les Harlem Hellfighters — juin à août 1918</p>
 </div>
 
 <!-- NAV -->
@@ -59,7 +64,7 @@
   <a href="liberation.html">Libération</a>
   <a href="foret-ris.html">Forêt de Ris</a>
   <a href="bataille.html">La Bataille</a>
-  <a href="hommage-us.html" class="active">Hommage US</a>
+  <a href="hommage-us.html" class="active">Les Américains</a>
   <a href="memoire.html">Mémorial</a>
   <a href="galerie.html">Archives</a>
   <a href="carte_bataille.html">Carte</a>
@@ -96,51 +101,77 @@
     «&nbsp;Un seul régiment de la 3e Division a écrit l'une des pages les plus brillantes de nos annales militaires. Il a empêché le franchissement allemand sur certains points de son front, tandis que sur ses deux flancs les Allemands qui avaient pris pied avançaient. Nos hommes, tirant dans trois directions, ont repoussé les attaques allemandes par des contre-attaques aux points critiques et réussi à jeter deux divisions allemandes dans la confusion complète, capturant 600 prisonniers.&nbsp;»
     <cite>— Général John J. Pershing, rapport final sur l'AEF — au sujet du 38e Régiment d'Infanterie, 15 juillet 1918</cite>
   </blockquote>
+
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-top:2.5rem">
+    <img src="selection_sources/3rd_US/apimnmybx__11309.jpg"
+         alt="Soldats américains, 3e Division, secteur Marne, 1918"
+         onclick="openLB(this.src)"
+         style="width:100%;aspect-ratio:4/3;object-fit:cover;cursor:pointer;border:1px solid var(--border)"
+         title="Soldats américains de la 3e Division — secteur de la Marne, 1918">
+    <img src="selection_sources/3rd_US/c4e80f7b8d0915591b4f7332819dc5be.jpg"
+         alt="Soldats américains, secteur Marne, 1918"
+         onclick="openLB(this.src)"
+         style="width:100%;aspect-ratio:4/3;object-fit:cover;cursor:pointer;border:1px solid var(--border)"
+         title="Soldats américains — secteur de la Marne, 1918">
+    <img src="selection_sources/3rd_US/Machine_gun_set_up_in_railroad_shop._Company_A,_Ninth_Machine_Gun_Battalion._Chteau_Thierry,_France.,_06-07-1918_-_NARA_-_530730.tif.jpg"
+         alt="Équipe de mitrailleuse, Compagnie A, 9e Bataillon MG, Château-Thierry, 6 juillet 1918"
+         onclick="openLB(this.src)"
+         style="width:100%;aspect-ratio:4/3;object-fit:cover;cursor:pointer;border:1px solid var(--border)"
+         title="Compagnie A, 9e Bataillon de Mitrailleuses, 3e Division AEF — Château-Thierry, 6 juillet 1918 (NARA 530730)">
+  </div>
+  <p class="photo-caption">Soldats américains de la 3e Division — secteur de la Marne, été 1918. À droite : Compagnie A, 9e Bataillon de Mitrailleuses — Château-Thierry, 6 juillet 1918 (NARA).</p>
 </section>
 
-<!-- FICHES UNITÉS -->
+<!-- SECTION : BELLEAU WOOD -->
 <section style="background:var(--bg2);border-top:1px solid var(--border);max-width:100%;padding:4rem 1.5rem">
 <div style="max-width:1100px;margin:0 auto">
-  <div class="section-label">Ordre de bataille allié à Jaulgonne</div>
-  <h2>Les unités franco-américaines</h2>
-  <div class="units">
-    <div class="unit-card">
-      <div class="unit-card-band fr"></div>
-      <div class="unit-card-body">
-        <div class="unit-flag">🇫🇷</div>
-        <div class="unit-name">47<sup>e</sup> Régiment d'Infanterie</div>
-        <div class="unit-theater">Ferme des Franquets · Forêt de Ris · mai–juin 1918</div>
-        <p class="unit-desc">Bataillons Sagnières et Taureau. Ils ont tenu la Ferme des Franquets et les pentes au-dessus de Jaulgonne lors de l'offensive Blücher-Yorck de mai 1918. Des poilus qui ont résisté jusqu'à la contre-attaque franco-américaine, dans les gaz et sous les obus.</p>
-      </div>
+  <div class="section-label">1–26 juin 1918 · Le prélude</div>
+  <h2>Belleau Wood — «&nbsp;Retreat? Hell, we just got here.&nbsp;»</h2>
+  <p style="font-size:.95rem;color:var(--text2);max-width:700px;line-height:1.85;margin-bottom:1.5rem">
+    Six semaines avant Jaulgonne, les soldats américains ont prouvé pour la première fois en Europe qu'ils pouvaient tenir une ligne. Le <strong>Bois de Belleau</strong> — 45 km à l'ouest, en bordure du front — est la première grande bataille de l'armée américaine depuis la guerre civile. Elle forge le mythe.
+  </p>
+  <p style="font-size:.95rem;color:var(--text2);max-width:700px;line-height:1.85;margin-bottom:1.5rem">
+    L'offensive Blücher (27 mai) a défoncé le front sur 60 km. Les Allemands atteignent la Marne le 30 mai, à 70 km de Paris. L'état-major français conseille la retraite générale. C'est à ce moment que la <strong>4e Brigade de Marines</strong> (2e Division AEF) reçoit l'ordre de tenir la route de Paris. Un officier français, en retraite, croise les Marines qui avancent en sens inverse. Il leur conseille de reculer. Réponse du capitaine Lloyd Williams, 96e Compagnie :
+  </p>
+
+  <blockquote style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-style:italic;color:var(--gold);max-width:600px;margin:1.5rem auto;text-align:center;line-height:1.75;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:1.5rem 0">
+    «&nbsp;Retraite ? Bon sang, on vient juste d'arriver.&nbsp;»
+    <cite style="display:block;font-size:.7rem;color:var(--text2);margin-top:.9rem;font-style:normal;letter-spacing:.12em;text-transform:uppercase">— Capitaine Lloyd Williams, USMC · 1er juin 1918</cite>
+  </blockquote>
+
+  <p style="font-size:.95rem;color:var(--text2);max-width:700px;line-height:1.85;margin-bottom:1.5rem">
+    Pendant trois semaines, les Marines se battent pied à pied dans les sous-bois. Ils traversent les champs de blé en lignes serrées — ancien style, pertes catastrophiques — pour dégager les nids de mitrailleuses. Le sergent-chef <strong>Dan Daly</strong> mène sa section à l'assaut en criant : <em>"Come on, you sons of bitches, do you want to live forever?"</em> Les Allemands, impressionnés par leur agressivité, les surnomment <strong>Teufelshunden</strong> — les Chiens du Diable (<em>Devil Dogs</em>). Le surnom reste.
+  </p>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin:2rem 0">
+    <div class="info-box">
+      <h3>Le bilan de Belleau Wood</h3>
+      <p>
+        · 26 jours de combats — 1er au 26 juin 1918<br>
+        · <strong>7 820 pertes</strong> dans la 2e Division (Marines + infanterie)<br>
+        · Forêt entièrement dégagée le 26 juin. Dernier message : <em>"Woods now occupied by US Marines."</em><br>
+        · La France rebaptise officiellement le lieu : <strong>Bois de la Brigade de Marine</strong> — nom qu'il porte encore aujourd'hui.
+      </p>
     </div>
-    <div class="unit-card">
-      <div class="unit-card-band fr"></div>
-      <div class="unit-card-body">
-        <div class="unit-flag">🇫🇷</div>
-        <div class="unit-name">131<sup>e</sup> Régiment d'Infanterie</div>
-        <div class="unit-theater">Varennes · face à Jaulgonne · 15 juillet 1918</div>
-        <p class="unit-desc">Positionnés à Varennes, en face de Jaulgonne, face à la Marne. Ils ont maintenu la ligne défensive aux côtés des soldats américains du 38e Régiment d'Infanterie, dans les gaz et sous les obus, la nuit du 15 juillet 1918.</p>
-      </div>
-    </div>
-    <div class="unit-card">
-      <div class="unit-card-band us"></div>
-      <div class="unit-card-body">
-        <div class="unit-flag">🇺🇸</div>
-        <div class="unit-name">38<sup>th</sup> Infantry Regiment — 3<sup>rd</sup> Division</div>
-        <div class="unit-theater">Mézy-Moulins · Jaulgonne · 15–22 juillet 1918</div>
-        <p class="unit-desc">Les «&nbsp;Rochers de la Marne&nbsp;». Des hommes de l'Ohio, du Michigan, de Pennsylvanie. Le 15 juillet, encerclés en position de fer à cheval à Mézy, sans ordre de retraite, dans les gaz, face à 6 régiments allemands pendant 14 heures. Le 22 juillet, ils libèrent Jaulgonne.</p>
-      </div>
-    </div>
-    <div class="unit-card">
-      <div class="unit-card-band us"></div>
-      <div class="unit-card-body">
-        <div class="unit-flag">🇺🇸</div>
-        <div class="unit-name">30<sup>th</sup> Infantry Regiment — 3<sup>rd</sup> Division</div>
-        <div class="unit-theater">Fossoy · Ferme des Franquets · Le Charmel · 15–25 juillet 1918</div>
-        <p class="unit-desc">Le 15 juillet, défend la rive sud à Fossoy face au 5e Régiment de Grenadiers allemands. Le 24 juillet, après avoir relevé le 38e RI, le 3e bataillon avance depuis les bois au sud-ouest de la Ferme des Franquets vers Le Charmel, «&nbsp;en surmontant la résistance des mitrailleuses&nbsp;» (ABMC). Il atteint la limite sud-ouest du Charmel dans l'après-midi. Mondésir : «&nbsp;Au Charmel, les 4e et 30e régiments de la 3e D.U.S. se distinguèrent.&nbsp;»</p>
-      </div>
+    <div class="info-box">
+      <h3>La signification pour Jaulgonne</h3>
+      <p>
+        Belleau Wood n'est pas la bataille de la 3e Division — c'est celle des Marines, 2e Division. Mais elle établit l'essentiel : les soldats américains <em>ne reculent pas</em>. Quand six semaines plus tard la 3e Division arrive sur la Marne à Jaulgonne, les Alliés et les Allemands savent déjà à quoi s'attendre. Le <em>Rock of the Marne</em> confirme Belleau Wood. L'Amérique est là pour rester.
+      </p>
     </div>
   </div>
+
+  <div class="photo-grid-2">
+    <img src="selection_sources/3rd_US/Belleau_wood/WWITours_CT_Vaux-1024x766.jpg"
+         alt="Secteur Château-Thierry et Vaux — la zone des combats américains, été 1918"
+         onclick="openLB(this.src)"
+         title="Le secteur de Château-Thierry et Vaux — zone des combats américains, juin–juillet 1918">
+    <img src="selection_sources/3rd_US/Belleau_wood/WWITours_Chateau-Thierry_Map.png"
+         alt="Carte du secteur de Château-Thierry — Belleau Wood, Marne, Jaulgonne"
+         onclick="openLB(this.src)"
+         title="Carte du secteur — Belleau Wood (ouest) et la Marne jusqu'à Jaulgonne (est)">
+  </div>
+  <p class="photo-caption">À gauche : le secteur de Château-Thierry et Vaux, zone des combats américains de l'été 1918. À droite : carte du secteur — Belleau Wood à l'ouest, Jaulgonne à l'est, la Marne qui relie les deux batailles.</p>
 </div>
 </section>
 
@@ -195,11 +226,6 @@
     <br><span style="font-size:.68rem">Source : US Army CMH Pub 77-5, <em>The Marne, 1918</em></span>
   </p>
 
-  <div class="photo-grid-2">
-    <img src="selection_photo/0188bae17f3575be4385d1f73d9e3ed3cb2a74258f.jpg" alt="Soldats US recevant leurs ordres" onclick="openLB(this.src)" title="Soldats américains recevant leurs ordres">
-    <img src="selection_photo/01fd3702b3729044a6473bd6824f994109487cd5e8.jpg" alt="Portrait soldats américains" onclick="openLB(this.src)" title="Portrait de soldats américains">
-  </div>
-  <p class="photo-caption">Soldats américains du secteur de Jaulgonne, été 1918</p>
 </section>
 
 <!-- SECTION : SOLDATS NOIRS -->
@@ -214,20 +240,44 @@
     Sur le secteur de Jaulgonne, Franquets Farm et la zone de Château-Thierry, des unités de soldats noirs américains combattent sous commandement français. Ils font preuve du même courage que leurs camarades blancs — pour une démocratie qui leur refuse encore, dans leur propre pays, les droits civiques élémentaires.
   </p>
 
-  <div class="info-box">
-    <h3>Le 369e Régiment d'Infanterie — «&nbsp;Harlem Hellfighters&nbsp;»</h3>
-    <p>Affecté à la 161e Division d'Infanterie française, le 369e RI US combat dans le secteur de la Marne. Jamais un seul homme de ce régiment ne fut capturé par l'ennemi. L'ensemble du régiment reçut la Croix de Guerre française. 171 de ses membres furent cités individuellement.</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin:1.5rem 0">
+    <div class="info-box">
+      <h3>Le 369e Régiment — «&nbsp;Harlem Hellfighters&nbsp;»</h3>
+      <p>
+        Affecté à la <strong>161e Division d'Infanterie française</strong>, le 369e RI US combat dans le secteur de Champagne-Marne. Jamais un seul homme ne fut capturé. Jamais une position ne fut abandonnée. L'ensemble du régiment reçut la <strong>Croix de Guerre française</strong>. 171 membres furent cités individuellement. Le sergent <strong>Henry Johnson</strong> et le soldat <strong>Needham Roberts</strong> furent les premiers Américains de la Grande Guerre à recevoir la Croix de Guerre — après avoir repoussé seuls une patrouille allemande de vingt hommes à la baïonnette.
+      </p>
+    </div>
+    <div class="info-box">
+      <h3>Le 92e Corps d'Armée — «&nbsp;Buffalo Soldiers&nbsp;»</h3>
+      <p>
+        Environ <strong>380 000 Noirs américains</strong> servent dans la Grande Guerre — dont 200 000 en France. L'armée américaine étant ségréguée, le Général Pershing affecte la plupart des régiments noirs aux armées françaises, qui les intègrent sans discrimination. Les soldats noirs reçoivent les mêmes rations, les mêmes médailles, le même commandement que les Français. De retour aux États-Unis, ils seront accueillis par les lois Jim Crow — et pour beaucoup, par les émeutes raciales de l'<strong>Été rouge de 1919</strong>.
+      </p>
+    </div>
   </div>
 
-  <div class="placeholder-section">
-    <p>Section à enrichir — Présence spécifique des unités noires américaines sur Jaulgonne et Franquets Farm : noms des régiments, témoignages, reconnaissances reçues. Sources à identifier : National Archives, Schomburg Center (New York), archives du 369e RI.</p>
-  </div>
+  <blockquote style="font-family:'Playfair Display',Georgia,serif;font-size:.97rem;font-style:italic;color:var(--gold);max-width:680px;border-left:3px solid var(--border);padding-left:1.5rem;margin:1.5rem 0;line-height:1.85">
+    «&nbsp;Les soldats noirs ont combattu pour la liberté en France. Ils sont rentrés dans leur propre pays et ont constaté que la liberté n'y existait pas.&nbsp;»
+    <cite style="display:block;font-size:.72rem;color:var(--text2);margin-top:.75rem;font-style:normal;letter-spacing:.1em;text-transform:uppercase">— W.E.B. Du Bois, <em>The Crisis</em>, 1919</cite>
+  </blockquote>
 
-  <div class="photo-grid-2">
-    <img src="selection_photo/019cd3f3c28ccc11aab95831868e4dbf3216c25cb9.jpg" alt="Soldats US rue de Jaulgonne" onclick="openLB(this.src)" title="Soldats américains dans une rue de Jaulgonne, 24 juillet 1918">
-    <img src="selection_photo/argonnaute_jaulgonne_troupes_americaines_1918.jpg" alt="Troupes américaines à Jaulgonne" onclick="openLB(this.src)" title="Troupes américaines au repos à Jaulgonne, 21 août 1918">
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin:2rem 0">
+    <img src="selection_sources/019cd3f3c28ccc11aab95831868e4dbf3216c25cb9.jpg"
+         alt="Soldats US rue de Jaulgonne, 24 juillet 1918"
+         onclick="openLB(this.src)"
+         style="width:100%;aspect-ratio:4/3;object-fit:cover;cursor:pointer;border:1px solid var(--border)"
+         title="Soldats américains dans une rue de Jaulgonne, 24 juillet 1918">
+    <img src="selection_sources/01fd3702b3729044a6473bd6824f994109487cd5e8.jpg"
+         alt="Portrait de soldats américains"
+         onclick="openLB(this.src)"
+         style="width:100%;aspect-ratio:4/3;object-fit:cover;cursor:pointer;border:1px solid var(--border)"
+         title="Portrait de soldats américains — 3e Division, secteur de la Marne, 1918">
+    <img src="selection_sources/3rd_US/apid60ivy__26333.jpg"
+         alt="Soldats américains, secteur de la Marne, 1918"
+         onclick="openLB(this.src)"
+         style="width:100%;aspect-ratio:4/3;object-fit:cover;cursor:pointer;border:1px solid var(--border)"
+         title="Soldats américains — secteur de la Marne, 1918">
   </div>
-  <p class="photo-caption">Soldats américains à Jaulgonne — 24 juillet et 21 août 1918</p>
+  <p class="photo-caption">Soldats américains à Jaulgonne — 24 juillet 1918 et 21 août 1918. Ces hommes — blancs et noirs — ont combattu côte à côte sur la Marne.</p>
 </div>
 </section>
 
@@ -264,10 +314,49 @@
   </div>
 
   <div class="photo-grid-2" style="margin-top:2rem">
-    <img src="selection_photo/pg168.jpg" alt="Soldats US construisant un pont flottant" onclick="openLB(this.src)" title="Soldats américains construisant un pont flottant sur la Marne">
-    <img src="selection_photo/smithsonian_marne_jaulgonne_1918_peixotto.jpg" alt="Croquis Peixotto, pont flottant" onclick="openLB(this.src)" title="Croquis de Peixotto — pont flottant sur la Marne à Jaulgonne, août 1918">
+    <img src="selection_sources/pg168.jpg" alt="Soldats US construisant un pont flottant" onclick="openLB(this.src)" title="Soldats américains construisant un pont flottant sur la Marne">
+    <img src="selection_sources/smithsonian_marne_jaulgonne_1918_peixotto.jpg" alt="Croquis Peixotto, pont flottant" onclick="openLB(this.src)" title="Croquis de Peixotto — pont flottant sur la Marne à Jaulgonne, août 1918">
   </div>
   <p class="photo-caption">Construction d'un pont flottant sur la Marne — illustrations de la contre-offensive américaine</p>
+</section>
+
+<!-- GALERIE PHOTOGRAPHIQUE -->
+<section style="background:var(--bg2);border-top:1px solid var(--border);max-width:100%;padding:4rem 1.5rem">
+<div style="max-width:1100px;margin:0 auto">
+  <div class="section-label">Archives photographiques</div>
+  <h2>Images de la campagne Aisne-Marne</h2>
+  <p style="font-size:.9rem;color:var(--text3);max-width:600px;line-height:1.7;margin-bottom:2rem">
+    Photographies des opérations américaines dans la zone Château-Thierry / Marne, été 1918. Sources : NARA, ABMC, archives diverses.
+  </p>
+
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem">
+    <img src="selection_sources/3rd_US/FCB-AisneMarne-Campaign.jpg"
+         alt="Campagne Aisne-Marne — vue d'ensemble des opérations américaines, 1918"
+         onclick="openLB(this.src)"
+         style="width:100%;aspect-ratio:4/3;object-fit:cover;cursor:pointer;border:1px solid var(--border)">
+    <img src="selection_sources/3rd_US/the-second-battle-of-the-marne-july-august-1918-q6867-1cb17d-1024.jpg"
+         alt="2e Bataille de la Marne, juillet-août 1918"
+         onclick="openLB(this.src)"
+         style="width:100%;aspect-ratio:4/3;object-fit:cover;cursor:pointer;border:1px solid var(--border)">
+    <img src="selection_sources/3rd_US/20150506_wp_aisnemarne_ABMC_0142-1.jpg"
+         alt="Monument Aisne-Marne — American Battle Monuments Commission"
+         onclick="openLB(this.src)"
+         style="width:100%;aspect-ratio:4/3;object-fit:cover;cursor:pointer;border:1px solid var(--border)">
+    <img src="selection_sources/3rd_US/apimnmybx__11309.jpg"
+         alt="Soldats américains, campagne de la Marne, 1918"
+         onclick="openLB(this.src)"
+         style="width:100%;aspect-ratio:4/3;object-fit:cover;cursor:pointer;border:1px solid var(--border)">
+    <img src="selection_sources/3rd_US/c4e80f7b8d0915591b4f7332819dc5be.jpg"
+         alt="Soldats américains, Marne 1918"
+         onclick="openLB(this.src)"
+         style="width:100%;aspect-ratio:4/3;object-fit:cover;cursor:pointer;border:1px solid var(--border)">
+    <img src="selection_sources/3rd_US/p16630coll22143-1000.jpeg"
+         alt="Soldats américains, secteur Marne, 1918"
+         onclick="openLB(this.src)"
+         style="width:100%;aspect-ratio:4/3;object-fit:cover;cursor:pointer;border:1px solid var(--border)">
+  </div>
+  <p class="photo-caption">Archives photographiques — campagne Aisne-Marne, été 1918. Cliquer pour agrandir.</p>
+</div>
 </section>
 
 <!-- DOCUMENT FILMÉ — REEL 2 -->
@@ -279,8 +368,8 @@
     <video class="video-player"
            controls
            preload="none"
-           poster="selection_photo/chateau-thierry-usa-mem-jp-201.jpg">
-      <source src="selection_photo/Videos/111-h-1365-r2.mp4" type="video/mp4">
+           poster="selection_sources/chateau-thierry-usa-mem-jp-201.jpg">
+      <source src="selection_sources/Videos/111-h-1365-r2.mp4" type="video/mp4">
     </video>
     <div class="video-meta">
       <div class="video-source">
@@ -308,23 +397,6 @@
   <p style="margin-top:.75rem;font-size:.68rem;color:#7a6a5a">En mémoire des soldats américains — blancs et noirs — tombés sur la Marne pour la liberté — Été 1918</p>
 </footer>
 
-<!-- LIGHTBOX simple -->
-<div id="lightbox">
-  <button id="lb-close" onclick="document.getElementById('lightbox').classList.remove('open')">✕</button>
-  <img id="lb-img" src="" alt="">
-  <div class="lb-nav"><span id="lb-counter"></span></div>
-</div>
-<script>
-function openLB(src){
-  document.getElementById('lb-img').src=src;
-  document.getElementById('lightbox').classList.add('open');
-}
-document.getElementById('lightbox').addEventListener('click',function(e){
-  if(e.target===this) this.classList.remove('open');
-});
-document.addEventListener('keydown',e=>{
-  if(e.key==='Escape') document.getElementById('lightbox').classList.remove('open');
-});
-</script>
+<script src="lightbox.js"></script>
 </body>
 </html>
