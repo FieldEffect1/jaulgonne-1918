@@ -4,10 +4,13 @@ selection_sources/Videos/*.webm
 selection_sources/Videos/*.avi
 selection_sources/Videos/*.mov
 
-# Données crawlées — régénérables via crawl_batmarn2.py
-Recherches/batmarn2/
+# Recherches et notes — rester en local uniquement
+Recherches/
+Memory_and_Index/
+CLAUDE.md
+generate_audio.py
+audio/
 
-# Scripts utilitaires de crawl
-Recherches/crawl_batmarn2.py
-Recherches/collect_jaulgonne.py
-Recherches/build_citations.py
+# Config éditeur et outils locaux
+.claude/
+.vscode/
