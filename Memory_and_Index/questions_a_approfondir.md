@@ -4,7 +4,32 @@
 
 ## 🔴 PRIORITÉS SITE WEB (prochains chantiers)
 
-### B. Enrichissement iconographique — page Événements
+### A ter. Doublons de photos à corriger
+- `index.html` : doublon dans la mosaïque ou les vignettes de navigation
+- `foret-ris.html` : doublons de photos à identifier et remplacer
+
+---
+
+### A bis. Renommer "La Bataille" → "MARNE 1918"
+- Changer le titre de la nav, le `<title>`, le hero et les liens vers `bataille.html` dans toutes les pages
+
+---
+
+### B. Timecode Jaulgonne — vidéo page d'accueil (`index.html`)
+- **Vidéo** : `selection_sources/Videos/111-h-1365-r1.mp4` (Signal Corps H-1365 reel 1)
+- **À faire** : visionner la vidéo et repérer le timecode exact où des images de Jaulgonne apparaissent
+- **Puis** : remplacer `v.currentTime = 5` dans le script de `index.html` par ce timecode
+
+---
+
+### C. Mention de la 1re Bataille de la Marne (1914) — à intégrer
+- La zone de Jaulgonne / vallée de la Marne est un lieu de bataille **deux fois légendaire** : 1914 et 1918
+- **À faire** : ajouter une phrase d'introduction (page d'accueil ou page La Bataille) rappelant la 1re Marne de 1914, pour contextualiser l'importance historique du lieu
+- Angle possible : "Quatre ans plus tôt, sur ces mêmes rives…"
+
+---
+
+### D. Enrichissement iconographique — page Événements
 - **À faire** : ajouter des photos côté allemand dans la section Friedensturm (15 juillet) de `evenements.html`
 - Soldats allemands en position, troupes d'assaut (Stosstruppen), matériel, prisonniers, etc.
 - Chercher dans les fonds : Bundesarchiv, IWM, collections privées libres de droits

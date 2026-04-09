@@ -49,9 +49,9 @@
 .home-mosaic-eyebrow::before{content:'';display:block;width:24px;height:1px;background:var(--gold2);}
 .home-mosaic-grid{
   display:grid;
-  grid-template-columns:1.65fr 1fr 1fr;
-  grid-template-rows:270px;
-  gap:.4rem;
+  grid-template-columns:1fr 1fr 1fr;
+  grid-template-rows:300px;
+  gap:.5rem;
 }
 .home-mosaic-grid figure{
   position:relative;overflow:hidden;cursor:pointer;margin:0;
@@ -135,7 +135,7 @@
 @media(max-width:680px){
   .home-mosaic-grid{
     grid-template-columns:1fr;
-    grid-template-rows:repeat(3,200px);
+    grid-template-rows:repeat(3,220px);
   }
   .home-date-item{border-left:none;border-top:1px solid var(--border);}
   .home-date-item:first-child{border-top:none;}
@@ -180,13 +180,13 @@
   <div class="home-mosaic-eyebrow">Archives photographiques · Documents d'époque</div>
   <div class="home-mosaic-grid">
 
-    <figure onclick="openLB('selection_sources/FI-0732-0343.jpg','Vue aérienne — coude de Jaulgonne, 6 juin 1918 (IMAGE\'EST)')">
+    <figure>
       <img src="selection_sources/FI-0732-0343.jpg" alt="Vue aérienne du coude de Jaulgonne, juin 1918" loading="lazy">
-      <figcaption>Vue aérienne — coude de Jaulgonne, 6 juin 1918</figcaption>
+      <figcaption>Vue aérienne — coude de Jaulgonne, 6 juin 1918 (IMAGE'EST)</figcaption>
     </figure>
 
     <figure style="cursor:default">
-      <video controls preload="none"
+      <video id="hero-video" controls muted loop preload="auto"
              poster="selection_sources/argonnaute_jaulgonne_troupes_americaines_1918.jpg"
              style="width:100%;height:100%;object-fit:cover;display:block;background:#000">
         <source src="selection_sources/Videos/111-h-1365-r1.mp4" type="video/mp4">
@@ -194,7 +194,7 @@
       <figcaption style="opacity:1;background:linear-gradient(to top,rgba(10,8,5,.88) 0%,transparent 100%)">Signal Corps H-1365 · Aisne-Marne, juillet–août 1918 · NARA</figcaption>
     </figure>
 
-    <figure onclick="openLB('selection_sources/Up_JAULGONNEplace_de_la_Mairie.jpg','Place de la Mairie de Jaulgonne en ruines, été 1918')">
+    <figure>
       <img src="selection_sources/Up_JAULGONNEplace_de_la_Mairie.jpg" alt="Place de la Mairie de Jaulgonne en ruines" loading="lazy">
       <figcaption>Place de la Mairie en ruines, été 1918</figcaption>
     </figure>
@@ -256,7 +256,7 @@
 
     <a href="evenements.html" class="nav-card">
       <div class="nav-card-thumb">
-        <img src="selection_sources/01a1a0e89809046f0ab57f7207a3ff46d885605da9.jpg" alt="Équipe de mitrailleuse en position" loading="lazy">
+        <img src="selection_sources/Les_Evenements/Germans/1918-mit-der-fruehjahrsoffensive-wollten-die-deutschen-_003.webp" alt="Soldats allemands, offensive de printemps 1918" loading="lazy">
       </div>
       <div class="nav-card-body">
         <div class="nav-card-num">02</div>
@@ -268,7 +268,7 @@
 
     <a href="liberation.html" class="nav-card">
       <div class="nav-card-thumb">
-        <img src="selection_sources/Up_JAULGONNEplace_de_la_Mairie.jpg" alt="Place de la Mairie de Jaulgonne en ruines" loading="lazy">
+        <img src="selection_sources/pg168.jpg" alt="Soldats US construisant un pont flottant sur la Marne, 1918" loading="lazy">
       </div>
       <div class="nav-card-body">
         <div class="nav-card-num">03</div>
@@ -304,7 +304,7 @@
 
     <a href="hommage-us.html" class="nav-card">
       <div class="nav-card-thumb">
-        <img src="selection_sources/argonnaute_jaulgonne_troupes_americaines_1918.jpg" alt="Troupes américaines au repos à Jaulgonne" loading="lazy">
+        <img src="selection_sources/3rd_US/u-s-army-machine-gun-team-from-company-a-ninth-machine-gun-battalion-6th-infantry-brigade-3rd-infantry-division-aef-man-a-machine-gun-set-up-in-railroad-shop-in-chateau-thierry-fr.jpg" alt="Équipe de mitrailleuse, 3e Division US, Château-Thierry 1918" loading="lazy">
       </div>
       <div class="nav-card-body">
         <div class="nav-card-num">06</div>
@@ -360,5 +360,14 @@
 </footer>
 
 <script src="lightbox.js"></script>
+<script>
+var v = document.getElementById('hero-video');
+if(v){
+  v.addEventListener('loadedmetadata', function(){
+    v.currentTime = 5;
+    v.play();
+  });
+}
+</script>
 </body>
 </html>

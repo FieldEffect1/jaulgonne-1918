@@ -100,7 +100,11 @@ const ALL_IMGS = [
   "selection_sources/chateau-thierry-usa-mem-jp-201.jpg",
   "selection_sources/chateau-thierry-usa-mem-jp-204.jpg",
   "selection_sources/chateau-thierry-usa-mem-jp-206.jpg",
-  "selection_sources/chateau-thierry-usa-mem-jp-209.jpg",
+  "selection_sources/Les_Evenements/Germans/paris-geschuetz-das-gewaltige-fernkampfgeschuetz-erziel_004.webp",
+  "selection_sources/Les_Evenements/Germans/marne22-fantassins-allemands-minenwerfer.jpg",
+  "selection_sources/Les_Evenements/Germans/MG08InTrench.jpg",
+  "selection_sources/Les_Evenements/Germans/Deutsche Reserven während der Schlacht an der Marne.jpg",
+  "selection_sources/Les_Evenements/Germans/Deutsche Frühjahrsoffensive 1918_ _Setzten buchstäblich alles auf eine Karte__files/1918-mit-der-fruehjahrsoffensive-wollten-die-deutschen-doch.webp",
 ];
 
 const JALONS = [
@@ -111,7 +115,7 @@ const JALONS = [
       fr:"Le 30 mai 1918 au soir, les soldats allemands de la 28e division atteignent les rives de la Marne à Jaulgonne. Soixante kilomètres les séparent de Paris. Dans les nuits du 31 mai au 2 juin, un bataillon de la 36e division tente le passage. Face à eux, des poilus du Bataillon Sagnières (47e RI) tiennent la Ferme des Franquets sur les hauteurs. Ceux du Bataillon Taureau s'accrochent aux pentes entre la ferme et la forêt. Le 2 juin, une contre-attaque franco-américaine rejette les envahisseurs. Le pont flottant est détruit. Cent prisonniers. Jaulgonne est sauvé… pour l'instant.",
       en:"On the evening of May 30, 1918, German soldiers of the 28th Division reach the banks of the Marne at Jaulgonne — just 37 miles from Paris. During the nights of May 31 to June 2, a battalion of the 36th Division attempts the crossing. Facing them, French soldiers of the Sagnières Battalion (47th RI) hold the Ferme des Franquets on the heights. The Taureau Battalion clings to the slopes between the farm and the forest. On June 2, a Franco-American counter-attack throws the invaders back. The pontoon bridge is destroyed. One hundred prisoners. Jaulgonne is saved… for now."
     },
-    images:[38,0,5,39]
+    images:[0,5,46,44,47]
   },
   {
     date:{fr:"15–17 juillet 1918", en:"July 15–17, 1918"},
@@ -120,7 +124,7 @@ const JALONS = [
       fr:"Dans la nuit du 14 au 15 juillet, un déluge d'acier et de gaz s'abat sur les positions alliées. Les Allemands lancent le «&nbsp;Friedensturm&nbsp;» — l'assaut de la paix. Phosgène, ypérite, gaz «&nbsp;Croix Bleue&nbsp;» : des nuages mortels enveloppent Jaulgonne et la Forêt de Ris. L'aviation alliée effectue des bombardements massifs. Puis des ponts flottants de huit à dix mètres sont jetés sur le fleuve. Dès 7h35, la <strong>73e Division d'Infanterie française</strong> contre-attaque dans la boucle de Jaulgonne. Les doughboys du 38e Régiment d'Infanterie US — des hommes ordinaires de l'Ohio, du Michigan, de Pennsylvanie — se retrouvent encerclés en position de fer à cheval à Mézy. Pendant quatorze heures, sans ordre de retraite, dans les gaz et sous les obus, ils résistent seuls à six régiments allemands. On les appellera «&nbsp;les Rochers de la Marne&nbsp;».",
       en:"In the night of July 14 to 15, a deluge of steel and gas falls upon Allied positions. The Germans launch the 'Friedensturm' — the Peace Assault. Phosgene, mustard gas, Blue Cross shells: deadly clouds shroud Jaulgonne and the Forêt de Ris. Allied aircraft carry out massive bombing raids. Then pontoon bridges 8 to 10 meters wide are thrown across the river. At 7:35 AM, the <strong>French 73rd Infantry Division</strong> counter-attacks in the Jaulgonne Bend. The doughboys of the 38th US Infantry Regiment — ordinary men from Ohio, Michigan, Pennsylvania — find themselves surrounded in a horseshoe position at Mézy. For fourteen hours, without orders to retreat, through gas and shellfire, they hold alone against six German regiments. They will be called 'the Rock of the Marne'."
     },
-    images:[8,17,15,9]
+    images:[8,15,44,45]
   },
   {
     date:{fr:"18 juillet 1918", en:"July 18, 1918"},
@@ -234,7 +238,7 @@ function buildTimeline(){
     imgGrid.className='jalon-images';
     const grid=document.createElement('div');
     grid.className='jalon-thumb-grid';
-    imgs.slice(0,4).forEach(path=>{
+    imgs.slice(0,6).forEach(path=>{
       const img=document.createElement('img');
       img.src=path;img.loading='lazy';img.alt='Document historique';
       img.onclick=()=>openLightboxImg(path);
