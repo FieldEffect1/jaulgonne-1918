@@ -19,8 +19,9 @@ jobs:
           mkdir -p _site
           # Pages HTML
           cp *.html _site/
-          # CSS
+          # CSS + JS
           cp museum.css _site/
+          cp lightbox.js _site/
           # Images et médias utilisés par le site
           cp -r selection_sources _site/
           # Exclure les vidéos (déjà ignorées mais par sécurité)
