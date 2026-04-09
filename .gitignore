@@ -1,3 +1,9 @@
+# Vidéos (trop volumineuses pour GitHub)
+selection_sources/Videos/*.mp4
+selection_sources/Videos/*.webm
+selection_sources/Videos/*.avi
+selection_sources/Videos/*.mov
+
 # Données crawlées — régénérables via crawl_batmarn2.py
 Recherches/batmarn2/
 
