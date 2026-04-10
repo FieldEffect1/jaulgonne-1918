@@ -36,7 +36,7 @@ body{
   background:linear-gradient(to bottom,transparent,#1a1a18);pointer-events:none;
 }
 .hero-eyebrow{
-  font-size:.72rem;letter-spacing:.45em;color:#c8a878;
+  font-size:.88rem;letter-spacing:.45em;color:#c8a878;
   text-transform:uppercase;margin-bottom:1.5rem;
 }
 .hero-title{
@@ -93,7 +93,7 @@ body{
 
 /* ── LANGUE ── */
 .lang-btn{
-  position:relative;
+  position:relative;z-index:2;
   background:transparent;border:1px solid rgba(122,26,26,.5);color:#c89898;
   padding:.55rem 2rem;cursor:pointer;font-size:.8rem;letter-spacing:.2em;
   text-transform:uppercase;transition:all .3s;font-family:inherit;
