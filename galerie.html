@@ -15,7 +15,7 @@
 <div class="page-hero">
   <div class="page-hero-eyebrow" data-fr="Jaulgonne 1918 · Documents" data-en="Jaulgonne 1918 · Documents">Jaulgonne 1918 · Documents</div>
   <h1 class="page-hero-title" data-fr="Archives Photographiques" data-en="Photographic Archives">Archives Photographiques</h1>
-  <p class="page-hero-subtitle" data-fr="45 documents sélectionnés — Photos, cartes militaires, mémoriaux" data-en="45 selected documents — Photos, military maps, memorials">45 documents sélectionnés — Photos, cartes militaires, mémoriaux</p>
+  <p class="page-hero-subtitle" data-fr="68 documents sélectionnés — Photos, cartes militaires, mémoriaux" data-en="68 selected documents — Photos, military maps, memorials">68 documents sélectionnés — Photos, cartes militaires, mémoriaux</p>
   <button class="lang-btn" id="lang-toggle" onclick="toggleLang()">English</button>
 </div>
 
@@ -39,7 +39,7 @@
   <h2 data-fr="Documents &amp; Photographies" data-en="Documents &amp; Photographs">Documents &amp; Photographies</h2>
 
   <p style="font-size:.88rem;color:var(--text2);max-width:680px;line-height:1.75;margin-bottom:1.5rem">
-    Ces 45 documents ont été sélectionnés pour leur pertinence directe avec les événements de Jaulgonne et de la vallée de la Marne durant l'été 1918. Sources : Argonnaute (La Contemporaine), Library of Congress, Smithsonian, collections privées, cartes postales d'époque.
+    Ces 68 documents ont été sélectionnés pour leur pertinence directe avec les événements de Jaulgonne et de la vallée de la Marne durant l'été 1918. Sources : Argonnaute (La Contemporaine), Library of Congress, Smithsonian, collections privées, cartes postales d'époque.
   </p>
 
   <div class="gallery-filters">
@@ -103,11 +103,41 @@ const ALL_IMGS = [
   {src:"selection_sources/m2-086.jpg",                                           cat:"photos",    cap:"Place de village en ruines"},
   {src:"selection_sources/Veteran035.jpg",                                       cat:"photos",    cap:"Soldats dans les tranchées près de Luippes (Marne)"},
   {src:"selection_sources/m2-063.jpg",                                           cat:"photos",    cap:"Manoir de la région avant-guerre"},
+  // Soldats US — 3e Division
+  {src:"selection_sources/3rd_US/apimnmybx__11309.jpg",                          cat:"photos",    cap:"Soldats américains, 3e Division — secteur de la Marne, 1918"},
+  {src:"selection_sources/3rd_US/c4e80f7b8d0915591b4f7332819dc5be.jpg",          cat:"photos",    cap:"Soldats américains — secteur de la Marne, 1918"},
+  {src:"selection_sources/3rd_US/Machine_gun_set_up_in_railroad_shop._Company_A,_Ninth_Machine_Gun_Battalion._Chteau_Thierry,_France.,_06-07-1918_-_NARA_-_530730.tif.jpg", cat:"photos", cap:"Compagnie A, 9e Bataillon de Mitrailleuses — Château-Thierry, 6 juillet 1918 (NARA 530730)"},
+  {src:"selection_sources/3rd_US/apid60ivy__26333.jpg",                           cat:"photos",    cap:"Soldats américains, 3e Division — campagne de la Marne, 1918"},
+  {src:"selection_sources/3rd_US/p16630coll22143-1000.jpeg",                      cat:"photos",    cap:"Soldats américains — secteur Marne, 1918"},
+  // Cartes — 3e Division / front ouest
+  {src:"selection_sources/3rd_US/FCB-AisneMarne-Campaign.jpg",                    cat:"cartes",    cap:"Campagne Aisne-Marne — vue d'ensemble des opérations américaines, 1918"},
+  {src:"selection_sources/3rd_US/the-second-battle-of-the-marne-july-august-1918-q6867-1cb17d-1024.jpg", cat:"cartes", cap:"2e Bataille de la Marne — juillet–août 1918"},
+  {src:"selection_sources/007 - La progression alliée du 20 au 25 juillet 1918 © BNF Gallica_0.jpg", cat:"cartes", cap:"La progression alliée du 20 au 25 juillet 1918 — BNF Gallica"},
+  {src:"selection_sources/2ndBattleOfTheMarne.jpg",                               cat:"cartes",    cap:"2e Bataille de la Marne — carte générale"},
+  {src:"selection_sources/L'ensemble_du_front/map-of-the-western-front-in-world-war-i-1914-1918-21586.png", cat:"cartes", cap:"Front occidental — 1914–1918"},
+  // Forêt de Ris / illustrations
+  {src:"selection_sources/Illustrations_foret_de_Ris/NMAH-2000-10414-000001.jpg", cat:"photos",    cap:"Smithsonian NMAH — aquarelle de Peixotto, secteur Marne 1918"},
+  {src:"selection_sources/Illustrations_foret_de_Ris/m2-030.jpg",                 cat:"photos",    cap:"Soldats dans les bois — forêt de Ris, secteur Jaulgonne"},
+  {src:"selection_sources/Illustrations_foret_de_Ris/m2-042.jpg",                 cat:"photos",    cap:"Infanterie en terrain boisé — secteur de Jaulgonne"},
+  {src:"selection_sources/Illustrations_foret_de_Ris/m2-044.jpg",                 cat:"photos",    cap:"Soldats en position dans la forêt — été 1918"},
+  // Front en général
+  {src:"selection_sources/L'ensemble_du_front/Riflemen-1918-Western-Front.jpg",    cat:"photos",    cap:"Fusiliers américains — Front occidental, 1918"},
+  {src:"selection_sources/L'ensemble_du_front/general_gouraud_french_army_world_war_i_machinegun_marne_1918_2.jpeg", cat:"photos", cap:"Général Gouraud — mitrailleuse sur la Marne, 1918"},
+  // Soldats allemands
+  {src:"selection_sources/Les_Evenements/Germans/MG08InTrench.jpg",               cat:"photos",    cap:"Mitrailleuse MG08 en tranchée — armée allemande, 1918"},
+  {src:"selection_sources/Les_Evenements/Germans/marne22-fantassins-allemands-minenwerfer.jpg", cat:"photos", cap:"Fantassins allemands avec Minenwerfer — Marne, 1918"},
+  {src:"selection_sources/Les_Evenements/Germans/Deutsche Reserven während der Schlacht an der Marne.jpg", cat:"photos", cap:"Réserves allemandes pendant la bataille de la Marne"},
+  // Photo Jaulgonne — liberation
+  {src:"selection_sources/Capture d'écran 2026-04-04 175741.png",                 cat:"photos",    cap:"Jaulgonne — juillet 1918"},
+  {src:"selection_sources/01ea53b54b71957b8cbaf0505be4b46b3e2dc0607f.jpg",        cat:"photos",    cap:"Document photographique — Marne, été 1918"},
   // Mémoriaux — en fin
-  {src:"selection_sources/chateau-thierry-usa-mem-jp-201.jpg",                   cat:"memoriaux", cap:"Monument Aisne-Marne, Château-Thierry — façade"},
-  {src:"selection_sources/chateau-thierry-usa-mem-jp-204.jpg",                   cat:"memoriaux", cap:"Monument Aisne-Marne, Château-Thierry — tour"},
-  {src:"selection_sources/chateau-thierry-usa-mem-jp-206.jpg",                   cat:"memoriaux", cap:"Monument Aisne-Marne, Château-Thierry"},
-  {src:"selection_sources/chateau-thierry-usa-mem-jp-209.jpg",                   cat:"memoriaux", cap:"Monument Aisne-Marne, Château-Thierry"},
+  {src:"selection_sources/Memorial/20150506_wp_aisnemarne_ABMC_0142-1.jpg",       cat:"memoriaux", cap:"Mémorial Aisne-Marne — American Battle Monuments Commission"},
+  {src:"selection_sources/Memorial/B9733967259Z.1_20230408110619_000+GNMMI7H07.1-0.jpg", cat:"memoriaux", cap:"Mémorial américain — Château-Thierry"},
+  {src:"selection_sources/Memorial/Jaulgonne_7311_vue-generale.jpg",              cat:"memoriaux", cap:"Jaulgonne — vue générale du village aujourd'hui"},
+  {src:"selection_sources/chateau-thierry-usa-mem-jp-201.jpg",                    cat:"memoriaux", cap:"Monument Aisne-Marne, Château-Thierry — façade"},
+  {src:"selection_sources/chateau-thierry-usa-mem-jp-204.jpg",                    cat:"memoriaux", cap:"Monument Aisne-Marne, Château-Thierry — tour"},
+  {src:"selection_sources/chateau-thierry-usa-mem-jp-206.jpg",                    cat:"memoriaux", cap:"Monument Aisne-Marne, Château-Thierry"},
+  {src:"selection_sources/chateau-thierry-usa-mem-jp-209.jpg",                    cat:"memoriaux", cap:"Monument Aisne-Marne, Château-Thierry"},
 ];
 
 let currentLang='fr';
