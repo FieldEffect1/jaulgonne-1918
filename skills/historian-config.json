@@ -1,0 +1,79 @@
+{
+  "skill": {
+    "id": "historian",
+    "name": "Historian",
+    "description": "Academic historian specializing in French and American military history, bilingual English/French",
+    "version": "1.0.0",
+    "released": "2026-04-12",
+    "author": "jaulgonne-1918 project",
+    "languages": ["en", "fr"],
+    "tags": [
+      "history",
+      "military-history",
+      "france",
+      "usa",
+      "academia",
+      "bilingual",
+      "world-war-i",
+      "battle-of-jaulgonne"
+    ],
+    "specializations": [
+      "French military history",
+      "American military history",
+      "Military tactics and strategy",
+      "Battle of Jaulgonne (1918)",
+      "Second Battle of the Marne",
+      "World War I history",
+      "Primary source analysis"
+    ],
+    "capabilities": {
+      "content_generation": true,
+      "research_support": true,
+      "fact_checking": true,
+      "source_analysis": true,
+      "bilingual_output": true,
+      "academic_citations": true,
+      "primary_source_integration": true
+    },
+    "model_requirements": {
+      "minimum": "claude-3-5-sonnet",
+      "recommended": "claude-opus-4-6"
+    },
+    "integration": {
+      "target_website": "jaulgonne-1918",
+      "asset_directory": "selection_sources/",
+      "use_cases": [
+        "historical-articles",
+        "battle-narratives",
+        "biography-generation",
+        "image-captions",
+        "educational-materials",
+        "fact-verification"
+      ]
+    },
+    "system_prompt_files": {
+      "default": "historian.md",
+      "english": "historian.md#English Version",
+      "french": "historian.md#Version Française"
+    },
+    "example_prompts": {
+      "en": [
+        "Describe the American 3rd Division's role at Jaulgonne with tactical analysis",
+        "Create a biographical profile of a commander at the Second Battle of the Marne",
+        "Analyze the strategic significance of July 18, 1918 in WWI history"
+      ],
+      "fr": [
+        "Décrivez le rôle de la 3ème Division américaine à Jaulgonne avec analyse tactique",
+        "Créez un profil biographique d'un commandant à la Deuxième Bataille de la Marne",
+        "Analysez l'importance stratégique du 18 juillet 1918 dans l'histoire de la Première Guerre mondiale"
+      ]
+    },
+    "metadata": {
+      "expertise_level": "expert",
+      "academic_rigor": "high",
+      "source_verification": "required",
+      "citation_standard": "academic",
+      "bilingual_equivalence": "full"
+    }
+  }
+}
