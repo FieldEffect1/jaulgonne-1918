@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forêt de Ris — Jaulgonne 1918</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="museum.css">
+</head>
+<body>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-eyebrow" data-fr="Jaulgonne 1918 · Combat de forêt" data-en="Jaulgonne 1918 · Forest combat">Jaulgonne 1918 · Combat de forêt</div>
+  <h1 class="page-hero-title" data-fr="Le Charmel &amp; la Forêt de Ris" data-en="Le Charmel &amp; the Forest of Ris">Le Charmel &amp; la Forêt de Ris</h1>
+  <p class="page-hero-subtitle" data-fr="La difficile bataille dans les bois au nord de Jaulgonne — 22–31 juillet 1918" data-en="The difficult battle in the woods north of Jaulgonne — July 22–31, 1918">La difficile bataille dans les bois au nord de Jaulgonne — 22–31 juillet 1918</p>
+  <button class="lang-btn" id="lang-toggle" onclick="toggleLang()">English</button>
+</div>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="index.html">Accueil</a>
+  <a href="geographie.html">Géographie</a>
+  <a href="evenements.html">Événements</a>
+  <a href="foret-ris.html" class="active">Forêt de Ris</a>
+  <a href="bataille.html">La Bataille</a>
+  <a href="hommage-us.html">Les Américains</a>
+  <a href="memoire.html">Mémorial</a>
+  <a href="galerie.html">Archives</a>
+  <a href="carte_bataille.html">Carte</a>
+</nav>
+
+<!-- INTRO -->
+<section id="intro">
+  <div class="section-label" data-fr="Contexte" data-en="Context">Contexte</div>
+  <h2 data-fr="Après la Marne, la forêt" data-en="After the Marne, the forest">Après la Marne, la forêt</h2>
+  <p class="intro-text" data-fr="La libération de Jaulgonne le 22 juillet 1918 n'est pas la fin des combats dans le secteur. Sur les hauteurs boisées au nord du village, dans la Forêt de Ris et jusqu'au village du Charmel, les combats se prolongent dix jours de plus. Ce sont des combats de forêt — épuisants, sans repères visuels clairs, où les unités s'affrontent à courte distance dans les sous-bois. Un type de combat pour lequel les soldats américains, encore inexpérimentés dans la guerre européenne, devront apprendre sur le tas." data-en="The liberation of Jaulgonne on July 22, 1918 was not the end of the fighting in the sector. On the wooded heights north of the village, in the Forest of Ris and up to the village of Le Charmel, the fighting continued for ten more days. These were forest battles — exhausting, with no clear visual reference points, where units clashed at close range in the undergrowth. A type of combat for which American soldiers, still inexperienced in European warfare, would have to learn on the job.">
+    La libération de Jaulgonne le 22 juillet 1918 n'est pas la fin des combats dans le secteur. Sur les hauteurs boisées au nord du village, dans la Forêt de Ris et jusqu'au village du Charmel, les combats se prolongent dix jours de plus. Ce sont des combats de forêt — épuisants, sans repères visuels clairs, où les unités s'affrontent à courte distance dans les sous-bois. Un type de combat pour lequel les soldats américains, encore inexpérimentés dans la guerre européenne, devront apprendre sur le tas.
+  </p>
+
+  <figure style="margin:2rem 0 0;max-width:680px">
+    <img src="selection_sources/Illustrations_foret_de_Ris/Capture d'écran 2026-04-04 212433.png"
+         alt="Carte Géoportail — Forêt de Ris et secteur de Jaulgonne"
+         onclick="openLB(this.src)"
+         style="width:100%;border:1px solid var(--border);border-radius:2px;cursor:pointer;display:block">
+    <figcaption style="font-size:.7rem;color:var(--text3);margin-top:.5rem;font-style:italic;line-height:1.55" data-fr="Carte IGN / Géoportail — La Forêt de Ris, massif boisé au nord de Jaulgonne (point orange). On distingue : les Franquets (nord-ouest), Barzy-sur-Marne (est), Rosay, et la Forêt de Ris elle-même qui s'étend vers l'Érolle au nord-est. C'est dans ce massif que se déroulent les combats du 22 au 31 juillet 1918." data-en="IGN / Géoportail map — The Forest of Ris, wooded massif north of Jaulgonne (orange dot). Visible: les Franquets (north-west), Barzy-sur-Marne (east), Rosay, and the Forest of Ris itself extending toward l'Érolle to the north-east. This is where the fighting of July 22–31, 1918 took place.">
+      Carte IGN / Géoportail — La Forêt de Ris, massif boisé au nord de Jaulgonne (point orange). On distingue : les Franquets (nord-ouest), Barzy-sur-Marne (est), Rosay, et la Forêt de Ris elle-même qui s'étend vers l'Érolle au nord-est. C'est dans ce massif que se déroulent les combats du 22 au 31 juillet 1918.
+    </figcaption>
+  </figure>
+
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-num">8–13<br><span style="font-size:1rem">juil.</span></div>
+      <div class="stat-label" data-fr="Bombardements ypérite préventifs" data-en="Preventive mustard gas shelling">Bombardements ypérite préventifs</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">22 juil.</div>
+      <div class="stat-label" data-fr="73e DI franchit la Marne, entre en forêt" data-en="73rd DI crosses the Marne, enters the forest">73e DI franchit la Marne, entre en forêt</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">25 juil.</div>
+      <div class="stat-label" data-fr="4e RI US prend Le Charmel" data-en="4th US Infantry takes Le Charmel">4e RI US prend Le Charmel</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">27 juil.</div>
+      <div class="stat-label" data-fr="4e DI occupe la forêt de Ris" data-en="4th DI occupies the Forest of Ris">4e DI occupe la forêt de Ris</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">31 juil.</div>
+      <div class="stat-label" data-fr="Bois Meunière — dernière résistance allemande" data-en="Bois Meunière — last German resistance">Bois Meunière — dernière résistance allemande</div>
+    </div>
+  </div>
+
+  <div class="photo-grid-2" style="margin-top:2rem">
+    <img src="selection_sources/01e7b172347875435730ca5e97645ff90a7c2f8267.jpg"
+         alt="Vue aérienne — Jaulgonne et le massif boisé, 30 juillet 1918"
+         onclick="openLB(this.src)"
+         title="Vue aérienne — Jaulgonne et le massif boisé de la Forêt de Ris, 30 juillet 1918">
+    <img src="selection_sources/Illustrations_foret_de_Ris/m2-042.jpg"
+         alt="Soldats dans un bois ravagé par les combats, été 1918"
+         onclick="openLB(this.src)"
+         title="Soldats au repos dans un bois ravagé par les combats — été 1918">
+  </div>
+  <p class="photo-caption" data-fr="À gauche : vue aérienne de Jaulgonne et de la Forêt de Ris, 30 juillet 1918 — on distingue les hauteurs boisées au nord du village. À droite : combat de forêt, été 1918." data-en="Left: aerial view of Jaulgonne and the Forest of Ris, July 30, 1918 — the wooded heights north of the village are visible. Right: forest combat, summer 1918.">À gauche : vue aérienne de Jaulgonne et de la Forêt de Ris, 30 juillet 1918 — on distingue les hauteurs boisées au nord du village. À droite : combat de forêt, été 1918.</p>
+</section>
+
+<!-- CHAPITRE 0-AVANT : LA FORÊT CÔTÉ ALLEMAND -->
+<section style="background:var(--bg2);border-top:1px solid var(--border);max-width:100%;padding:4rem 1.5rem">
+<div style="max-width:1100px;margin:0 auto">
+  <div class="section-label" data-fr="Début juillet 1918 · Point de vue allemand" data-en="Early July 1918 · German perspective">Début juillet 1918 · Point de vue allemand</div>
+  <h2 data-fr="La Forêt de Ris — zone de concentration allemande" data-en="The Forest of Ris — German concentration area">La Forêt de Ris — zone de concentration allemande</h2>
+  <p style="font-size:.95rem;color:var(--text2);max-width:700px;line-height:1.85;margin-bottom:1.5rem" data-fr="Le Reichsarchiv Band 34 — publication officielle des Archives de l'Empire allemand — révèle ce que les observateurs alliés ne pouvaient que deviner : la forêt de Ris était, à la veille du 15 juillet, l'un des plus grands entrepôts militaires du front occidental. Tout ce qui ne pouvait pas se montrer de jour y était entassé depuis le début du mois." data-en="The Reichsarchiv Band 34 — the official publication of the German Imperial Archives — reveals what Allied observers could only guess: the Forest of Ris was, on the eve of July 15, one of the largest military depots on the Western Front. Everything that could not be moved by day had been stockpiled there since the beginning of the month.">
+    Le Reichsarchiv Band 34 — publication officielle des Archives de l'Empire allemand — révèle ce que les observateurs alliés ne pouvaient que deviner : la forêt de Ris était, à la veille du 15 juillet, l'un des plus grands entrepôts militaires du front occidental. Tout ce qui ne pouvait pas se montrer de jour y était entassé depuis le début du mois.
+  </p>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:2rem">
+    <div class="info-box">
+      <h3 data-fr="Troupes de réserve stationnées dans la forêt" data-en="Reserve troops stationed in the forest">Troupes de réserve stationnées dans la forêt</h3>
+      <p data-fr="· 33e Division d'Infanterie — division entière en 2e échelon dans la partie nord de la forêt. Ordre de mission : traverser la Marne après les divisions de 1er échelon, puis attaquer vers le Surmelin et la cote 235 au sud du Baizil. · Jäger Regiment 4 — réserve divisionnaire (200e DI), positionné au nord de Treloup. · 4e Régiment de la Garde (éléments) — réserve de la 1re Garde DI, à l'ouest de la Chapelle-Hurtay." data-en="· 33rd Infantry Division — an entire division in 2nd echelon in the northern part of the forest. Mission: cross the Marne after the 1st echelon divisions, then attack toward the Surmelin and hill 235 south of Baizil. · Jäger Regiment 4 — divisional reserve (200th DI), positioned north of Treloup. · 4th Guard Regiment (elements) — reserve of the 1st Guard DI, west of la Chapelle-Hurtay.">
+        · <strong>33e Division d'Infanterie</strong> — division entière en 2e échelon dans la partie nord de la forêt. Ordre de mission : traverser la Marne après les divisions de 1er échelon, puis attaquer vers le Surmelin et la cote 235 au sud du Baizil.<br><br>
+        · <strong>Jäger Regiment 4</strong> — réserve divisionnaire (200e DI), positionné au nord de Treloup.<br><br>
+        · <strong>4e Régiment de la Garde</strong> (éléments) — réserve de la 1re Garde DI, à l'ouest de la Chapelle-Hurtay.
+      </p>
+    </div>
+    <div class="info-box">
+      <h3 data-fr="Matériel accumulé — mouvements uniquement de nuit" data-en="Stockpiled equipment — movements by night only">Matériel accumulé — mouvements uniquement de nuit</h3>
+      <p data-fr="Tout mouvement était interdit de jour à cause de l'aviation alliée. Colonnes, convois d'artillerie et trains de munitions ne circulaient qu'entre le coucher et le lever du soleil. Des tranchées pare-feu avaient été creusées autour de chaque dépôt d'obus en raison du risque d'incendie en forêt. Les Allemands avaient aussi prépositionné à Argentol, dans un ravin au bas de la forêt, un demi-bataillon de pionniers lance-gaz (247 tubes tirés sur Varennes dans la nuit du 14 au 15 juillet, pour couvrir le franchissement de la Marne)." data-en="All movement was forbidden by day because of Allied aviation. Columns, artillery convoys and ammunition trains only moved between sunset and sunrise. Firebreak trenches had been dug around each shell depot because of the risk of fire in the forest. The Germans had also pre-positioned at Argentol, in a ravine at the foot of the forest, a half-battalion of gas pioneers (247 tubes fired on Varennes on the night of July 14–15 to cover the Marne crossing).">
+        Tout mouvement était interdit de jour à cause de l'aviation alliée. Colonnes, convois d'artillerie et trains de munitions ne circulaient qu'entre le coucher et le lever du soleil. Des tranchées pare-feu avaient été creusées autour de chaque dépôt d'obus en raison du risque d'incendie en forêt.<br><br>
+        Les Allemands avaient aussi prépositionné à <strong>Argentol</strong>, dans un ravin au bas de la forêt, un demi-bataillon de pionniers lance-gaz (247 tubes tirés sur Varennes dans la nuit du 14 au 15 juillet, pour couvrir le franchissement de la Marne).
+      </p>
+    </div>
+  </div>
+
+  <div style="border-left:3px solid var(--border);padding-left:1.5rem;margin:2rem 0">
+    <div style="font-size:.68rem;letter-spacing:.25em;color:var(--gold2);text-transform:uppercase;margin-bottom:.6rem">15 juillet 1918 — nuit de l'assaut · Reichsarchiv Band 34, p. 60</div>
+    <blockquote style="font-family:'Playfair Display',Georgia,serif;font-size:.95rem;font-style:italic;color:var(--gold);line-height:1.85;margin:0 0 .8rem">
+      «&nbsp;Lors de l'avance à travers la Forêt de Ris, le feu d'artillerie ennemi frappa malheureusement exactement à un passage particulièrement étroit et détrempé, mettant plusieurs véhicules hors de combat. Dans la nuit noire s'accumula un chaos de soldats blessés et morts, de chevaux et de véhicules détruits qui bloquait tout mouvement en avant. C'est grâce à l'intervention énergique des chefs — notamment de la police de route mise en place par la 23e DI sous le commandement du Major von Zechau — qu'on parvint finalement à dégager le passage. Mais il était <strong>7h20 du matin</strong> quand les batteries d'accompagnement purent enfin franchir les ponts flottants.&nbsp;»
+    </blockquote>
+    <cite style="font-size:.7rem;color:var(--text3);letter-spacing:.1em;text-transform:uppercase">— Reichsarchiv Band 34 (23e Division d'Infanterie saxonne)</cite>
+  </div>
+
+  <p style="font-size:.95rem;color:var(--text2);max-width:700px;line-height:1.85;margin-bottom:1.5rem" data-fr="Cette heure — 7h20 — est décisive. L'infanterie allemande avait franchi la Marne avant l'aube avec l'ordre de progresser vers le sud, en comptant sur son artillerie d'accompagnement. Celle-ci, bloquée dans les bois, ne put soutenir l'assaut. C'est la même artillerie alliée — tirée depuis les hauteurs au sud de la Marne — qui avait d'abord saturé la forêt d'ypérite, puis visé précisément les axes de transit dans les ravins." data-en="That hour — 7:20 a.m. — was decisive. The German infantry had crossed the Marne before dawn with orders to advance southward, counting on their accompanying artillery. That artillery, blocked in the woods, could not support the assault. It was the same Allied artillery — fired from the heights south of the Marne — that had first saturated the forest with mustard gas, then precisely targeted the transit routes in the ravines.">
+    Cette heure — 7h20 — est décisive. L'infanterie allemande avait franchi la Marne avant l'aube avec l'ordre de progresser vers le sud, en comptant sur son artillerie d'accompagnement. Celle-ci, bloquée dans les bois, ne put soutenir l'assaut. C'est la même artillerie alliée — tirée depuis les hauteurs au sud de la Marne — qui avait d'abord saturé la forêt d'ypérite, puis visé précisément les axes de transit dans les ravins.
+  </p>
+
+  <div class="info-box">
+    <h3 data-fr="Confirmation par un prisonnier allemand (38e Corps d'Armée)" data-en="Confirmation by a German prisoner (38th Army Corps)">Confirmation par un prisonnier allemand (38e Corps d'Armée)</h3>
+    <p data-fr="Un soldat du 175e Régiment d'Infanterie (36e DI), capturé par les Américains, déclare avoir «&nbsp;constaté de grosses pertes de l'artillerie dans la forêt de Ris&nbsp;» et avoir «&nbsp;vu en passant dans le ravin d'Argentol une batterie dont les quatre pièces étaient démolies&nbsp;». Les deux sources — allemande officielle et prisonnier interrogé par les Alliés — se recoupent exactement." data-en="A soldier of the 175th Infantry Regiment (36th DI), captured by the Americans, stated that he had 'observed heavy losses by the artillery in the Forest of Ris' and had 'seen, while passing through the Argentol ravine, a battery whose four guns had been destroyed.' The two sources — the official German account and a prisoner interrogated by the Allies — match exactly.">Un soldat du 175e Régiment d'Infanterie (36e DI), capturé par les Américains, déclare avoir «&nbsp;constaté de grosses pertes de l'artillerie dans la forêt de Ris&nbsp;» et avoir «&nbsp;vu en passant dans le ravin d'Argentol une batterie dont les quatre pièces étaient démolies&nbsp;». Les deux sources — allemande officielle et prisonnier interrogé par les Alliés — se recoupent exactement.</p>
+  </div>
+
+  <div class="photo-grid-2" style="margin-top:2rem">
+    <img src="selection_sources/Illustrations_foret_de_Ris/m2-030.jpg"
+         alt="Soldats américains en position défensive à l'abri d'un mur, lisière d'un bois — été 1918"
+         onclick="openLB(this.src)"
+         title="Soldats américains en position défensive en lisière de bois — été 1918">
+    <img src="selection_sources/Illustrations_foret_de_Ris/m2-044.jpg"
+         alt="Soldat américain dans un abri creusé en forêt"
+         onclick="openLB(this.src)"
+         title="Soldat américain dans un abri de fortune creusé dans un bois — été 1918">
+  </div>
+  <p class="photo-caption" data-fr="Soldats américains en position en lisière de bois — le type de combat qui attendait les unités alliées dans la Forêt de Ris, été 1918." data-en="American soldiers in position at the forest edge — the type of fighting that awaited Allied units in the Forest of Ris, summer 1918.">Soldats américains en position en lisière de bois — le type de combat qui attendait les unités alliées dans la Forêt de Ris, été 1918.</p>
+</div>
+</section>
+
+<!-- CHAPITRE 0 : PRÉPARATION — LES GAZ EN JUILLET -->
+<section style="background:var(--bg2);border-top:1px solid var(--border);max-width:100%;padding:4rem 1.5rem">
+<div style="max-width:1100px;margin:0 auto">
+  <div class="section-label" data-fr="8–13 juillet 1918 · Préparation" data-en="July 8–13, 1918 · Preparation">8–13 juillet 1918 · Préparation</div>
+  <h2 data-fr="La forêt de Ris avant la bataille : 30 000 obus à l'ypérite" data-en="The Forest of Ris before the battle: 30,000 mustard gas shells">La forêt de Ris avant la bataille : 30 000 obus à l'ypérite</h2>
+  <p style="font-size:.95rem;color:var(--text2);max-width:700px;line-height:1.85;margin-bottom:1.5rem" data-fr="Dès le début de juillet, le général de Mondésir avait observé que les tirs d'artillerie française sur les bois au nord de la Marne «&nbsp;amenaient de fréquentes explosions de petits dépôts de munitions&nbsp;» — preuve que les Allemands y concentraient une artillerie importante en vue d'une offensive. Pour contrer ce dispositif, Mondésir ordonne à partir du 8 juillet des tirs massifs à l'ypérite (gaz moutarde) sur les bois de la rive droite." data-en="From early July, General de Mondésir had observed that French artillery fire on the woods north of the Marne 'caused frequent explosions of small ammunition dumps' — proof that the Germans were concentrating significant artillery there in preparation for an offensive. To counter this, Mondésir ordered from July 8 onward massive mustard gas shelling of the woods on the right bank.">
+    Dès le début de juillet, le général de Mondésir avait observé que les tirs d'artillerie française sur les bois au nord de la Marne «&nbsp;amenaient de fréquentes explosions de petits dépôts de munitions&nbsp;» — preuve que les Allemands y concentraient une artillerie importante en vue d'une offensive. Pour contrer ce dispositif, Mondésir ordonne à partir du 8 juillet des tirs massifs à l'ypérite (gaz moutarde) sur les bois de la rive droite.
+  </p>
+
+  <blockquote style="font-family:'Playfair Display',Georgia,serif;font-size:.95rem;font-style:italic;color:var(--gold);max-width:680px;border-left:3px solid var(--border);padding-left:1.5rem;margin:1.5rem 0;line-height:1.75">
+    «&nbsp;À partir du 8 juillet, et pendant trois jours (les 8, 9 et 13), je fis exécuter, suivant un programme bien étudié, des tirs nombreux à ypérite dans les bois de la rive droite et sur certains ravins. Je fis lancer <strong>30 000 obus de 75 et 1 000 de 105</strong>, chargés en ypérite.&nbsp;»
+    <cite style="display:block;font-size:.72rem;color:var(--text2);margin-top:.75rem;font-style:normal;letter-spacing:.1em;text-transform:uppercase" data-fr="— Général de Mondésir, commandant le 38e Corps d'Armée" data-en="— General de Mondésir, commanding the 38th Army Corps">— Général de Mondésir, commandant le 38e Corps d'Armée</cite>
+  </blockquote>
+
+  <p style="font-size:.95rem;color:var(--text2);max-width:700px;line-height:1.85;margin-bottom:1.5rem" data-fr="L'efficacité de ces tirs préventifs est confirmée par un prisonnier du 6e Régiment de Grenadiers, capturé le 15 juillet. Dans son interrogatoire, il «&nbsp;a constaté de grosses pertes de l'artillerie dans la forêt de Ris et […] a vu en passant dans le ravin d'Argentol, une batterie dont les quatre pièces étaient démolies&nbsp;». Mondésir avait réussi à empêcher de sortir des bois «&nbsp;tout un équipage de pont léger&nbsp;» que les Allemands y avaient préparé pour le franchissement de la Marne." data-en="The effectiveness of these preventive strikes is confirmed by a prisoner from the 6th Grenadier Regiment, captured on July 15. In his interrogation, he 'observed heavy losses by the artillery in the Forest of Ris and [...] saw, while passing through the Argentol ravine, a battery whose four guns had been destroyed.' Mondésir had succeeded in preventing 'an entire set of light bridging equipment' that the Germans had prepared there for crossing the Marne from leaving the woods.">
+    L'efficacité de ces tirs préventifs est confirmée par un prisonnier du 6e Régiment de Grenadiers, capturé le 15 juillet. Dans son interrogatoire, il «&nbsp;a constaté de <strong>grosses pertes de l'artillerie dans la forêt de Ris</strong> et […] a vu en passant dans le ravin d'Argentol, une batterie dont les quatre pièces étaient démolies&nbsp;». Mondésir avait réussi à empêcher de sortir des bois «&nbsp;tout un équipage de pont léger&nbsp;» que les Allemands y avaient préparé pour le franchissement de la Marne.
+  </p>
+
+  <div class="info-box">
+    <h3 data-fr="Ypérite et chlore — l'arme chimique dans la forêt" data-en="Mustard gas and chlorine — chemical weapons in the forest">Ypérite et chlore — l'arme chimique dans la forêt</h3>
+    <p data-fr="L'ypérite (gaz moutarde) persistait plusieurs jours dans les sous-bois, obligeant les troupes à porter des masques à gaz même lors des mouvements nocturnes. Dans une forêt dense, l'évacuation par le vent était minimale. Les unités allemandes stationnarisant dans la forêt de Ris subirent donc des pertes importantes avant même le début de la contre-offensive alliée. La nuit du 14 au 15 juillet, les Allemands répondirent à leur tour avec des gaz Croix Bleue (diphosgène) et ypérite sur les positions alliées." data-en="Mustard gas persisted for several days in the undergrowth, forcing troops to wear gas masks even during night movements. In dense forest, wind dispersal was minimal. German units stationed in the Forest of Ris therefore suffered significant casualties even before the Allied counter-offensive began. On the night of July 14–15, the Germans responded with Blue Cross gas (diphosgene) and mustard gas on Allied positions.">L'ypérite (gaz moutarde) persistait plusieurs jours dans les sous-bois, obligeant les troupes à porter des masques à gaz même lors des mouvements nocturnes. Dans une forêt dense, l'évacuation par le vent était minimale. Les unités allemandes stationnarisant dans la forêt de Ris subirent donc des pertes importantes avant même le début de la contre-offensive alliée. La nuit du 14 au 15 juillet, les Allemands répondirent à leur tour avec des gaz Croix Bleue (diphosgène) et ypérite sur les positions alliées.</p>
+  </div>
+</div>
+</section>
+
+<!-- CHAPITRE 2 : LE CHARMEL -->
+<section style="background:var(--bg2);border-top:1px solid var(--border);max-width:100%;padding:4rem 1.5rem">
+<div style="max-width:1100px;margin:0 auto">
+  <div class="section-label" data-fr="22–25 juillet 1918" data-en="July 22–25, 1918">22–25 juillet 1918</div>
+  <h2 data-fr="La bataille pour Le Charmel — trois jours de combats" data-en="The battle for Le Charmel — three days of fighting">La bataille pour Le Charmel — trois jours de combats</h2>
+  <p style="font-size:.95rem;color:var(--text2);max-width:700px;line-height:1.85;margin-bottom:1.5rem" data-fr="Le Charmel est un village sur les crêtes boisées à environ 9 km au nord-est de Jaulgonne. Sa prise est indispensable pour contrôler les accès nord vers la Vesle. La bataille pour ce village dure trois jours et illustre parfaitement la difficulté des combats dans ce secteur boisé." data-en="Le Charmel is a village on the wooded ridges about 9 km north-east of Jaulgonne. Its capture was essential to control the northern approaches toward the Vesle. The battle for this village lasted three days and perfectly illustrates the difficulty of fighting in this wooded sector.">
+    Le Charmel est un village sur les crêtes boisées à environ 9 km au nord-est de Jaulgonne. Sa prise est indispensable pour contrôler les accès nord vers la Vesle. La bataille pour ce village dure trois jours et illustre parfaitement la difficulté des combats dans ce secteur boisé.
+  </p>
+
+  <div style="border-left:3px solid var(--border);padding-left:1.5rem;margin:2rem 0">
+
+    <div style="margin-bottom:1.75rem">
+      <div style="font-size:.68rem;letter-spacing:.25em;color:var(--gold2);text-transform:uppercase;margin-bottom:.4rem" data-fr="22 juillet — 13h15" data-en="July 22 — 1:15 p.m.">22 juillet — 13h15</div>
+      <p style="font-size:.92rem;color:var(--text2);line-height:1.8;margin:0" data-fr="Le 1er Bataillon du 38e RI US atteint Le Charmel à 13h15, après avoir libéré Jaulgonne le matin même. Mais il est sans soutien : son artillerie n'a pas encore pu franchir la Marne à temps. Sous la pression allemande, le bataillon doit reculer vers Jaulgonne en fin d'après-midi." data-en="The 1st Battalion of the 38th US Infantry reaches Le Charmel at 1:15 p.m., having liberated Jaulgonne that same morning. But it is unsupported: its artillery has not yet been able to cross the Marne in time. Under German pressure, the battalion must fall back toward Jaulgonne in the late afternoon.">Le <strong>1er Bataillon du 38e RI US</strong> atteint Le Charmel à 13h15, après avoir libéré Jaulgonne le matin même. Mais il est sans soutien : son artillerie n'a pas encore pu franchir la Marne à temps. Sous la pression allemande, le bataillon doit <strong>reculer vers Jaulgonne</strong> en fin d'après-midi.</p>
+    </div>
+
+    <div style="margin-bottom:1.75rem">
+      <div style="font-size:.68rem;letter-spacing:.25em;color:var(--gold2);text-transform:uppercase;margin-bottom:.4rem" data-fr="24 juillet" data-en="July 24">24 juillet</div>
+      <p style="font-size:.92rem;color:var(--text2);line-height:1.8;margin:0" data-fr="Les 4e, 7e et 30e Régiments d'Infanterie US (qui ont relevé le 38e) approchent les abords du village. Ils ne peuvent pas s'en emparer : une résistance organisée les repousse. La nuit du 23-24 juillet a vu les Allemands se replier et mettre en place de nouvelles lignes défensives." data-en="The 4th, 7th and 30th US Infantry Regiments (which have relieved the 38th) approach the village outskirts. They cannot take it: organized resistance repels them. The night of July 23–24 saw the Germans fall back and establish new defensive lines.">Les 4e, 7e et 30e Régiments d'Infanterie US (qui ont relevé le 38e) approchent les abords du village. Ils <strong>ne peuvent pas s'en emparer</strong> : une résistance organisée les repousse. La nuit du 23-24 juillet a vu les Allemands se replier et mettre en place de nouvelles lignes défensives.</p>
+    </div>
+
+    <div style="margin-bottom:1.75rem">
+      <div style="font-size:.68rem;letter-spacing:.25em;color:var(--gold2);text-transform:uppercase;margin-bottom:.4rem" data-fr="25 juillet — après-midi" data-en="July 25 — afternoon">25 juillet — après-midi</div>
+      <p style="font-size:.92rem;color:var(--text2);line-height:1.8;margin:0" data-fr="Le 4e Régiment d'Infanterie US s'empare définitivement du Charmel dans l'après-midi. Mais un nid de mitrailleuse installé dans le Château du Charmel (à 500 mètres du village) continue de tirer sur les rues du village, empêchant tout mouvement à découvert. Ce n'est qu'en soirée que la position sera réduite." data-en="The 4th US Infantry Regiment definitively captures Le Charmel in the afternoon. But a machine-gun nest set up in the Château du Charmel (500 metres from the village) continues firing on the village streets, preventing any movement in the open. Only by evening is the position eliminated.">Le <strong>4e Régiment d'Infanterie US</strong> s'empare définitivement du Charmel dans l'après-midi. Mais un nid de mitrailleuse installé dans <strong>le Château du Charmel</strong> (à 500 mètres du village) continue de tirer sur les rues du village, empêchant tout mouvement à découvert. Ce n'est qu'en soirée que la position sera réduite.</p>
+    </div>
+
+  </div>
+
+  <blockquote style="font-family:'Playfair Display',Georgia,serif;font-size:.95rem;font-style:italic;color:var(--gold);max-width:680px;border-left:3px solid var(--border);padding-left:1.5rem;margin:1.5rem 0;line-height:1.75">
+    «&nbsp;Au Charmel, l'ennemi parut avoir l'intention de nous arrêter sérieusement. Les 4e et 30e régiments de la 3e D.U.S. se distinguèrent.&nbsp;»
+    <cite style="display:block;font-size:.72rem;color:var(--text2);margin-top:.75rem;font-style:normal;letter-spacing:.1em;text-transform:uppercase" data-fr="— Général de Mondésir, 38e Corps d'Armée" data-en="— General de Mondésir, 38th Army Corps">— Général de Mondésir, 38e Corps d'Armée</cite>
+  </blockquote>
+
+  <div class="photo-grid-2">
+    <img src="selection_sources/m2-085.jpg" alt="Barricade allemande à la sortie du Charmel vers Courmont, 27 juillet 1918" onclick="openLB(this.src)" title="Barricade allemande à la sortie du Charmel vers Courmont, sous la plaque Michelin — 27 juillet 1918 (source : GWPDA)">
+    <img src="selection_sources/Illustrations_foret_de_Ris/m2-026.jpg" alt="Officiers et blessés dans un champ, combats de lisière, été 1918" onclick="openLB(this.src)" title="Officiers et blessés sur le terrain — les pertes dans les combats de lisière, été 1918">
+  </div>
+  <p class="photo-caption" data-fr="À gauche : barricade allemande à la sortie du Charmel vers Courmont, sous la plaque Michelin — 27 juillet 1918. Le village venait d'être pris par le 4e RI US le 25 juillet. À droite : soldats en position dans les combats de lisière." data-en="Left: German barricade at the exit of Le Charmel toward Courmont, under the Michelin sign — July 27, 1918. The village had just been taken by the 4th US Infantry on July 25. Right: soldiers in position during forest-edge fighting.">À gauche : barricade allemande à la sortie du Charmel vers Courmont, sous la plaque Michelin — 27 juillet 1918. Le village venait d'être pris par le 4e RI US le 25 juillet. À droite : soldats en position dans les combats de lisière.</p>
+</div>
+</section>
+
+<!-- CHAPITRE 3 : LA 4e DI -->
+<section>
+  <div class="section-label" data-fr="27 juillet 1918" data-en="July 27, 1918">27 juillet 1918</div>
+  <h2 data-fr="La 4e Division d'Infanterie occupe la forêt de Ris" data-en="The 4th Infantry Division occupies the Forest of Ris">La 4e Division d'Infanterie occupe la forêt de Ris</h2>
+  <p style="font-size:.95rem;color:var(--text2);max-width:700px;line-height:1.85;margin-bottom:1.5rem" data-fr="La 4e Division d'Infanterie française (120e et 147e RI, 9e et 18e Bataillons de Chasseurs à Pied) relève la 73e DI. Le 27 juillet au soir, son artillerie — le 42e Régiment d'Artillerie de Campagne — franchit la Marne sur des ponts de bateaux à Sauvigny et Courtemont-Rozay. Les 1er et 2e groupes passent à Sauvigny, le 3e groupe à Courtemont-Rozay." data-en="The French 4th Infantry Division (120th and 147th RI, 9th and 18th Battalions of Foot Chasseurs) relieves the 73rd DI. On the evening of July 27, its artillery — the 42nd Field Artillery Regiment — crosses the Marne on pontoon bridges at Sauvigny and Courtemont-Rozay. The 1st and 2nd groups cross at Sauvigny, the 3rd group at Courtemont-Rozay.">
+    La <strong>4e Division d'Infanterie française</strong> (120e et 147e RI, 9e et 18e Bataillons de Chasseurs à Pied) relève la 73e DI. Le <strong>27 juillet au soir</strong>, son artillerie — le 42e Régiment d'Artillerie de Campagne — franchit la Marne sur des ponts de bateaux à Sauvigny et Courtemont-Rozay. Les 1er et 2e groupes passent à Sauvigny, le 3e groupe à Courtemont-Rozay.
+  </p>
+
+  <blockquote style="font-family:'Playfair Display',Georgia,serif;font-size:.95rem;font-style:italic;color:var(--gold);max-width:680px;border-left:3px solid var(--border);padding-left:1.5rem;margin:1.5rem 0;line-height:1.75">
+    «&nbsp;La 4e D.I. a occupé la Forêt de Ris, le 42e est remis à sa disposition et passe la Marne le soir sur des ponts de bateaux : 1er et 2e groupes à Sauvigny, 3e groupe à Courtémont-Rozay. L'ennemi semble retranché à la lisière sud du Bois Meunière.&nbsp;»
+    <cite style="display:block;font-size:.72rem;color:var(--text2);margin-top:.75rem;font-style:normal;letter-spacing:.1em;text-transform:uppercase" data-fr="— 42e Régiment d'Artillerie de Campagne, Journal de marche (27 juillet 1918)" data-en="— 42nd Field Artillery Regiment, War Diary (July 27, 1918)">— 42e Régiment d'Artillerie de Campagne, Journal de marche (27 juillet 1918)</cite>
+  </blockquote>
+
+  <p style="font-size:.95rem;color:var(--text2);max-width:700px;line-height:1.85;margin-bottom:1.5rem" data-fr="Les Allemands se sont repliés jusqu'à la lisière sud du Bois Meunière (à environ 3 km au nord-est du Charmel). Ils y ont établi une solide ligne défensive : des trous de tirailleur garnis de mitrailleuses, protégés par des réseaux de fil de fer (réseau Brun), appuyés par une artillerie qui tire des obus explosifs et toxiques sur les lignes avancées alliées. C'est là que se livre la dernière grande résistance allemande dans ce secteur." data-en="The Germans have fallen back to the southern edge of the Bois Meunière (about 3 km north-east of Le Charmel). There they have established a solid defensive line: rifle pits equipped with machine guns, protected by barbed wire entanglements (Brun network), supported by artillery firing explosive and toxic shells on Allied forward lines. This is where the last major German resistance in the sector takes place.">
+    Les Allemands se sont repliés jusqu'à la lisière sud du <strong>Bois Meunière</strong> (à environ 3 km au nord-est du Charmel). Ils y ont établi une solide ligne défensive : des trous de tirailleur garnis de mitrailleuses, protégés par des réseaux de fil de fer (réseau Brun), appuyés par une artillerie qui tire des obus explosifs et toxiques sur les lignes avancées alliées. C'est là que se livre la dernière grande résistance allemande dans ce secteur.
+  </p>
+</section>
+
+<!-- CHAPITRE 4 : BOIS MEUNIÈRE -->
+<section style="background:var(--bg2);border-top:1px solid var(--border);max-width:100%;padding:4rem 1.5rem">
+<div style="max-width:1100px;margin:0 auto">
+  <div class="section-label" data-fr="28–31 juillet 1918" data-en="July 28–31, 1918">28–31 juillet 1918</div>
+  <h2 data-fr="Le Bois Meunière — quatre jours de résistance" data-en="The Bois Meunière — four days of resistance">Le Bois Meunière — quatre jours de résistance</h2>
+
+  <div style="border-left:3px solid var(--border);padding-left:1.5rem;margin:2rem 0">
+
+    <div style="margin-bottom:1.75rem">
+      <div style="font-size:.68rem;letter-spacing:.25em;color:var(--gold2);text-transform:uppercase;margin-bottom:.4rem" data-fr="28 juillet" data-en="July 28">28 juillet</div>
+      <p style="font-size:.92rem;color:var(--text2);line-height:1.8;margin:0" data-fr="Attaque générale de la 4e DI. L'artillerie du 42e RAC ouvre la voie. Le 18e BCP atteint le «&nbsp;Télégraphe détruit&nbsp;» mais doit ramener ses éléments avancés sous la pression. À 15h00, une brigade américaine à la gauche de la 4e DI s'empare de Ronchères. La lisière du Bois Meunière reste tenue par l'ennemi — mitrailleuses à 100-200 m en avant du bois, artillerie active avec obus explosifs et toxiques." data-en="General attack by the 4th DI. The 42nd RAC artillery leads the way. The 18th BCP reaches the 'destroyed telegraph' but must pull back its forward elements under pressure. At 3 p.m., an American brigade on the left of the 4th DI captures Ronchères. The edge of the Bois Meunière remains held by the enemy — machine guns 100–200 m in front of the wood, active artillery with explosive and toxic shells.">Attaque générale de la 4e DI. L'artillerie du 42e RAC ouvre la voie. Le <strong>18e BCP</strong> atteint le «&nbsp;Télégraphe détruit&nbsp;» mais doit ramener ses éléments avancés sous la pression. À 15h00, une brigade américaine à la gauche de la 4e DI s'empare de <strong>Ronchères</strong>. La lisière du Bois Meunière reste tenue par l'ennemi — mitrailleuses à 100-200 m en avant du bois, artillerie active avec obus explosifs et toxiques. La 7e batterie du 42e RAC est «&nbsp;assez sérieusement bombardée&nbsp;».</p>
+    </div>
+
+    <div style="margin-bottom:1.75rem">
+      <div style="font-size:.68rem;letter-spacing:.25em;color:var(--gold2);text-transform:uppercase;margin-bottom:.4rem" data-fr="29–30 juillet" data-en="July 29–30">29–30 juillet</div>
+      <p style="font-size:.92rem;color:var(--text2);line-height:1.8;margin:0" data-fr="«&nbsp;Plusieurs tentatives de l'infanterie sur le Bois Meunière avec ou sans artillerie restent sans résultat. Le Bois Meunière est bombardé jour et nuit par les batteries.&nbsp;» (42e RAC). Deux jours d'attaques répétées et de bombardements continus sans succès : la position est trop solide." data-en="'Several attempts by the infantry on the Bois Meunière with or without artillery remain unsuccessful. The Bois Meunière is bombarded day and night by the batteries.' (42nd RAC). Two days of repeated attacks and continuous bombardment without success: the position is too strong.">«&nbsp;<strong>Plusieurs tentatives de l'infanterie sur le Bois Meunière avec ou sans artillerie restent sans résultat.</strong> Le Bois Meunière est bombardé jour et nuit par les batteries.&nbsp;» (42e RAC). Deux jours d'attaques répétées et de bombardements continus sans succès : la position est trop solide.</p>
+    </div>
+
+    <div style="margin-bottom:1.75rem">
+      <div style="font-size:.68rem;letter-spacing:.25em;color:var(--gold2);text-transform:uppercase;margin-bottom:.4rem" data-fr="31 juillet — matin" data-en="July 31 — morning">31 juillet — matin</div>
+      <p style="font-size:.92rem;color:var(--text2);line-height:1.8;margin:0" data-fr="À l'aube, les reconnaissances entrent dans le bois «&nbsp;sans difficulté&nbsp;» — les Allemands se sont retirés pendant la nuit. L'infanterie suit. Les groupes d'artillerie bondissent en avant. Les batteries arrivent à temps pour tirer sur des colonnes allemandes visibles en retraite. Le 18e BCP envoie ses félicitations. Le général Lebrun, commandant le 3e CA, complimente le 42e RAC pour la rapidité de son mouvement." data-en="At dawn, reconnaissance enters the wood 'without difficulty' — the Germans have withdrawn during the night. The infantry follows. The artillery groups leap forward. The batteries arrive in time to fire on visible German columns in retreat. The 18th BCP sends its congratulations. General Lebrun, commanding the 3rd CA, commends the 42nd RAC for the speed of its movement.">À l'aube, les reconnaissances entrent dans le bois «&nbsp;sans difficulté&nbsp;» — les Allemands se sont retirés pendant la nuit. L'infanterie suit. Les groupes d'artillerie bondissent en avant. Les batteries arrivent à temps pour tirer sur des colonnes allemandes visibles en retraite — les cadavres trouvés les jours suivants témoignent de l'efficacité du tir. Le <strong>18e BCP envoie ses félicitations</strong>. Le général Lebrun, commandant le 3e CA, complimente le 42e RAC pour la rapidité de son mouvement.</p>
+    </div>
+
+  </div>
+
+  <div class="info-box">
+    <h3 data-fr="La ligne du Bois Meunière — une défense organisée" data-en="The Bois Meunière line — an organized defense">La ligne du Bois Meunière — une défense organisée</h3>
+    <p data-fr="Le 42e RAC décrit la position allemande : «&nbsp;La lisière du Bois Meunière est solidement organisée ; des trous disséminés à 100 ou 200 mètres au sud du bois sont garnis de mitrailleuses protégées par un réseau Brun ; l'artillerie ennemie paraît également assez puissante, elle tire vigoureusement sur nos lignes avancées des obus explosifs et toxiques.&nbsp;» Ce n'est pas une simple position de retardement — c'est une ligne défensive préparée." data-en="The 42nd RAC describes the German position: 'The edge of the Bois Meunière is solidly organized; rifle pits scattered 100 to 200 metres south of the wood are equipped with machine guns protected by Brun wire network; enemy artillery also appears quite powerful, firing vigorously on our forward lines with explosive and toxic shells.' This is not a simple delaying position — it is a prepared defensive line.">Le 42e RAC décrit la position allemande : «&nbsp;La lisière du Bois Meunière est solidement organisée ; des trous disséminés à 100 ou 200 mètres au sud du bois sont garnis de mitrailleuses protégées par un réseau Brun ; l'artillerie ennemie paraît également assez puissante, elle tire vigoureusement sur nos lignes avancées des obus explosifs et toxiques.&nbsp;» Ce n'est pas une simple position de retardement — c'est une ligne défensive préparée.</p>
+  </div>
+
+  <div class="photo-grid-2">
+    <img src="selection_sources/m2-051.jpg" alt="Soldats américains dans le village de Vinly, été 1918" onclick="openLB(this.src)" title="Soldats US dans les villages du secteur boisé — GWPDA">
+    <img src="selection_sources/Veteran031.jpg" alt="Mortier français 220mm en action" onclick="openLB(this.src)" title="Mortier français de 220mm en action — artillerie utilisée pour réduire les positions boisées">
+  </div>
+  <p class="photo-caption" data-fr="Équipement et conditions de combat dans les secteurs boisés — été 1918" data-en="Equipment and combat conditions in wooded sectors — summer 1918">Équipement et conditions de combat dans les secteurs boisés — été 1918</p>
+</div>
+</section>
+
+<!-- BILAN -->
+<section style="background:var(--bg2);border-top:1px solid var(--border);max-width:100%;padding:4rem 1.5rem">
+<div style="max-width:1100px;margin:0 auto">
+  <div class="section-label" data-fr="1er août 1918 et après" data-en="August 1, 1918 and after">1er août 1918 et après</div>
+  <h2 data-fr="La poursuite vers l'Ourcq et la Vesle" data-en="The pursuit toward the Ourcq and the Vesle">La poursuite vers l'Ourcq et la Vesle</h2>
+  <p style="font-size:.95rem;color:var(--text2);max-width:700px;line-height:1.85;margin-bottom:1.5rem" data-fr="Après la prise du Bois Meunière le 31 juillet, la résistance allemande dans ce secteur s'effondre. Le 2 août, «&nbsp;le repli ennemi a été plus considérable&nbsp;», la cavalerie patrouille au-delà de Cohan, l'ennemi incendie ses approvisionnements — signe d'une retraite précipitée. Le 3 août, les Allemands repassent la Vesle à Fismes, mettant fin à la 2e Bataille de la Marne." data-en="After the capture of the Bois Meunière on July 31, German resistance in this sector collapses. On August 2, 'the enemy's withdrawal has been more considerable,' cavalry patrols beyond Cohan, the enemy burns its supplies — a sign of hasty retreat. On August 3, the Germans recross the Vesle at Fismes, ending the 2nd Battle of the Marne.">
+    Après la prise du Bois Meunière le 31 juillet, la résistance allemande dans ce secteur s'effondre. Le 2 août, «&nbsp;le repli ennemi a été plus considérable&nbsp;», la cavalerie patrouille au-delà de Cohan, l'ennemi incendie ses approvisionnements — signe d'une retraite précipitée. Le 3 août, les Allemands repassent la Vesle à Fismes, mettant fin à la 2e Bataille de la Marne.
+  </p>
+  <p style="font-size:.95rem;color:var(--text2);max-width:700px;line-height:1.85;margin-bottom:1.5rem" data-fr="L'artillerie française — le 42e RAC — poursuit jusqu'à la Vesle et au-delà. Le colonel commandant le 38e RI US lui adresse ses félicitations pour sa «&nbsp;brillante coopération&nbsp;». Des prisonniers de quatre divisions différentes sont capturés dans ce secteur, dont des éléments de la 39e Division et de la 5e Division de la Garde allemande — signe que l'ennemi avait engagé ses meilleures unités pour tenter d'arrêter l'avance alliée." data-en="The French artillery — the 42nd RAC — pursues to the Vesle and beyond. The colonel commanding the 38th US Infantry sends his congratulations for its 'brilliant cooperation.' Prisoners from four different divisions are captured in this sector, including elements of the 39th Division and the German 5th Guard Division — a sign that the enemy had committed its best units to try to stop the Allied advance.">
+    L'artillerie française — le 42e RAC — poursuit jusqu'à la Vesle et au-delà. Le colonel commandant le 38e RI US lui adresse ses félicitations pour sa «&nbsp;brillante coopération&nbsp;». Des prisonniers de quatre divisions différentes sont capturés dans ce secteur, dont des éléments de la <strong>39e Division</strong> et de la <strong>5e Division de la Garde</strong> allemande — signe que l'ennemi avait engagé ses meilleures unités pour tenter d'arrêter l'avance alliée.
+  </p>
+
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-num">4</div>
+      <div class="stat-label" data-fr="Divisions allemandes capturées dans le secteur" data-en="German divisions captured in the sector">Divisions allemandes capturées dans le secteur</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">5e DG</div>
+      <div class="stat-label" data-fr="5e Division de la Garde (prisonniers)" data-en="5th Guard Division (prisoners)">5e Division de la Garde (prisonniers)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">3 août</div>
+      <div class="stat-label" data-fr="Allemands repassent la Vesle" data-en="Germans recross the Vesle">Allemands repassent la Vesle</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ORDRE DE BATAILLE -->
+<section>
+  <div class="section-label" data-fr="Ordre de bataille" data-en="Order of battle">Ordre de bataille</div>
+  <h2 data-fr="Les unités engagées dans la Forêt de Ris" data-en="Units engaged in the Forest of Ris">Les unités engagées dans la Forêt de Ris</h2>
+  <div class="units">
+    <div class="unit-card">
+      <div class="unit-card-band fr"></div>
+      <div class="unit-card-body">
+        <div class="unit-flag">🇫🇷</div>
+        <div class="unit-name" data-fr="73e Division d'Infanterie" data-en="73rd Infantry Division">73e Division d'Infanterie</div>
+        <div class="unit-theater" data-fr="Forêt de Ris · 22–25 juillet 1918" data-en="Forest of Ris · July 22–25, 1918">Forêt de Ris · 22–25 juillet 1918</div>
+        <p class="unit-desc" data-fr="346e, 356e et 367e RI. Franchit la Marne à Sauvigny et Courtemont le 22 juillet. Première unité française à combattre dans la forêt de Ris. Retirée du front le 25 juillet après avoir sécurisé la zone d'entrée dans le massif. Unité de la 6e Armée (Degoutte), 38e CA (Mondésir)." data-en="346th, 356th and 367th RI. Crossed the Marne at Sauvigny and Courtemont on July 22. First French unit to fight in the Forest of Ris. Withdrawn from the front on July 25 after securing the entry zone into the massif. Part of the 6th Army (Degoutte), 38th CA (Mondésir).">346e, 356e et 367e RI. Franchit la Marne à Sauvigny et Courtemont le 22 juillet. Première unité française à combattre dans la forêt de Ris. Retirée du front le 25 juillet après avoir sécurisé la zone d'entrée dans le massif. Unité de la 6e Armée (Degoutte), 38e CA (Mondésir).</p>
+      </div>
+    </div>
+    <div class="unit-card">
+      <div class="unit-card-band fr"></div>
+      <div class="unit-card-body">
+        <div class="unit-flag">🇫🇷</div>
+        <div class="unit-name" data-fr="4e Division d'Infanterie" data-en="4th Infantry Division">4e Division d'Infanterie</div>
+        <div class="unit-theater" data-fr="Forêt de Ris · Bois Meunière · 27 juil. – 2 août 1918" data-en="Forest of Ris · Bois Meunière · July 27 – Aug. 2, 1918">Forêt de Ris · Bois Meunière · 27 juil. – 2 août 1918</div>
+        <p class="unit-desc" data-fr="120e et 147e RI, 9e et 18e BCP. Relève la 73e DI. Occupe officiellement la forêt de Ris le 27 juillet. Mène l'assaut du Bois Meunière (28-31 juillet). Soutenue par le 42e RAC. Sous commandement du 3e CA (général Lebrun)." data-en="120th and 147th RI, 9th and 18th BCP. Relieves the 73rd DI. Officially occupies the Forest of Ris on July 27. Leads the assault on the Bois Meunière (July 28–31). Supported by the 42nd RAC. Under command of the 3rd CA (General Lebrun).">120e et 147e RI, 9e et 18e BCP. Relève la 73e DI. Occupe officiellement la forêt de Ris le 27 juillet. Mène l'assaut du Bois Meunière (28-31 juillet). Soutenue par le 42e RAC. Sous commandement du 3e CA (général Lebrun).</p>
+      </div>
+    </div>
+    <div class="unit-card">
+      <div class="unit-card-band us"></div>
+      <div class="unit-card-body">
+        <div class="unit-flag">🇺🇸</div>
+        <div class="unit-name" data-fr="4e Régiment d'Infanterie US — 3e Division" data-en="4th US Infantry Regiment — 3rd Division">4e Régiment d'Infanterie US — 3e Division</div>
+        <div class="unit-theater" data-fr="Le Charmel · 25 juillet 1918" data-en="Le Charmel · July 25, 1918">Le Charmel · 25 juillet 1918</div>
+        <p class="unit-desc" data-fr="S'empare définitivement du Charmel dans l'après-midi du 25 juillet, après deux tentatives infructueuses les 22 et 24 juillet. Position dangereuse : nid de mitrailleuse dans le château à 500 m continue de tirer sur les rues. Mondésir : «&nbsp;les 4e et 30e régiments de la 3e D.U.S. se distinguèrent.&nbsp;»" data-en="Definitively captures Le Charmel on the afternoon of July 25, after two unsuccessful attempts on July 22 and 24. Dangerous position: machine-gun nest in the château 500 m away continues firing on the streets. Mondésir: 'The 4th and 30th regiments of the 3rd US Division distinguished themselves.'">S'empare définitivement du Charmel dans l'après-midi du 25 juillet, après deux tentatives infructueuses les 22 et 24 juillet. Position dangereuse : nid de mitrailleuse dans le château à 500 m continue de tirer sur les rues du village. Mondésir : «&nbsp;les 4e et 30e régiments de la 3e D.U.S. se distinguèrent.&nbsp;»</p>
+      </div>
+    </div>
+    <div class="unit-card">
+      <div class="unit-card-band fr"></div>
+      <div class="unit-card-body">
+        <div class="unit-flag">🇫🇷</div>
+        <div class="unit-name" data-fr="42e Régiment d'Artillerie de Campagne" data-en="42nd Field Artillery Regiment">42e Régiment d'Artillerie de Campagne</div>
+        <div class="unit-theater" data-fr="Artillerie de la 4e DI · 27 juil. – 4 août 1918" data-en="Artillery of the 4th DI · July 27 – Aug. 4, 1918">Artillerie de la 4e DI · 27 juil. – 4 août 1918</div>
+        <p class="unit-desc" data-fr="Franchit la Marne sur ponts de bateaux à Sauvigny et Courtemont-Rozay le 27 juillet au soir. Appui des 9e BCP, 120e et 147e RI et 18e BCP dans les combats du Bois Meunière. Complimenté par le général Lebrun et le colonel du 38e RI US pour sa coopération." data-en="Crosses the Marne on pontoon bridges at Sauvigny and Courtemont-Rozay on the evening of July 27. Supports the 9th BCP, 120th and 147th RI and 18th BCP in the Bois Meunière fighting. Commended by General Lebrun and the colonel of the 38th US Infantry for its cooperation.">Franchit la Marne sur ponts de bateaux à Sauvigny et Courtemont-Rozay le 27 juillet au soir. Appui des 9e BCP, 120e et 147e RI et 18e BCP dans les combats du Bois Meunière. Complimenté par le général Lebrun et le colonel du 38e RI US pour sa coopération.</p>
+      </div>
+    </div>
+    <div class="unit-card">
+      <div class="unit-card-band" style="height:4px;background:#8b2020"></div>
+      <div class="unit-card-body">
+        <div class="unit-flag">🇩🇪</div>
+        <div class="unit-name" data-fr="Unités allemandes — Forêt de Ris" data-en="German units — Forest of Ris">Unités allemandes — Forêt de Ris</div>
+        <div class="unit-theater" data-fr="Défense · juillet 1918" data-en="Defense · July 1918">Défense · juillet 1918</div>
+        <p class="unit-desc" data-fr="Éléments de la 36e Division (5e et 6e Grenadiers), renforcés par des éléments de la 39e Division et de la 5e Division de la Garde. Avant le 15 juillet, la forêt servait de zone de concentration : la 33e Division d'Infanterie entière y stationne en 2e échelon, avec le Jäger Regiment 4 et des éléments de la 4e Garde DI. Tout mouvement de jour était interdit. Dernière ligne de résistance au Bois Meunière (28-31 juillet)." data-en="Elements of the 36th Division (5th and 6th Grenadiers), reinforced by elements of the 39th Division and the 5th Guard Division. Before July 15, the forest served as a concentration area: the entire 33rd Infantry Division stationed there in 2nd echelon, with Jäger Regiment 4 and elements of the 4th Guard DI. All movement by day was forbidden. Last line of resistance at the Bois Meunière (July 28–31).">Éléments de la 36e Division (5e et 6e Grenadiers), renforcés par des éléments de la 39e Division et de la 5e Division de la Garde. <strong>Avant le 15 juillet</strong>, la forêt servait de zone de concentration : la 33e Division d'Infanterie entière y stationne en 2e échelon, avec le Jäger Regiment 4 et des éléments de la 4e Garde DI. Tout mouvement de jour était interdit. Dernière ligne de résistance au Bois Meunière (28-31 juillet).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p data-fr="Sources primaires : Général de Mondésir — Mémoires du 38e Corps d'Armée · 73e Division d'Infanterie · 42e Régiment d'Artillerie de Campagne · U.S. Army Center of Military History, CMH Pub 77-5 · Reichsarchiv Band 34 — Die letzte deutsche Offensive, Reims 1918 (point de vue allemand officiel)" data-en="Primary sources: General de Mondésir — Memoirs of the 38th Army Corps · 73rd Infantry Division · 42nd Field Artillery Regiment · U.S. Army Center of Military History, CMH Pub 77-5 · Reichsarchiv Band 34 — Die letzte deutsche Offensive, Reims 1918 (official German perspective)">Sources primaires : Général de Mondésir — Mémoires du 38e Corps d'Armée (<em>38corpsa.txt</em>) · 73e Division d'Infanterie (<em>73eme_di.txt</em>) · 42e Régiment d'Artillerie de Campagne (<em>42rac4di.txt</em>) · U.S. Army Center of Military History, CMH Pub 77-5 · Reichsarchiv Band 34 — <em>Die letzte deutsche Offensive, Reims 1918</em> (point de vue allemand officiel)</p>
+  <p style="margin-top:.75rem;font-size:.68rem;color:#7a6a5a" data-fr="En mémoire des soldats tombés dans la Forêt de Ris et au Charmel — Été 1918" data-en="In memory of the soldiers who fell in the Forest of Ris and at Le Charmel — Summer 1918">En mémoire des soldats tombés dans la Forêt de Ris et au Charmel — Été 1918</p>
+</footer>
+
+<script src="lightbox.js"></script>
+<script>
+function toggleLang(){
+  const l=document.documentElement.getAttribute('data-lang')==='fr'?'en':'fr';
+  document.documentElement.setAttribute('data-lang',l);
+  document.getElementById('lang-toggle').textContent=l==='fr'?'English':'Français';
+  document.querySelectorAll('[data-fr]').forEach(el=>{
+    el.innerHTML=el.getAttribute('data-'+l);
+  });
+}
+</script>
+</body>
+</html>

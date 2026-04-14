@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Les Événements — Jaulgonne 1918</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="museum.css">
+</head>
+<body>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-eyebrow" data-fr="Jaulgonne 1918 · Chronologie" data-en="Jaulgonne 1918 · Timeline">Jaulgonne 1918 · Chronologie</div>
+  <h1 class="page-hero-title" data-fr="Les Événements — Été 1918" data-en="The Events — Summer 1918">Les Événements — Été 1918</h1>
+  <p class="page-hero-subtitle" data-fr="Des bombardements massifs du 15 juillet à la libération du 24 juillet" data-en="From the massive bombardments of July 15 to the liberation of July 24">Des bombardements massifs du 15 juillet à la libération du 24 juillet</p>
+  <button class="lang-btn" id="lang-toggle" onclick="toggleLang()">English</button>
+</div>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="index.html">Accueil</a>
+  <a href="geographie.html">Géographie</a>
+  <a href="evenements.html" class="active">Événements</a>
+  <a href="liberation.html">Libération</a>
+  <a href="foret-ris.html">Forêt de Ris</a>
+  <a href="bataille.html">La Bataille</a>
+  <a href="hommage-us.html">Les Américains</a>
+  <a href="memoire.html">Mémorial</a>
+  <a href="galerie.html">Archives</a>
+  <a href="carte_bataille.html">Carte</a>
+</nav>
+
+<!-- TIMELINE -->
+<div id="timeline-section">
+  <div style="max-width:1200px;margin:0 auto;padding:0 1.5rem 2.5rem">
+    <div class="section-label" data-fr="Chronologie" data-en="Timeline">Chronologie</div>
+    <h2 data-fr="Six semaines qui ont changé la guerre" data-en="Six Weeks That Changed the War">Six semaines qui ont changé la guerre</h2>
+    <p class="intro-text" data-fr="Du franchissement allemand du 30 mai à la libération définitive du 24 juillet 1918, Jaulgonne fut le théâtre de combats d'une intensité exceptionnelle. Gaz de combat, bombardements massifs, passerelles jetées de nuit sur la Marne, résistance héroïque, contre-offensive surprise : chaque épisode est documenté ici à partir des sources primaires." data-en="From the German crossing of May 30 to the final liberation of July 24, 1918, Jaulgonne was the scene of exceptionally intense fighting. Poison gas, massive bombardments, pontoon bridges thrown across the Marne by night, heroic resistance, surprise counter-offensive: each episode is documented here from primary sources.">
+      Du franchissement allemand du 30 mai à la libération définitive du 24 juillet 1918, Jaulgonne fut le théâtre de combats d'une intensité exceptionnelle. Gaz de combat, bombardements massifs, passerelles jetées de nuit sur la Marne, résistance héroïque, contre-offensive surprise : chaque épisode est documenté ici à partir des sources primaires.
+    </p>
+  </div>
+  <div class="timeline" id="timeline">
+    <!-- Jalons générés par JS -->
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p data-fr="Sources : Chemins de mémoire · U.S. Army History · La Contemporaine / Argonnaute · Library of Congress · Smithsonian NMAH" data-en="Sources: Chemins de mémoire · U.S. Army History · La Contemporaine / Argonnaute · Library of Congress · Smithsonian NMAH">Sources : Chemins de mémoire · U.S. Army History · La Contemporaine / Argonnaute · Library of Congress · Smithsonian NMAH</p>
+  <p style="margin-top:.75rem;font-size:.68rem;color:#7a6a5a" data-fr="En mémoire des soldats français et américains tombés à Jaulgonne — Été 1918" data-en="In memory of the French and American soldiers who fell at Jaulgonne — Summer 1918">En mémoire des soldats français et américains tombés à Jaulgonne — Été 1918</p>
+</footer>
+
+<script src="lightbox.js"></script>
+<script>
+const ALL_IMGS = [
+  "selection_sources/FI-0732-0343.jpg",
+  "selection_sources/argonnaute_jaulgonne_troupes_americaines_1918.jpg",
+  "selection_sources/smithsonian_marne_jaulgonne_1918_peixotto.jpg",
+  "selection_sources/pg168.jpg",
+  "selection_sources/0177e3918c13d5cc4c840476e5d24c7d902994d7be.jpg",
+  "selection_sources/01c63a49aa6283f1826876a76dd141ca1565dd8f52.jpg",
+  "selection_sources/01e7b172347875435730ca5e97645ff90a7c2f8267.jpg",
+  "selection_sources/01cad8720c2c384c5536ccad5f740e842fb64dab77.jpg",
+  "selection_sources/01a1a0e89809046f0ab57f7207a3ff46d885605da9.jpg",
+  "selection_sources/0188bae17f3575be4385d1f73d9e3ed3cb2a74258f.jpg",
+  "selection_sources/019cd3f3c28ccc11aab95831868e4dbf3216c25cb9.jpg",
+  "selection_sources/01b2a1d0e325ece3769fd31719f056087f6a00e112.jpg",
+  "selection_sources/0185bc756e354851248a955e2763b3c15f41201184.jpg",
+  "selection_sources/01fd3702b3729044a6473bd6824f994109487cd5e8.jpg",
+  "selection_sources/01ff352fcbb084596d78f977495c7edfec194cea57.jpg",
+  "selection_sources/m2-026.jpg",
+  "selection_sources/m2-051.jpg",
+  "selection_sources/Veteran035.jpg",
+  "selection_sources/Veteran031.jpg",
+  "selection_sources/Up_JAULGONNEplace_de_la_Mairie.jpg",
+  "selection_sources/m2-085.jpg",
+  "selection_sources/m2-046.jpg",
+  "selection_sources/m2-037.jpg",
+  "selection_sources/m2-086.jpg",
+  "selection_sources/Eglise_Charteves.jpg",
+  "selection_sources/0143db47ff5098187cd92fa8ae3e28dca1f6660697.jpg",
+  "selection_sources/015db71eecb9c3f866bbd1824c6ca2242583bd7359.jpg",
+  "selection_sources/013bb916f7ea70b91edfc7bdc256217dccc37928bf.jpg",
+  "selection_sources/0146f60ea55cd8fb29c8d455c554296ea9a393d216.jpg",
+  "selection_sources/0139bfa33a9668319ae966fcfe0e30151faa5b8d7f.jpg",
+  "selection_sources/012e6c74ddb0794641e7dd08edfc5cfd8597f51532.jpg",
+  "selection_sources/01d1ec026e79c1daad66f7437e99ad1583abd6faad.jpg",
+  "selection_sources/01b573c9d748d509c5d1ecd4bec1d3308e13753043.jpg",
+  "selection_sources/m2-063.jpg",
+  "selection_sources/Veteran012.jpg",
+  "selection_sources/Veteran018.jpg",
+  "selection_sources/Veteran021.jpg",
+  "selection_sources/Veteran028.jpg",
+  "selection_sources/01d0335f9060ed41fd72afec94b6430112afa77d03.jpg",
+  "selection_sources/0187ffc063937ce287cd69d7e71a077bea11733437.jpg",
+  "selection_sources/013223c8525e4ff1913b31db08d32192c8c89f1c7d.jpg",
+  "selection_sources/chateau-thierry-usa-mem-jp-201.jpg",
+  "selection_sources/chateau-thierry-usa-mem-jp-204.jpg",
+  "selection_sources/chateau-thierry-usa-mem-jp-206.jpg",
+  "selection_sources/Les_Evenements/Germans/paris-geschuetz-das-gewaltige-fernkampfgeschuetz-erziel_004.webp",
+  "selection_sources/Les_Evenements/Germans/marne22-fantassins-allemands-minenwerfer.jpg",
+  "selection_sources/Les_Evenements/Germans/MG08InTrench.jpg",
+  "selection_sources/Les_Evenements/Germans/Deutsche Reserven während der Schlacht an der Marne.jpg",
+  "selection_sources/Les_Evenements/Germans/Deutsche Frühjahrsoffensive 1918_ _Setzten buchstäblich alles auf eine Karte__files/1918-mit-der-fruehjahrsoffensive-wollten-die-deutschen-doch.webp",
+];
+
+const JALONS = [
+  {
+    date:{fr:"27 mai – 4 juin 1918", en:"May 27 – June 4, 1918"},
+    title:{fr:"L'offensive Blücher — La Marne franchie, Jaulgonne tombé", en:"Operation Blücher — The Marne Crossed, Jaulgonne Falls"},
+    body:{
+      fr:"Le 30 mai 1918 au soir, les soldats allemands de la 28e division atteignent les rives de la Marne à Jaulgonne. Soixante kilomètres les séparent de Paris. Dans les nuits du 31 mai au 2 juin, un bataillon de la 36e division tente le passage. Face à eux, des poilus du Bataillon Sagnières (47e RI) tiennent la Ferme des Franquets sur les hauteurs. Ceux du Bataillon Taureau s'accrochent aux pentes entre la ferme et la forêt. Le 2 juin, une contre-attaque franco-américaine rejette les envahisseurs. Le pont flottant est détruit. Cent prisonniers. Jaulgonne est sauvé… pour l'instant.",
+      en:"On the evening of May 30, 1918, German soldiers of the 28th Division reach the banks of the Marne at Jaulgonne — just 37 miles from Paris. During the nights of May 31 to June 2, a battalion of the 36th Division attempts the crossing. Facing them, French soldiers of the Sagnières Battalion (47th RI) hold the Ferme des Franquets on the heights. The Taureau Battalion clings to the slopes between the farm and the forest. On June 2, a Franco-American counter-attack throws the invaders back. The pontoon bridge is destroyed. One hundred prisoners. Jaulgonne is saved… for now."
+    },
+    images:[0,5,46,44,47]
+  },
+  {
+    date:{fr:"15–17 juillet 1918", en:"July 15–17, 1918"},
+    title:{fr:"Friedensturm — La nuit des gaz et de l'acier", en:"Friedensturm — The Night of Gas and Steel"},
+    body:{
+      fr:"Dans la nuit du 14 au 15 juillet, un déluge d'acier et de gaz s'abat sur les positions alliées. Les Allemands lancent le «&nbsp;Friedensturm&nbsp;» — l'assaut de la paix. Phosgène, ypérite, gaz «&nbsp;Croix Bleue&nbsp;» : des nuages mortels enveloppent Jaulgonne et la Forêt de Ris. L'aviation alliée effectue des bombardements massifs. Puis des ponts flottants de huit à dix mètres sont jetés sur le fleuve. Dès 7h35, la <strong>73e Division d'Infanterie française</strong> contre-attaque dans la boucle de Jaulgonne. Les doughboys du 38e Régiment d'Infanterie US — des hommes ordinaires de l'Ohio, du Michigan, de Pennsylvanie — se retrouvent encerclés en position de fer à cheval à Mézy. Pendant quatorze heures, sans ordre de retraite, dans les gaz et sous les obus, ils résistent seuls à six régiments allemands. On les appellera «&nbsp;les Rochers de la Marne&nbsp;».",
+      en:"In the night of July 14 to 15, a deluge of steel and gas falls upon Allied positions. The Germans launch the 'Friedensturm' — the Peace Assault. Phosgene, mustard gas, Blue Cross shells: deadly clouds shroud Jaulgonne and the Forêt de Ris. Allied aircraft carry out massive bombing raids. Then pontoon bridges 8 to 10 meters wide are thrown across the river. At 7:35 AM, the <strong>French 73rd Infantry Division</strong> counter-attacks in the Jaulgonne Bend. The doughboys of the 38th US Infantry Regiment — ordinary men from Ohio, Michigan, Pennsylvania — find themselves surrounded in a horseshoe position at Mézy. For fourteen hours, without orders to retreat, through gas and shellfire, they hold alone against six German regiments. They will be called 'the Rock of the Marne'."
+    },
+    images:[8,15,44,45]
+  },
+  {
+    date:{fr:"18 juillet 1918", en:"July 18, 1918"},
+    title:{fr:"La riposte alliée — Sans barrage, la surprise totale", en:"The Allied Counter-Offensive — No Artillery, Total Surprise"},
+    body:{
+      fr:"Le 18 juillet à l'aube, sans barrage d'artillerie préparatoire — la surprise totale — vingt-quatre divisions alliées et trois cent cinquante chars s'élancent. Le général Mangin attaque. Des soldats français et américains avancent côte à côte à travers les bois, les blés mûrs, les vignes de la Marne. En un seul jour, les lignes allemandes reculent de trois à huit kilomètres. Ce jour marque le tournant définitif de la Grande Guerre : pour la première fois depuis 1914, l'armée allemande est contrainte de reculer sur tout le front occidental.",
+      en:"On July 18 at dawn, with no preparatory artillery barrage — complete surprise — twenty-four Allied divisions and 350 tanks surge forward. General Mangin attacks. French and American soldiers advance side by side through the woods, the ripe wheat fields, the Marne vineyards. In a single day, German lines fall back three to five miles. This day marks the turning point of the Great War: for the first time since 1914, the German army is forced back along the entire Western Front."
+    },
+    images:[3,2,12,4]
+  },
+  {
+    date:{fr:"22–24 juillet 1918", en:"July 22–24, 1918"},
+    title:{fr:"Jaulgonne libéré — Rue par rue, ferme par ferme", en:"Jaulgonne Liberated — Street by Street, Farm by Farm"},
+    body:{
+      fr:"Le 22 juillet, les soldats du 38e Régiment d'Infanterie américain traversent la Marne et montent à l'assaut de Jaulgonne. Dans le même secteur, la <strong>28e Division américaine</strong> combat dans les forêts au nord. D'abord cloués au sol par les mitrailleuses et l'artillerie, ils percent finalement les défenses. Jaulgonne est libéré le 22 juillet. Mont-Saint-Père et Chartèves tombent à leur tour. Les combats pour la Ferme des Franquets se prolongent les 22, 23 et <strong>24 juillet — date de sa prise définitive</strong>. Près de trois cents soldats ennemis sont faits prisonniers dans le secteur.",
+      en:"On July 22, soldiers of the 38th US Infantry Regiment cross the Marne and assault Jaulgonne. In the same sector, the <strong>28th US Division</strong> fights through the forests to the north. Initially pinned down by machine guns and artillery, they finally break through. Jaulgonne is liberated on July 22. Mont-Saint-Père and Chartèves fall in turn. Fighting for the Ferme des Franquets continues on July 22, 23, and <strong>24 — when it is finally secured</strong>. Nearly three hundred enemy soldiers are taken prisoner in the sector."
+    },
+    images:[10,1,14,16]
+  },
+  {
+    date:{fr:"Été – Automne 1918", en:"Summer – Autumn 1918"},
+    title:{fr:"Jaulgonne libéré, mais anéanti", en:"Jaulgonne Freed, but in Ruins"},
+    body:{
+      fr:"Libéré, Jaulgonne est anéanti. Les maisons éventrées, l'église dévastée, les ponts détruits, les quais de la Marne jonchés de débris. En trois semaines de contre-offensive, deux cents villages ont été libérés dans la région, trente-cinq mille prisonniers capturés, sept cents canons pris. L'armée allemande ne lancera plus jamais d'offensive de cette ampleur. La Grande Guerre touche à sa fin. Mais pour les habitants de Jaulgonne, la vie n'existe plus.",
+      en:"Liberated, Jaulgonne lies in ruins. Houses gutted, the church devastated, bridges destroyed, the Marne quays strewn with debris. In three weeks of counter-offensive, 200 villages liberated, 35,000 prisoners captured, 700 guns taken. The German army will never again launch an offensive of this scale. The Great War nears its end. But for the people of Jaulgonne, life no longer exists."
+    },
+    images:[19,20,21,24,25,22]
+  }
+];
+
+let currentLang='fr';
+let galleryImages=ALL_IMGS.slice();
+let lbIndex=0;
+let activeAudio=null;
+
+function toggleLang(){
+  currentLang=currentLang==='fr'?'en':'fr';
+  document.documentElement.setAttribute('data-lang',currentLang);
+  document.getElementById('lang-toggle').textContent=currentLang==='fr'?'English':'Français';
+  document.querySelectorAll('[data-fr]').forEach(el=>{
+    el.innerHTML=el.getAttribute('data-'+currentLang);
+  });
+}
+
+function toggleAudio(idx,btn){
+  const audio=document.getElementById('audio-'+idx);
+  if(!audio) return;
+  if(!audio.src||audio.src===window.location.href){
+    audio.src=`audio/${currentLang}/jalon_${idx}.mp3`;
+  }
+  if(activeAudio&&activeAudio!==audio){
+    activeAudio.pause();activeAudio.currentTime=0;
+    document.querySelectorAll('.audio-btn.playing').forEach(b=>{
+      b.classList.remove('playing');
+      b.innerHTML='▶ <span data-fr="Écouter" data-en="Listen">'+(currentLang==='fr'?'Écouter':'Listen')+'</span>';
+    });
+  }
+  if(audio.paused){
+    audio.play().then(()=>{
+      btn.classList.add('playing');
+      btn.innerHTML='⏸ <span data-fr="Pause" data-en="Pause">Pause</span>';
+      activeAudio=audio;
+    }).catch(()=>{
+      const s=document.getElementById('audio-status-'+idx);
+      if(s) s.textContent=currentLang==='fr'?'Fichier audio non disponible':'Audio file not available';
+    });
+  } else {
+    audio.pause();
+    btn.classList.remove('playing');
+    btn.innerHTML='▶ <span data-fr="Écouter" data-en="Listen">'+(currentLang==='fr'?'Écouter':'Listen')+'</span>';
+    activeAudio=null;
+  }
+  audio.onended=()=>{
+    btn.classList.remove('playing');
+    btn.innerHTML='▶ <span data-fr="Écouter" data-en="Listen">'+(currentLang==='fr'?'Écouter':'Listen')+'</span>';
+    activeAudio=null;
+  };
+}
+
+function buildTimeline(){
+  const container=document.getElementById('timeline');
+  JALONS.forEach((j,idx)=>{
+    const imgs=j.images.map(i=>ALL_IMGS[i]).filter(Boolean);
+    const div=document.createElement('div');
+    div.className='jalon';
+    const dot=document.createElement('div');
+    dot.className='jalon-dot';
+    dot.innerHTML=`<span>${String(idx+1).padStart(2,'0')}</span>`;
+    const content=document.createElement('div');
+    content.className='jalon-content';
+    content.innerHTML=`
+      <div class="jalon-date" data-fr="${j.date.fr}" data-en="${j.date.en}">${j.date.fr}</div>
+      <div class="jalon-title" data-fr="${j.title.fr}" data-en="${j.title.en}">${j.title.fr}</div>
+      <div class="jalon-body" data-fr="${j.body.fr}" data-en="${j.body.en}">${j.body.fr}</div>
+      <div class="jalon-audio">
+        <button class="audio-btn" onclick="toggleAudio(${idx},this)">▶ <span data-fr="Écouter" data-en="Listen">Écouter</span></button>
+        <span class="audio-status" id="audio-status-${idx}"></span>
+      </div>
+      <audio id="audio-${idx}" preload="none"></audio>
+    `;
+    const imgGrid=document.createElement('div');
+    imgGrid.className='jalon-images';
+    const grid=document.createElement('div');
+    grid.className='jalon-thumb-grid';
+    imgs.slice(0,6).forEach(path=>{
+      const img=document.createElement('img');
+      img.src=path;img.loading='lazy';img.alt='Document historique';
+      img.onclick=()=>openLightboxImg(path);
+      grid.appendChild(img);
+    });
+    imgGrid.appendChild(grid);
+    div.appendChild(dot);div.appendChild(content);div.appendChild(imgGrid);
+    container.appendChild(div);
+  });
+}
+
+// Injection de la barre de navigation dans l'overlay partagé
+document.addEventListener('DOMContentLoaded',function(){
+  if(!document.getElementById('lb-counter')){
+    const nav=document.createElement('div');
+    nav.className='lb-nav';
+    nav.innerHTML='<button class="lb-btn" onclick="lbNav(-1)">&#8592;</button><span id="lb-counter"></span><button class="lb-btn" onclick="lbNav(1)">&#8594;</button>';
+    document.getElementById('lb-overlay').appendChild(nav);
+  }
+});
+function openLightboxImg(src){
+  const idx=galleryImages.indexOf(src);
+  if(idx>=0) openLightbox(idx);
+  else{galleryImages.push(src);openLightbox(galleryImages.length-1);}
+}
+function openLightbox(idx){
+  lbIndex=idx;
+  document.getElementById('lb-img').src=galleryImages[idx];
+  document.getElementById('lb-caption').textContent='';
+  document.getElementById('lb-counter').textContent=`${idx+1} / ${galleryImages.length}`;
+  document.getElementById('lb-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLightbox(){window.closeLB();}
+function lbNav(dir){
+  lbIndex=(lbIndex+dir+galleryImages.length)%galleryImages.length;
+  document.getElementById('lb-img').src=galleryImages[lbIndex];
+  document.getElementById('lb-counter').textContent=`${lbIndex+1} / ${galleryImages.length}`;
+}
+document.addEventListener('keydown',e=>{
+  if(!document.getElementById('lb-overlay').classList.contains('open')) return;
+  if(e.key==='ArrowLeft') lbNav(-1);
+  if(e.key==='ArrowRight') lbNav(1);
+});
+
+function initScrollAnim(){
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+  },{threshold:0.12});
+  document.querySelectorAll('.jalon').forEach(j=>obs.observe(j));
+}
+
+buildTimeline();
+initScrollAnim();
+</script>
+</body>
+</html>

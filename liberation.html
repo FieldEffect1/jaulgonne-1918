@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Libération de Jaulgonne — 21–24 juillet 1918</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="museum.css">
+<style>
+/* ── CHAPITRE ── */
+.chap-section{
+  max-width:1000px;margin:0 auto;
+  padding:4.5rem 1.5rem;
+  border-bottom:1px solid var(--border);
+}
+.chap-section:last-of-type{border-bottom:none}
+.chap-eyebrow{
+  font-size:.65rem;letter-spacing:.4em;color:var(--gold2);
+  text-transform:uppercase;margin-bottom:.75rem;
+  display:flex;align-items:center;gap:.65rem;
+}
+.chap-eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--gold2);}
+.chap-title{
+  font-family:'Playfair Display',Georgia,serif;
+  font-size:clamp(1.5rem,3vw,2.1rem);color:var(--gold);
+  font-weight:normal;margin-bottom:1.5rem;line-height:1.25;
+}
+.chap-body{font-size:.97rem;color:var(--text2);line-height:1.9;max-width:740px;}
+.chap-body p{margin-bottom:1rem}
+.chap-body p:last-child{margin-bottom:0}
+
+/* ── CITATION SOURCE ── */
+blockquote.source{
+  border-left:3px solid var(--gold);
+  padding:.75rem 1.25rem;
+  margin:1.75rem 0;
+  background:var(--bg2);
+  font-style:italic;
+  font-size:.9rem;
+  color:var(--text2);
+  line-height:1.75;
+}
+blockquote.source cite{
+  display:block;margin-top:.6rem;
+  font-style:normal;font-size:.68rem;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--text3);
+}
+
+/* ── FRISE CHRONOLOGIQUE ── */
+.chrono-band{
+  background:var(--bg2);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  padding:2rem 1.5rem;
+}
+.chrono-inner{
+  max-width:1000px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:.5rem;
+}
+.chrono-item{
+  padding:.85rem .75rem;
+  border-left:1px solid var(--border);
+  text-align:center;
+}
+.chrono-item:first-child{border-left:none}
+.chrono-date{
+  font-family:'Playfair Display',Georgia,serif;
+  font-size:1.2rem;color:var(--gold);display:block;
+  line-height:1.1;margin-bottom:.3rem;
+}
+.chrono-label{
+  font-size:.78rem;color:var(--text2);
+  line-height:1.45;
+}
+
+/* ── GRILLE PHOTOS ── */
+.photo-grid-3{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:.6rem;margin:1.75rem 0;
+}
+.photo-grid-3 img{
+  width:100%;aspect-ratio:4/3;object-fit:cover;
+  border:1px solid var(--border);border-radius:var(--radius);
+  filter:sepia(.25);cursor:pointer;transition:filter .25s;
+}
+.photo-grid-3 img:hover{filter:sepia(0)}
+
+/* ── TÉMOIGNAGE EN EXERGUE ── */
+.testimony{
+  background:var(--charcoal);
+  color:#e8e0d0;
+  padding:3rem 2rem;
+  text-align:center;
+  border-top:3px solid var(--gold);
+  border-bottom:3px solid var(--gold);
+  margin:3rem 0;
+}
+.testimony blockquote{
+  font-family:'Playfair Display',Georgia,serif;
+  font-size:clamp(1rem,2.2vw,1.4rem);
+  font-style:italic;
+  line-height:1.7;
+  max-width:720px;
+  margin:0 auto;
+  color:#e8e0d0;
+}
+.testimony cite{
+  display:block;margin-top:1.1rem;
+  font-family:'Source Sans 3',sans-serif;
+  font-size:.72rem;letter-spacing:.2em;
+  text-transform:uppercase;color:#7a6a5a;
+}
+
+@media(max-width:680px){
+  .photo-grid-3{grid-template-columns:1fr 1fr}
+  .chrono-item{border-left:none;border-top:1px solid var(--border)}
+  .chrono-item:first-child{border-top:none}
+}
+</style>
+</head>
+<body>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-eyebrow" data-fr="Jaulgonne 1918 · Reconquête" data-en="Jaulgonne 1918 · Reconquest">Jaulgonne 1918 · Reconquête</div>
+  <h1 class="page-hero-title" data-fr="La Libération de Jaulgonne" data-en="The Liberation of Jaulgonne">La Libération de Jaulgonne</h1>
+  <p class="page-hero-subtitle" data-fr="21–24 juillet 1918 — Du franchissement de la Marne à la reprise du village" data-en="21–24 July 1918 — From crossing the Marne to retaking the village">21–24 juillet 1918 — Du franchissement de la Marne à la reprise du village</p>
+  <button class="lang-btn" id="lang-toggle" onclick="toggleLang()">English</button>
+</div>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="index.html">Accueil</a>
+  <a href="geographie.html">Géographie</a>
+  <a href="evenements.html">Événements</a>
+  <a href="liberation.html" class="active">Libération</a>
+  <a href="foret-ris.html">Forêt de Ris</a>
+  <a href="bataille.html">La Bataille</a>
+  <a href="hommage-us.html">Les Américains</a>
+  <a href="memoire.html">Mémorial</a>
+  <a href="galerie.html">Archives</a>
+  <a href="carte_bataille.html">Carte</a>
+</nav>
+
+<!-- PHOTOS INTRO -->
+<div style="max-width:1000px;margin:2.5rem auto 0;padding:0 1.5rem;display:grid;grid-template-columns:1fr 1fr;gap:.6rem;">
+  <img src="selection_sources/01b573c9d748d509c5d1ecd4bec1d3308e13753043.jpg"
+       alt="Libération de Jaulgonne"
+       style="width:100%;aspect-ratio:4/3;object-fit:cover;border:1px solid var(--border);border-radius:var(--radius);filter:sepia(.25);">
+  <img src="selection_sources/Capture d'écran 2026-04-04 175741.png"
+       alt="Jaulgonne 1918"
+       style="width:100%;aspect-ratio:4/3;object-fit:cover;border:1px solid var(--border);border-radius:var(--radius);filter:sepia(.25);">
+</div>
+
+<!-- INTRO -->
+<div class="chap-section">
+  <div class="section-label" data-fr="La reconquête" data-en="The Reconquest">La reconquête</div>
+  <h2 data-fr="53 jours d'occupation, 4 jours pour libérer" data-en="53 days of occupation, 4 days to liberate">53 jours d'occupation, 4 jours pour libérer</h2>
+  <p class="intro-text" data-fr="Depuis le 30 mai 1918, Jaulgonne était sous occupation allemande — les Allemands ayant investi le village trois jours après le début de l'offensive Blücher (27 mai). La population avait été évacuée dans la précipitation dès les premiers jours. Durant 53 jours, les Alliés tinrent la rive sud, préparant minutieusement la contre-offensive. La libération du village, entre le 21 et le 24 juillet, résulte d'une combinaison de génie militaire français, d'infanterie américaine et d'artillerie coordonnée — cette dernière ayant causé l'essentiel des destructions. Ce ne fut pas un assaut frontal en plein jour, mais une opération méthodique, nocturne, conduite par le général de Mondésir à la tête du 38e Corps d'Armée." data-en="Since May 30, 1918, Jaulgonne had been under German occupation — the Germans having seized the village three days after the start of the Blücher offensive (May 27). The population had been evacuated in haste from the very first days. For 53 days, the Allies held the southern bank, meticulously preparing the counter-offensive. The liberation of the village, between July 21 and 24, resulted from a combination of French military engineering, American infantry, and coordinated artillery — the latter having caused most of the destruction. It was not a frontal assault in broad daylight, but a methodical, nocturnal operation led by General de Mondésir commanding the 38th Army Corps.">Depuis le 30 mai 1918, Jaulgonne était sous occupation allemande — les Allemands ayant investi le village trois jours après le début de l'offensive Blücher (27 mai). La population avait été évacuée dans la précipitation dès les premiers jours. Durant 53 jours, les Alliés tinrent la rive sud, préparant minutieusement la contre-offensive. La libération du village, entre le 21 et le 24 juillet, résulte d'une combinaison de génie militaire français, d'infanterie américaine et d'artillerie coordonnée — cette dernière ayant causé l'essentiel des destructions. Ce ne fut pas un assaut frontal en plein jour, mais une opération méthodique, nocturne, conduite par le général de Mondésir à la tête du 38e Corps d'Armée.</p>
+</div>
+
+<!-- FRISE CHRONO -->
+<div class="chrono-band">
+  <div class="chrono-inner">
+    <div class="chrono-item">
+      <span class="chrono-date">30 mai</span>
+      <span class="chrono-label" data-fr="Jaulgonne occupé — 3 jours après le début de l'offensive Blücher (27 mai)" data-en="Jaulgonne occupied — 3 days after the Blücher offensive began (May 27)">Jaulgonne occupé — 3 jours après le début de l'offensive Blücher (27 mai)</span>
+    </div>
+    <div class="chrono-item">
+      <span class="chrono-date">15 juil.</span>
+      <span class="chrono-label" data-fr="Friedensturm repoussé — tournant de la bataille" data-en="Friedensturm repulsed — turning point">Friedensturm repoussé — tournant de la bataille</span>
+    </div>
+    <div class="chrono-item">
+      <span class="chrono-date">18 juil.</span>
+      <span class="chrono-label" data-fr="Contre-offensive Mangin — début de la poussée alliée" data-en="Mangin counter-offensive begins">Contre-offensive Mangin — début de la poussée alliée</span>
+    </div>
+    <div class="chrono-item">
+      <span class="chrono-date">Nuit 20–21</span>
+      <span class="chrono-label" data-fr="Lancement des passerelles sur la Marne" data-en="Footbridges launched across the Marne">Lancement des passerelles sur la Marne</span>
+    </div>
+    <div class="chrono-item">
+      <span class="chrono-date">22 juil.</span>
+      <span class="chrono-label" data-fr="Jaulgonne libéré — 38e Rgt US entre dans le village" data-en="Jaulgonne liberated — 38th US Infantry enters">Jaulgonne libéré — 38e Rgt US entre dans le village</span>
+    </div>
+    <div class="chrono-item">
+      <span class="chrono-date">24 juil.</span>
+      <span class="chrono-label" data-fr="30e Rgt US prend la relève, pousse vers Le Charmel" data-en="30th US Infantry takes over, pushes toward Le Charmel">30e Rgt US prend la relève, pousse vers Le Charmel</span>
+    </div>
+  </div>
+</div>
+
+<!-- CHAPITRE 1 : Les passerelles -->
+<div class="chap-section">
+  <div class="chap-eyebrow" data-fr="Nuit du 20 au 21 juillet 1918" data-en="Night of July 20–21, 1918">Nuit du 20 au 21 juillet 1918</div>
+  <h2 class="chap-title" data-fr="Les passerelles — une préparation de six semaines" data-en="The Footbridges — Six Weeks of Preparation">Les passerelles — une préparation de six semaines</h2>
+  <div class="chap-body">
+    <p data-fr="Dès le début de juillet, alors que la situation était défensive, le général de Mondésir avait anticipé la contre-offensive. Privé de son équipage de pont réquisitionné pour le Gouvernement de Paris, il donna l'ordre au colonel Connétable, commandant du génie du corps d'armée, de réquisitionner en aval de Château-Thierry toutes les embarcations disponibles : bachots, barques, canots, yoles — «&nbsp;même des périssoires&nbsp;». Le matériel de platelage — poutrelles, madriers, planches, cordages — fut accumulé en un point à 14 kilomètres à l'ouest de Château-Thierry, hors de vue des avions ennemis." data-en="From the beginning of July, while the situation was still defensive, General de Mondésir had already anticipated the counter-offensive. Deprived of his pontoon equipment requisitioned for the Paris Government, he ordered Colonel Connétable, the corps engineer commander, to requisition every available watercraft downstream from Château-Thierry: punts, rowboats, canoes, skiffs — 'even kayaks.' Bridge-decking material — beams, planks, cordage — was accumulated at a point 14 kilometers west of Château-Thierry, out of sight of enemy aircraft.">Dès le début de juillet, alors que la situation était défensive, le général de Mondésir avait anticipé la contre-offensive. Privé de son équipage de pont réquisitionné pour le Gouvernement de Paris, il donna l'ordre au colonel Connétable, commandant du génie du corps d'armée, de réquisitionner en aval de Château-Thierry toutes les embarcations disponibles : bachots, barques, canots, yoles — «&nbsp;même des périssoires&nbsp;». Le matériel de platelage — poutrelles, madriers, planches, cordages — fut accumulé en un point à 14 kilomètres à l'ouest de Château-Thierry, hors de vue des avions ennemis.</p>
+    <p data-fr="Deux passerelles de 70 mètres chacune furent montées, ajustées, puis démontées en éléments transportables par camions. La 39e Division d'Infanterie préparait de son côté une passerelle sur radeaux de tonneaux, et la 3e Division US des passerelles sur radeaux de bidons de pétrole vides. Tout était prêt avant que l'ordre de franchir ne soit donné." data-en="Two 70-meter footbridges were assembled, tested, then broken down into truck-transportable elements. The 39th Infantry Division prepared a barrel-raft footbridge, and the 3rd US Division prepared footbridges on empty petroleum-drum rafts. Everything was ready before the order to cross was given.">Deux passerelles de 70 mètres chacune furent montées, ajustées, puis démontées en éléments transportables par camions. La 39e Division d'Infanterie préparait de son côté une passerelle sur radeaux de tonneaux, et la 3e Division US des passerelles sur radeaux de bidons de pétrole vides. Tout était prêt avant que l'ordre de franchir ne soit donné.</p>
+    <p data-fr="Dans l'après-midi du 20 juillet, l'ordre de traverser la Marne arriva. Dès le 21 au point du jour, les troupes commencèrent à franchir le fleuve. Les passerelles fonctionnèrent dans l'ordre suivant : un premier système sur les ruines du pont du chemin de fer à l'est de Château-Thierry, à 8h15 ; la passerelle de Chierry à 10h30 ; celle de Château-Thierry à midi. Le génie de la 3e Division US lança ses deux passerelles, l'une entre Fossoy et Gland, l'autre devant Chartèves — côté Jaulgonne." data-en="On the afternoon of July 20, the order to cross the Marne arrived. From July 21 at daybreak, troops began crossing the river. The footbridges became operational in sequence: a first system on the ruins of the railway bridge east of Château-Thierry at 8:15 a.m.; the Chierry footbridge at 10:30 a.m.; the Château-Thierry footbridge at noon. The 3rd US Division engineers launched their two footbridges — one between Fossoy and Gland, the other in front of Chartèves, toward Jaulgonne.">Dans l'après-midi du 20 juillet, l'ordre de traverser la Marne arriva. Dès le 21 au point du jour, les troupes commencèrent à franchir le fleuve. Les passerelles fonctionnèrent dans l'ordre suivant : un premier système sur les ruines du pont du chemin de fer à l'est de Château-Thierry, à 8h15 ; la passerelle de Chierry à 10h30 ; celle de Château-Thierry à midi. Le génie de la 3e Division US lança ses deux passerelles, l'une entre Fossoy et Gland, l'autre devant Chartèves — côté Jaulgonne.</p>
+  </div>
+
+  <blockquote class="source">
+    «&nbsp;Le soir du 21, [le génie] en établissait deux nouvelles à Fossoy et Mézy et commençait la construction d'un pont de bateaux avec les pontons d'équipage abandonnés par l'ennemi.&nbsp;»
+    <cite>Général Piarron de Mondésir — <em>Souvenirs et pages de guerre</em>, 1919 · 38e Corps d'Armée</cite>
+  </blockquote>
+
+  <div class="info-box" style="margin:1.75rem 0">
+    <h3>Le 6e Régiment du Génie US — sous les bombes à Mézy</h3>
+    <p>Les Companies A et C du 6e Engineers construisent un pont de dix tonnes à Mézy entre le 23 et le 27 juillet, sous tirs d'artillerie de jour et bombardements aériens de nuit. Le 26 juillet, quinze avions allemands attaquent simultanément — les équipes de mitrailleuses des ingénieurs tiennent leurs postes jusqu'à l'arrivée de l'aviation alliée. La Company F, chargée de l'entretien du pont de Mézy, reçoit le 27 juillet l'ordre de démonter l'ouvrage et de le remonter à Jaulgonne, à trois kilomètres en amont. Les bateaux sont arrimés par paires, chargés du matériel et des paquetages — et toute la compagnie devient marin. Certains ramèrent, d'autres furent remorqués à la corde depuis la berge, et quelques équipes improvisèrent même des voiles. Partis à la nuit tombée, ils avaient réinstallé le pont avant le lever du jour.
+    <br><br>
+    La Company B répare les routes de Mont-St-Père à Jaulgonne à partir du 24 juillet. Un détachement de 35 hommes envoyé vers Le Charmel dépasse sans le savoir les lignes alliées, entre en No Man's Land, essuie des tirs de mitrailleuses allemandes — et au retour, se retrouve sous le feu de sa propre artillerie américaine.</p>
+    <p style="margin-top:.5rem;font-size:.75rem;color:var(--text3)">Source : <em>History of the Sixth U.S. Engineers</em>, historique régimentaire, domaine public (Google Books)</p>
+  </div>
+
+  <div class="photo-grid-2" style="margin-top:1.5rem">
+    <figure style="margin:0">
+      <img src="selection_sources/pg168.jpg" alt="Soldats US construisant un pont flottant sur la Marne" class="photo-full" style="margin:0" onclick="openLB(this.src,this.alt)">
+      <figcaption class="photo-caption">Soldats US construisant un pont flottant sur la Marne</figcaption>
+    </figure>
+    <figure style="margin:0">
+      <img src="selection_sources/0177e3918c13d5cc4c840476e5d24c7d902994d7be.jpg" alt="Pont flottant US — 34e Division" class="photo-full" style="margin:0" onclick="openLB(this.src,this.alt)">
+      <figcaption class="photo-caption">Pont flottant US — vue depuis la rive</figcaption>
+    </figure>
+  </div>
+</div>
+
+<!-- CHAPITRE 2 : Jaulgonne libéré -->
+<div class="chap-section">
+  <div class="chap-eyebrow" data-fr="22 juillet 1918" data-en="July 22, 1918">22 juillet 1918</div>
+  <h2 class="chap-title" data-fr="Jaulgonne libéré — chronologie heure par heure" data-en="Jaulgonne Liberated — Hour by Hour">Jaulgonne libéré — chronologie heure par heure</h2>
+  <div class="chap-body">
+    <p data-fr="À <strong>4h00 du matin</strong>, le 38e Régiment d'Infanterie US commence à franchir la Marne près de Mézy. Les premiers éléments traversent en barques dans l'obscurité, sous la couverture d'artillerie. La résistance allemande sur la rive est désorganisée : les défenses ont été disloquées par les tirs d'ypérite du 8–13 juillet et les contre-attaques du 15 juillet." data-en="At <strong>4:00 a.m.</strong>, the 38th US Infantry Regiment begins crossing the Marne near Mézy. The first elements cross by boat in darkness, under artillery cover. German resistance on the bank is disorganized: defenses had been disrupted by the yperite bombardments of July 8–13 and the July 15 counterattacks.">À <strong>4h00 du matin</strong>, le 38e Régiment d'Infanterie US commence à franchir la Marne près de Mézy. Les premiers éléments traversent en barques dans l'obscurité, sous la couverture d'artillerie. La résistance allemande sur la rive est désorganisée : les défenses ont été disloquées par les tirs d'ypérite du 8–13 juillet et les contre-attaques du 15 juillet.</p>
+    <p data-fr="<strong>Avant midi</strong>, le 38e Régiment occupe Jaulgonne en franchissant la passerelle allemande laissée en place lors du repli ennemi. Le village, tenu par de faibles arrière-gardes équipées de mitrailleuses, est libéré sans combat urbain prolongé. Le 38e Regiment et les 4e et 7e Régiments d'Infanterie progressent simultanément. En fin de journée, la 3e Division US tient une ligne courant approximativement de Le Chanois et La Théoderie à l'ouest jusqu'à Jaulgonne à l'est." data-en="<strong>Before noon</strong>, the 38th Regiment occupies Jaulgonne by crossing the German footbridge left in place during the enemy's retreat. The village, held by weak rear guards with machine guns, is liberated without prolonged street fighting. The 38th, 4th, and 7th Infantry Regiments advance simultaneously. By end of day, the 3rd US Division holds a line running roughly from Le Chanois and La Théoderie in the west to Jaulgonne in the east."><strong>Avant midi</strong>, le 38e Régiment occupe Jaulgonne en franchissant la passerelle allemande laissée en place lors du repli ennemi. Le village, tenu par de faibles arrière-gardes équipées de mitrailleuses, est libéré sans combat urbain prolongé. Le 38e Regiment et les 4e et 7e Régiments d'Infanterie progressent simultanément. En fin de journée, la 3e Division US tient une ligne courant approximativement de Le Chanois et La Théoderie à l'ouest jusqu'à Jaulgonne à l'est.</p>
+    <p data-fr="À <strong>13h15</strong>, le 1er Bataillon du 38e Régiment atteint Le Charmel — mais sans soutien suffisant, il ne peut tenir la position et se replie vers Jaulgonne dans l'après-midi. Le village devient ainsi le point d'appui de la ligne alliée, base de départ pour la suite des opérations vers le nord." data-en="At <strong>1:15 p.m.</strong>, the 1st Battalion of the 38th Infantry reaches Le Charmel — but without sufficient support, it cannot hold the position and falls back toward Jaulgonne in the afternoon. The village thus becomes the Allied line's main strongpoint, the launching base for further operations northward.">À <strong>13h15</strong>, le 1er Bataillon du 38e Régiment atteint Le Charmel — mais sans soutien suffisant, il ne peut tenir la position et se replie vers Jaulgonne dans l'après-midi. Le village devient ainsi le point d'appui de la ligne alliée, base de départ pour la suite des opérations vers le nord.</p>
+    <p data-fr="Le même jour, le général de Mondésir visite la rive droite de la Marne. Il constate les dommages infligés à l'ennemi lors des franchissements manqués du 15 juillet : une passerelle démolie, des bateaux d'équipage échoués dans les roseaux, des chevaux noyés encore attelés. Des prisonniers confirment : entre Chartèves et Jaulgonne, huit bateaux d'équipage avaient été atteints lors du 15 juillet, dont cinq coulèrent avec leurs charges de 18 hommes chacun." data-en="The same day, General de Mondésir inspects the right bank of the Marne. He observes damage from the failed July 15 crossings: a demolished footbridge, pontoon boats grounded in the reeds, drowned horses still harnessed. Prisoners confirm: between Chartèves and Jaulgonne, eight pontoon boats were hit on July 15, five of which sank with full loads of 18 men each.">Le même jour, le général de Mondésir visite la rive droite de la Marne. Il constate les dommages infligés à l'ennemi lors des franchissements manqués du 15 juillet : une passerelle démolie, des bateaux d'équipage échoués dans les roseaux, des chevaux noyés encore attelés. Des prisonniers confirment : entre Chartèves et Jaulgonne, huit bateaux d'équipage avaient été atteints lors du 15 juillet, dont cinq coulèrent avec leurs charges de 18 hommes chacun.</p>
+  </div>
+
+  <blockquote class="source">
+    «&nbsp;The 38th Infantry began crossing near Mézy at 0400 on 22 July, <strong>occupying Jaulgonne before noon</strong> and driving north toward Le Charmel. Although the 1st Battalion, 38th Infantry, reached Le Charmel at about 1315, it was unable to hold the position without support and fell back toward Jaulgonne later in the afternoon.&nbsp;»
+    <cite>Center of Military History — <em>American Armies and Battlefields in Europe</em>, 1938</cite>
+  </blockquote>
+
+  <img src="selection_sources/019cd3f3c28ccc11aab95831868e4dbf3216c25cb9.jpg"
+       alt="Soldats américains dans une rue de Jaulgonne, 24 juillet 1918"
+       class="photo-full"
+       onclick="openLB(this.src,this.alt)">
+  <p class="photo-caption">Soldats américains dans une rue de Jaulgonne, 24 juillet 1918 — Argonnaute / La Contemporaine</p>
+</div>
+
+<!-- TÉMOIGNAGES DU GÉNIE -->
+<div style="background:var(--charcoal);padding:3.5rem 1.5rem;border-top:1px solid rgba(122,26,26,.25);border-bottom:1px solid rgba(122,26,26,.25)">
+  <div style="max-width:900px;margin:0 auto">
+    <div style="font-size:.64rem;letter-spacing:.4em;color:#7a4a4a;text-transform:uppercase;margin-bottom:1.25rem;display:flex;align-items:center;gap:.65rem">
+      <span style="display:block;width:24px;height:1px;background:#7a4a4a"></span>
+      Témoignages — 6e Régiment du Génie US · Jaulgonne, fin juillet 1918
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem">
+      <blockquote style="font-family:'Playfair Display',Georgia,serif;font-size:.95rem;font-style:italic;color:#d8d0c0;line-height:1.8;margin:0;border-left:2px solid rgba(122,26,26,.5);padding-left:1.1rem">
+        «&nbsp;Private J. Williams went to sleep the first night in a strange cellar and grumbled at the man lying near him who wouldn't "move over." Next morning Williams discovered that his lazy friend was a very dead German.&nbsp;»
+        <cite style="display:block;font-size:.65rem;color:#6a5a4a;margin-top:.7rem;font-style:normal;letter-spacing:.1em;text-transform:uppercase">History of the Sixth U.S. Engineers — Jaulgonne, juillet 1918</cite>
+      </blockquote>
+      <blockquote style="font-family:'Playfair Display',Georgia,serif;font-size:.95rem;font-style:italic;color:#d8d0c0;line-height:1.8;margin:0;border-left:2px solid rgba(122,26,26,.5);padding-left:1.1rem">
+        «&nbsp;The boats were lashed together in pairs, loaded with balk, chests and the men's packs, and the entire company became sailors. Some crews rowed up, some were towed by means of a light line to the bank, and one or two crews even improvised sails. The exodus began about dark and by breakfast time the next day the bridge had been established on its new site.&nbsp;»
+        <cite style="display:block;font-size:.65rem;color:#6a5a4a;margin-top:.7rem;font-style:normal;letter-spacing:.1em;text-transform:uppercase">Remontée du pont de Mézy à Jaulgonne à la rame — nuit du 27 au 28 juillet 1918</cite>
+      </blockquote>
+    </div>
+  </div>
+</div>
+
+<!-- CHAPITRE 3 : L'état du village -->
+<div class="chap-section" style="background:var(--bg2);max-width:100%;padding:4rem 1.5rem">
+  <div style="max-width:1000px;margin:0 auto">
+  <div class="chap-eyebrow" data-fr="Le village retrouvé" data-en="The Village Reclaimed">Le village retrouvé</div>
+  <h2 class="chap-title" data-fr="Jaulgonne en ruines" data-en="Jaulgonne in Ruins">Jaulgonne en ruines</h2>
+  <div class="chap-body">
+    <p data-fr="Le village libéré révèle d'importants dégâts. Cinquante-trois jours d'occupation, suivis des intenses bombardements de l'artillerie française qui précédèrent et accompagnèrent la libération — et qui causèrent l'essentiel des destructions —, ont profondément marqué les bâtiments. La place de la Mairie, le pont, la rue principale portent les traces de la destruction. Si certains quartiers sont sévèrement touchés, 59 maisons antérieures à 1919 subsistent encore aujourd'hui, témoignant que le village ne fut pas entièrement rasé. Du point de vue humain, une seule victime civile est à déplorer&nbsp;: Mme Halliez, tuée le 18 mai 1918 par un bombardement aérien allemand — la population ayant été évacuée dans la précipitation dès les premiers jours de l'occupation." data-en="The liberated village bears significant damage. Fifty-three days of occupation, followed by intense French artillery bombardments preceding and accompanying the liberation — which caused most of the destruction —, have deeply scarred the buildings. The Town Hall square, the bridge, the main street all bear the marks of destruction. While some areas suffered heavy damage, 59 pre-1919 houses still stand today, bearing witness that the village was not entirely razed. On the human level, only one civilian victim is recorded: Mme Halliez, killed on May 18, 1918, by a German aerial bombing — the population having been evacuated in haste from the very first days of the occupation.">Le village libéré révèle d'importants dégâts. Cinquante-trois jours d'occupation, suivis des intenses bombardements de l'artillerie française qui précédèrent et accompagnèrent la libération — et qui causèrent l'essentiel des destructions —, ont profondément marqué les bâtiments. La place de la Mairie, le pont, la rue principale portent les traces de la destruction. Si certains quartiers sont sévèrement touchés, 59 maisons antérieures à 1919 subsistent encore aujourd'hui, témoignant que le village ne fut pas entièrement rasé. Du point de vue humain, une seule victime civile est à déplorer&nbsp;: Mme Halliez, tuée le 18 mai 1918 par un bombardement aérien allemand — la population ayant été évacuée dans la précipitation dès les premiers jours de l'occupation.</p>
+  </div>
+
+  <div class="photo-grid-3" style="margin-top:1.5rem">
+    <figure style="margin:0">
+      <img src="selection_sources/Up_JAULGONNEplace_de_la_Mairie.jpg" alt="Place de la Mairie de Jaulgonne en ruines" onclick="openLB(this.src,this.alt)">
+      <figcaption class="photo-caption">Place de la Mairie en ruines</figcaption>
+    </figure>
+    <figure style="margin:0">
+      <img src="selection_sources/0143db47ff5098187cd92fa8ae3e28dca1f6660697.jpg" alt="CPA — Jaulgonne en ruines, juillet 1918" onclick="openLB(this.src,this.alt)">
+      <figcaption class="photo-caption">CPA — Jaulgonne, juillet 1918</figcaption>
+    </figure>
+    <figure style="margin:0">
+      <img src="selection_sources/015db71eecb9c3f866bbd1824c6ca2242583bd7359.jpg" alt="CPA — Jaulgonne en ruines (variante)" onclick="openLB(this.src,this.alt)">
+      <figcaption class="photo-caption">CPA — Jaulgonne en ruines (variante)</figcaption>
+    </figure>
+  </div>
+  </div>
+</div>
+
+<!-- CHAPITRE 4 : La poussée vers le nord -->
+<div class="chap-section">
+  <div class="chap-eyebrow" data-fr="23–24 juillet 1918" data-en="July 23–24, 1918">23–24 juillet 1918</div>
+  <h2 class="chap-title" data-fr="La poussée vers le nord — Argentol, Le Charmel" data-en="Pushing North — Argentol, Le Charmel">La poussée vers le nord — Argentol, Le Charmel</h2>
+  <div class="chap-body">
+    <p data-fr="Dans la nuit du 23 au 24 juillet, le 30e Régiment d'Infanterie US relève le 38e à Jaulgonne et dans le secteur de la Ferme des Franquets. Le 2e Bataillon du 30e, renforcé des Compagnies A et B, reçoit à 7h30 l'ordre d'avancer à 9h00. Il progresse des deux côtés de la route Jaulgonne–Le Charmel, réduisant les résistances de mitrailleurs. Vers 14h00, un détachement mixte franchit le ruisseau de la Belle Aulne, mais, ne pouvant être appuyé, il doit se replier en soirée et s'établir à l'est et au nord d'Argentol." data-en="In the night of July 23–24, the 30th US Infantry Regiment relieves the 38th at Jaulgonne and in the Franquets Farm sector. The 2nd Battalion of the 30th, reinforced by Companies A and B, receives orders at 7:30 a.m. to advance at 9:00 a.m. It pushes forward on both sides of the Jaulgonne–Le Charmel road, overcoming machine-gun resistance. Around 2:00 p.m., a mixed detachment crosses the Ruisseau de la Belle Aulne but, unsupported, must withdraw in the evening and establish a line east and north of Argentol.">Dans la nuit du 23 au 24 juillet, le 30e Régiment d'Infanterie US relève le 38e à Jaulgonne et dans le secteur de la Ferme des Franquets. Le 2e Bataillon du 30e, renforcé des Compagnies A et B, reçoit à 7h30 l'ordre d'avancer à 9h00. Il progresse des deux côtés de la route Jaulgonne–Le Charmel, réduisant les résistances de mitrailleurs. Vers 14h00, un détachement mixte franchit le ruisseau de la Belle Aulne, mais, ne pouvant être appuyé, il doit se replier en soirée et s'établir à l'est et au nord d'Argentol.</p>
+    <p data-fr="Le 3e Bataillon du 30e Régiment, partant des bois au sud-ouest de la Ferme des Franquets, avance sur la crête en direction du Charmel. Surmontant la résistance des mitrailleurs allemands, le bataillon atteint les bâtiments à la lisière sud-ouest du village et organise une position de première ligne dans l'après-midi. La bataille de la forêt ne fait que commencer : la prise définitive du Charmel et de la Forêt de Ris mobilisera les troupes pendant encore plusieurs jours." data-en="The 3rd Battalion of the 30th Infantry, advancing from the woods southwest of Franquets Farm along the ridge toward Le Charmel, overcomes German machine-gun resistance and reaches buildings at the southwestern edge of the village, organizing a front-line position during the afternoon. The forest battle is just beginning: the final capture of Le Charmel and the Forêt de Ris will occupy troops for several more days.">Le 3e Bataillon du 30e Régiment, partant des bois au sud-ouest de la Ferme des Franquets, avance sur la crête en direction du Charmel. Surmontant la résistance des mitrailleurs allemands, le bataillon atteint les bâtiments à la lisière sud-ouest du village et organise une position de première ligne dans l'après-midi. La bataille de la forêt ne fait que commencer : la prise définitive du Charmel et de la Forêt de Ris mobilisera les troupes pendant encore plusieurs jours.</p>
+  </div>
+
+  <blockquote class="source">
+    «&nbsp;The 2d Battalion, with attached companies, moved forward at 11:30 a.m. on both sides of the Jaulgonne–Le Charmel road, cleaning up machine-gun resistance.&nbsp;»
+    <cite>American Battle Monuments Commission — <em>3rd Division Summary of Operations on the Ourcq River</em>, July 24</cite>
+  </blockquote>
+
+  <div class="info-box" style="margin-top:1.75rem">
+    <h3 data-fr="Suite des opérations" data-en="Continuation of Operations">Suite des opérations</h3>
+    <p data-fr="La libération de Jaulgonne marque le début d'une phase plus difficile : la progression dans les bois au nord. Le Charmel, tenu par les Allemands jusqu'au 27 juillet avec son château fortifié, et la Forêt de Ris constituent les prochains objectifs. Ces combats sont détaillés dans la page dédiée." data-en="The liberation of Jaulgonne marks the beginning of a more difficult phase: the advance through the northern forests. Le Charmel, held by the Germans until July 27 with its fortified château, and the Forêt de Ris constitute the next objectives. These battles are detailed in the dedicated page.">La libération de Jaulgonne marque le début d'une phase plus difficile : la progression dans les bois au nord. Le Charmel, tenu par les Allemands jusqu'au 27 juillet avec son château fortifié, et la Forêt de Ris constituent les prochains objectifs. Ces combats sont détaillés dans la page dédiée.</p>
+    <p style="margin-top:.75rem"><a href="foret-ris.html" style="color:var(--gold);font-size:.88rem;letter-spacing:.05em" data-fr="→ Le Charmel &amp; la Forêt de Ris" data-en="→ Le Charmel &amp; the Forêt de Ris">→ Le Charmel &amp; la Forêt de Ris</a></p>
+  </div>
+</div>
+
+<!-- TÉMOIGNAGE EN EXERGUE -->
+<div class="testimony">
+  <blockquote>
+    «&nbsp;Le 38e régiment américain à droite, le 30e au centre, le 7e à gauche firent des prodiges de valeur. Leurs pertes témoignent de l'ardeur de la lutte, de l'intensité du bombardement et de l'esprit de sacrifice qui animait ces braves soldats et leurs chefs.&nbsp;»
+    <cite>Général Piarron de Mondésir — Commandant le 38e Corps d'Armée</cite>
+  </blockquote>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>Sources : Général Piarron de Mondésir, <em>Souvenirs et pages de guerre 1914–1919</em>, Berger-Levrault · American Battle Monuments Commission, <em>3rd Division Summary of Operations</em> · Center of Military History, <em>American Armies and Battlefields in Europe</em>, 1938 · <em>History of the Sixth U.S. Engineers</em>, domaine public</p>
+  <p style="margin-top:.75rem;font-size:.68rem;color:#7a6a5a">En mémoire des soldats français et américains tombés à Jaulgonne — Été 1918</p>
+</footer>
+
+<script src="lightbox.js"></script>
+<script>
+function toggleLang(){
+  const l=document.documentElement.getAttribute('data-lang')==='fr'?'en':'fr';
+  document.documentElement.setAttribute('data-lang',l);
+  document.getElementById('lang-toggle').textContent=l==='fr'?'English':'Français';
+  document.querySelectorAll('[data-fr]').forEach(el=>{
+    el.innerHTML=el.getAttribute('data-'+l);
+  });
+}
+</script>
+</body>
+</html>
